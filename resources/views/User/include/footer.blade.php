@@ -53,7 +53,7 @@
         </div>
     </footer>
     <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2022 <a href="#">Mohmaya</a> Design By :
+        <p class="footer-company">All Rights Reserved. &copy; 2022 <a href="#">Carlier</a> Design By :
             <a href="https://html.design/">Yash &Prakruti</a></p>
     </div>
     <!-- End copyright  -->

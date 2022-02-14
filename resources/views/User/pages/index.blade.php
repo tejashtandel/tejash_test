@@ -63,10 +63,7 @@
                         <img class="img-fluid" src="User/images/topw.jpg" alt="" />
                         <a class="btn hvr-hover" href="#">{{ $cat-> category_name }} </a>
                     </div>
-                    <div class="try">
-                         <p  class="btn hvr-hover"> Size : {{ $cat-> size}}</p>
-                         <p  class="btn hvr-hover" > Type :{{ $cat-> type}}</p>
-                    </div>
+                  
                 </div>
                 @endforeach
                 {{-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -283,7 +280,7 @@
                     <div class="blog-box">
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>Mohmaya Fashion</h3>
+                                <h3>carlier Fashion</h3>
                                 <p>Our main goal is to furnish exceptionally popular items with best quality at extremely serious costs. We expect to contact purchasers searching for style across globe through retail and internet business.</p>
                             </div>
                             
