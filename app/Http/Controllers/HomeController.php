@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\facades\DB;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,19 @@ class HomeController extends Controller
     public function index()
     {
         
-        return view('User.pages.index');
+            // $header = DB::table('headers')->get();,'header''footer',
+            
+            // $footer = DB::table('footers')->get();
+        
+            $banner = DB::table('banners')->get();
+            $catagory = DB::table('category')->get();
+            $product = DB::table('products')->get();
+        
+            //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
+        
+            return view('User.pages.index',compact('banner','catagory','product'));
+       
+        
     }
 
     /**
@@ -34,8 +47,16 @@ class HomeController extends Controller
     {
         if(Auth::user()->role == '1')
         {
-            return view('User.pages.wishlist');
+            return view('Admin.pages.index');
         }
+        $banner = DB::table('banners')->get();
+        $catagory = DB::table('category')->get();
+        $product = DB::table('products')->get();
+    
+        //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
+    
+        return view('User.pages.index',compact('banner','catagory','product'));
+   
     
         return view('User.pages.index');
     }

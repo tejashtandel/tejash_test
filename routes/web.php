@@ -5,6 +5,13 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\facades\DB;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\bannerController;
+use App\Http\Controllers\footerController;
+use App\Http\Controllers\headersController;
+use App\Http\Controllers\productController;
+use App\Http\Controllers\brandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +79,11 @@ Route::get('topwear',function()
 
     return view('User.pages.topwear',compact('product'));
 });
+Route::get('adminhome',function(){
 
+
+ return view('Admin.pages.index');
+});
 
 
 
@@ -89,7 +100,7 @@ Route::get('userindex', function () {
 
     //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 
-    return view('User.pages.index',compact('catagory','banner','product'));
+    return view('User.pages.index',compact('banner','catagory','product'));
 });
 
 
@@ -123,3 +134,65 @@ Auth::routes();
 //Route::get('index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects'])->name('redirect');
+
+
+////For admin Routes
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('main', function () {
+    return view('pages/index');
+});
+// Route::get('category', function () {
+//     return view('pages/category');
+// });
+
+
+Route::get('category', [categoryController::class, 'index']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+
+// Route::POST('index','App\Http\Controllers\categoryController@index');
+Route::get('demo','App\Http\Controllers\categoryController@create');
+Route::POST('store','App\Http\Controllers\categoryController@store');
+Route::put('edit','App\Http\Controllers\categoryController@update');
+
+//for category
+Route::resource('cate', categoryController::class);
+Auth::routes();
+
+//for banners
+Route::resource('banners', bannerController::class);
+ Route::get('banner_create','App\Http\Controllers\bannerController@create');
+ Route::post('banner_store','App\Http\Controllers\bannerController@store');
+
+
+ //for footer
+ Route::resource('footers',footerController::class);
+ //Route::post('footer_create','App\Http\Controllers\footerController@create');
+//Route::post('footer_store','App\Http\Controllers\footerController@store');
+Route::resource('header',headersController::class);
+Route::get('headers',[headersController::class,'index']); 
+Route::get('head_create','App\Http\Controllers\headersController@create');
+Route::post('head_store','App\Http\Controllers\headersController@store');
+Route::put('head_edit','App\Http\Controllers\headerController@update');
+
+//for products
+Route::get('products',[productController::class,'index']); 
+Route::get('create_product','App\Http\Controllers\ProductController@create');
+Route::post('product_store','App\Http\Controllers\productController@store');
+Route::PUT('product_edit/{id}/edit','App\Http\Controllers\productController@edit');
+Route::resource('product',productController::class);
+
+//for Brands
+Route::get('brand',[brandController::class,'index']); 
+Route::get('brand_create','App\Http\Controllers\brandController@create');
+Route::post('brand_store','App\Http\Controllers\brandController@store');
+Route::resource('brands',brandController::class);
