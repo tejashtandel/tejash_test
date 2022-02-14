@@ -21,7 +21,7 @@ use Illuminate\Support\facades\DB;
 Route::get('/', function () {
     return view('welcome');
 });
-
+ 
 
 
 // Route::get('index', function () {    
