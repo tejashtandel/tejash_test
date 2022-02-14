@@ -135,7 +135,7 @@ Auth::routes();
 
 Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects'])->name('redirect');
 
-
+///------------------------------------------------------------------------------------------------------/////
 ////For admin Routes
 
 Route::get('/', function () {
