@@ -1,0 +1,15 @@
+.aboutinfo{
+    color: rgb(15, 1, 1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* for product details page */
+
+.container #productimage{
+   border-color: aqua;
+}
+#try p{
+font-style: italic;
+font-weight: 500;
+
+}
