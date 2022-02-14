@@ -16,7 +16,7 @@ class footerController extends Controller
     public function index()
     {
         $footer= DB::table('footers')->select('id','about','address','phone','email')->get(); 
-        return view('pages.footer.footers',compact('footer'));
+        return view('Admin.pages.footer.footers',compact('footer'));
     }
 
     /**
@@ -26,7 +26,7 @@ class footerController extends Controller
      */
     public function create()
     {
-        return view('pages.footer.create_footer');
+        return view('Admin.pages.footer.create_footer');
     }
 
     /**

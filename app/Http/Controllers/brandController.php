@@ -15,7 +15,7 @@ class brandController extends Controller
     public function index()
     {
         $brand= DB::table('brands')->select('id','brand_name')->get(); 
-        return view('pages.brand.brand',compact('brand'));
+        return view('Admin.pages.brand.brand',compact('brand'));
     }
 
     /**
@@ -25,7 +25,7 @@ class brandController extends Controller
      */
     public function create()
     {
-        return view('pages.brand.create_brand');
+        return view('Admin.pages.brand.create_brand');
     }
 
     /**
@@ -65,7 +65,7 @@ class brandController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.brand.brand');
+        return view('Admin.pages.brand.brand');
     }
 
     /**

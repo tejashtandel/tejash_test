@@ -17,7 +17,7 @@ class categoryController extends Controller
        $cat = DB::table('category')->select('id','category_name','size','type')->get(); 
        
            // $data['students'] = students::orderBy('id','desc')->paginate(5);
-        return view('pages.category.category',compact('cat'));
+        return view('Admin.pages.category.category',compact('cat'));
     }
 
     /**
@@ -27,7 +27,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-        return view('pages.category.create_category');
+        return view('Admin.pages.category.create_category');
     }
 
     /**
@@ -71,7 +71,7 @@ class categoryController extends Controller
     public function edit($id)
     {
         $category= DB::table('category')->where('id', $id)->get();
-        return view('pages.category.edit_category',compact('category'));
+        return view('Admin.pages.category.edit_category',compact('category'));
     }
 
     /**
@@ -95,7 +95,7 @@ class categoryController extends Controller
             $category->type = $request->type;
            
             $category->update($request->all());
-            return redirect()->route('pages.category')->with('status','category Updated Successfully');
+            return redirect()->route('Admin.pages.category')->with('status','category Updated Successfully');
     }
 
     /**

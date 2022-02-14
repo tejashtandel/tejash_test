@@ -15,7 +15,7 @@ class productController extends Controller
     public function index()
     {
         $product= DB::table('products')->select('id','product_name','price','image')->get(); 
-        return view('pages.product.product',compact('product'));
+        return view('Admin.pages.product.product',compact('product'));
     }
 
     /**
@@ -25,7 +25,7 @@ class productController extends Controller
      */
     public function create()
     {
-        return view('pages.product.create_product');
+        return view('Admin.pages.product.create_product');
     }
 
     /**
@@ -73,7 +73,7 @@ class productController extends Controller
     public function edit($id)
     {
         $product= DB::table('products')->where('id', $id)->get();
-        return view('pages.product.edit_product',compact('product'));
+        return view('Admin.pages.product.edit_product',compact('product'));
     }
     /**
      * Update the specified resource in storage.
@@ -95,7 +95,7 @@ class productController extends Controller
             $product->price = $request->price;
             $product->image = $request->image;
             $product->update($request->all());
-            return redirect()->route('pages.product.product')->with('status','Product Updated Successfully');
+            return redirect()->route('Admin.pages.product.product')->with('status','Product Updated Successfully');
     }
     /**
      * Remove the specified resource from storage.

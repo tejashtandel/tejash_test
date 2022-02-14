@@ -1,4 +1,4 @@
-@include('include.header')
+@include('Admin.include.header')
        
             <!-- MAIN CONTENT-->
     <div class="main-content">
@@ -29,4 +29,4 @@
             </div>  
         </div>
 </div>
-@include('include.footer')
+@include('Admin.include.footer')

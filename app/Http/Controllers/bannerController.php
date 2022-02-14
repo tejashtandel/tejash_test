@@ -16,7 +16,7 @@ class bannerController extends Controller
     public function index()
     {
         $bann= DB::table('banners')->select('id','banner_image','description')->get(); 
-        return view('pages.banners.banners',compact('bann'));
+        return view('Admin.pages.banners.banners',compact('bann'));
     }
 
     /**
@@ -26,7 +26,7 @@ class bannerController extends Controller
      */
     public function create()
     {
-        return view('pages.banners.create_banners');
+        return view('Admin.pages.banners.create_banners');
     }
 
     /**
