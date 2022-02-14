@@ -37,7 +37,12 @@
 
     <!-- Main JS-->
     <script src="admin/js/main.js"></script>
-
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
 </body>
 
 </html>

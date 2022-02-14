@@ -4,9 +4,10 @@
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+            <a href="{{url('create_product') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product</a>
                 <div class="row">
-                <a href="{{url('create_product') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product</a>
-                    <table class="table table-bordered">
+               
+                    <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
                                         
@@ -22,7 +23,7 @@
                                 
                                  <td>{{$pro->product_name}}</td>
                                  <td>{{$pro->price}}</td>
-                                <td><img src="{{('product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td> 
+                                <td><img src="{{('admin/product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td> 
                                 <td>   
                               <form action="{{route('product.destroy',$pro->id)}}" method="Post">
                                  <a class="btn btn-primary" href="{{url('product_edit',$pro->id)}}">Edit</a>

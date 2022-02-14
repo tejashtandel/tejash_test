@@ -4,9 +4,10 @@
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+            <a href="{{url('head_create') }}"  class="btn btn-success btn-lg float-right" type="submit"> Create Header</a>
                 <div class="row">
-                <a href="{{url('head_create') }}"  class="btn btn-success btn-lg float-right" type="submit"> Create Header</a>
-                    <table class="table table-bordered">
+             
+                    <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
                                         

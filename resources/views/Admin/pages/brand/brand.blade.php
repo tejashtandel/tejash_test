@@ -4,13 +4,15 @@
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+            <a href="{{url('brand_create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
                 <div class="row">
-                <a href="{{url('brand_create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
-                    <table class="table table-bordered">
+             
+                    <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
                                         
                                             <th scope="col">Brand Name</th>
+                                            <th scope="col">Action</th>
                                 </tr>
                              </thead>
                              <tbody>

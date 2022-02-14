@@ -1,15 +1,17 @@
 @include('Admin.include.header')
        
-            <!-- MAIN CONTENT-->
+    
     <div class="main-content">
+    
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+            <a href="{{url('demo') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
                 <div class="row">
-                <a href="{{url('demo') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
-                    <table class="table table-bordered">
+              
+                    <table class="table table-bordered" id="myTable">
+                         
                              <thead>
                                  <tr>
-                                        
                                             <th scope="col">Category Name</th>
                                             <th scope="col">Size</th>
                                             <th scope="col">Type</th>
@@ -25,7 +27,7 @@
                                  <td>{{$ct->type}}</td>
                                  <td>
                                  <form action="{{route('cate.destroy',$ct->id)}}" method="Post">
-<a class="btn btn-primary"  href="{{route('cate.edit',$ct->id)}}">Edit</a>
+<a class="btn btn-primary"  href="{{url('edit',$ct->id)}}">Edit</a>
 @csrf
  @method('DELETE')
 <button type="submit" class="btn btn-danger">Delete</button>

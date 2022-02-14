@@ -15,7 +15,7 @@ class headersController extends Controller
     public function index()
     {
         $head= DB::table('headers')->select('id','header_name')->get(); 
-         return view('pages.header.headers',compact('head'));
+         return view('Admin.pages.header.headers',compact('head'));
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +24,7 @@ class headersController extends Controller
      */
     public function create()
     {
-        return view('pages.header.create_headers');
+        return view('Admin.pages.header.create_headers');
     }
 
     /**
@@ -65,7 +65,7 @@ class headersController extends Controller
     public function edit($id)
     {
         $header= DB::table('headers')->where('id', $id)->get();
-        return view('pages.header.edit_headers',compact('header'));
+        return view('Admin.pages.header.edit_headers',compact('header'));
     }
 
     /**

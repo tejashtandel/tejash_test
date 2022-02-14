@@ -12,7 +12,7 @@ use App\Http\Controllers\footerController;
 use App\Http\Controllers\headersController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\brandController;
-
+use App\Http\Controllers\productdetailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,7 +162,7 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 // Route::POST('index','App\Http\Controllers\categoryController@index');
 Route::get('demo','App\Http\Controllers\categoryController@create');
 Route::POST('store','App\Http\Controllers\categoryController@store');
-Route::put('edit','App\Http\Controllers\categoryController@update');
+ Route::put('edit{id}','App\Http\Controllers\categoryController@edit');
 
 //for category
 Route::resource('cate', categoryController::class);
@@ -176,7 +176,7 @@ Route::resource('banners', bannerController::class);
 
  //for footer
  Route::resource('footers',footerController::class);
- //Route::post('footer_create','App\Http\Controllers\footerController@create');
+ //Route::get('footer_create','App\Http\Controllers\footerController@create');
 //Route::post('footer_store','App\Http\Controllers\footerController@store');
 Route::resource('header',headersController::class);
 Route::get('headers',[headersController::class,'index']); 
@@ -196,3 +196,7 @@ Route::get('brand',[brandController::class,'index']);
 Route::get('brand_create','App\Http\Controllers\brandController@create');
 Route::post('brand_store','App\Http\Controllers\brandController@store');
 Route::resource('brands',brandController::class);
+
+
+//for Product Details
+Route::get('product_detail',[productdetailController::class,'index']); 

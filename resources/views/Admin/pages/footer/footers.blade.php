@@ -2,19 +2,21 @@
        
             <!-- MAIN CONTENT-->
     <div class="main-content">
+    
         <div class="section__content section__content--p30">
+       
             <div class="container-fluid">
+            <a href="{{route('footers.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add footer</a>
                 <div class="row">
-                <a href="{{route('footers.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add footer</a>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
                                         
-                                            <th scope="col">About</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Action</th>
+                                            <th >About</th>
+                                            <th >Address</th>
+                                            <th >Phone</th>
+                                            <th >Email</th>
+                                            <th >Action</th>
                                      </tr>
                              </thead>
                              <tbody>

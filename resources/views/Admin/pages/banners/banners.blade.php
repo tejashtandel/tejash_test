@@ -4,9 +4,10 @@
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+            <a href="{{url('banner_create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Banners</a>
                 <div class="row">
-                <a href="{{url('banner_create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Banners</a>
-                    <table class="table table-bordered">
+              
+                    <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
                                         
@@ -18,7 +19,7 @@
                             <tbody>
                             @foreach($bann as $ban)
                              <tr>
-                                 <td><img src="{{('upload/' . $ban->banner_image)}}" class="img-thumbnail" alt="Responsive image" style="width:250px"></td>
+                                 <td><img src="{{('admin/upload/' . $ban->banner_image)}}" class="img-thumbnail" alt="Responsive image" style="width:250px"></td>
                                  <td>{{$ban->description}}</td>
                                  
                              </tr>

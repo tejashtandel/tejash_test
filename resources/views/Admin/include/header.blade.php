@@ -32,6 +32,7 @@
 
     <!-- Main CSS-->
     <link href="admin/css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 </head>
 
 <body class="animsition">
@@ -169,6 +170,10 @@
                         <li>
                             <a href="products">
                                 <i class="fas fa-table"></i>Products</a>
+                        </li>
+                        <li>
+                            <a href="product_detail">
+                                <i class="fas fa-table"></i>Products Details</a>
                         </li>
                         <li>
                             <a href="brand">
