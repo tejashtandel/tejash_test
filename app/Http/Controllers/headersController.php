@@ -64,7 +64,7 @@ class headersController extends Controller
      */
     public function edit($id)
     {
-        $header= DB::table('headers')->where('id', $id)->get();
+        $header=headers::find($id);
         return view('Admin.pages.header.edit_headers',compact('header'));
     }
 
@@ -81,11 +81,10 @@ class headersController extends Controller
             'header_name'=>'required'
             ]);
             
-            $header= header::find($id);
+            $header= headers::find($id);
             $header-> header_name= $request->header_name;
             $header->save();
-        //    $header->update($request->all());
-        return redirect()->action([headersController::class,'index']);
+            return redirect()->action([headersController::class,'index']);
     }
 
     /**

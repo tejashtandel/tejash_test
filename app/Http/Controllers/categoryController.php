@@ -70,8 +70,8 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        //$category= DB::table('category')->where('id', $id)->get();
-        $category=category::find($id);
+     
+         $category=category::find($id);
         return view('Admin.pages.category.edit_category',compact('category'));
     }
 
@@ -94,9 +94,10 @@ class categoryController extends Controller
             $category-> category_name= $request->category_name;
             $category->size = $request->size;
             $category->type = $request->type;
-           $category->save();
-            //$category->update($request->all());
-            return redirect()->route('Admin.pages.category')->with('status','category Updated Successfully');
+           
+            
+            $category->save();
+            return redirect()->action([categoryController::class,'index']);
     }
 
     /**

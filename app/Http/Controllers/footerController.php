@@ -71,7 +71,8 @@ class footerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $footer=footer::find($id);
+        return view('Admin.pages.footer.edit_footer',compact('footer'));
     }
 
     /**
@@ -83,7 +84,21 @@ class footerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'about' => 'required',
+           'address' => 'required',
+           'phone' => 'required',
+           'email' => 'required'
+            
+            ]);
+            
+            $footer=footer::find($id);
+            $footer->about= $request->about;
+            $footer->address = $request->address;
+            $footer->phone = $request->phone;
+            $footer->email=$request->email;
+            $footer->save();
+            return redirect()->action([footerController::class,'index']);
     }
 
     /**

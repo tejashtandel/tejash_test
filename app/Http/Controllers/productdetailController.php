@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\product_detail;
+use Illuminate\Support\Facades\DB;
 class productdetailController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class productdetailController extends Controller
      */
     public function index()
     {
-        return view('Admin.pages.product_details.product_details');
+        $data= DB::table('product_details')->select()->get(); 
+        return view('Admin.pages.product_details.product_details',compact('data'));
     }
 
     /**
@@ -23,7 +25,7 @@ class productdetailController extends Controller
      */
     public function create()
     {
-        
+        return view('Admin.pages.product_details.create_product_details');
     }
 
     /**
@@ -81,4 +83,12 @@ class productdetailController extends Controller
     {
         //
     }
+    public function myformAjax($id)
+    {
+        $products = DB::table("products")
+                    ->where("product_id",$id)
+                    ->lists("name","id");
+        return json_encode($products);
+    }
+
 }

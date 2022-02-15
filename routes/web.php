@@ -160,7 +160,7 @@ Route::get('main', function () {
 // });
 
 
-Route::get('category', [categoryController::class, 'index']); 
+//Route::get('category', [categoryController::class, 'index']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
@@ -173,10 +173,10 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 // Route::POST('index','App\Http\Controllers\categoryController@index');
 Route::get('demo','App\Http\Controllers\categoryController@create');
 Route::POST('store','App\Http\Controllers\categoryController@store');
- Route::put('edit{id}','App\Http\Controllers\categoryController@edit');
+Route::resource('category',categoryController::class);
+
 
 //for category
-Route::resource('cate', categoryController::class);
 Auth::routes();
 
 //for banners
@@ -199,7 +199,6 @@ Route::put('head_edit','App\Http\Controllers\headerController@update');
 Route::get('products',[productController::class,'index']); 
 Route::get('create_product','App\Http\Controllers\ProductController@create');
 Route::post('product_store','App\Http\Controllers\productController@store');
-Route::PUT('product_edit/{id}/edit','App\Http\Controllers\productController@edit');
 Route::resource('product',productController::class);
 
 //for Brands
@@ -211,3 +210,4 @@ Route::resource('brands',brandController::class);
 
 //for Product Details
 Route::get('product_detail',[productdetailController::class,'index']); 
+Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');

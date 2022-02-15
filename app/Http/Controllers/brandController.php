@@ -65,7 +65,8 @@ class brandController extends Controller
      */
     public function edit($id)
     {
-        return view('Admin.pages.brand.brand');
+        $brand=brand::find($id);
+        return view('Admin.pages.brand.edit_brand',compact('brand'));
     }
 
     /**
@@ -77,7 +78,16 @@ class brandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'brand_name' => 'required',
+        
+            ]);
+            $brand = brand::find($id);
+            $brand->brand_name = $request->brand_name;
+          
+            $brand->save();
+            
+            return redirect()->action([brandController::class,'index']);
     }
 
     /**

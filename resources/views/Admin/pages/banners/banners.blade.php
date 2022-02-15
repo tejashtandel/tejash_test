@@ -2,6 +2,7 @@
        
             <!-- MAIN CONTENT-->
     <div class="main-content">
+  
         <div class="section__content section__content--p30">
             <div class="container-fluid">
             <a href="{{url('banner_create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Banners</a>

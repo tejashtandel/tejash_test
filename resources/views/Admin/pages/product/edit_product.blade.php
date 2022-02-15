@@ -4,14 +4,14 @@
                              <div class="container">
                                     <div class="row">
 
-                         <form href="{{url('product.update',$product[0]->id)}}" enctype="multipart/form-data">
+                         <form action="{{route('product.update',$product->id)}}" enctype="multipart/form-data">
                          @csrf
                          @method('PUT')
                          <div class="row">
                                <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="form-group">
                                    <strong>Product Name:</strong>
-                                        <input type="text" name="product_name" class="form-control" placeholder="product Name" value={{$product[0]->product_name}}>
+                                        <input type="text" name="product_name" class="form-control" placeholder="product Name" value={{$product->product_name}}>
                                               @error('product_name')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
                                               @enderror
@@ -21,7 +21,7 @@
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="form-group">
                                    <strong>Price:</strong>
-                                        <input type="text" name="price" class="form-control" placeholder="Price" value={{$product[0]->price}}>
+                                        <input type="text" name="price" class="form-control" placeholder="Price" value={{$product->price}}>
                                               @error('price')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
                                               @enderror
@@ -31,7 +31,8 @@
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="form-group">
                                    <strong>Image:</strong>
-                                        <input type="file" name="image" class="form-control" placeholder="Image" value={{$product[0]->image}}>
+                                        <input type="file" name="image" class="form-control" placeholder="Image" >
+                                   
                                               @error('image')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
                                               @enderror

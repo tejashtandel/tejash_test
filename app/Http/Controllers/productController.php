@@ -72,7 +72,7 @@ class productController extends Controller
      */
     public function edit($id)
     {
-        $product= DB::table('products')->where('id', $id)->get();
+        $product=product::find($id);
         return view('Admin.pages.product.edit_product',compact('product'));
     }
     /**
@@ -82,20 +82,35 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
             'product_name' => 'required',
             'price' => 'required',
-            'image'=>'required'
+            
             ]);
             
-            $product= product::find($id);
-            $product->product_name= $request->product_name;
-            $product->price = $request->price;
-            $product->image = $request->image;
-            $product->update($request->all());
-            return redirect()->route('Admin.pages.product.product')->with('status','Product Updated Successfully');
+            // $product= product::find($id);
+            // $product->product_name= $request->product_name;
+            // $product->price = $request->price;
+            // $product->image = $request->image;
+              
+            // $product->save();
+            // return redirect()->action([productController::class,'index']);
+
+            $input=$request->all();
+            if($image=$request->file('image')){
+                $destinationPath='product/';
+                $profileImage= date('YmdHis') .".". $image->getClientOriginalExtension();
+                $image->move($destinationPath,$profileImage );
+                $input['image'] ="$profileImage";
+            }else{
+                unset($input['image']);
+            }
+          $product->update($input);
+        
+            return redirect()->route('products.index')
+                            ->with('success','Product updated successfully');
     }
     /**
      * Remove the specified resource from storage.
