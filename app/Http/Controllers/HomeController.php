@@ -49,6 +49,8 @@ class HomeController extends Controller
         {
             return view('Admin.pages.index');
         }
+
+
         $banner = DB::table('banners')->get();
         $catagory = DB::table('category')->get();
         $product = DB::table('products')->get();
@@ -58,7 +60,6 @@ class HomeController extends Controller
         return view('User.pages.index',compact('banner','catagory','product'));
    
     
-        return view('User.pages.index');
     }
     
 }

@@ -135,6 +135,17 @@ Auth::routes();
 
 Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects'])->name('redirect');
 
+
+Route::get('product1',function()
+{
+    return view('User.pages.product');
+});
+Route::get('cat1',function()
+{
+    return view('User.pages.catagory');
+});
+
+
 ///------------------------------------------------------------------------------------------------------/////
 ////For admin Routes
 
