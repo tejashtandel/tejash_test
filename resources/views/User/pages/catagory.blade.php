@@ -170,13 +170,13 @@
           <div class="row sameproduct">
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT1.jpg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     />
                     <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
@@ -192,13 +192,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT2.jpg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -214,13 +214,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT3.jpg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -236,13 +236,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT4.jpg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -258,13 +258,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT5.jpeg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -280,13 +280,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/CT6.jpg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -302,13 +302,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/ct7.jpeg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -324,13 +324,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="User/images/ct8.jpeg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">
@@ -346,13 +346,13 @@
             </div>
             <div class="col-lg-4 col-md-6 ">
               <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
+                <div class="box_img">
+                  <div class="typec">
                     <img
                       src="ct9.jpeg"
                       class="img-fluid"
                       alt="Image"
-                      style="display: flex"
+                      
                     /> <button value="stsraf" class="add2">
                       <i class="fa-solid fa-heart"></i>
                     </button><button value="add to cart" class="add">

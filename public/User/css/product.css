@@ -1,11 +1,9 @@
 .mySlides{
-    margin: 50px 150px 50px 350px;
+    margin: 50px 150px 50px 150px;
     width: 460px;
 
 }
-.imagec h1{
-    margin-left: 375px;
-}
+
 .owl{
     margin-top: 80px;
 }
@@ -52,7 +50,7 @@
 }
 .image:hover .add{
     opacity: 1;
-    bottom: 90px;
+    bottom: 80px;
 }
 .image:hover .add2{
     opacity: 1;
@@ -63,16 +61,111 @@
     position: absolute;
 
     left: 0;
-    bottom: 550px;
+    bottom: 450px;
     
 }
 .owl-next{
     position: absolute;
 
     right: 0;
-    bottom: 550px;
+    bottom: 450px;
 
 }
+@media only screen and (min-width: 1501px) and (max-width: 1800px) {
+    .mySlides {
+        margin: 50px 150px 50px 150px;
+        width: 400px;
+    
+     display: flex;
+    }
+    .small-img-col img{
+        width: 140px;
+        margin-left: 10px;;
+    }
+}
+@media only screen and (min-width: 1199px) and (max-width: 1500px) {
+    .mySlides {
+     width: 360px;
+     margin: 10px 100px 10px 150px;
+     display: flex;
+    }
+    .small-img-col img{
+        width: 120px;
+        margin-left: 10px;;
+    }
+    .mainheading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 230;
+        font-size: 23px;
+    }
+  
+  }
+  @media only screen and (min-width: 901px) and (max-width: 1200px) {
+    .mySlides {
+     width: 300px;
+     margin: 10px 100px 10px 90px;
+     display: flex;
+    }
+    .small-img-col img{
+        width: 90px;
+        margin-left: 8px;;
+    }
+    .mainheading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+    }
+  
+  }
+  @media only screen and (min-width: 792px) and (max-width: 900px) {
+    .mySlides {
+     width: 250px;
+     margin: 10px 100px 10px 90px;
+     display: flex;
+    }
+    .small-img-col img{
+        width: 50px;
+        margin-left: 6px;;
+    }
+    .mainheading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+    }
+  
+  }
+
+
+  @media only screen and (max-width: 570px) {
+    .mySlides {
+     width: 160px;
+     margin: 10px 50px 10px 90px;
+     display: flex;
+    }
+    .small-img-col img{
+        width: 50px;
+        margin-left: 0px;
+        display: flex;
+    }
+    .mainheading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 200;
+        font-size: 12px;
+    }
+    /* .image:hover .add{
+        opacity: 1;
+        bottom: 80px;
+        size: 10px
+    }
+    .image:hover .add2{
+        opacity: 1;
+        top: 0px;
+        size: 10px
+    }
+   */
+}
+
+
  /* .box-img-hover{
     overflow: hidden;
     position: relative;

@@ -61,7 +61,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="User/images/topw.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">{{ $cat-> category_name }} </a>
+                        <a class="btn hvr-hover" href="cat1">{{ $cat-> category_name }} </a>
                     </div>
                   
                 </div>
@@ -120,7 +120,7 @@
                             <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="product1" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>

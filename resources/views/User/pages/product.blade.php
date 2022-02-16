@@ -72,7 +72,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 
     <div class="container-fluid imagec">
       <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="card">
             <div class="w3-content">
               <img class="mySlides" src="User/images/CT1.jpg" style="display: none" />
@@ -81,7 +81,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
               <img class="mySlides" src="User/images/ct8.jpeg" style="display: none" />
 
               <div class="flex row w3-section">
-                <div class="col-lg-3 small-img-col">
+                <div class="col-lg-3 col-sm-3 col-md-3 col-3 small-img-col">
                   <img
                     class="demo w3-opacity w3-hover-opacity-off"
                     src="User/images/CT1.jpg"
@@ -89,7 +89,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                     onclick="currentDiv(1)"
                   />
                 </div>
-                <div class="col-lg-3 small-img-col">
+                <div class="col-lg-3 col-sm-3 col-md-3  col-3 small-img-col">
                   <img
                     class="demo w3-opacity w3-hover-opacity-off"
                     src="User/images/CT2.jpg"
@@ -97,7 +97,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                     onclick="currentDiv(2)"
                   />
                 </div>
-                <div class="col-3 small-img-col">
+                <div class="col-lg-3 col-sm-3 col-md-3  col-3 small-img-col">
                   <img
                     class="demo w3-opacity w3-hover-opacity-off"
                     src="User/images/ct9.jpeg"
@@ -105,7 +105,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                     onclick="currentDiv(3)"
                   />
                 </div>
-                <div class="col-3 small-img-col">
+                <div class="col-lg-3 col-sm-3 col-md-3  small-img-col">
                   <img
                     class="demo w3-opacity w3-hover-opacity-off"
                     src="User/images/ct8.jpeg"
@@ -138,7 +138,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
           </div>
         </div> -->
 
-        <div class="col-lg-6  col-md-12 product-text-detail">
+        <div class="col-lg-6 col-md-6 col-sm-12 product-text-detail">
           <h5 class="mainheading">
             Women's Turquoise Cotton Floral Print Kurta With Pant
           </h5>
@@ -161,23 +161,19 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
             </h5>
           </div>
           <br />
-          <div>
+          <div >
             <h5 class="mainheading">Quantity:</h5>
-            <button class="btn btn-primary my-1" onclick="decrement()">
-              -
-            </button>
-            <input id="demoInput" type="number" min="0" max="10" />
-            <button class="btn btn-primary my-1" onclick="increment()">
-              +
-            </button>
-          </div>
+            <a href="#" id="decrement" class="btn btn-primary"  style="text-decoration: none;">&#8722</a>
+            <span class="px-3 quantityShow">1</span>
+            <a href="#" id="increment"  class="btn btn-primary" style="text-decoration: none;">&#43</a>
+        </div>
           <br />
           <!-- <div class="img">
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
           <div>
             <button type="button" class="btn btn-primary my-2">
-              <i class="fa fa-cart">Add to Cart</i>
+              <i class="fa-solid fa-cart-shopping"><span> Add To Cart</span></i>
             </button>
           </div>
           <div>
@@ -366,6 +362,35 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         x[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " w3-opacity-off";
       }
+    </script>
+     <script>
+      var x = 1;
+var span = document.querySelector('.quantityShow'); // find the <span> element in the DOM
+var increment = document.getElementById('increment'); // find the element with the ID 'increment'
+var decrement = document.getElementById('decrement'); // find the element with the ID 'decrement'
+
+increment.addEventListener('click', function () {
+    // this function is executed whenever the user clicks the increment button
+    span.textContent = ++x;
+});
+
+decrement.addEventListener('click', function () {
+    // this function is executed whenever the user clicks the decrement button
+    if (x == 1) {
+        alert("Please select valid input");
+    } else {
+        span.textContent = --x;
+
+    }
+});
+
+// $(".aa").mouseenter(function () {
+//     $(this).find(".bb").show();
+// });
+
+// $(".aa").mouseout(function () {
+//     $(this).find(".bb").hide();
+// });
     </script>
     <script>
       $(".owl-carousel").owlCarousel({

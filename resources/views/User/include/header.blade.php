@@ -13,6 +13,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="User/css/catagory.css">
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="User/images/favicon.ico" type="image/x-icon">
