@@ -10,8 +10,10 @@
                     <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
-                                        
+                                            <th scope="col">Sub Category</th>
                                             <th scope="col">Product Name</th>
+                                            <th scope="col">Size</th>
+                                            <th scope="col">Colour</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Action</th>
@@ -20,10 +22,13 @@
                              <tbody>
                              @foreach($product as $pro)
                              <tr>
-                                
-                                 <td>{{$pro->product_name}}</td>
-                                 <td>{{$pro->price}}</td>
-                                <td><img src="{{('admin/product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td> 
+                            <td>{{$pro->subcategoryname}}</td>
+                             <td>{{$pro->product_name}}</td>
+                             <td>{{$pro->size}}</td>
+                             <td>{{$pro->color}}</td>
+                            <td>{{$pro->price}}</td> 
+                             <td><img src="{{('admin/product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td> 
+                               
                                 <td>   
                               <form action="{{route('product.destroy',$pro->id)}}" method="Post">
                                  <a class="btn btn-primary" href="{{route('product.edit',$pro->id)}}">Edit</a>

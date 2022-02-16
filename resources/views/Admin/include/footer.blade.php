@@ -39,7 +39,6 @@
 
 <!-- Main JS-->
 <script src="{{asset('admin/js/main.js')}}"></script>
-<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
