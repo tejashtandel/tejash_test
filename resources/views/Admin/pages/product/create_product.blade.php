@@ -1,53 +1,99 @@
 @include('Admin.include.header')
-            <div class="main-content">
-                        <div class="section__content section__content--p30">
-                             <div class="container">
-                                    <div class="row">
-                                    @if(session('status'))
-                                    <div class="alert alert-success mb-1 mt-1">
-                                    {{ session('status') }}
-                                    </div>
-                                    @endif
-                                    <form action="{{ url('product_store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="row">
-                                    <h2>Add Products</h2>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                    <strong>Product Name:</strong>
-                                    <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
-                                    @error('product_name')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
-                                    </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                    <strong>Price:</strong>
-                                    <input type="text" name="price" class="form-control" placeholder="Enter Price">
-                                    @error('price')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
-                                    </div>
-                                    </div>
-                                  
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                    <strong>image:</strong>
-                                    <input type="file" name="image" class="form-control" placeholder="Enter Images">
-                                    @error('image')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
-                                    </div>
-                                    </div>
-                                   
-                                    <button type="submit" class="btn btn-primary ml-3">Add Products</button>
-                                </div> 
-                            </form>
-                        </div>
-                    </div>
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container">
+            <div class="row">
+                @if(session('status'))
+                <div class="alert alert-success mb-1 mt-1">
+                    {{ session('status') }}
                 </div>
+                @endif
+                <form action="{{ url('product_store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <h2>Add Products</h2>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="title">Select Sub category:</label>
+                                <select name="sub_cat_id" id="sub_cat_id" class="form-control">
+                                    @foreach($product as $pro)
+                                    <option value="{{$pro->id}}">{{$pro->subcategoryname}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Product Name:</strong>
+                                <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
+                                @error('product_name')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="dropdown">
+                                    <strong>Size:</strong>
+
+                                    <select name="size" id="size">
+                                        <option value="1">Small</option>
+                                        <option value="2">Medium</option>
+                                        <option value="3">Large</option>
+                                        <option value="4">XL</option>
+                                        <option value="5">XXL</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="dropdown" >
+                                    <strong>Colour:</strong>
+
+                                    <select name="color" id="size">
+                                        <option value="1">Red</option>
+                                        <option value="2">Black</option>
+                                        <option value="3">Green</option>
+                                        <option value="4">Blue</option>
+                                        <option value="5">Grey</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Price:</strong>
+                                <input type="text" name="price" class="form-control" placeholder="Enter Price">
+                                @error('price')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>image:</strong>
+                                <input type="file" name="image" class="form-control" placeholder="Enter Images">
+                                @error('image')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary ml-3">Add Products</button>
+                    </div>
+                </form>
             </div>
- @include('Admin.include.footer')
+        </div>
+    </div>
+</div>
+@include('Admin.include.footer')

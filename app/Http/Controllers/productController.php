@@ -14,7 +14,8 @@ class productController extends Controller
      */
     public function index()
     {
-        $product= DB::table('products')->select('id','product_name','price','image')->get(); 
+        $product = DB::SELECT('SELECT products.product_name, subcategories.id, subcategories.subcategoryname,products.color,products.size,products.price,products.image FROM products JOIN subcategories ON products.sub_cat_id=subcategories.id'); 
+        //$product= DB::select('SELECT * FROM subcategories');; 
         return view('Admin.pages.product.product',compact('product'));
     }
 
@@ -25,7 +26,8 @@ class productController extends Controller
      */
     public function create()
     {
-        return view('Admin.pages.product.create_product');
+        $product= DB::select('SELECT * FROM subcategories');; 
+        return view('Admin.pages.product.create_product',compact('product'));
     }
 
     /**
@@ -36,15 +38,19 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
+            'sub_cat_id'=>'required',
             'product_name' => 'required',
+            'size'=>'required',
+            'color'=>'required',
            'price' => 'required',
            'image'=>'required'
             ]);
            
             $input=$request->all();
             if($image=$request->file('image')){
-                $destinationPath='product/';
+                $destinationPath='admin/product/';
                 $profileImage= date('YmdHis') .".". $image->getClientOriginalExtension();
                 $image->move($destinationPath,$profileImage );
                 $input['image'] ="$profileImage";

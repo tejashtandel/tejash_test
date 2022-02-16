@@ -13,6 +13,7 @@ use App\Http\Controllers\headersController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\productdetailController;
+use App\Http\Controllers\subcategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -152,8 +153,8 @@ Route::get('cat1',function()
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('main', function () {
-    return view('pages/index');
+Route::get('index', function () {
+    return view('Admin.pages/index');
 });
 // Route::get('category', function () {
 //     return view('pages/category');
@@ -169,14 +170,18 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-
+//for category
 // Route::POST('index','App\Http\Controllers\categoryController@index');
 Route::get('demo','App\Http\Controllers\categoryController@create');
 Route::POST('store','App\Http\Controllers\categoryController@store');
 Route::resource('category',categoryController::class);
 
+//for sub category
+Route::resource('subcategory',subcategoryController::class);
+Route::get('sub_cate_create','App\Http\Controllers\subcategoryController@create');
+Route::post('sub_cate_store','App\Http\Controllers\subcategoryController@store');
 
-//for category
+
 Auth::routes();
 
 //for banners
@@ -211,3 +216,4 @@ Route::resource('brands',brandController::class);
 //for Product Details
 Route::get('product_detail',[productdetailController::class,'index']); 
 Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');
+Route::post('prod_store','App\Http\Controllers\productdetailController@store');
