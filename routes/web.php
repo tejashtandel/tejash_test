@@ -204,7 +204,7 @@ Route::put('head_edit','App\Http\Controllers\headerController@update');
 Route::get('products',[productController::class,'index']); 
 Route::get('create_product','App\Http\Controllers\ProductController@create');
 Route::post('product_store','App\Http\Controllers\productController@store');
-Route::resource('product',productController::class);
+Route::resource('products',productController::class);
 
 //for Brands
 Route::get('brand',[brandController::class,'index']); 
@@ -216,4 +216,5 @@ Route::resource('brands',brandController::class);
 //for Product Details
 Route::get('product_detail',[productdetailController::class,'index']); 
 Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');
-Route::post('prod_store','App\Http\Controllers\productdetailController@store');
+Route::post('product_detail_store','App\Http\Controllers\productdetailController@store');
+Route::resource('product_detail',productdetailController::class); 

@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row">
                 <a href="{{url('product_detail_create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product Details</a>
-                <table class="table table-bordered" id="myTable">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
-
+                            <th scope="col">category Name</th>
+                            <th scope="col">sub Category Name</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Brand Name</th>
                             <th scope="col">Sleeve</th>
                             <th scope="col">Neck</th>
                             <th scope="col">Febric</th>
@@ -29,7 +29,45 @@
                         </tr>
                     </thead>
                     <tbody>
-            
+                        @foreach($proddetails as $proddetail)
+                        <tr>
+                            <td>{{$proddetail->category_name}}</td>
+                            <td>{{$proddetail->subcategoryname}}</td>
+                            <td>{{$proddetail->product_name}}</td>
+                            <td>{{$proddetail->sleeve}}</td>
+                            <td>{{$proddetail->neck}}</td>
+                            <td>{{$proddetail->fabric}}</td>
+                            <td>{{$proddetail->length}}</td>
+                            <td>{{$proddetail->style}}</td>
+                            <td>{{$proddetail->occasion}}</td>
+                            <td>{{$proddetail->package_contain}}</td>
+                            <td>{{$proddetail->product_description}}</td>
+                            <td>{{$proddetail->size}}</td>
+                            <td>{{$proddetail->quantity}}</td>
+                            <td>{{$proddetail->bottomtype}}</td>
+                        
+                            <td>
+                                <?php
+                                $images = explode('|', $proddetail->mulimages);
+                                foreach ($images as $image) {  ?>
+                                    <img src="{{asset('admin/product/'.$image)}}" alt="Product images" style="width:100px" />
+                                <?php
+                                }
+                                ?>
+                            </td>
+                            <td>
+                            <form action="{{route('product_detail.destroy',$proddetail->id)}}" method="Post">
+                                    <a class="btn btn-primary" href="{{route('product_detail.edit',$proddetail->id)}}">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form> 
+
+                            </td>
+                            </td>
+
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

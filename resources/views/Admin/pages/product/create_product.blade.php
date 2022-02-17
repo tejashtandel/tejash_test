@@ -41,11 +41,11 @@
                                     <strong>Size:</strong>
 
                                     <select name="size" id="size">
-                                        <option value="1">Small</option>
-                                        <option value="2">Medium</option>
-                                        <option value="3">Large</option>
-                                        <option value="4">XL</option>
-                                        <option value="5">XXL</option>
+                                        <option value="Small">Small</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Large">Large</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
                                     </select>
                                 </div>
                             </div>
@@ -54,15 +54,15 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <div class="dropdown" >
+                                <div class="dropdown">
                                     <strong>Colour:</strong>
 
                                     <select name="color" id="size">
-                                        <option value="1">Red</option>
-                                        <option value="2">Black</option>
-                                        <option value="3">Green</option>
-                                        <option value="4">Blue</option>
-                                        <option value="5">Grey</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Black">Black</option>
+                                        <option value="Green">Green</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Grey">Grey</option>
                                     </select>
                                 </div>
                             </div>

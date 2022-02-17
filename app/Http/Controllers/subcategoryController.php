@@ -69,7 +69,9 @@ class subcategoryController extends Controller
      */
     public function edit($id)
     {
-        
+          $subcategory=subcategory::find($id);
+       return view('Admin.pages.subcategory.edit_subcategory',compact('subcategory'));
+       
     }
 
     /**
@@ -81,7 +83,18 @@ class subcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'subcategoryname'=>'required',
+           
+            ]);
+            
+            $subcategory= subcategory::find($id);
+            $subcategory-> subcategoryname= $request->subcategoryname;
+           
+           
+            
+            $subcategory->save();
+            return redirect()->action([subcategoryController::class,'index']);
     }
 
     /**
@@ -92,6 +105,7 @@ class subcategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcategory=subcategory::find($id)->delete();
+        return redirect()->action([subcategoryController::class,'index']);
     }
 }

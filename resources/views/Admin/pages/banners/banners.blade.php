@@ -23,6 +23,15 @@
                                  <td><img src="{{('admin/upload/' . $ban->banner_image)}}" class="img-thumbnail" alt="Responsive image" style="width:250px"></td>
                                  <td>{{$ban->description}}</td>
                                  
+                                    <td>
+                                    <form action="{{route('banners.destroy',$ban->id)}}" method="Post">
+                                    <a class="btn btn-primary" href="{{route('banners.edit',$ban->id)}}">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form> 
+                                    </td>
+                                
                              </tr>
                              @endforeach
                             </tbody>

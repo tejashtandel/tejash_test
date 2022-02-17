@@ -26,7 +26,7 @@ class productController extends Controller
      */
     public function create()
     {
-        $product= DB::select('SELECT * FROM subcategories');; 
+        $product= DB::select('SELECT * FROM subcategories');
         return view('Admin.pages.product.create_product',compact('product'));
     }
 
@@ -106,7 +106,7 @@ class productController extends Controller
 
             $input=$request->all();
             if($image=$request->file('image')){
-                $destinationPath='product/';
+                $destinationPath='admin/product/';
                 $profileImage= date('YmdHis') .".". $image->getClientOriginalExtension();
                 $image->move($destinationPath,$profileImage );
                 $input['image'] ="$profileImage";

@@ -24,14 +24,15 @@
                              <tr>
                             <td>{{$pro->subcategoryname}}</td>
                              <td>{{$pro->product_name}}</td>
+                             
                              <td>{{$pro->size}}</td>
                              <td>{{$pro->color}}</td>
                             <td>{{$pro->price}}</td> 
                              <td><img src="{{('admin/product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td> 
                                
                                 <td>   
-                              <form action="{{route('product.destroy',$pro->id)}}" method="Post">
-                                 <a class="btn btn-primary" href="{{route('product.edit',$pro->id)}}">Edit</a>
+                              <form action="{{route('products.destroy',$pro->id)}}" method="Post">
+                                 <a class="btn btn-primary" href="{{route('products.edit',$pro->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
