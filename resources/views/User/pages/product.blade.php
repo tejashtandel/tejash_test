@@ -35,8 +35,8 @@
     
             </div>
     
-https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
-https://cdn.jsdelivr.net
+https://cdn.jsdetivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
+https://cdn.jsdetivr.net
 
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     
@@ -72,11 +72,12 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 
     <div class="container-fluid imagec">
       <div class="row">
+        @foreach( $details as $det)
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="card">
             <div class="w3-content">
               <img class="mySlides" src="User/images/CT1.jpg" style="display: none" />
-              <img class="mySlides" src="User/images/CT2.jpg" />
+              <img class="mySlides" src="User/product/CT2.jpg" />
               <img class="mySlides" src="User/images/ct9.jpeg" style="display: none" />
               <img class="mySlides" src="User/images/ct8.jpeg" style="display: none" />
 
@@ -105,7 +106,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                     onclick="currentDiv(3)"
                   />
                 </div>
-                <div class="col-lg-3 col-sm-3 col-md-3  small-img-col">
+                <div class="col-lg-3 col-sm-3 col-md-3 col-3 small-img-col">
                   <img
                     class="demo w3-opacity w3-hover-opacity-off"
                     src="User/images/ct8.jpeg"
@@ -140,12 +141,12 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 
         <div class="col-lg-6 col-md-6 col-sm-12 product-text-detail">
           <h5 class="mainheading">
-            Women's Turquoise Cotton Floral Print Kurta With Pant
+            {{$det-> product_name}}
           </h5>
           <br />
           <h5 class="mainheading">
             Price:
-            <b class="price">Rs.50/-</b>
+            <b class="price">{{ $det -> price}}</b>
           </h5>
           <br />
           <div>
@@ -179,14 +180,14 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
           <div>
             <h5 class="mainheading">Product details</h5>
             <ul class="details">
-              <li class="main">Pattern</li>
-              <li>Sleeve</li>
-              <li>Neck</li>
-              <li>Fabric</li>
-              <li>Length</li>
-              <li>Style</li>
-              <li>Occasion</li>
-              <li>BottomType</li>
+              <li class="main">{{$det->pattern}}</li>
+              <li>{{$det->sleeve}}</li>
+              <li>{{$det->neck}}</li>
+              <li>{{$det->fabric}}</li>
+              <li>{{$det->length}}</li>
+              <li>{{$det->style}}</li>
+              <li>{{$det->occasion}}</li>
+              <li>{{$det->package_contain}}</li>
             </ul>
             <hr />
             <h5 class="mainheading">Brand</h5>
@@ -194,20 +195,18 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
             <hr />
             <h5 class="mainheading">Product Description</h5>
             <p class="details">
-              Beige & Brown Printed Kurta with Trouser. Beige printed kurta,
-              Three-Quarter sleeves, Straight Hem, side slits,with one pockets.
-              Brown Solid Trouser, has partially elasticated waistband and slip
-              on clouser.
+            {{ $det->product_description}}
             </p>
             <ul class="pay">
-              <li>Cash on Delivery</li>
-              <li>Free Delivery</li>
+              <li>Cash on detivery</li>
+              <li>Free detivery</li>
               <li>Easy 15 Days Exchange And Return</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+    @endforeach
     <div class="container" style="margin-top: 100px">
       <div class="row">
         <div class="col-12">
@@ -318,26 +317,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script>
-      var productImg = document.getElementById("productImage");
-      var smallimg = document.getElementsByClassName("smallimage");
-
-      smallimg[0].onclick = function () {
-        productImg.src = smallimg[0].src;
-      };
-
-      smallimg[1].onclick = function () {
-        productImg.src = smallimg[1].src;
-      };
-
-      smallimg[2].onclick = function () {
-        productImg.src = smallimg[2].src;
-      };
-
-      smallimg[3].onclick = function () {
-        productImg.src = smallimg[3].src;
-      };
-    </script>
+   
     <script>
       function currentDiv(n) {
         showDivs((slideIndex = n));

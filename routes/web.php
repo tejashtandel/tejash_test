@@ -9,11 +9,12 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\bannerController;
 use App\Http\Controllers\footerController;
-use App\Http\Controllers\headersController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
+use App\Models\product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,7 @@ use App\Http\Controllers\subcategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 
 
 // Route::get('index', function () {    
@@ -53,7 +54,7 @@ Route::get('checkout', function () {
 
 Route::get('contactus', function () {
     $footer = DB::table('footers')->get();
-    return view('User.pages/contactus',compact('footer'));
+    return view('User.pages/contactus', compact('footer'));
 });
 
 Route::get('shop', function () {
@@ -69,21 +70,20 @@ Route::get('admin', function () {
     return view('User.pages/wishlist');
 });
 Route::get('productdetails', function () {
-   
+
     $footer = DB::table('footers')->get();
-    return view('User.pages/productdetails',compact('footer'));
+    return view('User.pages/productdetails', compact('footer'));
 });
 
-Route::get('topwear',function()
-{
+Route::get('topwear', function () {
     $product = DB::table('products')->get();
 
-    return view('User.pages.topwear',compact('product'));
+    return view('User.pages.topwear', compact('product'));
 });
-Route::get('adminhome',function(){
+Route::get('adminhome', function () {
 
 
- return view('Admin.pages.index');
+    return view('Admin.pages.index');
 });
 
 
@@ -92,16 +92,29 @@ Route::get('adminhome',function(){
 
 Route::get('userindex', function () {
     // $header = DB::table('headers')->get();,'header''footer',
-    
+
     // $footer = DB::table('footers')->get();
 
     $banner = DB::table('banners')->get();
     $catagory = DB::table('category')->get();
-    $product = DB::table('products')->get();
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+    JOIN subcategories ON products.sub_cat_id=subcategories.id
+    JOIN category ON subcategories.catid=category.id
+    WHERE category.id="4"');
+
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+JOIN subcategories ON products.sub_cat_id=subcategories.id
+JOIN category ON subcategories.catid=category.id
+WHERE category.id="5"');
+
+    $product3 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+JOIN subcategories ON products.sub_cat_id=subcategories.id
+JOIN category ON subcategories.catid=category.id
+WHERE category.id="12"');
 
     //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 
-    return view('User.pages.index',compact('banner','catagory','product'));
+    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3'));
 });
 
 
@@ -111,7 +124,7 @@ Route::get('login', [LoginController::class, 'login'])->name('login');
 //for footer 
 Route::get('head', function () {
     $header = DB::table('headers')->get();
-    
+
 
 
     return view('User.include.header', compact('header'));
@@ -137,13 +150,52 @@ Auth::routes();
 Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects'])->name('redirect');
 
 
-Route::get('product1',function()
-{
-    return view('User.pages.product');
+Route::get('prod/{id}', function ($id) {
+    
+    // $details = DB::select('SELECT product_details.pattern,product_details.sleeve,product_details.neck,product_details.fabric,product_details.style,product_details.occasion,product_details.length,product_details.package_contain,product_details.product_description,products.id,products.product_name,products.price FROM  product_details 
+    //  JOIN products ON  product_details.productid=products.id
+    //    WHERE products.id=product_details.productid');
+
+$details = product::join('product_details', 'products.id', '=', 'product_details.productid')->where('products.id',$id)->get(['products.*', 'product_details.*']);
+
+
+    return view('User.pages.product', compact('details'));
 });
-Route::get('cat1',function()
-{
-    return view('User.pages.catagory');
+
+Route::get('prod1/{id}', function ($id) {
+    
+    // $details = DB::select('SELECT product_details.pattern,product_details.sleeve,product_details.neck,product_details.fabric,product_details.style,product_details.occasion,product_details.length,product_details.package_contain,product_details.product_description,products.id,products.product_name,products.price FROM  product_details 
+    //  JOIN products ON  product_details.productid=products.id
+    //    WHERE products.id=product_details.productid');
+
+$details = product::join('product_details', 'products.id', '=', 'product_details.productid')->where('products.id',$id)->get(['products.*', 'product_details.*']);
+
+
+    return view('User.pages.product', compact('details'));
+});
+
+
+Route::get('bottomwear', function () {
+    $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    JOIN subcategories ON products.sub_cat_id=subcategories.id
+    JOIN category ON subcategories.catid=category.id
+    WHERE category.id="12"');
+    return view('User.pages.bottomwear', compact('product3'));
+});
+Route::get('ethicset', function () {
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    JOIN subcategories ON products.sub_cat_id=subcategories.id
+    JOIN category ON subcategories.catid=category.id
+    WHERE category.id="5"');
+    return view('User.pages.ethic', compact('product2'));
+});
+
+Route::get('topwear', function () {
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    JOIN subcategories ON products.sub_cat_id=subcategories.id
+    JOIN category ON subcategories.catid=category.id
+    WHERE category.id="4"');
+    return view('User.pages.topwear', compact('product1'));
 });
 
 
@@ -163,57 +215,57 @@ Route::get('index', function () {
 
 //Route::get('category', [categoryController::class, 'index']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 //for category
 // Route::POST('index','App\Http\Controllers\categoryController@index');
-Route::get('demo','App\Http\Controllers\categoryController@create');
-Route::POST('store','App\Http\Controllers\categoryController@store');
-Route::resource('category',categoryController::class);
+Route::get('demo', 'App\Http\Controllers\categoryController@create');
+Route::POST('store', 'App\Http\Controllers\categoryController@store');
+Route::resource('category', categoryController::class);
 
 //for sub category
-Route::resource('subcategory',subcategoryController::class);
-Route::get('sub_cate_create','App\Http\Controllers\subcategoryController@create');
-Route::post('sub_cate_store','App\Http\Controllers\subcategoryController@store');
+Route::resource('subcategory', subcategoryController::class);
+Route::get('sub_cate_create', 'App\Http\Controllers\subcategoryController@create');
+Route::post('sub_cate_store', 'App\Http\Controllers\subcategoryController@store');
 
 
 Auth::routes();
 
 //for banners
 Route::resource('banners', bannerController::class);
- Route::get('banner_create','App\Http\Controllers\bannerController@create');
- Route::post('banner_store','App\Http\Controllers\bannerController@store');
+Route::get('banner_create', 'App\Http\Controllers\bannerController@create');
+Route::post('banner_store', 'App\Http\Controllers\bannerController@store');
 
 
- //for footer
- Route::resource('footers',footerController::class);
- //Route::get('footer_create','App\Http\Controllers\footerController@create');
+//for footer
+Route::resource('footers', footerController::class);
+//Route::get('footer_create','App\Http\Controllers\footerController@create');
 //Route::post('footer_store','App\Http\Controllers\footerController@store');
-Route::resource('header',headersController::class);
-Route::get('headers',[headersController::class,'index']); 
-Route::get('head_create','App\Http\Controllers\headersController@create');
-Route::post('head_store','App\Http\Controllers\headersController@store');
-Route::put('head_edit','App\Http\Controllers\headerController@update');
+Route::resource('header', headersController::class);
+Route::get('headers', [headersController::class, 'index']);
+Route::get('head_create', 'App\Http\Controllers\headersController@create');
+Route::post('head_store', 'App\Http\Controllers\headersController@store');
+Route::put('head_edit', 'App\Http\Controllers\headerController@update');
 
 //for products
-Route::get('products',[productController::class,'index']); 
-Route::get('create_product','App\Http\Controllers\ProductController@create');
-Route::post('product_store','App\Http\Controllers\productController@store');
-Route::resource('product',productController::class);
+Route::get('products', [productController::class, 'index']);
+Route::get('create_product', 'App\Http\Controllers\ProductController@create');
+Route::post('product_store', 'App\Http\Controllers\productController@store');
+Route::resource('product', productController::class);
 
 //for Brands
-Route::get('brand',[brandController::class,'index']); 
-Route::get('brand_create','App\Http\Controllers\brandController@create');
-Route::post('brand_store','App\Http\Controllers\brandController@store');
-Route::resource('brands',brandController::class);
+Route::get('brand', [brandController::class, 'index']);
+Route::get('brand_create', 'App\Http\Controllers\brandController@create');
+Route::post('brand_store', 'App\Http\Controllers\brandController@store');
+Route::resource('brands', brandController::class);
 
 
 //for Product Details
-Route::get('product_detail',[productdetailController::class,'index']); 
-Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');
-Route::post('prod_store','App\Http\Controllers\productdetailController@store');
+Route::get('product_detail', [productdetailController::class, 'index']);
+Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
+Route::post('prod_store', 'App\Http\Controllers\productdetailController@store');

@@ -170,7 +170,7 @@
             <img class="img" id="banner" src="User/images/banner.png" />
           </div>
           <div class="row sameproduct">
-            @foreach( $product1 as $prod)
+            @foreach( $product2 as $prod)
             <div class="col-lg-4 col-md-6 col-sm-12">
                
               <div class="wholecard">
@@ -182,9 +182,10 @@
                       alt="Image"
                       style="display: flex"
                     />
+
                     <a href="{{ url('/prod',['id'=>$prod->id]) }} " class="btn add2">
-                      <i class="fa-solid fa-heart"></i>
-                    </a>
+                        <i class="fa-solid fa-heart"></i>
+                      </a>
                     <button value="add to cart" class="add">Add to cart</button>
                   </div>
                   <div class="why-text">

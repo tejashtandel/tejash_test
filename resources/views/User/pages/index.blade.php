@@ -61,7 +61,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="User/images/topw.jpg" alt="" />
-                        <a class="btn hvr-hover" href="cat1">{{ $cat-> category_name }} </a>
+                        <a class="btn hvr-hover" href="cat2">{{ $cat-> category_name }} </a>
                     </div>
                   
                 </div>
@@ -100,18 +100,18 @@
                 <div class="col-lg-12">
                     <div class="special-menu text-center">
                         <div class="button-group filter-button-group">
-                            <button class="" data-filter="">Top Wear</button>
-                            {{-- <button  data-filter=".ethicset">Ethic Set</button>
-                            <button data-filter=".topwear">Top Wear</button>
-                            <button data-filter=".bottomwear">Bottom Wear</button> --}}
+                            <button class="active" data-filter="*">ALL</button>
+                            <button  data-filter=".topwear">Top Wear</button>
+                            <button  data-filter=".ethicset">Ethic Set</button>
+                            <button data-filter=".bottomwear">Bottom Wear</button>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="row special-list">
-                @foreach($product as $prod)
-                <div class="col-lg-3 col-md-6 special-grid ">
+                @foreach($product1 as $prod)
+                <div class="col-lg-3 col-md-6 special-grid topwear">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
@@ -136,17 +136,17 @@
                 </div>
                 @endforeach
 
-                
-                {{-- <div class="col-lg-3 col-md-6 special-grid ethicset">
+                @foreach($product3 as $prod)
+                <div class="col-lg-3 col-md-6 special-grid bottomwear">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
                                 
                             </div>
-                            <img src="User/images/ethic2.jpg" class="img-fluid" alt="Image">
+                            <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="product1" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
@@ -155,22 +155,24 @@
                         </div>
                         <div class="why-text">
                             
-                            <h5> $7.79</h5>
+                            <h5> Type: {{ $prod-> product_name}}</h5>
+                            <h5> Price: {{ $prod-> price}}</h5>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+                @endforeach
 
-{{-- 
-                <div class="col-lg-3 col-md-6 special-grid topwear">
+                @foreach($product2 as $prod)
+                <div class="col-lg-3 col-md-6 special-grid ethicset">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
                                 
                             </div>
-                            <img src="User/images/top1.jpg" class="img-fluid" alt="Image">
+                            <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="product1" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
@@ -179,10 +181,12 @@
                         </div>
                         <div class="why-text">
                             
-                            <h5> $9.79</h5>
+                            <h5> Type: {{ $prod-> product_name}}</h5>
+                            <h5> Price: {{ $prod-> price}}</h5>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+                @endforeach
                 {{-- <div class="col-lg-3 col-md-6 special-grid topwear">
                     <div class="products-single fix">
                         <div class="box-img-hover">

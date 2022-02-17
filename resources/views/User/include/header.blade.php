@@ -84,6 +84,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 
 </head>
 
@@ -138,6 +139,7 @@
                         {{-- @endforeach --}}
                        
                         <li class="nav-item"><a class="nav-link" href="topwear">Top Wear</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ethicset">Ethic Set</a></li>
                         <li class="nav-item"><a class="nav-link" href="bottomwear">bottom Wear</a></li>
                         <li class="nav-item"><a class="nav-link" href="services">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
