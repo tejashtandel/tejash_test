@@ -108,7 +108,9 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        $category=category::find($id)->delete();
+        $del=DB::table('category')
+        ->where('id', 1)
+        ->update(['flag' =>0]);
         return redirect()->action([categoryController::class,'index']);
             
     }

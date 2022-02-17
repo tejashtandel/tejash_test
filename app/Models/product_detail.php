@@ -9,6 +9,8 @@ class product_detail extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'catid',
+        'sub_cay_id',
         'productid',
         'brandid',
         'pattern',
@@ -22,6 +24,7 @@ class product_detail extends Model
         'product_description',
         'size',
         'quantity',
-        'bottomtype'
+        'bottomtype',
+        'mulimage'
     ];
 }

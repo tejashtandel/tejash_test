@@ -16,6 +16,7 @@ class CreateProductDetailsTable extends Migration
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
             $table->biginteger('catid')->unsigned();
+            $table->biginteger('sub_cat_id')->unsigned();
             $table->biginteger('productid')->unsigned();
             $table->biginteger('brandid')->unsigned();
             $table->string('pattern');
@@ -30,7 +31,9 @@ class CreateProductDetailsTable extends Migration
             $table->string('size');
             $table->integer('quantity');
             $table->string('bottomtype');
+            $table->text('mulimages');
             $table->foreign('catid')->on('category')->references('id');
+            $table->foreign('sub_cat_id')->on('subcategories')->references('id');
             $table->foreign('productid')->on('products')->references('id');
             $table->foreign('brandid')->on('brands')->references('id');
             $table->timestamps();

@@ -14,9 +14,14 @@ class productdetailController extends Controller
      */
     public function index()
     {
-        $brand = DB::select('SELECT * FROM brands');
-        $product = DB::select('SELECT * FROM products');
-        return view('Admin.pages.product_details.product_details', compact('product', 'brand'));
+        $proddetails =DB::table('product_details')
+        ->join('category','product_details.catid','=','category.id')
+        ->join('subcategories','product_details.sub_cat_id','=','subcategories.id')
+        ->join('products','product_details.productid','=','products.id')
+        ->join('brands','product_details.brandid','=','brands.id')
+        ->select('product_details.*','category.category_name','subcategories.subcategoryname','products.product_name')
+        ->get();
+        return view('Admin.pages.product_details.product_details',compact('proddetails'));
         
     }
 
@@ -28,8 +33,10 @@ class productdetailController extends Controller
     public function create()
     {
         $brand = DB::select('SELECT * FROM brands');
-        $product = DB::select('SELECT * FROM products');
-        return view('Admin.pages.product_details.create_product_details', compact('product', 'brand'));
+        $proddetails= DB::select('SELECT * FROM products');
+        $subc=DB::select('SELECT * FROM category');
+        $product= DB::select('SELECT * FROM subcategories');
+        return view('Admin.pages.product_details.create_product_details', compact('product', 'brand','subc','proddetails'));
     }
 
     /**
@@ -42,6 +49,8 @@ class productdetailController extends Controller
     {
         
         $request->validate([
+            'catid'=>'required',
+            'sub_cat_id'=>'required',
             'productid'=>'required',
             'brandid'=>'required',
             'pattern' => 'required',
@@ -55,22 +64,43 @@ class productdetailController extends Controller
            'product_description' => 'required',
            'size' => 'required',
            'quantity' => 'required',
-           'bottomtype' => 'required'
+           'bottomtype' => 'required',
+           'mulimages'=>'required'
            ]);
-           $pro_detail =new product_detail;
-           $pro_detail->pattern=$request->pattern;
-           $pro_detail->sleeve=$request->sleeve;
-           $pro_detail->neck=$request->neck;
-           $pro_detail->fabric=$request->fabric;
-           $pro_detail->length=$request->length;
-           $pro_detail->style=$request->style;
-           $pro_detail->occasion=$request->occassion;
-           $pro_detail->package_contain=$request->package_contain;
-           $pro_detail->product_description=$request->product_description;
-           $pro_detail->size=$request->size;
-           $pro_detail->quantity=$request->quantity;
-           $pro_detail->bottomtype=$request->bottomtype;
-           $pro_detail->save();
+       
+        $input=$request->all();
+        $mulimages=array();
+        if($files=$request->file('mulimages')){
+            foreach($files as $file){
+                $name= date('YmdHis') .".".$file->getClientOriginalName();
+                $file->move('mulimages',$name);
+                $mulimages[]=$name;
+            }
+        }
+        /*Insert your data*/
+    
+        product_detail::insert( [
+          
+            'catid' =>$input['catid'],
+            'sub_cat_id'=>$input['sub_cat_id'],
+            'productid'=>$input['productid'],
+            'brandid'=>$input['brandid'],
+            'pattern'=>$input['pattern'],
+            'sleeve'=>$input['sleeve'],
+            'neck'=>$input['neck'],
+            'fabric'=>$input['fabric'],
+            'length'=>$input['length'],
+            'style'=>$input['style'],
+            'occasion'=>$input['occasion'],
+            'package_contain'=>$input['package_contain'],
+            'product_description'=>$input['product_description'],
+            'size'=>$input['size'],
+            'quantity'=>$input['quantity'],
+            'bottomtype'=>$input['bottomtype'],
+            'mulimages'=>  implode("|",$mulimages),
+        ]);
+
+        // return redirect()->route('product.create')->with('success', 'Product Details created Successfully');
            return redirect()->action([productdetailController::class,'index']);
     }
 
@@ -93,7 +123,8 @@ class productdetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productsdetail=product_detail::find($id);
+        return view('Admin.pages.product_details.edit_product_details',compact('productsdetail'));
     }
 
     /**

@@ -44,7 +44,7 @@ class bannerController extends Controller
            
             $input=$request->all();
             if($banner_image=$request->file('banner_image')){
-                $destinationPath='upload/';
+                $destinationPath='admin/upload/';
                 $profileImage= date('YmdHis') .".". $banner_image->getClientOriginalExtension();
                 $banner_image->move($destinationPath,$profileImage );
                 $input['banner_image'] ="$profileImage";
@@ -74,7 +74,8 @@ class bannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner=banner::find($id);
+        return view('Admin.pages.banners.edit_banner',compact('banner'));
     }
 
     /**
@@ -86,9 +87,27 @@ class bannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'banner_image' => 'required',
+           'description' => 'required',
+            ]);
+            $banner =banner::find($id);
+            if($banner_image=$request->file('banner_image')){
+                $destinationPath='admin/upload/';
+                $profileImage=date('ymdHis').".".$banner_image->getClientOriginalExtension();
+                $banner_image->move($destinationPath,$profileImage);
+                $input['banner_image']="$profileImage";
+            }
+            $banner->banner_image=$profileImage;
+            $banner->description = $request->description;
+           
+            $banner->save();
+            
+            return redirect()->route('banners.index');
 
+    }
+    
+    
     /**
      * Remove the specified resource from storage.
      *
