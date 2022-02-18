@@ -187,7 +187,7 @@
                             <a href="brand">
                                 <i class="fas fa-table"></i>Brands</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="cart">
                                 <i class="far fa-check-square"></i>Cart</a>
                         </li>
@@ -198,7 +198,7 @@
                         <li>
                             <a href="payment">
                                 <i class="fas fa-map-marker-alt"></i>payment</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="banners">
                                 <i class="fas fa-map-marker-alt"></i>Banners</a>
@@ -211,9 +211,9 @@
                             <a href="headers">
                                 <i class="fas fa-map-marker-alt"></i>headers</a>
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                             <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="login.html">Login</a>
@@ -225,8 +225,8 @@
                                     <a href="forget-pass.html">Forget Password</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="has-sub">
+                        </li> -->
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -263,7 +263,7 @@
                                 <li>
                                     <a href="typo.html">Typography</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </li>
                     </ul>
                 </nav>

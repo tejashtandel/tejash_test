@@ -14,8 +14,11 @@ class subcategoryController extends Controller
      */
     public function index()
     {
-       $subc = DB::SELECT('SELECT subcategories.subcategoryname, category.id, category.category_name FROM subcategories JOIN category ON subcategories.catid=category.id'); 
-        // $subc=DB::find()->with('category')->get();
+        $subc = DB::table('subcategories')
+        ->join('category', 'subcategories.catid', '=', 'category.id')
+        ->select('subcategories.*', 'category.category_name')
+        ->where('subcategories.flag',1)
+        ->get();
         return view('Admin.pages.subcategory.subcategory',compact('subc'));
     }
 
@@ -26,7 +29,7 @@ class subcategoryController extends Controller
      */
     public function create()
     {
-        $subc=DB::select('SELECT * FROM category');
+        $subc =DB::table('category')->select('id','category_name')->get();
         return view('Admin.pages.subcategory.create_subcategory',compact('subc'));
     }
 
@@ -47,7 +50,6 @@ class subcategoryController extends Controller
            $subc->subcategoryname= $request->subcategoryname;
            $subc->save();
          return redirect()->action([subcategoryController::class,'index']);
-           
     }
 
     /**
@@ -58,7 +60,7 @@ class subcategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -69,9 +71,8 @@ class subcategoryController extends Controller
      */
     public function edit($id)
     {
-          $subcategory=subcategory::find($id);
-       return view('Admin.pages.subcategory.edit_subcategory',compact('subcategory'));
-       
+        $subcategory=subcategory::find($id);
+        return view('Admin.pages.subcategory.edit_subcategory',compact('subcategory'));
     }
 
     /**
@@ -83,16 +84,13 @@ class subcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $request->validate([
             'subcategoryname'=>'required',
-           
             ]);
             
-            $subcategory= subcategory::find($id);
-            $subcategory-> subcategoryname= $request->subcategoryname;
-           
-           
-            
+            $subcategory=subcategory::find($id);
+            $subcategory->subcategoryname= $request->subcategoryname;
             $subcategory->save();
             return redirect()->action([subcategoryController::class,'index']);
     }
@@ -105,7 +103,9 @@ class subcategoryController extends Controller
      */
     public function destroy($id)
     {
-        $subcategory=subcategory::find($id)->delete();
-        return redirect()->action([subcategoryController::class,'index']);
+        $subcategory=subcategory::find($id);
+        $subcategory->flag=0;
+         $subcategory->save();
+         return redirect()->action([subcategoryController::class,'index']);
     }
 }

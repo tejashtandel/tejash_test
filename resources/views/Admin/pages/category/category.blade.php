@@ -26,7 +26,7 @@
                             <td>{{$ct->size}}</td>
                             <td>{{$ct->type}}</td>
                             <td>
-                                <form action="{{route('category.destroy',$ct->id)}}" method="Post">
+                                <form action="{{route('category.destroy',$ct->id)}}" method="Post" id="form">
                                     <a class="btn btn-primary" href="{{route('category.edit',$ct->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')

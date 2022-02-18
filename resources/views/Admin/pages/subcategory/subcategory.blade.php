@@ -23,7 +23,6 @@
 
                            
                             <td> {{ $sub->category_name}}</td>
-                            
                             <td>{{$sub->subcategoryname}}</td>
                           
                             <td>

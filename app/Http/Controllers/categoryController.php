@@ -14,7 +14,7 @@ class categoryController extends Controller
      */
     public function index()
     {
-       $cat = DB::table('category')->select('id','category_name','size','type')->get(); 
+       $cat = DB::table('category')->select('id','category_name','size','type')->where('flag',1)->get(); 
        
            // $data['students'] = students::orderBy('id','desc')->paginate(5);
         return view('Admin.pages.category.category',compact('cat'));
@@ -39,9 +39,9 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required',
-           'size' => 'required',
-           'type' => 'required',
+          'category_name' => 'required|alpha',
+          'size' => 'required|alpha',
+          'type' => 'required|alpha',
            ]);
            $cat =new category;
            $cat->category_name= $request->category_name;
@@ -94,8 +94,6 @@ class categoryController extends Controller
             $category-> category_name= $request->category_name;
             $category->size = $request->size;
             $category->type = $request->type;
-           
-            
             $category->save();
             return redirect()->action([categoryController::class,'index']);
     }
@@ -106,11 +104,11 @@ class categoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $del=DB::table('category')
-        ->where('id', 1)
-        ->update(['flag' =>0]);
+        $category= category::find($id);
+        $category-> flag= 0;
+        $category->save();
         return redirect()->action([categoryController::class,'index']);
             
     }

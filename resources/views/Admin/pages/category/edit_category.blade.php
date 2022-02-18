@@ -28,15 +28,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Size:</strong>
-                                <input type="text" name="size" class="form-control" placeholder="Size" value="{{$category->size}}">
-                                @error('size')
-                                <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
-                                @enderror
-                            </div>
-                        </div>
+                       
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Type:</strong>

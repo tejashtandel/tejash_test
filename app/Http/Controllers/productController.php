@@ -14,8 +14,12 @@ class productController extends Controller
      */
     public function index()
     {
-        $product = DB::SELECT('SELECT products.product_name, subcategories.id, subcategories.subcategoryname,products.color,products.size,products.price,products.image FROM products JOIN subcategories ON products.sub_cat_id=subcategories.id'); 
+       // $product = DB::SELECT('SELECT products.product_name, subcategories.id, subcategories.subcategoryname,products.color,products.size,products.price,products.image FROM products JOIN subcategories ON products.sub_cat_id=subcategories.id where Products.flag="1"'); 
         //$product= DB::select('SELECT * FROM subcategories');; 
+        $product = DB::table('products')
+        ->join('subcategories','products.sub_cat_id','=','subcategories.id')
+        ->where('products.flag',1)
+        ->get();
         return view('Admin.pages.product.product',compact('product'));
     }
 
@@ -40,12 +44,12 @@ class productController extends Controller
     {
         
         $request->validate([
-            'sub_cat_id'=>'required',
-            'product_name' => 'required',
-            'size'=>'required',
-            'color'=>'required',
-           'price' => 'required',
-           'image'=>'required'
+        //     'sub_cat_id'=>'required',
+        //     'product_name' => 'required',
+        //     'size'=>'required',
+        //     'color'=>'required',
+        //    'price' => 'required',
+        //    'image'=>'required'
             ]);
            
             $input=$request->all();
@@ -115,8 +119,7 @@ class productController extends Controller
             }
           $product->update($input);
         
-            return redirect()->route('products.index')
-                            ->with('success','Product updated successfully');
+          return redirect()->action([productController::class,'index']);
     }
     /**
      * Remove the specified resource from storage.
@@ -124,9 +127,11 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $product=product::find($id)->delete();
+        $product=product::find($id);
+        $product->flag=0;
+        $product->save();
         return redirect()->action([productController::class,'index']);
     }
 }

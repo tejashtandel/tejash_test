@@ -13,6 +13,7 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
+use App\Http\Controllers\headersController;
 use App\Models\product;
 
 /*
@@ -250,7 +251,7 @@ Route::get('topwear', function () {
 
 
 ///------------------------------------------------------------------------------------------------------/////
-////For admin Routes
+////For Admin Routes
 
 Route::get('/', function () {
     return view('welcome');
@@ -282,8 +283,6 @@ Route::resource('category', categoryController::class);
 Route::resource('subcategory', subcategoryController::class);
 Route::get('sub_cate_create', 'App\Http\Controllers\subcategoryController@create');
 Route::post('sub_cate_store', 'App\Http\Controllers\subcategoryController@store');
-
-
 Auth::routes();
 
 //for banners
