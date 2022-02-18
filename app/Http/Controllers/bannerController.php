@@ -15,7 +15,7 @@ class bannerController extends Controller
      */
     public function index()
     {
-        $bann= DB::table('banners')->select('id','banner_image','description')->get(); 
+        $bann= DB::table('banners')->select('id','banner_image','description')->where('flag',1)->get(); 
         return view('Admin.pages.banners.banners',compact('bann'));
     }
 
@@ -39,7 +39,7 @@ class bannerController extends Controller
     {
         $request->validate([
             'banner_image' => 'required',
-           'description' => 'required',
+           'description' => 'required|max:10',
             ]);
            
             $input=$request->all();
@@ -114,8 +114,11 @@ class bannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $banner =banner::find($id);
+        $banner->flag=0;
+        $banner->save();
+        return redirect()->route('banners.index');
     }
 }

@@ -37,7 +37,7 @@ class brandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'brand_name' => 'required',
+           // 'brand_name' => 'required',
             ]);
            
             $brand =new brand;

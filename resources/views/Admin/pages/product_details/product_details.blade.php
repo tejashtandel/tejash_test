@@ -50,14 +50,14 @@
                                 <?php
                                 $images = explode('|', $proddetail->mulimages);
                                 foreach ($images as $image) {  ?>
-                                    <img src="{{asset('admin/product/'.$image)}}" alt="Product images" style="width:100px" />
+                                    <img src="{{asset('mulimages/'.$image)}}" alt="Product images" style="width:100px" />
                                 <?php
                                 }
                                 ?>
                             </td>
                             <td>
-                            <form action="{{route('product_detail.destroy',$proddetail->id)}}" method="Post">
-                                    <a class="btn btn-primary" href="{{route('product_detail.edit',$proddetail->id)}}">Edit</a>
+                            <form action="{{route('product_details.destroy',$proddetail->id)}}" method="Post">
+                                    <a class="btn btn-primary" href="{{route('product_details.edit',$proddetail->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>

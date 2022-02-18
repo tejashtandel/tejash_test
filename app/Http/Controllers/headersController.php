@@ -14,7 +14,7 @@ class headersController extends Controller
      */
     public function index()
     {
-        $head= DB::table('headers')->select('id','header_name')->get(); 
+        $head= DB::table('headers')->select('id','header_name')->where('flag',1)->get(); 
          return view('Admin.pages.header.headers',compact('head'));
     }
     /**
@@ -93,8 +93,11 @@ class headersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $header= headers::find($id);
+        $header->flag=0;
+        $header->save();
+        return redirect()->action([headersController::class,'index']);
     }
 }

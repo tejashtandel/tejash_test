@@ -13,6 +13,7 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
+use App\Http\Controllers\headersController;
 use App\Models\product;
 
 /*
@@ -200,7 +201,7 @@ Route::get('topwear', function () {
 
 
 ///------------------------------------------------------------------------------------------------------/////
-////For admin Routes
+////For Admin Routes
 
 Route::get('/', function () {
     return view('welcome');
@@ -232,8 +233,6 @@ Route::resource('category', categoryController::class);
 Route::resource('subcategory', subcategoryController::class);
 Route::get('sub_cate_create', 'App\Http\Controllers\subcategoryController@create');
 Route::post('sub_cate_store', 'App\Http\Controllers\subcategoryController@store');
-
-
 Auth::routes();
 
 //for banners
@@ -253,17 +252,10 @@ Route::post('head_store', 'App\Http\Controllers\headersController@store');
 Route::put('head_edit', 'App\Http\Controllers\headerController@update');
 
 //for products
-<<<<<<< HEAD
-Route::get('products', [productController::class, 'index']);
+ Route::get('products', [productController::class, 'index']);
 Route::get('create_product', 'App\Http\Controllers\ProductController@create');
 Route::post('product_store', 'App\Http\Controllers\productController@store');
-Route::resource('product', productController::class);
-=======
-Route::get('products',[productController::class,'index']); 
-Route::get('create_product','App\Http\Controllers\ProductController@create');
-Route::post('product_store','App\Http\Controllers\productController@store');
-Route::resource('products',productController::class);
->>>>>>> 11368602684ac8667dc816ed09bbcef1268c5fc1
+Route::resource('products', productController::class);
 
 //for Brands
 Route::get('brand', [brandController::class, 'index']);
@@ -273,13 +265,7 @@ Route::resource('brands', brandController::class);
 
 
 //for Product Details
-<<<<<<< HEAD
 Route::get('product_detail', [productdetailController::class, 'index']);
 Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
-Route::post('prod_store', 'App\Http\Controllers\productdetailController@store');
-=======
-Route::get('product_detail',[productdetailController::class,'index']); 
-Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');
-Route::post('product_detail_store','App\Http\Controllers\productdetailController@store');
-Route::resource('product_detail',productdetailController::class); 
->>>>>>> 11368602684ac8667dc816ed09bbcef1268c5fc1
+Route::post('product_detail_store', 'App\Http\Controllers\productdetailController@store');
+Route::resource('product_details',productdetailController::class);

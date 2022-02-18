@@ -8,7 +8,7 @@
                                     {{ session('status') }}
                                     </div>
                                     @endif
-                                    <form action="{{url('brand_store') }}" method="POST"  enctype="multipart/form-data">
+                                    <form action="{{url('brand_store') }}" method="POST"  enctype="multipart/form-data" id="form">
                                     @csrf
                                     <div class="row">
                                     <h2>Add Brand</h2>
@@ -31,3 +31,18 @@
                 </div>
             </div>
  @include('Admin.include.footer')
+
+ <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#form').validate({
+        rules: {
+            brand_name: {
+                required: true 
+            },
+           
+        }
+    });
+});
+</script>

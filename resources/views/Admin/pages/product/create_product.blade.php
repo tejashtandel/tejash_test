@@ -8,7 +8,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                <form action="{{ url('product_store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('product_store') }}" method="POST" enctype="multipart/form-data" >
                     @csrf
                     <div class="row">
                         <h2>Add Products</h2>
@@ -97,3 +97,4 @@
     </div>
 </div>
 @include('Admin.include.footer')
+

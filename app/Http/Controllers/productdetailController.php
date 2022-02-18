@@ -20,6 +20,7 @@ class productdetailController extends Controller
         ->join('products','product_details.productid','=','products.id')
         ->join('brands','product_details.brandid','=','brands.id')
         ->select('product_details.*','category.category_name','subcategories.subcategoryname','products.product_name')
+        ->where('product_details.flag',1)
         ->get();
         return view('Admin.pages.product_details.product_details',compact('proddetails'));
         
@@ -49,30 +50,30 @@ class productdetailController extends Controller
     {
         
         $request->validate([
-            'catid'=>'required',
-            'sub_cat_id'=>'required',
-            'productid'=>'required',
-            'brandid'=>'required',
-            'pattern' => 'required',
-           'sleeve' => 'required',
-           'neck' => 'required',
-           'fabric' => 'required',
-           'length' => 'required',
-           'style' => 'required',
-           'occasion' => 'required',
-           'package_contain' => 'required',
-           'product_description' => 'required',
-           'size' => 'required',
-           'quantity' => 'required',
-           'bottomtype' => 'required',
-           'mulimages'=>'required'
+        //     'catid'=>'required',
+        //     'sub_cat_id'=>'required',
+        //     'productid'=>'required',
+        //     'brandid'=>'required',
+        //     'pattern' => 'required',
+        //    'sleeve' => 'required',
+        //    'neck' => 'required',
+        //    'fabric' => 'required',
+        //    'length' => 'required',
+        //    'style' => 'required',
+        //    'occasion' => 'required',
+        //    'package_contain' => 'required',
+        //    'product_description' => 'required',
+        //    'size' => 'required',
+        //    'quantity' => 'required',
+        //    'bottomtype' => 'required',
+        //    'mulimages'=>'required'
            ]);
        
         $input=$request->all();
         $mulimages=array();
         if($files=$request->file('mulimages')){
             foreach($files as $file){
-                $name= date('YmdHis') .".".$file->getClientOriginalName();
+                $name= date('YmdHis') .".".$file->getClientOriginalExtension();
                 $file->move('mulimages',$name);
                 $mulimages[]=$name;
             }
@@ -136,7 +137,46 @@ class productdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+        
+        'pattern' => 'required',
+       'sleeve' => 'required',
+       'neck' => 'required',
+       'fabric' => 'required',
+       'length' => 'required',
+       'style' => 'required',
+       'occasion' => 'required',
+       'package_contain' => 'required',
+       'product_description' => 'required',
+       
+       'bottomtype' => 'required',
+       'mulimages'=>'required'
+        ]);
+        
+        $productsdetail =product_detail::find($id);
+        $mulimages=array();
+        if($mulimages=$request->file('mulimages')){
+            foreach($mulimages as $mulimages){
+            $destinationPath='mulimages/';
+            $profileImage=date('ymdHis').".".$mulimages->getClientOriginalExtension();
+            $mulimages->move($destinationPath,$profileImage);
+            $input['mulimages']="$profileImage";
+            }
+        }
+            $productsdetail->mulimages=$profileImage;
+            $productsdetail->pattern = $request->pattern;
+            $productsdetail->sleeve = $request->sleeve;
+            $productsdetail->neck = $request->neck;
+            $productsdetail->fabric = $request->fabric;
+            $productsdetail->length = $request->length;
+            $productsdetail->style = $request->style;
+            $productsdetail->occasion = $request->occasion;
+            $productsdetail->package_contain = $request->package_contain;
+            $productsdetail->product_description = $request->product_description;
+            $productsdetail->bottomtype = $request->bottomtype;
+            $productsdetail->save();
+            
+            return redirect()->route('product_details.index');
     }
 
     /**
@@ -145,16 +185,12 @@ class productdetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $productsdetail =product_detail::find($id);
+        $productsdetail->flag=0;
+        $productsdetail->save();
+        return redirect()->action([productdetailController::class,'index']);
     }
-    public function myformAjax($id)
-    {
-        $products = DB::table("products")
-                    ->where("product_id",$id)
-                    ->lists("name","id");
-        return json_encode($products);
-    }
-
+   
 }
