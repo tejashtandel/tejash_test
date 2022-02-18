@@ -93,28 +93,29 @@ Route::get('adminhome', function () {
 Route::get('userindex', function () {
     // $header = DB::table('headers')->get();,'header''footer',
 
-    // $footer = DB::table('footers')->get();
+    $footer = DB::table('footers')->get();
 
     $banner = DB::table('banners')->get();
     $catagory = DB::table('category')->get();
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="4"');
 
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="5"');
+WHERE category.id="17"');
 
-    $product3 = DB::select('SELECT products.image,products.product_name,products.price FROM products 
+    $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
 WHERE category.id="12"');
 
     //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 
-    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3'));
+    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3','footer'));
 });
 
 
@@ -152,27 +153,73 @@ Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects']
 
 Route::get('prod/{id}', function ($id) {
     
-    // $details = DB::select('SELECT product_details.pattern,product_details.sleeve,product_details.neck,product_details.fabric,product_details.style,product_details.occasion,product_details.length,product_details.package_contain,product_details.product_description,products.id,products.product_name,products.price FROM  product_details 
-    //  JOIN products ON  product_details.productid=products.id
-    //    WHERE products.id=product_details.productid');
+  
+$details = DB::table('products')
+    ->join('product_details', 'products.id', '=', 'product_details.productid')
+    ->join('brands', 'product_details.brandid', '=', 'brands.id')
+    ->where('products.id',$id)
+    ->get(['products.*', 'product_details.*','brands.*']);
 
-$details = product::join('product_details', 'products.id', '=', 'product_details.productid')->where('products.id',$id)->get(['products.*', 'product_details.*']);
+// $product1 = DB:table('products')
+//     ->join('category','products.catid','=','category.id')
+//     ->where('')
 
 
-    return view('User.pages.product', compact('details'));
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+JOIN subcategories ON products.sub_cat_id=subcategories.id
+JOIN category ON subcategories.catid=category.id
+WHERE category.id="4"');
+    
+ 
+    $footer = DB::table('footers')->get();
+    return view('User.pages.product', compact('details','product1','footer'));
 });
-
 Route::get('prod1/{id}', function ($id) {
     
-    // $details = DB::select('SELECT product_details.pattern,product_details.sleeve,product_details.neck,product_details.fabric,product_details.style,product_details.occasion,product_details.length,product_details.package_contain,product_details.product_description,products.id,products.product_name,products.price FROM  product_details 
-    //  JOIN products ON  product_details.productid=products.id
-    //    WHERE products.id=product_details.productid');
-
-$details = product::join('product_details', 'products.id', '=', 'product_details.productid')->where('products.id',$id)->get(['products.*', 'product_details.*']);
-
-
-    return view('User.pages.product', compact('details'));
-});
+  
+    $details = DB::table('products')
+        ->join('product_details', 'products.id', '=', 'product_details.productid')
+        ->join('brands', 'product_details.brandid', '=', 'brands.id')
+        ->where('products.id',$id)
+        ->get(['products.*', 'product_details.*','brands.*']);
+    
+    // $product1 = DB:table('products')
+    //     ->join('category','products.catid','=','category.id')
+    //     ->where('')
+    
+    
+    $footer = DB::table('footers')->get();
+        $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    JOIN subcategories ON products.sub_cat_id=subcategories.id
+    JOIN category ON subcategories.catid=category.id
+    WHERE category.id="17"');
+        
+     
+        return view('User.pages.product', compact('details','product1','footer'));
+    });
+    Route::get('prod3/{id}', function ($id) {
+    
+  
+        $details = DB::table('products')
+            ->join('product_details', 'products.id', '=', 'product_details.productid')
+            ->join('brands', 'product_details.brandid', '=', 'brands.id')
+            ->where('products.id',$id)
+            ->get(['products.*', 'product_details.*','brands.*']);
+        
+        // $product1 = DB:table('products')
+        //     ->join('category','products.catid','=','category.id')
+        //     ->where('')
+        
+    $footer = DB::table('footers')->get();
+        
+            $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+        JOIN subcategories ON products.sub_cat_id=subcategories.id
+        JOIN category ON subcategories.catid=category.id
+        WHERE category.id="12"');
+            
+         
+            return view('User.pages.product', compact('details','product1','footer'));
+        });
 
 
 Route::get('bottomwear', function () {
@@ -180,14 +227,16 @@ Route::get('bottomwear', function () {
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="12"');
-    return view('User.pages.bottomwear', compact('product3'));
+        $footer = DB::table('footers')->get();
+    return view('User.pages.bottomwear', compact('product3','footer'));
 });
 Route::get('ethicset', function () {
     $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="5"');
-    return view('User.pages.ethic', compact('product2'));
+    WHERE category.id="17"');
+        $footer = DB::table('footers')->get();
+    return view('User.pages.ethic', compact('product2','footer'));
 });
 
 Route::get('topwear', function () {
@@ -195,7 +244,8 @@ Route::get('topwear', function () {
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="4"');
-    return view('User.pages.topwear', compact('product1'));
+        $footer = DB::table('footers')->get();
+    return view('User.pages.topwear', compact('product1','footer'));
 });
 
 
@@ -253,17 +303,10 @@ Route::post('head_store', 'App\Http\Controllers\headersController@store');
 Route::put('head_edit', 'App\Http\Controllers\headerController@update');
 
 //for products
-<<<<<<< HEAD
 Route::get('products', [productController::class, 'index']);
 Route::get('create_product', 'App\Http\Controllers\ProductController@create');
 Route::post('product_store', 'App\Http\Controllers\productController@store');
-Route::resource('product', productController::class);
-=======
-Route::get('products',[productController::class,'index']); 
-Route::get('create_product','App\Http\Controllers\ProductController@create');
-Route::post('product_store','App\Http\Controllers\productController@store');
-Route::resource('products',productController::class);
->>>>>>> 11368602684ac8667dc816ed09bbcef1268c5fc1
+Route::resource('products', productController::class);
 
 //for Brands
 Route::get('brand', [brandController::class, 'index']);
@@ -273,13 +316,6 @@ Route::resource('brands', brandController::class);
 
 
 //for Product Details
-<<<<<<< HEAD
 Route::get('product_detail', [productdetailController::class, 'index']);
 Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
 Route::post('prod_store', 'App\Http\Controllers\productdetailController@store');
-=======
-Route::get('product_detail',[productdetailController::class,'index']); 
-Route::get('product_detail_create','App\Http\Controllers\productdetailController@create');
-Route::post('product_detail_store','App\Http\Controllers\productdetailController@store');
-Route::resource('product_detail',productdetailController::class); 
->>>>>>> 11368602684ac8667dc816ed09bbcef1268c5fc1

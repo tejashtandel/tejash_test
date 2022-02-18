@@ -23,20 +23,21 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="User/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('User/css/bootstrap.min.css')}}">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="User/css/style.css">
+    <link rel="stylesheet" href="{{asset('User/css/style.css')}}">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="User/css/responsive.css">
+    <link rel="stylesheet" href="{{asset('User/css/responsive.css')}}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="User/css/custom.css">
+    <link rel="stylesheet" href="{{asset('User/css/custom.css')}}">
     <!--- For Login Modal--->
-    <link rel="stylesheet" href="User/css/login.css">
+    <link rel="stylesheet" href="{{asset('User/css/login.css')}}">
     <!-- For Slider-->
-    <link rel="stylesheet" href="User/css/superslides.css">
+    <link rel="stylesheet" href="{{asset('User/css/superslides.css')}}">
     <!----My customes for Pages--->
-    <link rel="stylesheet" href="User/css/catagory.css">
-    <link rel="stylesheet" href="User/css/product.css">
+    <link rel="stylesheet" href="{{asset('User/css/catagory.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/newtry.css"')}}"/>
    
 
     <!--[if lt IE 9]>
@@ -124,7 +125,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index"><img src="User/images/logo.jpg" class="newlogo" alt=""></a>
+                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logo.jpg')}}" class="newlogo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 

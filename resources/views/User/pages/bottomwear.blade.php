@@ -49,16 +49,36 @@
                   style="list-style-type: none"
                   class="cd-filter-content cd-filters list"
                 >
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">Top Wear && Kurti</label
-                    >
-                  </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter=".check1"
+                    type="checkbox"
+                    id="checkbox1"
+                  />
+                  <label class="checkbox-label" for="checkbox1">Jeans</label
+                  >
+                </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter=".check1"
+                    type="checkbox"
+                    id="checkbox1"
+                  />
+                  <label class="checkbox-label" for="checkbox1">Plazo</label
+                  >
+                </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter=".check1"
+                    type="checkbox"
+                    id="checkbox1"
+                  />
+                  <label class="checkbox-label" for="checkbox1">Lengis</label
+                  >
+                </li>
                 </ul>
                 <!-- cd-filter-content -->
               </div>
@@ -182,7 +202,7 @@
                       alt="Image"
                       style="display: flex"
                     />
-                    <a href="{{ url('/prod',['id'=>$prod->id]) }} " class="btn add2">
+                    <a href="{{ url('/prod1',['id'=>$prod->id]) }} " class="btn add2">
                         <i class="fa-solid fa-heart"></i>
                       </a>
                     <button value="add to cart" class="add">Add to cart</button>

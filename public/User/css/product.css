@@ -17,6 +17,7 @@
     font-weight: 350;
     color:rgb(160, 152, 142);
     font-size: 19px;
+    
 
     
 }
@@ -45,8 +46,6 @@
    position: absolute;
    background-color: red;
    color: white;
-   
-
 }
 .image:hover .add{
     opacity: 1;
