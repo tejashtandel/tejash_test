@@ -257,7 +257,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('index', function () {
+    
+    if(Auth::check()){
+
+        if(Auth::user()-> role == '1' ){ 
     return view('Admin.pages/index');
+        }
+       
+        else{
+            return "You are Not  A Admin";
+        }
+    }
 });
 // Route::get('category', function () {
 //     return view('pages/category');

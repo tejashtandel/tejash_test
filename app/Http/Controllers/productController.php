@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class productController extends Controller
 {
     /**
@@ -14,6 +15,9 @@ class productController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
        // $product = DB::SELECT('SELECT products.product_name, subcategories.id, subcategories.subcategoryname,products.color,products.size,products.price,products.image FROM products JOIN subcategories ON products.sub_cat_id=subcategories.id where Products.flag="1"'); 
         //$product= DB::select('SELECT * FROM subcategories');; 
         $product = DB::table('products')
@@ -21,6 +25,13 @@ class productController extends Controller
         ->where('products.flag',1)
         ->get();
         return view('Admin.pages.product.product',compact('product'));
+        
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**
@@ -30,8 +41,18 @@ class productController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $product= DB::select('SELECT * FROM subcategories');
         return view('Admin.pages.product.create_product',compact('product'));
+        
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**
@@ -82,8 +103,18 @@ class productController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $product=product::find($id);
         return view('Admin.pages.product.edit_product',compact('product'));
+        
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
     /**
      * Update the specified resource in storage.

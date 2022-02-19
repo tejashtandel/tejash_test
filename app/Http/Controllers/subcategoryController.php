@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\subcategory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 class subcategoryController extends Controller
 {
     /**
@@ -13,13 +15,23 @@ class subcategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
+        if(Auth::check()){
+
+        if(Auth::user()-> role == '1' ){ 
+
         $subc = DB::table('subcategories')
         ->join('category', 'subcategories.catid', '=', 'category.id')
         ->select('subcategories.*', 'category.category_name')
         ->where('subcategories.flag',1)
         ->get();
         return view('Admin.pages.subcategory.subcategory',compact('subc'));
+        }
+
+        else{
+            return "You are Not  A Admin";
+        }
+     }
     }
 
     /**
@@ -29,8 +41,19 @@ class subcategoryController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
+    
+    
         $subc =DB::table('category')->select('id','category_name')->get();
         return view('Admin.pages.subcategory.create_subcategory',compact('subc'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
@@ -71,8 +94,19 @@ class subcategoryController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
+    
+    
         $subcategory=subcategory::find($id);
         return view('Admin.pages.subcategory.edit_subcategory',compact('subcategory'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
@@ -103,9 +137,12 @@ class subcategoryController extends Controller
      */
     public function destroy($id)
     {
+      
+    
         $subcategory=subcategory::find($id);
         $subcategory->flag=0;
          $subcategory->save();
          return redirect()->action([subcategoryController::class,'index']);
+         
     }
 }

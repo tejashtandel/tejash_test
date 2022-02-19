@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\banner;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class bannerController extends Controller
 {
     /**
@@ -15,8 +16,17 @@ class bannerController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){
         $bann= DB::table('banners')->select('id','banner_image','description')->where('flag',1)->get(); 
         return view('Admin.pages.banners.banners',compact('bann'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
@@ -26,7 +36,16 @@ class bannerController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){
         return view('Admin.pages.banners.create_banners');
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
@@ -74,8 +93,17 @@ class bannerController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){
         $banner=banner::find($id);
         return view('Admin.pages.banners.edit_banner',compact('banner'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**

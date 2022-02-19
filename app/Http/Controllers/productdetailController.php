@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product_detail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class productdetailController extends Controller
 {
     /**
@@ -13,8 +14,14 @@ class productdetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        $proddetails =DB::table('product_details')
+
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){  
+    
+         $proddetails =DB::table('product_details')
         ->join('category','product_details.catid','=','category.id')
         ->join('subcategories','product_details.sub_cat_id','=','subcategories.id')
         ->join('products','product_details.productid','=','products.id')
@@ -23,6 +30,14 @@ class productdetailController extends Controller
         ->where('product_details.flag',1)
         ->get();
         return view('Admin.pages.product_details.product_details',compact('proddetails'));
+        
+
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
         
     }
 
@@ -33,11 +48,27 @@ class productdetailController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
+    
+    
+    
+    
+    
         $brand = DB::select('SELECT * FROM brands');
         $proddetails= DB::select('SELECT * FROM products');
         $subc=DB::select('SELECT * FROM category');
         $product= DB::select('SELECT * FROM subcategories');
         return view('Admin.pages.product_details.create_product_details', compact('product', 'brand','subc','proddetails'));
+        
+
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**
@@ -124,8 +155,24 @@ class productdetailController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
+    
+    
+    
+    
+    
         $productsdetail=product_detail::find($id);
         return view('Admin.pages.product_details.edit_product_details',compact('productsdetail'));
+        
+
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**

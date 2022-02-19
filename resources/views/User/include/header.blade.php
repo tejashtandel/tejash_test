@@ -20,6 +20,13 @@
     <link rel="apple-touch-icon" href="User/images/apple-touch-icon.png">
     <!--My Custom Css-->
     <link rel="stylesheet" href="User/css/custommy.css">
+    <link rel="stylesheet" href="{{asset('User/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/baguetteBox.min.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/bootsnav.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/carousel-ticker.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/code_animate.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/jquery-ui.css')}}">
+
 
 
     <!-- Bootstrap CSS -->
@@ -35,9 +42,9 @@
     <!-- For Slider-->
     <link rel="stylesheet" href="{{asset('User/css/superslides.css')}}">
     <!----My customes for Pages--->
-    <link rel="stylesheet" href="{{asset('User/css/catagory.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/newtry.css')}}"/>
+
     <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
-    <link rel="stylesheet" href="{{asset('User/css/newtry.css"')}}"/>
    
 
     <!--[if lt IE 9]>
@@ -125,7 +132,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logo.jpg')}}" class="newlogo" alt=""></a>
+                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logo2.jpg')}}" class="newlogo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 

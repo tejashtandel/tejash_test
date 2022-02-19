@@ -160,11 +160,19 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
           <!-- <div class="img">
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
-          <div>
-            <button type="button" class="btn btn-primary my-2">
-              <i class="fa-solid fa-cart-shopping"><span> Add To Cart</span></i>
-            </button>
-          </div>
+              @auth
+              @if (Auth::check())
+                         <div> 
+                           <button type="button" class="btn btn-primary my-2">Add to Cart</button>
+                         </div>
+                         <div>  
+                       @else
+                            <div> 
+                           <button type="button" class="btn btn-primary my-2" disabled>Add to Cart</button>
+                         </div>
+                         <div>
+                       @endif 
+           @endauth
           <hr>
          
             <h5 class="mainheading">Product details</h5>

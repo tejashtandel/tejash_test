@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+{{-- <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,182 +21,131 @@
     <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
     <link rel="stylesheet" href="User/css/newtry.css" />
     <title>Document</title>
-  </head>
+  </head> --}}
 
-  <body>
+@include('User.include.header')
+
+<body>
     <div class="container-fluid">
-      <nav class="breadcrumb" aria-label="breadcrumb">
-        <ol class="breadcrumb" id="try">
-          <li class="breadcrumb-item"><a href="#">HOME</a></li>
-          <li class="breadcrumb-item"><a href="#">ETHIC SET</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Product</li>
-        </ol>
-      </nav>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <ol class="breadcrumb" id="try">
+                <li class="breadcrumb-item"><a href="#">HOME</a></li>
+                <li class="breadcrumb-item"><a href="#">ETHIC SET</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product</li>
+            </ol>
+        </nav>
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card">
-            <div id="cheking">
-              <h6 ><button id="clr" class="btn btn-primary" onclick="clrfields()">Clear All</button></h6>
-              <hr />
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div id="cheking">
+                        <h6><button id="clr" class="btn btn-primary" onclick="clrfields()">Clear All</button></h6>
+                        <hr />
 
-              <div class="cd-filter-block">
-                <h4 class="catagory">Catagory</h4>
+                        <div class="cd-filter-block">
+                            <h4 class="catagory">Catagory</h4>
 
-                <ul
-                  style="list-style-type: none"
-                  class="cd-filter-content cd-filters list"
-                >
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">Top Wear && Kurti</label
-                    >
-                  </li>
-                </ul>
-                <!-- cd-filter-content -->
-              </div>
-              <hr />
-              <div class="cd-filter-block">
-                <h4 class="catagory">Size</h4>
+                            <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">Top Wear && Kurti</label>
+                                </li>
+                            </ul>
+                            <!-- cd-filter-content -->
+                        </div>
+                        <hr />
+                        <div class="cd-filter-block">
+                            <h4 class="catagory">Size</h4>
 
-                <ul
-                  style="list-style-type: none"
-                  class="cd-filter-content cd-filters list"
-                >
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">Small</label>
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">Medium</label>
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">Large</label>
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">XL</label>
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1">XXL</label>
-                  </li>
-                </ul>
-                <!-- cd-filter-content -->
-              </div>
-              <hr />
-              <div class="cd-filter-block">
-                <h4 class="catagory">Price</h4>
+                            <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">Small</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">Medium</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">Large</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">XL</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">XXL</label>
+                                </li>
+                            </ul>
+                            <!-- cd-filter-content -->
+                        </div>
+                        <hr />
+                        <div class="cd-filter-block">
+                            <h4 class="catagory">Price</h4>
 
-                <ul
-                  style="list-style-type: none"
-                  class="cd-filter-content cd-filters list"
-                >
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1"
-                      >Below 500</label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1"
-                      >500 - 1000</label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      class="filter"
-                      data-filter=".check1"
-                      type="checkbox"
-                      id="checkbox1"
-                    />
-                    <label class="checkbox-label" for="checkbox1"
-                      >1000 above</label
-                    >
-                  </li>
-                </ul>
-                <!-- cd-filter-content -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="row">
-            <img class="img" id="banner" src="User/images/banner.png" />
-          </div>
-          <div class="row sameproduct">
-            @foreach( $product1 as $prod)
-            <div class="col-lg-4 col-md-6 col-sm-12">
-               
-              <div class="wholecard">
-                <div class="box-img">
-                  <div class="type-lb">
-                    <img
-                      src="User/product/{{$prod-> image}}" 
-                      class="img-fluid"
-                      alt="Image"
-                      style="display: flex"
-                    />
-                    <a href="{{ url('/prod',['id'=>$prod->id]) }} " class="btn add2">
-                      <i class="fa-solid fa-heart"></i>
-                    </a>
-                    <button value="add to cart" class="add">Add to cart</button>
-                  </div>
-                  <div class="why-text">
-                    <h5 class="productdetails">NAME:{{ $prod-> product_name}}</h5>
-                    <h5 class="productdetails">Price:{{ $prod-> price}}</h5>
-                  </div>
+                            <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">Below 500</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">500 - 1000</label>
+                                </li>
+                                <li>
+                                    <input class="filter" data-filter=".check1" type="checkbox"
+                                        id="checkbox1" />
+                                    <label class="checkbox-label" for="checkbox1">1000 above</label>
+                                </li>
+                            </ul>
+                            <!-- cd-filter-content -->
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
             </div>
-            @endforeach
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-8">
+                <div class="row">
+                    <img class="img" id="banner" src="User/images/banner.png" />
+                </div>
+                <div class="row sameproduct">
+                    @foreach ($product1 as $prod)
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="product">
+                                <div class="wholecard">
+                                    <div class="box-img">
+                                        <div class="type-lb">
+                                            <img src="User/product/{{ $prod->image }}" class="img-fluid"
+                                                alt="Image" style="display: flex" />
+                                            <a href="{{ url('/prod', ['id' => $prod->id]) }} " class="btn add2">
+                                                <i class="fa-solid fa-heart"></i>
+                                            </a>
+                                            <button value="add to cart" class="add">Add to cart</button>
+                                        </div>
+                                        <div calss="details">
+                                        <div class="why-text">
+                                            <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
+                                            <h5 class="productdetails">Price:{{ $prod->price }}</h5>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -219,7 +168,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -242,7 +191,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -265,7 +214,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -288,7 +237,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -311,7 +260,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -334,7 +283,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -357,7 +306,7 @@
                 </div>
               </div>
             </div> --}}
-            {{-- <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -380,41 +329,41 @@
                 </div>
               </div>
             </div> --}}
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <!-- <script>
-      $(".cd-filter-block h4").on("click", function () {
-        $(this)
-          .toggleClass("closed")
-          .siblings(".cd-filter-content")
-          .slideToggle(300);
-      });
+    <script>
+        $(".cd-filter-block h4").on("click", function() {
+            $(this)
+                .toggleClass("closed")
+                .siblings(".cd-filter-content")
+                .slideToggle(300);
+        });
     </script> -->
     <script>
-      function clrfields() {
-        document.getElementById("checkbox1").value = "";
-      }
-      //  let bntclr = document.getElementById('#clr');
-      //   let inputs = document.querySelectorAll('input');
+        function clrfields() {
+            document.getElementById("checkbox1").value = "";
+        }
+        //  let bntclr = document.getElementById('#clr');
+        //   let inputs = document.querySelectorAll('input');
 
-      //   btnclr.addEventListener('click',() => {
-      //       inputs.forEach( input => 'input.value' = '');
+        //   btnclr.addEventListener('click',() => {
+        //       inputs.forEach( input => 'input.value' = '');
 
-      //     });
+        //     });
     </script>
     <script>
-      $(document).ready(function() {
-         
-         $("#clr").click(function(){
-         $(":checkbox").prop("checked", false);
-         
-         });
-         
-       
-         
-         });
+        $(document).ready(function() {
+
+            $("#clr").click(function() {
+                $(":checkbox").prop("checked", false);
+
+            });
+
+
+
+        });
     </script>
-  </body>
-</html>
+
+    @include('User.include.footer')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\category;
+use Illuminate\Support\Facades\Auth;
 class categoryController extends Controller
 {
     /**
@@ -14,10 +15,21 @@ class categoryController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
        $cat = DB::table('category')->select('id','category_name','size','type')->where('flag',1)->get(); 
        
            // $data['students'] = students::orderBy('id','desc')->paginate(5);
         return view('Admin.pages.category.category',compact('cat'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**
@@ -27,7 +39,18 @@ class categoryController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         return view('Admin.pages.category.create_category');
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**
@@ -70,9 +93,20 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
      
          $category=category::find($id);
         return view('Admin.pages.category.edit_category',compact('category'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**

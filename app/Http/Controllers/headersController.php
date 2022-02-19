@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\headers;
 use Illuminate\Support\Facades\DB;
+
 class headersController extends Controller
 {
     /**
@@ -14,8 +16,20 @@ class headersController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
+        
         $head= DB::table('headers')->select('id','header_name')->where('flag',1)->get(); 
          return view('Admin.pages.header.headers',compact('head'));
+         
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
+      
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +38,17 @@ class headersController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         return view('Admin.pages.header.create_headers');
+        
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**
@@ -64,8 +88,18 @@ class headersController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $header=headers::find($id);
         return view('Admin.pages.header.edit_headers',compact('header'));
+        
+  }
+
+  else{
+      return "You are Not  A Admin";
+  }
+}
     }
 
     /**
