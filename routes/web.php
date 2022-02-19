@@ -225,20 +225,22 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 //for category
 // Route::POST('index','App\Http\Controllers\categoryController@index');
-Route::get('demo', 'App\Http\Controllers\categoryController@create');
-Route::POST('store', 'App\Http\Controllers\categoryController@store');
+//Route::get('demo', 'App\Http\Controllers\categoryController@create');
+//Route::POST('store', 'App\Http\Controllers\categoryController@store');
 Route::resource('category', categoryController::class);
 
 //for sub category
 Route::resource('subcategory', subcategoryController::class);
-Route::get('sub_cate_create', 'App\Http\Controllers\subcategoryController@create');
-Route::post('sub_cate_store', 'App\Http\Controllers\subcategoryController@store');
+//Route::get('sub_cate_create', 'App\Http\Controllers\subcategoryController@create');
+//Route::post('sub_cate_store', 'App\Http\Controllers\subcategoryController@store');
+
+//Authentication
 Auth::routes();
 
 //for banners
 Route::resource('banners', bannerController::class);
-Route::get('banner_create', 'App\Http\Controllers\bannerController@create');
-Route::post('banner_store', 'App\Http\Controllers\bannerController@store');
+// Route::get('banner_create', 'App\Http\Controllers\bannerController@create');
+// Route::post('banner_store', 'App\Http\Controllers\bannerController@store');
 
 
 //for footer
@@ -246,26 +248,26 @@ Route::resource('footers', footerController::class);
 //Route::get('footer_create','App\Http\Controllers\footerController@create');
 //Route::post('footer_store','App\Http\Controllers\footerController@store');
 Route::resource('header', headersController::class);
-Route::get('headers', [headersController::class, 'index']);
-Route::get('head_create', 'App\Http\Controllers\headersController@create');
-Route::post('head_store', 'App\Http\Controllers\headersController@store');
-Route::put('head_edit', 'App\Http\Controllers\headerController@update');
+// Route::get('headers', [headersController::class, 'index']);
+// Route::get('head_create', 'App\Http\Controllers\headersController@create');
+// Route::post('head_store', 'App\Http\Controllers\headersController@store');
+// Route::put('head_edit', 'App\Http\Controllers\headerController@update');
 
 //for products
- Route::get('products', [productController::class, 'index']);
-Route::get('create_product', 'App\Http\Controllers\ProductController@create');
-Route::post('product_store', 'App\Http\Controllers\productController@store');
+ //Route::get('products', [productController::class, 'index']);
+//Route::get('create_product', 'App\Http\Controllers\ProductController@create');
+//Route::post('product_store', 'App\Http\Controllers\productController@store');
 Route::resource('products', productController::class);
 
 //for Brands
-Route::get('brand', [brandController::class, 'index']);
-Route::get('brand_create', 'App\Http\Controllers\brandController@create');
-Route::post('brand_store', 'App\Http\Controllers\brandController@store');
-Route::resource('brands', brandController::class);
+//Route::get('brand', [brandController::class, 'index']);
+//Route::get('brand_create', 'App\Http\Controllers\brandController@create');
+//Route::post('brand_store', 'App\Http\Controllers\brandController@store');
+Route::resource('brand', brandController::class);
 
 
 //for Product Details
-Route::get('product_detail', [productdetailController::class, 'index']);
-Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
-Route::post('product_detail_store', 'App\Http\Controllers\productdetailController@store');
-Route::resource('product_details',productdetailController::class);
+//Route::get('product_detail', [productdetailController::class, 'index']);
+//Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
+//Route::post('product_detail_store', 'App\Http\Controllers\productdetailController@store');
+Route::resource('product_detail',productdetailController::class);

@@ -5,8 +5,18 @@
 
     <div class="section__content section__content--p30">
         <div class="container-fluid">
+            @if(Session::has('success'))
+            <div class="alert alert-success text-center">
+                {{Session::get('success')}}
+            </div>
+            @endif
+            @if(Session::has('error'))
+            <div class="alert alert-danger text-center">
+                {{Session::get('error')}}
+            </div>
+            @endif
             <div class="row">
-                <a href="{{url('product_detail_create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product Details</a>
+                <a href="{{route('product_detail.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product Details</a>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -45,7 +55,7 @@
                             <td>{{$proddetail->size}}</td>
                             <td>{{$proddetail->quantity}}</td>
                             <td>{{$proddetail->bottomtype}}</td>
-                        
+
                             <td>
                                 <?php
                                 $images = explode('|', $proddetail->mulimages);
@@ -56,12 +66,12 @@
                                 ?>
                             </td>
                             <td>
-                            <form action="{{route('product_details.destroy',$proddetail->id)}}" method="Post">
-                                    <a class="btn btn-primary" href="{{route('product_details.edit',$proddetail->id)}}">Edit</a>
+                                <form action="{{route('product_detail.destroy',$proddetail->id)}}" method="Post">
+                                    <a class="btn btn-primary" href="{{route('product_detail.edit',$proddetail->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                </form> 
+                                </form>
 
                             </td>
                             </td>

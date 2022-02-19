@@ -42,7 +42,8 @@ class headersController extends Controller
            $head->header_name= $request->header_name;
           
            $head->save();
-           return redirect()->action([headersController::class,'index']);
+           return redirect()->route('header.index')->with('success','Header Added successfully.');
+          // return redirect()->action([headersController::class,'index']);
     }
 
     /**
@@ -84,7 +85,8 @@ class headersController extends Controller
             $header= headers::find($id);
             $header-> header_name= $request->header_name;
             $header->save();
-            return redirect()->action([headersController::class,'index']);
+            return redirect()->route('header.index')->with('success','Header Updated successfully.');
+            //return redirect()->action([headersController::class,'index']);
     }
 
     /**
@@ -98,6 +100,7 @@ class headersController extends Controller
         $header= headers::find($id);
         $header->flag=0;
         $header->save();
-        return redirect()->action([headersController::class,'index']);
+        // return redirect()->action([headersController::class,'index']);
+        return redirect()->route('header.index')->with('error','Header Deleted successfully.');
     }
 }

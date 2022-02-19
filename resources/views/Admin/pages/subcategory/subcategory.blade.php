@@ -5,7 +5,17 @@
 
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            <a href="{{url('sub_cate_create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Sub Category</a>
+            @if(Session::has('success'))
+            <div class="alert alert-success text-center">
+                {{Session::get('success')}}
+            </div>
+            @endif
+            @if(Session::has('error'))
+            <div class="alert alert-danger text-center">
+                {{Session::get('error')}}
+            </div>
+            @endif
+            <a href="{{route('subcategory.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Sub Category</a>
             <div class="row">
 
                 <table class="table table-bordered" id="myTable">
@@ -18,20 +28,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($subc as $sub)
+                        @foreach($subc as $sub)
                         <tr>
 
-                           
+
                             <td> {{ $sub->category_name}}</td>
                             <td>{{$sub->subcategoryname}}</td>
-                          
+
                             <td>
                                 <form action="{{route('subcategory.destroy',$sub->id)}}" method="Post">
                                     <a class="btn btn-primary" href="{{route('subcategory.edit',$sub->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                </form> 
+                                </form>
                             </td>
 
                         </tr>

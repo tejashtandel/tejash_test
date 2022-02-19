@@ -8,7 +8,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                <form action="{{url('sub_cate_store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{route('subcategory.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <h2>Add SubCategory</h2>

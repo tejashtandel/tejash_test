@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
 
-                <form action="{{route('brands.update',$brand->id)}}" method="Post" enctype="multipart/form-data">
+                <form action="{{route('brand.update',$brand->id)}}" method="Post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">

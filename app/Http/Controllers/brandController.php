@@ -14,7 +14,7 @@ class brandController extends Controller
      */
     public function index()
     {
-        $brand= DB::table('brands')->select('id','brand_name')->get(); 
+        $brand= DB::table('brands')->select('id','brand_name')->where('flag',1)->get(); 
         return view('Admin.pages.brand.brand',compact('brand'));
     }
 
@@ -37,13 +37,14 @@ class brandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           // 'brand_name' => 'required',
+            'brand_name' => 'required|alpha',
             ]);
            
             $brand =new brand;
             $brand->brand_name= $request->brand_name;
             $brand->save();
-            return redirect()->action([brandController::class,'index']);
+           // return redirect()->action([brandController::class,'index']);
+           return redirect()->route('brand.index')->with('success','Brand Added successfully.');
     }
 
     /**
@@ -86,8 +87,9 @@ class brandController extends Controller
             $brand->brand_name = $request->brand_name;
           
             $brand->save();
-            
-            return redirect()->action([brandController::class,'index']);
+            return redirect()->route('brand.index')->with('success','Brand Updated successfully.');
+           // return redirect()->action([brandController::class,'index']);
+           
     }
 
     /**
@@ -96,9 +98,12 @@ class brandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $brand=brand::find($id)->delete();
-        return redirect()->action([brandController::class,'index']);
+        $brand=brand::find($id);
+        $brand->flag=0;
+        $brand->save();
+       // return redirect()->action([brandController::class,'index']);
+       return redirect()->route('brand.index')->with('error','Brand Deleted successfully.');
     }
 }

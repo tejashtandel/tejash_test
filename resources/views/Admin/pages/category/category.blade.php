@@ -5,9 +5,20 @@
 
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            <a href="{{url('demo') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
-            <div class="row">
+        @if(Session::has('success'))
+                        <div class="alert alert-success text-center">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
 
+                        @if(Session::has('error'))
+                        <div class="alert alert-danger text-center">
+                            {{Session::get('error')}}
+                        </div>
+                        @endif
+            <a href="{{route('category.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
+            <div class="row">
+         
                 <table class="table table-bordered" id="myTable">
 
                     <thead>

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <h1>Edit Product details</h1>
-                <form action="{{route('product_details.update',$productsdetail->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('product_detail.update',$productsdetail->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">

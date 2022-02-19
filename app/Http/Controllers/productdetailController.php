@@ -50,23 +50,23 @@ class productdetailController extends Controller
     {
         
         $request->validate([
-        //     'catid'=>'required',
-        //     'sub_cat_id'=>'required',
-        //     'productid'=>'required',
-        //     'brandid'=>'required',
-        //     'pattern' => 'required',
-        //    'sleeve' => 'required',
-        //    'neck' => 'required',
-        //    'fabric' => 'required',
-        //    'length' => 'required',
-        //    'style' => 'required',
-        //    'occasion' => 'required',
-        //    'package_contain' => 'required',
-        //    'product_description' => 'required',
-        //    'size' => 'required',
-        //    'quantity' => 'required',
-        //    'bottomtype' => 'required',
-        //    'mulimages'=>'required'
+            'catid'=>'required',
+            'sub_cat_id'=>'required',
+            'productid'=>'required',
+            'brandid'=>'required',
+            'pattern' => 'required|Alpha',
+           'sleeve' => 'required|Alpha',
+           'neck' => 'required|Alpha',
+           'fabric' => 'required|Alpha',
+           'length' => 'required|Alpha',
+           'style' => 'required|Alpha',
+           'occasion' => 'required|Alpha',
+           'package_contain' => 'required|integer',
+           'product_description' => 'required|Alpha',
+           'size' => 'required',
+           'quantity' => 'required',
+           'bottomtype' => 'required|Alpha',
+           'mulimages'=>'required|image|mimes:jpeg,png,jpg,gif,svg'
            ]);
        
         $input=$request->all();
@@ -102,7 +102,8 @@ class productdetailController extends Controller
         ]);
 
         // return redirect()->route('product.create')->with('success', 'Product Details created Successfully');
-           return redirect()->action([productdetailController::class,'index']);
+         //  return redirect()->action([productdetailController::class,'index']);
+         return redirect()->route('product_detail.index')->with('success','Products Details Added successfully.');
     }
 
     /**
@@ -175,8 +176,8 @@ class productdetailController extends Controller
             $productsdetail->product_description = $request->product_description;
             $productsdetail->bottomtype = $request->bottomtype;
             $productsdetail->save();
-            
-            return redirect()->route('product_details.index');
+            return redirect()->route('product_detail.index')->with('success','Products Details Updated successfully.');
+           // return redirect()->route('product_detail.index');
     }
 
     /**
@@ -190,7 +191,8 @@ class productdetailController extends Controller
         $productsdetail =product_detail::find($id);
         $productsdetail->flag=0;
         $productsdetail->save();
-        return redirect()->action([productdetailController::class,'index']);
+        //return redirect()->action([productdetailController::class,'index']);
+        return redirect()->route('product_detail.index')->with('error','Products Details Deleted successfully.');
     }
    
 }

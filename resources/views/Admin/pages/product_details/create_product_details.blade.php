@@ -8,7 +8,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                <form action="{{url('product_detail_store') }}" method="Post" enctype="multipart/form-data">
+                <form action="{{route('product_detail.store') }}" method="Post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <h2>Add Product Details</h2>

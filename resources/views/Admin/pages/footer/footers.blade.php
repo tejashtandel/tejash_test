@@ -6,6 +6,16 @@
         <div class="section__content section__content--p30">
        
             <div class="container-fluid">
+            @if(Session::has('success'))
+                        <div class="alert alert-success text-center">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
+                        @if(Session::has('error'))
+                        <div class="alert alert-danger text-center">
+                            {{Session::get('error')}}
+                        </div>
+                        @endif
             <a href="{{route('footers.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add footer</a>
                 <div class="row">
                     <table class="table table-bordered" id="myTable">

@@ -4,7 +4,17 @@
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
-            <a href="{{url('brand_create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
+            @if(Session::has('success'))
+                        <div class="alert alert-success text-center">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
+                        @if(Session::has('error'))
+                        <div class="alert alert-danger text-center">
+                            {{Session::get('error')}}
+                        </div>
+                        @endif
+            <a href="{{route('brand.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
                 <div class="row">
              
                     <table class="table table-bordered" id="myTable">
@@ -22,8 +32,8 @@
                                  <td>{{$brd->brand_name}}</td>
                                 
                                  <td>
-                                 <form action="{{route('brands.destroy',$brd->id)}}" method="Post">
-                                            <a class="btn btn-primary"  href="{{route('brands.edit',$brd->id)}}">Edit</a>
+                                 <form action="{{route('brand.destroy',$brd->id)}}" method="Post">
+                                            <a class="btn btn-primary"  href="{{route('brand.edit',$brd->id)}}">Edit</a>
                                                         @csrf
                                                             @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>

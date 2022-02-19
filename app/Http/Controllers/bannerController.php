@@ -39,7 +39,7 @@ class bannerController extends Controller
     {
         $request->validate([
             'banner_image' => 'required',
-           'description' => 'required|max:10',
+           'description' => 'required',
             ]);
            
             $input=$request->all();
@@ -50,9 +50,10 @@ class bannerController extends Controller
                 $input['banner_image'] ="$profileImage";
             }
             
-          
            banner::create($input);
-           return redirect()->action([bannerController::class,'index']);
+           return redirect()->route('banners.index')->with('success','Banners Added successfully.');
+           //return redirect()->action([bannerController::class,'index']);
+           
     }
 
     /**
@@ -102,8 +103,8 @@ class bannerController extends Controller
             $banner->description = $request->description;
            
             $banner->save();
-            
-            return redirect()->route('banners.index');
+            return redirect()->route('banners.index')->with('success','Banners Updated successfully.');
+            // return redirect()->route('banners.index');
 
     }
     
@@ -119,6 +120,7 @@ class bannerController extends Controller
         $banner =banner::find($id);
         $banner->flag=0;
         $banner->save();
-        return redirect()->route('banners.index');
+        //return redirect()->route('banners.index');
+        return redirect()->route('banners.index')->with('success','Banners Deleted  successfully.');
     }
 }

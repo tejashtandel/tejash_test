@@ -40,7 +40,7 @@ class footerController extends Controller
         $request->validate([
             'about' => 'required',
            'address' => 'required',
-           'phone' => 'required',
+           'phone' => 'required|digits',
            'email' => 'required'
            ]);
            $foot =new footer;
@@ -49,7 +49,8 @@ class footerController extends Controller
            $foot->phone= $request->phone;
            $foot->email= $request->email;
            $foot->save();
-           return redirect()->action([footerController::class,'index']);
+           return redirect()->route('footers.index')->with('success','Footer Added successfully.');
+         //  return redirect()->action([footerController::class,'index']);
     }
 
     /**
@@ -98,7 +99,8 @@ class footerController extends Controller
             $footer->phone = $request->phone;
             $footer->email=$request->email;
             $footer->save();
-            return redirect()->action([footerController::class,'index']);
+            return redirect()->route('footers.index')->with('success','Footer Updated successfully.');
+           // return redirect()->action([footerController::class,'index']);
     }
 
     /**

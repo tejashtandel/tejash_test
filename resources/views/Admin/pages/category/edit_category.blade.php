@@ -1,9 +1,15 @@
 @include('Admin.include.header')
 <div class="main-content">
     <div class="section__content section__content--p30">
+    @if(Session::has('success'))
+                        <div class="alert alert-success text-center">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
         <div class="container">
             <div class="row">
-
+              
+               
                 <form action="{{route('category.update',$category->id)}}" method="Post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

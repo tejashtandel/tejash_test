@@ -39,16 +39,17 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'category_name' => 'required|alpha',
-          'size' => 'required|alpha',
-          'type' => 'required|alpha',
+          'category_name' => 'required|Alpha',
+          'size' => 'required|Alpha',
+          'type' => 'required|Alpha'
            ]);
            $cat =new category;
            $cat->category_name= $request->category_name;
            $cat->size = $request->size;
            $cat->type= $request->type;
            $cat->save();
-           return redirect()->action([categoryController::class,'index']);
+          // return redirect()->action([categoryController::class,'index']);
+          return redirect()->route('category.index')->with('success','category created successfully.');
     }
 
     /**
@@ -85,7 +86,7 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category_name'=>'required',
+            'category_name'=>'required|alpha',
             'size' => 'required',
             'type' => 'required',
             ]);
@@ -95,7 +96,8 @@ class categoryController extends Controller
             $category->size = $request->size;
             $category->type = $request->type;
             $category->save();
-            return redirect()->action([categoryController::class,'index']);
+          //  return back()->with('success','Category Updated Successfully');
+          return redirect()->route('category.index')->with('success','Category Updated successfully.');
     }
 
     /**
@@ -109,7 +111,6 @@ class categoryController extends Controller
         $category= category::find($id);
         $category-> flag= 0;
         $category->save();
-        return redirect()->action([categoryController::class,'index']);
-            
+        return redirect()->route('category.index')->with('error','Category Deleted successfully.');
     }
 }

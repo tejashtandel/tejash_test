@@ -8,7 +8,7 @@
                                     {{ session('status') }}
                                     </div>
                                     @endif
-                                    <form action="{{ url('head_store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('header.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                     <h2>Add Header</h2>

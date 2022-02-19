@@ -43,13 +43,15 @@ class subcategoryController extends Controller
     {
         $request->validate([
             'catid' => 'required',
-           'subcategoryname' => 'required'
+           'subcategoryname' => 'required|Alpha'
            ]);
            $subc =new subcategory;
           $subc->catid= $request->catid;
            $subc->subcategoryname= $request->subcategoryname;
            $subc->save();
-         return redirect()->action([subcategoryController::class,'index']);
+        // return redirect()->action([subcategoryController::class,'index']);
+       // return back()->with('success','SubCategory Created Successfully');
+       return redirect()->route('subcategory.index')->with('success','SubCategory Added successfully.');
     }
 
     /**
@@ -90,9 +92,11 @@ class subcategoryController extends Controller
             ]);
             
             $subcategory=subcategory::find($id);
-            $subcategory->subcategoryname= $request->subcategoryname;
+            $subcategory->subcategoryname=$request->subcategoryname;
             $subcategory->save();
-            return redirect()->action([subcategoryController::class,'index']);
+          //  return redirect()->action([subcategoryController::class,'index']);
+           // return back()->with('success','subCategory Updated Successfully');
+           return redirect()->route('subcategory.index')->with('success','SubCategory Updated successfully.');
     }
 
     /**
@@ -106,6 +110,8 @@ class subcategoryController extends Controller
         $subcategory=subcategory::find($id);
         $subcategory->flag=0;
          $subcategory->save();
-         return redirect()->action([subcategoryController::class,'index']);
+        // return redirect()->action([subcategoryController::class,'index']);
+        //return back()->with('success','subCategory updated Successfully');
+        return redirect()->route('product_detail.index')->with('error','SubCategory Deleted successfully.');
     }
 }

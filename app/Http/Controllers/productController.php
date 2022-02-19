@@ -44,12 +44,12 @@ class productController extends Controller
     {
         
         $request->validate([
-        //     'sub_cat_id'=>'required',
-        //     'product_name' => 'required',
-        //     'size'=>'required',
-        //     'color'=>'required',
-        //    'price' => 'required',
-        //    'image'=>'required'
+            'sub_cat_id'=>'required',
+            'product_name' => 'required|Alpha',
+            'size'=>'required|Alpha',
+            'color'=>'required|Alpha',
+           'price' => 'required|integer',
+           'image'=>'required'
             ]);
            
             $input=$request->all();
@@ -60,7 +60,8 @@ class productController extends Controller
                 $input['image'] ="$profileImage";
             }
             product::create($input);
-           return redirect()->action([productController::class,'index']);
+          // return redirect()->action([productController::class,'index']);
+          return redirect()->route('products.index')->with('success','Products Added successfully.');
     }
 
     /**
@@ -118,8 +119,8 @@ class productController extends Controller
                 unset($input['image']);
             }
           $product->update($input);
-        
-          return redirect()->action([productController::class,'index']);
+          return redirect()->route('products.index')->with('success','Products Updated successfully.');
+        //  return redirect()->action([productController::class,'index']);
     }
     /**
      * Remove the specified resource from storage.
@@ -132,6 +133,7 @@ class productController extends Controller
         $product=product::find($id);
         $product->flag=0;
         $product->save();
-        return redirect()->action([productController::class,'index']);
+       // return redirect()->action([productController::class,'index']);
+       return redirect()->route('products.index')->with('error','Products Delete successfully.');
     }
 }

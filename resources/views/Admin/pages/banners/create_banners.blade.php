@@ -9,7 +9,7 @@
                                     {{ session('status') }}
                                     </div>
                                     @endif
-                                    <form action="{{url('banner_store') }}" method="POST"  enctype="multipart/form-data">
+                                    <form action="{{route('banners.store') }}" method="POST"  enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                     <h2>Add Banners</h2>
