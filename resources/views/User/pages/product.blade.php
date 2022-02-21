@@ -76,44 +76,32 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="card">
             <div class="w3-content">
-              <img class="mySlides" src="User/images/CT1.jpg" style="display: none" />
-              <img class="mySlides" src="User/product/CT2.jpg" />
-              <img class="mySlides" src="User/images/ct9.jpeg" style="display: none" />
-              <img class="mySlides" src="User/images/ct8.jpeg" style="display: none" />
-
+              <img class="mySlides" src="{{ asset('User/product/' . $det->image) }}"  />
+              {{-- <img class="mySlides" src="{{ asset('User/product/' . $det->image) }}"   />
+              <img class="mySlides" src="{{ asset('User/product/' . $det->image) }}"  />
+              <img class="mySlides" src="{{ asset('User/product/' . $det->image) }}"  />
+            --}}
               <div class="flex row w3-section">
-                <div class="col-lg-3 col-sm-3 col-md-3 col-3 small-img-col">
-                  <img
-                    class="demo w3-opacity w3-hover-opacity-off"
-                    src="User/images/CT1.jpg"
-                    style="cursor: pointer"
-                    onclick="currentDiv(1)"
-                  />
-                </div>
-                <div class="col-lg-3 col-sm-3 col-md-3  col-3 small-img-col">
-                  <img
-                    class="demo w3-opacity w3-hover-opacity-off"
-                    src="User/images/CT2.jpg"
-                    style="cursor: pointer"
-                    onclick="currentDiv(2)"
-                  />
-                </div>
-                <div class="col-lg-3 col-sm-3 col-md-3  col-3 small-img-col">
-                  <img
-                    class="demo w3-opacity w3-hover-opacity-off"
-                    src="User/images/ct9.jpeg"
-                    style="cursor: pointer"
-                    onclick="currentDiv(3)"
-                  />
-                </div>
-                <div class="col-lg-3 col-sm-3 col-md-3 col-3 small-img-col">
-                  <img
-                    class="demo w3-opacity w3-hover-opacity-off"
-                    src="User/images/ct8.jpeg"
-                    style="cursor: pointer"
-                    onclick="currentDiv(4)"
-                  />
-                </div>
+              
+               
+                  
+                  
+                  <?php
+                  $images = explode('|', $det->mulimages);
+                  foreach ($images as $image) {  ?>
+                   
+                   <div class="col-lg-3 col-sm-3 col-md-3 col-3 small-img-col">
+                      <img src="{{asset('mulimages/'.$image)}}" alt="Product images" class="demo w3-opacity w3-hover-opacity-off"
+                      style="cursor: pointer"
+                      onclick="currentDiv()">
+                    </div>
+                 
+                      <?php
+                     
+                  }
+                  ?>
+                  
+                
               </div>
             </div>
           </div>
@@ -172,31 +160,97 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
           <!-- <div class="img">
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
-          <div>
-            <button type="button" class="btn btn-primary my-2">
-              <i class="fa-solid fa-cart-shopping"><span> Add To Cart</span></i>
-            </button>
-          </div>
-          <div>
+              @auth
+              @if (Auth::check())
+                         <div> 
+                           <button type="button" class="btn btn-primary my-2">Add to Cart</button>
+                         </div>
+                         <div>  
+                       @else
+                            <div> 
+                           <button type="button" class="btn btn-primary my-2" disabled>Add to Cart</button>
+                         </div>
+                         <div>
+                       @endif 
+           @endauth
+          <hr>
+         
             <h5 class="mainheading">Product details</h5>
             <ul class="details">
-              <li class="main">{{$det->pattern}}</li>
-              <li>{{$det->sleeve}}</li>
-              <li>{{$det->neck}}</li>
-              <li>{{$det->fabric}}</li>
-              <li>{{$det->length}}</li>
-              <li>{{$det->style}}</li>
-              <li>{{$det->occasion}}</li>
-              <li>{{$det->package_contain}}</li>
+              <table>
+              <tr>
+                <td>Pattern:</td>
+                <td></td>
+                <td>{{$det->pattern}}</td>
+              </tr>
+           
+              <tr>
+                <td>Sleeve:</td>
+                <td></td>
+                <td>{{$det->sleeve}}</td>
+              </tr>
+              <tr>
+                <td>Neck Type:</td>
+                <td></td>
+                <td>{{$det->neck}}</td>
+              </tr>
+              <tr>
+                <td>Fabric type:</td>
+                <td></td>
+                <td>{{$det->fabric}}</td>
+              </tr>
+              <tr>
+                <td>Length:</td>
+                <td></td>
+                <td>{{$det->length}}</td>
+              </tr>
+              <tr>
+                <td>Style:</td>
+                <td></td>
+                <td>{{$det->style}}</td>
+              </tr>
+              <tr>
+                <td>Occasion:</td>
+                <td></td>
+                <td>{{$det->occasion}}</td>
+              </tr>
+              <tr>
+                <td>Package Contain :</td>
+                <td></td>
+                <td>{{$det->package_contain}} product</td>
+              </tr>
+             
+            </table>
+    
+              {{-- <li class="main">Pattern:<span>{{$det->pattern}}</span></li>
+              <li>Sleeve:<span>{{$det->sleeve}}</span></li>
+              <li>Neck Type:<span>{{$det->neck}}</span></li>
+              <li>Fabric type:<span>{{$det->fabric}}</span></li>
+              <li>Length:<span>{{$det->length}}</span></li>
+              <li>Style:<span>{{$det->style}}</span></li>
+              <li>Occasion:<span>{{$det->occasion}}</span></li>
+              <li>Package Contain :<span>{{$det->package_contain}} product</li> --}}
             </ul>
             <hr />
             <h5 class="mainheading">Brand</h5>
-            <li class="details">Brand Name</li>
+           <ul class="details">
+              <table>
+                <tr>
+                  <td>{{ $det-> brand_name}}
+                  </td>
+                </tr>
+              </table>
+           </ul>
             <hr />
             <h5 class="mainheading">Product Description</h5>
-            <p class="details">
-            {{ $det->product_description}}
-            </p>
+            <ul class="details">
+              <table>
+                <tr>
+                  <td>{{ $det-> product_description}}
+                  </td>
+                </tr>
+              </table>
+           </ul>
             <ul class="pay">
               <li>Cash on detivery</li>
               <li>Free detivery</li>
@@ -220,8 +274,8 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 
     <div class="container-fluid owl">
       <div class="owl-carousel owl-theme">
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/ct7.jpeg" /> <button value="stsraf" class="add2">
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/ct7.jpeg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -229,10 +283,10 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
           <h4 class="image">
-            <img src="User/images/ct8.jpeg" />
+            <img src="{{asset('User/images/ct8.jpeg')}}" />
             <button value="stsraf" class="add2">
               <i class="fa-solid fa-heart"></i>
             </button><button value="add to cart" class="add">
@@ -241,9 +295,9 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
           </h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/CT1.jpg" /> <button value="stsraf" class="add2">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/CT1.jpg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -251,9 +305,9 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/CT2.jpg" /> <button value="stsraf" class="add2">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/CT2.jpg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -261,9 +315,9 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/ct9.jpeg" /> <button value="stsraf" class="add2">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/ct9.jpeg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -271,9 +325,9 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/CT3.jpg" /> <button value="stsraf" class="add2">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/CT3.jpg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -281,9 +335,9 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
-        <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/CT4.jpg" /> <button value="stsraf" class="add2">
+        </div> --}}
+        {{-- <div class="item img-thumbnail">
+          <h4 class="image"><img src="{{asset('User/images/CT4.jpg')}}" /> <button value="stsraf" class="add2">
             <i class="fa-solid fa-heart"></i>
           </button><button value="add to cart" class="add">
             Add to cart
@@ -291,17 +345,20 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
         </h4></h4>
           <h4>Name:</h4>
           <h4>Price</h4>
-        </div>
+        </div> --}}
+        @foreach( $product1 as $prod)
         <div class="item img-thumbnail">
-          <h4 class="image"><img src="User/images/CT6.jpg" /> <button value="stsraf" class="add2">
+          <h4 class="image"><img src="{{ asset('User/product/' . $prod->image) }}" />
+             <a href="{{ url('/prod',['id'=>$prod->id]) }} " class="btn add2">
             <i class="fa-solid fa-heart"></i>
-          </button><button value="add to cart" class="add">
+             </a><button value="add to cart" class="add">
             Add to cart
           </button>
         </h4>
-          <h4>Name:</h4>
-          <h4>Price</h4>
+          <h4>Name: {{ $prod->product_name}}</h4>
+          <h4>Price {{ $prod-> price}}</h4>
         </div>
+        @endforeach
       </div>
     </div>
     <script

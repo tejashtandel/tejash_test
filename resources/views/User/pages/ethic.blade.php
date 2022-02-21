@@ -56,7 +56,27 @@
                       type="checkbox"
                       id="checkbox1"
                     />
-                    <label class="checkbox-label" for="checkbox1">Top Wear && Kurti</label
+                    <label class="checkbox-label" for="checkbox1">Jeans</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      class="filter"
+                      data-filter=".check1"
+                      type="checkbox"
+                      id="checkbox1"
+                    />
+                    <label class="checkbox-label" for="checkbox1">Plazo</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      class="filter"
+                      data-filter=".check1"
+                      type="checkbox"
+                      id="checkbox1"
+                    />
+                    <label class="checkbox-label" for="checkbox1">Lengis</label
                     >
                   </li>
                 </ul>
@@ -183,7 +203,7 @@
                       style="display: flex"
                     />
 
-                    <a href="{{ url('/prod',['id'=>$prod->id]) }} " class="btn add2">
+                    <a href="{{ url('/prod3',['id'=>$prod->id]) }} " class="btn add2">
                         <i class="fa-solid fa-heart"></i>
                       </a>
                     <button value="add to cart" class="add">Add to cart</button>

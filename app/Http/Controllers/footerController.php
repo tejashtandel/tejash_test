@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\footer;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class footerController extends Controller
 {
@@ -15,8 +16,19 @@ class footerController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $footer= DB::table('footers')->select('id','about','address','phone','email')->get(); 
         return view('Admin.pages.footer.footers',compact('footer'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**
@@ -26,7 +38,18 @@ class footerController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         return view('Admin.pages.footer.create_footer');
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**
@@ -72,8 +95,19 @@ class footerController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $footer=footer::find($id);
         return view('Admin.pages.footer.edit_footer',compact('footer'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+
+
     }
 
     /**

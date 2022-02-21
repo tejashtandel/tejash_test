@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\brand;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class brandController extends Controller
 {
     /**
@@ -18,6 +19,12 @@ class brandController extends Controller
         return view('Admin.pages.brand.brand',compact('brand'));
     }
 
+    else{
+        return "You are Not  A Admin";
+    }
+ }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +32,16 @@ class brandController extends Controller
      */
     public function create()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         return view('Admin.pages.brand.create_brand');
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
@@ -66,8 +82,17 @@ class brandController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $brand=brand::find($id);
         return view('Admin.pages.brand.edit_brand',compact('brand'));
+    }
+
+    else{
+        return "You are Not  A Admin";
+    }
+ }
     }
 
     /**
