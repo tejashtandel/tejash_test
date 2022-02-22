@@ -39,7 +39,7 @@
         <div class="col-lg-4">
           <div class="card">
             <div id="cheking">
-              <h6 ><button id="clr" class="btn btn-primary" onclick="clrfields()">Clear All</button></h6>
+              <h6 ><button id="clr" class="btn btn-primary">Clear All</button></h6>
               <hr />
 
               <div class="cd-filter-block" id="first">
@@ -57,7 +57,7 @@
                       type="checkbox"
                       id="checkbox"
                     />
-                    <label class="checkbox-label" id="jean">Jeans</label
+                    <label class="checkbox-label" id="jean">JEANS</label
                     >
                   </li>
                   <li>
@@ -68,7 +68,7 @@
                       type="checkbox"
                       id="checkbox"
                     />
-                    <label class="checkbox-label" for="plazo">Plazo</label
+                    <label class="checkbox-label" id="plazo">Plazo</label
                     >
                   </li>
                   <li>
@@ -77,16 +77,16 @@
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="lengis"
+                      id=""
                     />
-                    <label class="checkbox-label" for="lengis">Lengis</label
+                    <label class="checkbox-label" id="lengis">Lengis</label
                     >
                   </li>
                 </ul>
                 <!-- cd-filter-content -->
               </div>
               <hr />
-              <div class="cd-filter-block">
+              <div class="cd-filter-block" id="size">
                 <h4 class="catagory">Size</h4>
 
                 <ul
@@ -99,9 +99,9 @@
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="small"
+                      id=""
                     />
-                    <label class="checkbox-label" for="small">Small</label>
+                    <label class="checkbox-label" id="small">Small</label>
                   </li>
                   <li>
                     <input
@@ -109,9 +109,9 @@
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="medium"
+                      id=""
                     />
-                    <label class="checkbox-label" for="medium">Medium</label>
+                    <label class="checkbox-label" id="medium">Medium</label>
                   </li>
                   <li>
                     <input
@@ -121,7 +121,7 @@
                       type="checkbox"
                       id="large"
                     />
-                    <label class="checkbox-label" for="large">Large</label>
+                    <label class="checkbox-label" id="large">Large</label>
                   </li>
                   <li>
                     <input
@@ -131,7 +131,7 @@
                       type="checkbox"
                       id="xl"
                     />
-                    <label class="checkbox-label" for="xl">XL</label>
+                    <label class="checkbox-label" id="xl">XL</label>
                   </li>
                   <li>
                     <input
@@ -141,13 +141,13 @@
                       type="checkbox"
                       id="xxl"
                     />
-                    <label class="checkbox-label" for="xxl">XXL</label>
+                    <label class="checkbox-label" id="xxl">XXL</label>
                   </li>
                 </ul>
                 <!-- cd-filter-content -->
               </div>
               <hr />
-              <div class="cd-filter-block">
+              <div class="cd-filter-block" id="price">
                 <h4 class="catagory">Price</h4>
 
                 <ul
@@ -156,37 +156,37 @@
                 >
                   <li>
                     <input
-                    name="cat"  
+                    name="below500"  
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
                       id="500"
                     />
-                    <label class="checkbox-label" for="checkbox1"
+                    <label class="checkbox-label" id="below500"
                       >Below 500</label
                     >
                   </li>
                   <li>
                     <input
-                    name="cat"  
+                    name="morethan500"  
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
                       id="501"
                     />
-                    <label class="checkbox-label" for="checkbox1"
+                    <label class="checkbox-label" id="morethan500"
                       >500 - 1000</label
                     >
                   </li>
                   <li>
                     <input
-                    name="cat"  
+                    name="above1000"  
                     class="filter"
                       data-filter=".check1"
                       type="checkbox"
                       id="1000"
                     />
-                    <label class="checkbox-label" for="checkbox1"
+                    <label class="checkbox-label" id="above1000"
                       >1000 above</label
                     >
                   </li>
@@ -220,14 +220,16 @@
                     <button value="add to cart" class="add">Add to cart</button>
                   </div>
                   <div class="why-text">
-                    <h5 class="productdetails">NAME:{{ $prod-> product_name}}</h5>
+                    <h5 class="productdetails" id="productname">NAME:{{ $prod-> product_name}}</h5>
                     <h5 class="productdetails">Price:{{ $prod-> price}}</h5>
+                    {{-- <h5 class="productdetails" id="subcategory">subcategory</h5> --}}
                   </div>
                 </div>
               </div>
               
             </div>
             @endforeach
+            <h5 class="productdetails" id="subcategory">jeans</h5>
             {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
@@ -425,48 +427,7 @@
       });
     </script> -->
     
-    <script>
-      $(document).ready(function() {
-         
-         $("#clr").click(function(){
-         $(":checkbox").prop("checked", false);
-         
-         });
-         
-       
-         
-         });
-    </script>
-    <script>
-      var wrapper = document.getElementById('first');
-wrapper.addEventListener("click", function (evt) {
-    var elem = evt.target;
-    if (elem.name==="jeans") {
-      // let c = document.getElementById('jeans').label;
-      let c = document.getElementById("jean").innerHTML;
-  
-       
-    }
-// $("#jeans").is(':checked', function(){
-//               // $("#jeans").attr('value', 'true');
-//               console.log("jenas");
-//           });
-
-//           $("#plazo").is(':checked', function(){
-//               $("plazo").attr('value', 'true');
-//           });
-//           $("#lengis").is(':checked', function(){
-//               $("#lengis").attr('value', 'true');
-//           });
-
-
-});
-    
-    //input element where you put value
-    // $("#isClicked").val("Yes");
-    // console.log($("#isClicked").val());              
-  
-</script>
+    <script src="{{asset('User/js/my.js')}}"></script>
 
   </body>
 </html>

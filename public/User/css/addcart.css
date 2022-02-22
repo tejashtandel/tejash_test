@@ -1,0 +1,42 @@
+/* body{
+    background-image: url("bg1.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    backdrop-filter: blur(10px);
+ 
+  
+} */
+
+
+/* 
+.container{
+
+    margin-top: 150px;
+} */
+.details img{
+    width: 150px;
+}
+.details td{
+text-align: center;
+}
+.details th{
+    text-align: center;
+    }
+.card table{
+        border-color: red;
+        border-style: solid;
+    }
+.carddetails h1{
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.pricedetails h2{
+
+    font-size: larger;
+    font-weight: 55px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -254,6 +254,13 @@ Route::get('topwear', function () {
 });
 Route::resource('userdetails', userinfoController::class);
 
+
+Route::resource('userdetails', userdetailController::class);
+Route::resource('userdetails/{userdetail}/$id',userdetailController::class);
+
+Route::resource('cart', cartController::class);
+
+
 ///------------------------------------------------------------------------------------------------------/////
 ////For Admin Routes
 

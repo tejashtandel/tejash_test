@@ -13,7 +13,7 @@ class cartController extends Controller
      */
     public function index()
     {
-        //
+     
     }
 
     /**

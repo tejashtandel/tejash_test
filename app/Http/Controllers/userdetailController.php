@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 class userdetailController extends Controller
 {
@@ -59,7 +60,8 @@ class userdetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users= DB::table('users')->get();
+        return view('User.pages.userdetails',compact('users'));
     }
 
     /**
@@ -71,7 +73,20 @@ class userdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+       
+
+
+        $user=User::find($id);
+    
+        $input=$request->all();
+
+        $user->update($input);
+        // d($input);
+        // exidt();
+        
+
+        return redirect()->route('userdetails.edit', ['userdetail' => Auth::user()->id])->with('success', 'Updated Successfully');
     }
 
     /**

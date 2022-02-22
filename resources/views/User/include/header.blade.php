@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="{{asset('User/css/newtry.css')}}"/>
 
     <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
-  
+    <link rel="stylesheet" href="{{asset('User/css/addcart.css')}}">
 
    
 
@@ -195,7 +195,7 @@
                 <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu"><a href="#">
+                        <li class=""><a href="{{route('cart.index')}}">
                                 <i class="fa fa-shopping-bag"></i>
                                 <span class="badge">3</span>
                             </a></li>
