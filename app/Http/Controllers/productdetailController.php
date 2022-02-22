@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\product_detail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 class productdetailController extends Controller
 {
     /**
@@ -17,28 +18,23 @@ class productdetailController extends Controller
 
     {
 
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){  
-    
-         $proddetails =DB::table('product_details')
-        ->join('category','product_details.catid','=','category.id')
-        ->join('subcategories','product_details.sub_cat_id','=','subcategories.id')
-        ->join('products','product_details.productid','=','products.id')
-        ->join('brands','product_details.brandid','=','brands.id')
-        ->select('product_details.*','category.category_name','subcategories.subcategoryname','products.product_name')
-        ->where('product_details.flag',1)
-        ->get();
-        return view('Admin.pages.product_details.product_details',compact('proddetails'));
-        
+            if (Auth::user()->role == '1') {
 
-  }
-
-  else{
-      return "You are Not  A Admin";
-  }
-}
-        
+                $proddetails = DB::table('product_details')
+                    ->join('category', 'product_details.catid', '=', 'category.id')
+                    ->join('subcategories', 'product_details.sub_cat_id', '=', 'subcategories.id')
+                    ->join('products', 'product_details.productid', '=', 'products.id')
+                    ->join('brands', 'product_details.brandid', '=', 'brands.id')
+                    ->select('product_details.*', 'category.category_name', 'subcategories.subcategoryname', 'products.product_name')
+                    ->where('product_details.flag', 1)
+                    ->get();
+                return view('Admin.pages.product_details.product_details', compact('proddetails'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -48,27 +44,18 @@ class productdetailController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-    
-    
-    
-    
-    
-        $brand = DB::select('SELECT * FROM brands');
-        $proddetails= DB::select('SELECT * FROM products');
-        $subc=DB::select('SELECT * FROM category');
-        $product= DB::select('SELECT * FROM subcategories');
-        return view('Admin.pages.product_details.create_product_details', compact('product', 'brand','subc','proddetails'));
-        
-
-  }
-
-  else{
-      return "You are Not  A Admin";
-  }
-}
+            if (Auth::user()->role == '1') {
+                $brand = DB::select('SELECT * FROM brands');
+                $proddetails = DB::select('SELECT * FROM products');
+                $subc = DB::select('SELECT * FROM category');
+                $product = DB::select('SELECT * FROM subcategories');
+                return view('Admin.pages.product_details.create_product_details', compact('product', 'brand', 'subc', 'proddetails'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -79,62 +66,65 @@ class productdetailController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
-            'catid'=>'required',
-            'sub_cat_id'=>'required',
-            'productid'=>'required',
-            'brandid'=>'required',
-            'pattern' => 'required|Alpha',
-           'sleeve' => 'required|Alpha',
-           'neck' => 'required|Alpha',
-           'fabric' => 'required|Alpha',
-           'length' => 'required|Alpha',
-           'style' => 'required|Alpha',
-           'occasion' => 'required|Alpha',
-           'package_contain' => 'required|integer',
-           'product_description' => 'required|Alpha',
-           'size' => 'required',
-           'quantity' => 'required',
-           'bottomtype' => 'required|Alpha',
-           'mulimages'=>'required|image|mimes:jpeg,png,jpg,gif,svg'
-           ]);
-       
-        $input=$request->all();
-        $mulimages=array();
-        if($files=$request->file('mulimages')){
-            foreach($files as $file){
-                $name= date('YmdHis') .".".$file->getClientOriginalExtension();
-                $file->move('mulimages',$name);
-                $mulimages[]=$name;
+            'catid' => 'required',
+            'sub_cat_id' => 'required',
+            'productid' => 'required',
+            'brandid' => 'required',
+            'pattern' => 'required|regex:/^[\pL\s\-]+$/u',
+            'sleeve' => 'required|regex:/^[\pL\s\-]+$/u',
+            'neck' => 'required|regex:/^[\pL\s\-]+$/u',
+            'fabric' => 'required|regex:/^[\pL\s\-]+$/u',
+            'length' => 'required|regex:/^[\pL\s\-]+$/u',
+            'style' => 'required|regex:/^[\pL\s\-]+$/u',
+            'occasion' => 'required|regex:/^[\pL\s\-]+$/u',
+            'package_contain' => 'required|integer',
+            'product_description' => 'required|regex:/^[\pL\s\-]+$/u',
+            'size' => 'required',
+            'quantity' => 'required',
+            'bottomtype' => 'required|regex:/^[\pL\s\-]+$/u',
+            'mulimages' => 'required'
+        ]);
+
+        $input = $request->all();
+        $mulimages = array();
+        if($files = $request->file('mulimages')) {
+            foreach ($files as $file) {
+                $destinationPath='mulimages';
+                $name = date('YmdHis') . "." . $file->getClientOriginalName();
+                $file->move($destinationPath, $name);
+                $mulimages[] = $name;
             }
         }
+        print_r($input);
+        exit();
         /*Insert your data*/
-    
-        product_detail::insert( [
-          
-            'catid' =>$input['catid'],
-            'sub_cat_id'=>$input['sub_cat_id'],
-            'productid'=>$input['productid'],
-            'brandid'=>$input['brandid'],
-            'pattern'=>$input['pattern'],
-            'sleeve'=>$input['sleeve'],
-            'neck'=>$input['neck'],
-            'fabric'=>$input['fabric'],
-            'length'=>$input['length'],
-            'style'=>$input['style'],
-            'occasion'=>$input['occasion'],
-            'package_contain'=>$input['package_contain'],
-            'product_description'=>$input['product_description'],
-            'size'=>$input['size'],
-            'quantity'=>$input['quantity'],
-            'bottomtype'=>$input['bottomtype'],
-            'mulimages'=>  implode("|",$mulimages),
+
+        product_detail::insert([
+
+            'catid' => $input['catid'],
+            'sub_cat_id' => $input['sub_cat_id'],
+            'productid' => $input['productid'],
+            'brandid' => $input['brandid'],
+            'pattern' => $input['pattern'],
+            'sleeve' => $input['sleeve'],
+            'neck' => $input['neck'],
+            'fabric' => $input['fabric'],
+            'length' => $input['length'],
+            'style' => $input['style'],
+            'occasion' => $input['occasion'],
+            'package_contain' => $input['package_contain'],
+            'product_description' => $input['product_description'],
+            'size' => $input['size'],
+            'quantity' => $input['quantity'],
+            'bottomtype' => $input['bottomtype'],
+            'mulimages' =>  implode("|", $mulimages),
         ]);
 
         // return redirect()->route('product.create')->with('success', 'Product Details created Successfully');
-         //  return redirect()->action([productdetailController::class,'index']);
-         return redirect()->route('product_detail.index')->with('success','Products Details Added successfully.');
+        //  return redirect()->action([productdetailController::class,'index']);
+        return redirect()->route('product_detail.index')->with('success', 'Products Details Added successfully.');
     }
 
     /**
@@ -156,24 +146,15 @@ class productdetailController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-    
-    
-    
-    
-    
-        $productsdetail=product_detail::find($id);
-        return view('Admin.pages.product_details.edit_product_details',compact('productsdetail'));
-        
-
-  }
-
-  else{
-      return "You are Not  A Admin";
-  }
-}
+            if (Auth::user()->role == '1') {
+                $productsdetail = product_detail::find($id);
+                return view('Admin.pages.product_details.edit_product_details', compact('productsdetail'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -186,45 +167,43 @@ class productdetailController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-        
-        'pattern' => 'required',
-       'sleeve' => 'required',
-       'neck' => 'required',
-       'fabric' => 'required',
-       'length' => 'required',
-       'style' => 'required',
-       'occasion' => 'required',
-       'package_contain' => 'required',
-       'product_description' => 'required',
-       
-       'bottomtype' => 'required',
-       'mulimages'=>'required'
+            'pattern' => 'required',
+            'sleeve' => 'required',
+            'neck' => 'required',
+            'fabric' => 'required',
+            'length' => 'required',
+            'style' => 'required',
+            'occasion' => 'required',
+            'package_contain' => 'required',
+            'product_description' => 'required',
+            'bottomtype' => 'required',
+            'mulimages' => 'required'
         ]);
-        
-        $productsdetail =product_detail::find($id);
-        $mulimages=array();
-        if($mulimages=$request->file('mulimages')){
-            foreach($mulimages as $mulimages){
-            $destinationPath='mulimages/';
-            $profileImage=date('ymdHis').".".$mulimages->getClientOriginalExtension();
-            $mulimages->move($destinationPath,$profileImage);
-            $input['mulimages']="$profileImage";
+
+        $productsdetail = product_detail::find($id);
+        $mulimages= array();
+        if ($mulimages= $request->file('mulimages')) {
+            foreach ($mulimages as $mulimages) {
+                $destinationPath = 'mulimages/';
+                $profileImage = date('ymdHis') . "." . $mulimages->getClientOriginalExtension();
+                $mulimages->move($destinationPath, $profileImage);
+                $input['mulimages'] = "$profileImage";
             }
         }
-            $productsdetail->mulimages=$profileImage;
-            $productsdetail->pattern = $request->pattern;
-            $productsdetail->sleeve = $request->sleeve;
-            $productsdetail->neck = $request->neck;
-            $productsdetail->fabric = $request->fabric;
-            $productsdetail->length = $request->length;
-            $productsdetail->style = $request->style;
-            $productsdetail->occasion = $request->occasion;
-            $productsdetail->package_contain = $request->package_contain;
-            $productsdetail->product_description = $request->product_description;
-            $productsdetail->bottomtype = $request->bottomtype;
-            $productsdetail->save();
-            return redirect()->route('product_detail.index')->with('success','Products Details Updated successfully.');
-           // return redirect()->route('product_detail.index');
+        $productsdetail->mulimages = $profileImage;
+        $productsdetail->pattern = $request->pattern;
+        $productsdetail->sleeve = $request->sleeve;
+        $productsdetail->neck = $request->neck;
+        $productsdetail->fabric = $request->fabric;
+        $productsdetail->length = $request->length;
+        $productsdetail->style = $request->style;
+        $productsdetail->occasion = $request->occasion;
+        $productsdetail->package_contain = $request->package_contain;
+        $productsdetail->product_description = $request->product_description;
+        $productsdetail->bottomtype = $request->bottomtype;
+        $productsdetail->save();
+        return redirect()->route('product_detail.index')->with('success', 'Products Details Updated successfully.');
+        // return redirect()->route('product_detail.index');
     }
 
     /**
@@ -233,13 +212,12 @@ class productdetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $productsdetail =product_detail::find($id);
-        $productsdetail->flag=0;
+        $productsdetail = product_detail::find($id);
+        $productsdetail->flag = 0;
         $productsdetail->save();
         //return redirect()->action([productdetailController::class,'index']);
-        return redirect()->route('product_detail.index')->with('error','Products Details Deleted successfully.');
+        return redirect()->route('product_detail.index')->with('error', 'Products Details Deleted successfully.');
     }
-   
 }

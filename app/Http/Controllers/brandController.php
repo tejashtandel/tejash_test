@@ -15,6 +15,9 @@ class brandController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+
+            if(Auth::user()-> role == '1' ){ 
         $brand= DB::table('brands')->select('id','brand_name')->where('flag',1)->get(); 
         return view('Admin.pages.brand.brand',compact('brand'));
     }
@@ -53,7 +56,7 @@ class brandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'brand_name' => 'required|alpha',
+            'brand_name' => 'required|regex:/^[\pL\s\-]+$/u',
             ]);
            
             $brand =new brand;

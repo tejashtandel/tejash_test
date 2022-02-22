@@ -13,23 +13,29 @@
                                     @csrf
                                     <div class="row">
                                     <h2>Add Footer</h2>
-
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                @if($errors->any())
+                                {!! implode('', $errors->all('<div class="alert alert-danger mt-1 mb-1">:message</div>')) !!}
+                                @endif
+                            </div>
+                        </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                     <strong>About:</strong>
                                     <input type="text" name="about" class="form-control" placeholder="Enter About">
-                                    @error('about')
+                                    <!-- @error('about')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
+                                    @enderror -->
                                     </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                     <strong>Address:</strong>
                                     <input type="textarea" name="address" class="form-control" placeholder="Enter Address">
-                                    @error('address')
+                                    <!-- @error('address')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
+                                    @enderror -->
                                     </div>
                                     </div>
 
@@ -37,9 +43,9 @@
                                     <div class="form-group">
                                     <strong>Phone Number:</strong>
                                     <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number">
-                                    @error('phone')
+                                    <!-- @error('phone')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
+                                    @enderror -->
                                     </div>
                                     </div>
                                     
@@ -47,9 +53,9 @@
                                     <div class="form-group">
                                     <strong>Email:</strong>
                                     <input type="email" name="email" class="form-control" placeholder="Enter Email">
-                                    @error('email')
+                                    <!-- @error('email')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                    @enderror
+                                    @enderror -->
                                     </div>
                                     </div>
 

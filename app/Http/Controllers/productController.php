@@ -66,9 +66,9 @@ class productController extends Controller
         
         $request->validate([
             'sub_cat_id'=>'required',
-            'product_name' => 'required|Alpha',
-            'size'=>'required|Alpha',
-            'color'=>'required|Alpha',
+            'product_name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'size'=>'required|regex:/^[\pL\s\-]+$/u',
+            'color'=>'required|regex:/^[\pL\s\-]+$/u',
            'price' => 'required|integer',
            'image'=>'required'
             ]);

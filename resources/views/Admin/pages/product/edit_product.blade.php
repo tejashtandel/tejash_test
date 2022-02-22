@@ -8,6 +8,14 @@
                          @csrf
                          @method('PUT')
                          <div class="row">
+                              <h1>Edit Products</h1>
+                              <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                @if($errors->any())
+                                {!! implode('', $errors->all('<div class="alert alert-danger mt-1 mb-1">:message</div>')) !!}
+                                @endif
+                            </div>
+                        </div>
                                <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="form-group">
                                    <strong>Product Name:</strong>

@@ -12,7 +12,13 @@
                     @csrf
                     <div class="row">
                         <h2>Add SubCategory</h2>
-
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                @if($errors->any())
+                                {!! implode('', $errors->all('<div class="alert alert-danger mt-1 mb-1">:message</div>')) !!}
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
@@ -28,9 +34,9 @@
                             <div class="form-group">
                                 <strong>SubCategory Name:</strong>
                                 <input type="text" name="subcategoryname" class="form-control" placeholder="Enter Category Name">
-                                @error('subcategoryname')
+                                <!-- @error('subcategoryname')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
-                                @enderror
+                                @enderror -->
                             </div>
                         </div>
 

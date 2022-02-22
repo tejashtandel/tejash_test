@@ -62,9 +62,9 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'category_name' => 'required|Alpha',
-          'size' => 'required|Alpha',
-          'type' => 'required|Alpha'
+          'category_name' => 'required|regex:/^[\pL\s\-]+$/u',
+          'size' => 'required|regex:/^[\pL\s\-]+$/u',
+          'type' => 'required|regex:/^[\pL\s\-]+$/u'
            ]);
            $cat =new category;
            $cat->category_name= $request->category_name;
