@@ -42,7 +42,7 @@
               <h6 ><button id="clr" class="btn btn-primary" onclick="clrfields()">Clear All</button></h6>
               <hr />
 
-              <div class="cd-filter-block">
+              <div class="cd-filter-block" id="first">
                 <h4 class="catagory">Catagory</h4>
 
                 <ul
@@ -51,32 +51,35 @@
                 >
                   <li>
                     <input
-                      class="filter"
+                    name="jeans"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="checkbox"
                     />
-                    <label class="checkbox-label" for="checkbox1">Jeans</label
+                    <label class="checkbox-label" id="jean">Jeans</label
                     >
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="plazo"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="checkbox"
                     />
-                    <label class="checkbox-label" for="checkbox1">Plazo</label
+                    <label class="checkbox-label" for="plazo">Plazo</label
                     >
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="lengis"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="lengis"
                     />
-                    <label class="checkbox-label" for="checkbox1">Lengis</label
+                    <label class="checkbox-label" for="lengis">Lengis</label
                     >
                   </li>
                 </ul>
@@ -92,48 +95,53 @@
                 >
                   <li>
                     <input
-                      class="filter"
+                    name="small"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="small"
                     />
-                    <label class="checkbox-label" for="checkbox1">Small</label>
+                    <label class="checkbox-label" for="small">Small</label>
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="medium"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="medium"
                     />
-                    <label class="checkbox-label" for="checkbox1">Medium</label>
+                    <label class="checkbox-label" for="medium">Medium</label>
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="large"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="large"
                     />
-                    <label class="checkbox-label" for="checkbox1">Large</label>
+                    <label class="checkbox-label" for="large">Large</label>
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="xl"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="xl"
                     />
-                    <label class="checkbox-label" for="checkbox1">XL</label>
+                    <label class="checkbox-label" for="xl">XL</label>
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="xxl"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="xxl"
                     />
-                    <label class="checkbox-label" for="checkbox1">XXL</label>
+                    <label class="checkbox-label" for="xxl">XXL</label>
                   </li>
                 </ul>
                 <!-- cd-filter-content -->
@@ -148,10 +156,11 @@
                 >
                   <li>
                     <input
-                      class="filter"
+                    name="cat"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="500"
                     />
                     <label class="checkbox-label" for="checkbox1"
                       >Below 500</label
@@ -159,10 +168,11 @@
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="cat"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="501"
                     />
                     <label class="checkbox-label" for="checkbox1"
                       >500 - 1000</label
@@ -170,10 +180,11 @@
                   </li>
                   <li>
                     <input
-                      class="filter"
+                    name="cat"  
+                    class="filter"
                       data-filter=".check1"
                       type="checkbox"
-                      id="checkbox1"
+                      id="1000"
                     />
                     <label class="checkbox-label" for="checkbox1"
                       >1000 above</label
@@ -413,18 +424,7 @@
           .slideToggle(300);
       });
     </script> -->
-    <script>
-      function clrfields() {
-        document.getElementById("checkbox1").value = "";
-      }
-      //  let bntclr = document.getElementById('#clr');
-      //   let inputs = document.querySelectorAll('input');
-
-      //   btnclr.addEventListener('click',() => {
-      //       inputs.forEach( input => 'input.value' = '');
-
-      //     });
-    </script>
+    
     <script>
       $(document).ready(function() {
          
@@ -437,5 +437,36 @@
          
          });
     </script>
+    <script>
+      var wrapper = document.getElementById('first');
+wrapper.addEventListener("click", function (evt) {
+    var elem = evt.target;
+    if (elem.name==="jeans") {
+      // let c = document.getElementById('jeans').label;
+      let c = document.getElementById("jean").innerHTML;
+  
+       
+    }
+// $("#jeans").is(':checked', function(){
+//               // $("#jeans").attr('value', 'true');
+//               console.log("jenas");
+//           });
+
+//           $("#plazo").is(':checked', function(){
+//               $("plazo").attr('value', 'true');
+//           });
+//           $("#lengis").is(':checked', function(){
+//               $("#lengis").attr('value', 'true');
+//           });
+
+
+});
+    
+    //input element where you put value
+    // $("#isClicked").val("Yes");
+    // console.log($("#isClicked").val());              
+  
+</script>
+
   </body>
 </html>

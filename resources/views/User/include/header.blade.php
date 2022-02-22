@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="{{asset('User/css/newtry.css')}}"/>
 
     <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
+  
+
    
 
     <!--[if lt IE 9]>

@@ -161,7 +161,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
               @auth
-              @if (Auth::check())
+              @if (Auth::check() && Auth::user()-> role == '0')
                          <div> 
                            <button type="button" class="btn btn-primary my-2">Add to Cart</button>
                          </div>

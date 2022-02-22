@@ -101,10 +101,10 @@
                     <div class="special-menu text-center">
                         <div class="button-group filter-button-group">
                             <button class="active" data-filter="*">ALL</button>
-                            <button  data-filter=".topwear">Top Wear</button>
+                           <button  data-filter=".topwear">Top Wear</button>
                             <button  data-filter=".ethicset">Ethic Set</button>
                             <button data-filter=".bottomwear">Bottom Wear</button>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>

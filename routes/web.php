@@ -46,7 +46,7 @@ Route::get('about', function () {
 });
 
 Route::get('cart', function () {
-    return view('User.pages/cart');
+    return view('User.pages/cart1');
 });
 
 Route::get('checkout', function () {
@@ -193,12 +193,13 @@ Route::get('prod1/{id}', function ($id) {
         $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="17"');
+    WHERE category.id="12"');
         
      
         return view('User.pages.product', compact('details','product1','footer'));
     });
-    Route::get('prod3/{id}', function ($id) {
+
+Route::get('prod3/{id}', function ($id) {
     
   
         $details = DB::table('products')
@@ -216,7 +217,7 @@ Route::get('prod1/{id}', function ($id) {
             $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
-        WHERE category.id="12"');
+        WHERE category.id="17"');
             
          
             return view('User.pages.product', compact('details','product1','footer'));
