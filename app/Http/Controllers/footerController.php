@@ -61,10 +61,10 @@ class footerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'about' => 'required',
-           'address' => 'required',
-           'phone' => 'required|digits',
-           'email' => 'required'
+            'about' => 'required|regex:/^[\pL\s\-]+$/u',
+           'address' => 'required|regex:/^[\pL\s\-]+$/u',
+           'phone' => 'required|integer',
+           'email' => 'required|email'
            ]);
            $foot =new footer;
            $foot->about= $request->about;

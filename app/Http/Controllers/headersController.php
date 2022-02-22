@@ -60,7 +60,7 @@ class headersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'header_name' => 'required',
+            'header_name' => 'required|regex:/^[\pL\s\-]+$/u',
             ]);
            $head =new headers;
            $head->header_name= $request->header_name;

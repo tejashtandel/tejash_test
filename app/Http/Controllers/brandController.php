@@ -56,7 +56,7 @@ class brandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'brand_name' => 'required|alpha',
+            'brand_name' => 'required|regex:/^[\pL\s\-]+$/u',
             ]);
            
             $brand =new brand;

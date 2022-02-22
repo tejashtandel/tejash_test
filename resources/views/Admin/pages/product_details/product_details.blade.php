@@ -16,6 +16,7 @@
             </div>
             @endif
             <div class="row">
+            
                 <a href="{{route('product_detail.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product Details</a>
                 <table class="table table-bordered">
                     <thead>
@@ -60,7 +61,7 @@
                                 <?php
                                 $images = explode('|', $proddetail->mulimages);
                                 foreach ($images as $image) {  ?>
-                                    <img src="{{asset('mulimages/'.$image)}}" alt="Product images" style="width:100px" />
+                                    <img src="{{asset('mulimages/'.$image)}}" alt="Product images" style="width:50px" />
                                 <?php
                                 }
                                 ?>

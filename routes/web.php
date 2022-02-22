@@ -14,6 +14,8 @@ use App\Http\Controllers\brandController;
 use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
 use App\Http\Controllers\headersController;
+use App\Http\Controllers\aboutsController;
+use App\Http\Controllers\userdetailController;
 use App\Models\product;
 
 /*
@@ -332,3 +334,8 @@ Route::resource('brand', brandController::class);
 //Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
 //Route::post('product_detail_store', 'App\Http\Controllers\productdetailController@store');
 Route::resource('product_detail',productdetailController::class);
+
+//For About Us
+Route::resource('abouts',aboutsController::class);
+
+Route::resource('userss',userdetailController::class);

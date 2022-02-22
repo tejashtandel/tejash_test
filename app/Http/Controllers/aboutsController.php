@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\banner;
 use Illuminate\Support\Facades\DB;
+use App\Models\abouts;
 use Illuminate\Support\Facades\Auth;
 
-class bannerController extends Controller
+class aboutsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +19,8 @@ class bannerController extends Controller
         if (Auth::check()) {
 
             if (Auth::user()->role == '1') {
-                $bann = DB::table('banners')->select('id', 'banner_image', 'description')->where('flag', 1)->get();
-                return view('Admin.pages.banners.banners', compact('bann'));
+                $abouts = DB::table('abouts')->select('id', 'description', 'photo')->where('flag', 1)->get();
+                return view('Admin.pages.abouts.about', compact('abouts'));
             } else {
                 return "You are Not  A Admin";
             }
@@ -38,7 +37,7 @@ class bannerController extends Controller
         if (Auth::check()) {
 
             if (Auth::user()->role == '1') {
-                return view('Admin.pages.banners.create_banners');
+                return view('Admin.pages.abouts.create_about');
             } else {
                 return "You are Not  A Admin";
             }
@@ -54,22 +53,19 @@ class bannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'banner_image' => 'required',
             'description' => 'required|regex:/^[\pL\s\-]+$/u',
+            'photo' => 'required',
         ]);
 
         $input = $request->all();
-        if ($banner_image = $request->file('banner_image')) {
+        if ($photo = $request->file('photo')) {
             $destinationPath = 'admin/upload/';
-            $profileImage = date('YmdHis') . "." . $banner_image->getClientOriginalExtension();
-            $banner_image->move($destinationPath, $profileImage);
-            $input['banner_image'] = "$profileImage";
+            $profileImage = date('YmdHis') . "." . $photo->getClientOriginalExtension();
+            $photo->move($destinationPath, $profileImage);
+            $input['photo'] = "$profileImage";
         }
-
-        banner::create($input);
-        return redirect()->route('banners.index')->with('success', 'Banners Added successfully.');
-        //return redirect()->action([bannerController::class,'index']);
-
+        abouts::create($input);
+        return redirect()->route('abouts.index')->with('success', 'About  Added successfully.');
     }
 
     /**
@@ -91,8 +87,8 @@ class bannerController extends Controller
      */
     public function edit($id)
     {
-        $banner = banner::find($id);
-        return view('Admin.pages.banners.edit_banner', compact('banner'));
+        $abouts = abouts::find($id);
+        return view('Admin.pages.abouts.edit_about', compact('abouts'));
     }
 
     /**
@@ -105,25 +101,23 @@ class bannerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'banner_image' => 'required',
+
             'description' => 'required',
+            'photo' => 'required'
         ]);
-        $banner = banner::find($id);
-        if ($banner_image = $request->file('banner_image')) {
+        $abouts = abouts::find($id);
+        if ($photo = $request->file('photo')) {
             $destinationPath = 'admin/upload/';
-            $profileImage = date('ymdHis') . "." . $banner_image->getClientOriginalExtension();
-            $banner_image->move($destinationPath, $profileImage);
-            $input['banner_image'] = "$profileImage";
+            $profileImage = date('ymdHis') . "." . $photo->getClientOriginalExtension();
+            $photo->move($destinationPath, $profileImage);
+            $input['photo'] = "$profileImage";
         }
-        $banner->banner_image = $profileImage;
-        $banner->description = $request->description;
+        $abouts->photo = $profileImage;
+        $abouts->description = $request->description;
 
-        $banner->save();
-        return redirect()->route('banners.index')->with('success', 'Banners Updated successfully.');
-        // return redirect()->route('banners.index');
-
+        $abouts->save();
+        return redirect()->route('abouts.index')->with('success', 'About Updated successfully.');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -133,10 +127,10 @@ class bannerController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $banner = banner::find($id);
-        $banner->flag = 0;
-        $banner->save();
+        $abouts = abouts::find($id);
+        $abouts->flag = 0;
+        $abouts->save();
         //return redirect()->route('banners.index');
-        return redirect()->route('banners.index')->with('error', 'Banners Deleted  successfully.');
+        return redirect()->route('abouts.index')->with('error', 'About Deleted  successfully.');
     }
 }

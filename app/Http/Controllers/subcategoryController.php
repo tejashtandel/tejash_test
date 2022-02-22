@@ -66,7 +66,7 @@ class subcategoryController extends Controller
     {
         $request->validate([
             'catid' => 'required',
-           'subcategoryname' => 'required|Alpha'
+           'subcategoryname' => 'required|regex:/^[\pL\s\-]+$/u'
            ]);
            $subc =new subcategory;
           $subc->catid= $request->catid;
@@ -122,7 +122,7 @@ class subcategoryController extends Controller
     {
         
         $request->validate([
-            'subcategoryname'=>'required',
+            'subcategoryname'=>'required|regex:/^[\pL\s\-]+$/u',
             ]);
             
             $subcategory=subcategory::find($id);

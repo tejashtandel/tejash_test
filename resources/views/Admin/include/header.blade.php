@@ -168,20 +168,24 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="userss">
+                            <i class="fa fa-user" aria-hidden="true"></i>Users</a>
+                        </li>
+                        <li>
                             <a href="category">
-                                <i class="fas fa-chart-bar"></i>Category</a>
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>Category</a>
                         </li>
                         <li>
                             <a href="subcategory">
-                                <i class="fas fa-chart-bar"></i>Sub Category</a>
+                            <i class="fas fa-list-alt"></i>Sub Category</a>
                         </li>
                         <li>
                             <a href="products">
-                                <i class="fas fa-table"></i>Products</a>
+                                <i class="fas fa-plus"></i>Products</a>
                         </li>
                         <li>
                             <a href="product_detail">
-                                <i class="fas fa-table"></i>Products Details</a>
+                            <i class="fa-brands fa-product-hunt"></i>Products Details</a>
                         </li>
                         <li>
                             <a href="brand">
@@ -201,15 +205,19 @@
                         </li> -->
                         <li>
                             <a href="banners">
-                                <i class="fas fa-map-marker-alt"></i>Banners</a>
+                            <i class="fas fa-image"></i>Banners</a>
                         </li>
                         <li>
                             <a href="footers">
-                                <i class="fas fa-map-marker-alt"></i>Footer</a>
+                            <i class="fa fa-copyright"></i>Footer</a>
                         </li>
                         <li>
                             <a href="header">
-                                <i class="fas fa-map-marker-alt"></i>headers</a>
+                            <i class="fa fa-header" aria-hidden="true"></i>headers</a>
+                        </li>
+                        <li>
+                            <a href="abouts">
+                            <i class="fa fa-info"></i>About Us</a>
                         </li>
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -279,10 +287,10 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
+                                <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
+                                <!-- <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
-                                </button>
+                                </button> -->
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">

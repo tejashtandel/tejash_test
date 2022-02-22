@@ -1,7 +1,8 @@
 @include('Admin.include.header')
 
-<!-- MAIN CONTENT-->
+
 <div class="main-content">
+
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             @if(Session::has('success'))
@@ -14,34 +15,37 @@
                 {{Session::get('error')}}
             </div>
             @endif
-            <a href="{{route('brand.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
+         
             <div class="row">
-
                 <table class="table table-bordered" id="myTable">
                     <thead>
                         <tr>
-
-                            <th scope="col">Brand Name</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Contact</th>
+                            <th  scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($brand as $brd)
+                    @foreach($userss as $user)
                         <tr>
-
-                            <td>{{$brd->brand_name}}</td>
-
+                            <td> {{ $user->name}}</td>
+                            <td></td>
+                            <td>{{$user->email}}</td>
                             <td>
-                                <form action="{{route('brand.destroy',$brd->id)}}" method="Post">
-                                    <a class="btn btn-primary" href="{{route('brand.edit',$brd->id)}}">Edit</a>
+                                <!-- <form action="{{route('userss.destroy',$user->id)}}" method="Post">
+                                    <a class="btn btn-primary" href="{{route('userss.edit',$user->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                </form> -->
                             </td>
 
                         </tr>
                         @endforeach
+
                     </tbody>
                 </table>
             </div>
