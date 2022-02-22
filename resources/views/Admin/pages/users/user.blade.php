@@ -22,26 +22,30 @@
                         <tr>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Contact</th>
-                            <th  scope="col"></th>
+                            <th scope="col">Mobile No</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">House</th>
+                            <th scope="col">Street</th>
+                            <th scope="col">Landmark</th>
+                            <th scope="col">State</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Postcode</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($userss as $user)
                         <tr>
-                            <td> {{ $user->name}}</td>
-                            <td></td>
-                            <td>{{$user->email}}</td>
-                            <td>
-                                <!-- <form action="{{route('userss.destroy',$user->id)}}" method="Post">
-                                    <a class="btn btn-primary" href="{{route('userss.edit',$user->id)}}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form> -->
-                            </td>
+                            <td> {{$user->firstname}}</td>
+                            <td> {{$user->lastname}}</td>
+                            <td> {{$user->mobile_no}}</td>
+                            <td> {{$user->gender}}</td>
+                            <td> {{$user->house}}</td>
+                            <td> {{$user->street}}</td>
+                            <td> {{$user->landmark}}</td>
+                            <td> {{$user->state}}</td>
+                            <td> {{$user->city}}</td>
+                            <td> {{$user->postcode}}</td>
+                           
 
                         </tr>
                         @endforeach

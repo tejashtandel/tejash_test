@@ -8,7 +8,7 @@
 
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            <!-- @if(Session::has('success'))
+            @if(Session::has('success'))
             <div class="alert alert-success text-center">
                 {{Session::get('success')}}
             </div>
@@ -17,7 +17,7 @@
             <div class="alert alert-danger text-center">
                 {{Session::get('error')}}
             </div>
-            @endif -->
+            @endif
             <a href="{{route('abouts.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add About Us</a>
             <div class="row">
 

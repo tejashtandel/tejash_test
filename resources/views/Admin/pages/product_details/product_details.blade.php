@@ -61,7 +61,7 @@
                                 <?php
                                 $images = explode('|', $proddetail->mulimages);
                                 foreach ($images as $image) {  ?>
-                                    <img src="{{asset('mulimages/'.$image)}}" alt="Product images" style="width:50px" />
+                                    <img src="{{asset('upload/'.$image)}}" alt="Product images" style="width:50px" />
                                 <?php
                                 }
                                 ?>

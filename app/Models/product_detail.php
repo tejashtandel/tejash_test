@@ -25,6 +25,6 @@ class product_detail extends Model
         'size',
         'quantity',
         'bottomtype',
-        'mulimage'
+        'mulimages'
     ];
 }

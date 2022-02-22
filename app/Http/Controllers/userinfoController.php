@@ -13,7 +13,7 @@ class userinfoController extends Controller
      */
     public function index()
     {
-        
+        return view('User.pages.userdetails');
     }
 
     /**

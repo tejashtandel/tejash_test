@@ -91,14 +91,15 @@ class productdetailController extends Controller
         $mulimages = array();
         if($files = $request->file('mulimages')) {
             foreach ($files as $file) {
-                $destinationPath='mulimages';
+                $destinationPath='upload/';
                 $name = date('YmdHis') . "." . $file->getClientOriginalName();
                 $file->move($destinationPath, $name);
                 $mulimages[] = $name;
             }
         }
-        print_r($input);
-        exit();
+       
+
+        
         /*Insert your data*/
 
         product_detail::insert([
@@ -181,27 +182,42 @@ class productdetailController extends Controller
         ]);
 
         $productsdetail = product_detail::find($id);
+        $input=$request->all();
         $mulimages= array();
-        if ($mulimages= $request->file('mulimages')) {
-            foreach ($mulimages as $mulimages) {
-                $destinationPath = 'mulimages/';
-                $profileImage = date('ymdHis') . "." . $mulimages->getClientOriginalExtension();
-                $mulimages->move($destinationPath, $profileImage);
-                $input['mulimages'] = "$profileImage";
+        if ($files= $request->file('mulimages')) {
+            foreach ($files as $file) {
+             $destinationPath = 'upload/';
+                $name = $file->getClientOriginalName();
+                $file->move($destinationPath, $name);
+                $mulimages[] = $name;
+                $input['mulimages'] =  implode("|",$mulimages);
             }
+        }else{
+            unset($input['mulimages']);
         }
-        $productsdetail->mulimages = $profileImage;
-        $productsdetail->pattern = $request->pattern;
-        $productsdetail->sleeve = $request->sleeve;
-        $productsdetail->neck = $request->neck;
-        $productsdetail->fabric = $request->fabric;
-        $productsdetail->length = $request->length;
-        $productsdetail->style = $request->style;
-        $productsdetail->occasion = $request->occasion;
-        $productsdetail->package_contain = $request->package_contain;
-        $productsdetail->product_description = $request->product_description;
-        $productsdetail->bottomtype = $request->bottomtype;
-        $productsdetail->save();
+     
+        if ($size_guide = $request->file('size_guide')) {
+
+            $destinationPath = 'size_guide/';
+            $profileImage = date('YmdHis') . "." . $size_guide->getClientOriginalExtension();
+            $size_guide->move($destinationPath, $profileImage);
+            $input['size_guide'] = "$profileImage";
+        } else {
+            unset($input['size_guide']);
+        }
+        $productsdetail->update($input);
+        // $productsdetail->mulimages=$request->mulimages;
+        // $productsdetail->pattern = $request->pattern;
+        // $productsdetail->sleeve = $request->sleeve;
+        // $productsdetail->neck = $request->neck;
+        // $productsdetail->fabric = $request->fabric;
+        // $productsdetail->length = $request->length;
+        // $productsdetail->style = $request->style;
+        // $productsdetail->occasion = $request->occasion;
+        // $productsdetail->package_contain = $request->package_contain;
+        // $productsdetail->product_description = $request->product_description;
+        // $productsdetail->bottomtype = $request->bottomtype;
+       // $productsdetail->save();
         return redirect()->route('product_detail.index')->with('success', 'Products Details Updated successfully.');
         // return redirect()->route('product_detail.index');
     }

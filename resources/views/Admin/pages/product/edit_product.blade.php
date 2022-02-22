@@ -20,9 +20,9 @@
                                    <div class="form-group">
                                    <strong>Product Name:</strong>
                                         <input type="text" name="product_name" class="form-control" placeholder="product Name" value={{$product->product_name}}>
-                                              @error('product_name')
+                                              <!-- @error('product_name')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
-                                              @enderror
+                                              @enderror -->
                                    </div>
                               </div>
 
@@ -30,9 +30,9 @@
                                    <div class="form-group">
                                    <strong>Price:</strong>
                                         <input type="text" name="price" class="form-control" placeholder="Price" value={{$product->price}}>
-                                              @error('price')
+                                              <!-- @error('price')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
-                                              @enderror
+                                              @enderror -->
                                    </div>
                               </div>
 
@@ -41,9 +41,9 @@
                                    <strong>Image:</strong>
                                         <input type="file" name="image" class="form-control" placeholder="Image" >
                                    
-                                              @error('image')
+                                              <!-- @error('image')
                                                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
-                                              @enderror
+                                              @enderror -->
                                    </div>
                               </div>
 

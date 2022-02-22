@@ -20,9 +20,9 @@ class productController extends Controller
             if(Auth::user()-> role == '1' ){ 
        // $product = DB::SELECT('SELECT products.product_name, subcategories.id, subcategories.subcategoryname,products.color,products.size,products.price,products.image FROM products JOIN subcategories ON products.sub_cat_id=subcategories.id where Products.flag="1"'); 
         //$product= DB::select('SELECT * FROM subcategories');; 
-        $product = DB::table('products')
-        ->join('subcategories','products.sub_cat_id','=','subcategories.id')
-        ->where('products.flag',1)
+        $product = DB::table('products as p')->select('p.id','p.product_name','p.price','p.color','p.image','s.subcategoryname')
+        ->join('subcategories as s','p.sub_cat_id','=','s.id')
+        ->where('p.flag',1)
         ->get();
         return view('Admin.pages.product.product',compact('product'));
         
@@ -127,8 +127,8 @@ class productController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'product_name' => 'required',
-            'price' => 'required',
+            'product_name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'price' => 'required|integer',
             
             ]);
             

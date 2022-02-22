@@ -22,7 +22,7 @@
                         <tr>
                             <th scope="col">Sub Category</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Size</th>
+                         
                             <th scope="col">Colour</th>
                             <th scope="col">Price</th>
                             <th scope="col">Image</th>
@@ -35,7 +35,7 @@
                             <td>{{$pro->subcategoryname}}</td>
                             <td>{{$pro->product_name}}</td>
 
-                            <td>{{$pro->size}}</td>
+                           
                             <td>{{$pro->color}}</td>
                             <td>{{$pro->price}}</td>
                             <td><img src="{{('admin/product/' . $pro->image)}}" class="img-thumbnail" alt="Responsive image" style="width: 200px;"></td>
