@@ -16,6 +16,9 @@ use App\Http\Controllers\subcategoryController;
 use App\Http\Controllers\headersController;
 use App\Http\Controllers\aboutsController;
 use App\Http\Controllers\userdetailController;
+use App\Http\Controllers\userinfoController;
+use App\Http\Controllers\cartController;
+
 use App\Models\product;
 
 /*
@@ -251,6 +254,13 @@ Route::get('topwear', function () {
         $footer = DB::table('footers')->get();
     return view('User.pages.topwear', compact('product1','footer'));
 });
+
+
+
+Route::resource('userdetails', userdetailController::class);
+Route::resource('userdetails/{userdetail}/$id',userdetailController::class);
+
+Route::resource('cart', cartController::class);
 
 
 ///------------------------------------------------------------------------------------------------------/////

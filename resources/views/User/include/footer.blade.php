@@ -27,7 +27,18 @@
                                 <li><a href="#">Our Sitemap</a></li>
                                 <li><a href="termsandcondition">Terms &amp; Conditions</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Delivery Information</a></li>
+                            
+                           
+                                @auth
+                                @if (Auth::check())
+                                    <li><a class="temp"
+                                            href="{{ route('userdetails.edit', ['userdetail' => Auth::user()->id]) }}">My Profile</a>
+                                    </li>
+                                @else
+                                    <li><a class="temp" href="{{ route('login') }}">My Profile</a></li>
+                                @endif
+                            @endauth
+                               
                             </ul>
                         </div>
                     </div>
@@ -76,5 +87,7 @@
     <script src="{{asset('User/js/form-validator.min.js')}}"></script>
     <script src="{{asset('User/js/contact-form-script.js')}}"></script>
     <script src="{{asset('User/js/custom.js')}}"></script>
+    <script src="{{asset('User/js/my.js')}}"></script>
+
 </body>
 </html>

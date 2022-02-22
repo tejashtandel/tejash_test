@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class userinfoController extends Controller
+class cartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +13,11 @@ class userinfoController extends Controller
      */
     public function index()
     {
+
+
+
+
+        return view('User.pages.cart1');
         
     }
 
@@ -23,7 +28,7 @@ class userinfoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -56,7 +61,7 @@ class userinfoController extends Controller
      */
     public function edit($id)
     {
-        return view('User.pages.userdetails');
+        //
     }
 
     /**
