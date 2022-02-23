@@ -15,8 +15,10 @@ use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
 use App\Http\Controllers\headersController;
 use App\Http\Controllers\aboutsController;
+use App\Http\Controllers\reportController;
 use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
+use App\Http\Controllers\stockController;
 use App\Models\product;
 
 /*
@@ -119,7 +121,7 @@ WHERE category.id="12"');
 
     //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 
-    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3','footer'));
+    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3', 'footer'));
 });
 
 
@@ -156,75 +158,75 @@ Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects']
 
 
 Route::get('prod/{id}', function ($id) {
-    
-  
-$details = DB::table('products')
-    ->join('product_details', 'products.id', '=', 'product_details.productid')
-    ->join('brands', 'product_details.brandid', '=', 'brands.id')
-    ->where('products.id',$id)
-    ->get(['products.*', 'product_details.*','brands.*']);
 
-// $product1 = DB:table('products')
-//     ->join('category','products.catid','=','category.id')
-//     ->where('')
+
+    $details = DB::table('products')
+        ->join('product_details', 'products.id', '=', 'product_details.productid')
+        ->join('brands', 'product_details.brandid', '=', 'brands.id')
+        ->where('products.id', $id)
+        ->get(['products.*', 'product_details.*', 'brands.*']);
+
+    // $product1 = DB:table('products')
+    //     ->join('category','products.catid','=','category.id')
+    //     ->where('')
 
 
     $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
 WHERE category.id="4"');
-    
- 
+
+
     $footer = DB::table('footers')->get();
-    return view('User.pages.product', compact('details','product1','footer'));
+    return view('User.pages.product', compact('details', 'product1', 'footer'));
 });
 Route::get('prod1/{id}', function ($id) {
-    
-  
+
+
     $details = DB::table('products')
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
-        ->where('products.id',$id)
-        ->get(['products.*', 'product_details.*','brands.*']);
-    
+        ->where('products.id', $id)
+        ->get(['products.*', 'product_details.*', 'brands.*']);
+
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
     //     ->where('')
-    
-    
+
+
     $footer = DB::table('footers')->get();
-        $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="12"');
-        
-     
-        return view('User.pages.product', compact('details','product1','footer'));
-    });
+
+
+    return view('User.pages.product', compact('details', 'product1', 'footer'));
+});
 
 Route::get('prod3/{id}', function ($id) {
-    
-  
-        $details = DB::table('products')
-            ->join('product_details', 'products.id', '=', 'product_details.productid')
-            ->join('brands', 'product_details.brandid', '=', 'brands.id')
-            ->where('products.id',$id)
-            ->get(['products.*', 'product_details.*','brands.*']);
-        
-        // $product1 = DB:table('products')
-        //     ->join('category','products.catid','=','category.id')
-        //     ->where('')
-        
+
+
+    $details = DB::table('products')
+        ->join('product_details', 'products.id', '=', 'product_details.productid')
+        ->join('brands', 'product_details.brandid', '=', 'brands.id')
+        ->where('products.id', $id)
+        ->get(['products.*', 'product_details.*', 'brands.*']);
+
+    // $product1 = DB:table('products')
+    //     ->join('category','products.catid','=','category.id')
+    //     ->where('')
+
     $footer = DB::table('footers')->get();
-        
-            $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+
+    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
         WHERE category.id="17"');
-            
-         
-            return view('User.pages.product', compact('details','product1','footer'));
-        });
+
+
+    return view('User.pages.product', compact('details', 'product1', 'footer'));
+});
 
 
 Route::get('bottomwear', function () {
@@ -232,16 +234,16 @@ Route::get('bottomwear', function () {
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="12"');
-        $footer = DB::table('footers')->get();
-    return view('User.pages.bottomwear', compact('product3','footer'));
+    $footer = DB::table('footers')->get();
+    return view('User.pages.bottomwear', compact('product3', 'footer'));
 });
 Route::get('ethicset', function () {
     $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="17"');
-        $footer = DB::table('footers')->get();
-    return view('User.pages.ethic', compact('product2','footer'));
+    $footer = DB::table('footers')->get();
+    return view('User.pages.ethic', compact('product2', 'footer'));
 });
 
 Route::get('topwear', function () {
@@ -249,14 +251,14 @@ Route::get('topwear', function () {
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="4"');
-        $footer = DB::table('footers')->get();
-    return view('User.pages.topwear', compact('product1','footer'));
+    $footer = DB::table('footers')->get();
+    return view('User.pages.topwear', compact('product1', 'footer'));
 });
 Route::resource('userdetails', userinfoController::class);
 
 
 Route::resource('userdetails', userdetailController::class);
-Route::resource('userdetails/{userdetail}/$id',userdetailController::class);
+Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 
 Route::resource('cart', cartController::class);
 
@@ -268,14 +270,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('index', function () {
-    
-    if(Auth::check()){
 
-        if(Auth::user()-> role == '1' ){ 
-    return view('Admin.pages/index');
-        }
-       
-        else{
+    if (Auth::check()) {
+
+        if (Auth::user()->role == '1') {
+            return view('Admin.pages/index');
+        } else {
             return "You are Not  A Admin";
         }
     }
@@ -341,9 +341,13 @@ Route::resource('brand', brandController::class);
 //Route::get('product_detail', [productdetailController::class, 'index']);
 //Route::get('product_detail_create', 'App\Http\Controllers\productdetailController@create');
 //Route::post('product_detail_store', 'App\Http\Controllers\productdetailController@store');
-Route::resource('product_detail',productdetailController::class);
+Route::resource('product_detail', productdetailController::class);
 
 //For About Us
-Route::resource('abouts',aboutsController::class);
-
-Route::resource('userss',userdetailController::class);
+Route::resource('abouts', aboutsController::class);
+//For User Details
+Route::resource('userss', userdetailController::class);
+//For Stocks
+Route::resource('stocks', stockController::class);
+//For Reports
+Route::resource('report',reportController::class);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\category;
 use Illuminate\Support\Facades\Auth;
+
 class categoryController extends Controller
 {
     /**
@@ -15,21 +16,17 @@ class categoryController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-       $cat = DB::table('category')->select('id','category_name','size','type')->where('flag',1)->get(); 
-       
-           // $data['students'] = students::orderBy('id','desc')->paginate(5);
-        return view('Admin.pages.category.category',compact('cat'));
-    }
+            if (Auth::user()->role == '1') {
+                $cat = DB::table('category')->select('id', 'category_name', 'size', 'type')->where('flag', 1)->get();
 
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+                // $data['students'] = students::orderBy('id','desc')->paginate(5);
+                return view('Admin.pages.category.category', compact('cat'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -39,18 +36,14 @@ class categoryController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        return view('Admin.pages.category.create_category');
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+            if (Auth::user()->role == '1') {
+                return view('Admin.pages.category.create_category');
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -62,17 +55,17 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'category_name' => 'required|regex:/^[\pL\s\-]+$/u',
-          'size' => 'required|regex:/^[\pL\s\-]+$/u',
-          'type' => 'required|regex:/^[\pL\s\-]+$/u'
-           ]);
-           $cat =new category;
-           $cat->category_name= $request->category_name;
-           $cat->size = $request->size;
-           $cat->type= $request->type;
-           $cat->save();
-          // return redirect()->action([categoryController::class,'index']);
-          return redirect()->route('category.index')->with('success','category created successfully.');
+            'category_name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'size' => 'required|regex:/^[\pL\s\-]+$/u',
+            'type' => 'required|regex:/^[\pL\s\-]+$/u'
+        ]);
+        $cat = new category;
+        $cat->category_name = $request->category_name;
+        $cat->size = $request->size;
+        $cat->type = $request->type;
+        $cat->save();
+        // return redirect()->action([categoryController::class,'index']);
+        return redirect()->route('category.index')->with('success', 'category created successfully.');
     }
 
     /**
@@ -94,20 +87,16 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-     
-         $category=category::find($id);
-        return view('Admin.pages.category.edit_category',compact('category'));
-    }
+            if (Auth::user()->role == '1') {
 
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+                $category = category::find($id);
+                return view('Admin.pages.category.edit_category', compact('category'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -120,18 +109,18 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category_name'=>'required|alpha',
+            'category_name' => 'required|alpha',
             'size' => 'required',
             'type' => 'required',
-            ]);
-            
-            $category= category::find($id);
-            $category-> category_name= $request->category_name;
-            $category->size = $request->size;
-            $category->type = $request->type;
-            $category->save();
-          //  return back()->with('success','Category Updated Successfully');
-          return redirect()->route('category.index')->with('success','Category Updated successfully.');
+        ]);
+
+        $category = category::find($id);
+        $category->category_name = $request->category_name;
+        $category->size = $request->size;
+        $category->type = $request->type;
+        $category->save();
+        //  return back()->with('success','Category Updated Successfully');
+        return redirect()->route('category.index')->with('success', 'Category Updated successfully.');
     }
 
     /**
@@ -140,11 +129,11 @@ class categoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $category= category::find($id);
-        $category-> flag= 0;
+        $category = category::find($id);
+        $category->flag = 0;
         $category->save();
-        return redirect()->route('category.index')->with('error','Category Deleted successfully.');
+        return redirect()->route('category.index')->with('error', 'Category Deleted successfully.');
     }
 }

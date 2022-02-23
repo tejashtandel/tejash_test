@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>My E-commerce Website</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -167,9 +167,31 @@
                                
                             </ul>
                         </li>
+                        <!-- <li>
+                            <a href="report">
+                            <i class="fa fa-file" aria-hidden="true"></i>Reports</a>
+                        </li> -->
+                        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              
+             <i class="fa fa-file" aria-hidden="true"></i>Reports
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">SabCategory</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Products</a></li>
+              </ul>
+            </div>
+          </li>
                         <li>
                             <a href="userss">
                             <i class="fa fa-user" aria-hidden="true"></i>Users</a>
+                        </li>
+                        <li>
+                            <a href="stocks">
+                            <i class="fa fa-user" aria-hidden="true"></i>Stocks</a>
                         </li>
                         <li>
                             <a href="category">

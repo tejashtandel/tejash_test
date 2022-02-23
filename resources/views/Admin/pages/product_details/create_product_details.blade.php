@@ -166,7 +166,7 @@
                                 <div class="dropdown">
                                     <strong>Size:</strong>
 
-                                    <select name="size" id="size">
+                                    <select name="size" id="size"  class="form-control">
                                         <option value="small">Small</option>
                                         <option value="Medium">Medium</option>
                                         <option value="Large">Large</option>
@@ -180,7 +180,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <div class="dropdown" class="form-control">
+                                <div class="dropdown" class="form-control"  class="form-control"  placeholder="Enter Quantity" >
                                     <strong>Quantity:</strong>
                                     <select name="quantity" id="quantity">
                                         <option value="1">1</option>

@@ -26,8 +26,10 @@
                                             <div class="text">
                                                 <h2></h2>
                                                 <span>Category</span>
+                                           
                                             </div>
                                         </div>
+                                       
                                         <div class="overview-chart">
                                             <canvas id="widgetChart1"></canvas>
                                         </div>

@@ -45,7 +45,6 @@
                             <td> {{$user->state}}</td>
                             <td> {{$user->city}}</td>
                             <td> {{$user->postcode}}</td>
-                           
 
                         </tr>
                         @endforeach
