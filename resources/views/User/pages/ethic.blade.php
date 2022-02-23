@@ -57,7 +57,7 @@
                       type="checkbox"
                       id="checkbox"
                     />
-                    <label class="checkbox-label" id="jean">JEANS</label
+                    <label class="checkbox-label" id="jean">kurta</label
                     >
                   </li>
                   <li>
@@ -222,14 +222,15 @@
                   <div class="why-text">
                     <h5 class="productdetails" id="productname">NAME:{{ $prod-> product_name}}</h5>
                     <h5 class="productdetails">Price:{{ $prod-> price}}</h5>
-                    {{-- <h5 class="productdetails" id="subcategory">subcategory</h5> --}}
+                    <h5 id="subcategory" value="">{{ $prod -> subcategoryname}}</h5>
+                   
                   </div>
                 </div>
               </div>
               
             </div>
             @endforeach
-            <h5 class="productdetails" id="subcategory">jeans</h5>
+            
             {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">

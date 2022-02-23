@@ -40,3 +40,6 @@ text-align: center;
     font-weight: 55px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.delete{
+   background-color: red;
+}

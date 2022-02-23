@@ -28,6 +28,7 @@
               <table class="table table-hover">
                   <thread>
                   <tr>
+                      <th>#</th>
                       <th>Product Image</th>
                       <th>Product name</th>
                       <th>Product Price</th>
@@ -36,12 +37,15 @@
                      <th>Remove</th>
                   </tr>
                 </thread>
+
+                @foreach($cart as $cat)
                   <tbody>
-                      <td><img src="{{asset('User/images/CT1.jpg')}}"></td>
-                      <td>Kurti</td>
+                      <td>{{$cat->product_id}}</td>
+                      <td><img src="{{ asset('User/product/'. $cat->image)}}"></td>
+                      <td>{{$cat ->product_name}}</td>
                      
                       <td id="productprice">
-                          2000
+                          {{$cat->price}}
                       </td>
                       <td>
                         <div>
@@ -52,11 +56,21 @@
                         </div>
                       </td>
                       <td id="totalprice">0 </td>
-                      <td><i class="fa-solid fa-trash-can"></i></td>
+                      <form action="{{ route('cart.destroy', ['cart' => $cat-> id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <td data-label="Delete">
+                            
+                            <button  type="submit"  value="Delete" class="fa-solid fa-trash-can" ></button>
+                        </td>
+
+                    </form>
+                      {{-- <td><a href="{{ route('cart.destroy', ['cart' =>  Auth::user()->id ])}}"><i class="fa-solid fa-trash-can"></i></a></td> --}}
                   </tbody>
-                  <tbody>
+                 @endforeach
+                  {{-- <tbody>
                     <td><img src="{{asset('User/images/CT2.jpg')}}"></td>
-                    <td>Kurti</td>
+                    <td></td>
                    
                     <td id="productprice">
                         2000
@@ -71,7 +85,7 @@
                     </td>
                     <td ><span class="px-3" id="totalprice">2000</span></td>
                     <td><i class="fa-solid fa-trash-can"></i></td>
-                </tbody>
+                </tbody> --}}
               </table>
             </div>
 

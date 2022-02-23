@@ -15,6 +15,8 @@ class userdetailController extends Controller
      */
     public function index()
     {
+
+        
         $userss= DB::table('users')->get();
         return view('Admin.pages.users.user',compact('userss'));
 

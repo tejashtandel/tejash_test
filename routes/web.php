@@ -238,7 +238,7 @@ Route::get('bottomwear', function () {
     return view('User.pages.bottomwear', compact('product3', 'footer'));
 });
 Route::get('ethicset', function () {
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="17"');
@@ -261,6 +261,21 @@ Route::resource('userdetails', userdetailController::class);
 Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 
 Route::resource('cart', cartController::class);
+
+
+Route::get('try', function () {
+    $header = DB::table('headers')->get();
+
+    
+        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
+        JOIN subcategories ON products.sub_cat_id=subcategories.id
+        JOIN category ON subcategories.catid=category.id
+        WHERE category.id="17"');
+
+    return view('User.pages.new', compact('header','product2'));
+});
+
+
 
 
 ///------------------------------------------------------------------------------------------------------/////

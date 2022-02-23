@@ -25,6 +25,8 @@ class CreateCartsTable extends Migration
         });
     }
 
+    
+
     /**
      * Reverse the migrations.
      *

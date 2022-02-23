@@ -156,23 +156,29 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
             <span class="px-3 quantityShow">1</span>
             <a href="#" id="increment"  class="btn btn-primary" style="text-decoration: none;">&#43</a>
         </div>
+        {{-- @php
+        print_r($det->pID );
+        @endphp --}}
           <br />
           <!-- <div class="img">
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
               @auth
-              @if (Auth::check() && Auth::user()-> role == '0')
-                         <div> 
-                           <button type="button" class="btn btn-primary my-2">Add to Cart</button>
-                         </div>
-                         <div>  
-                       @else
-                            <div> 
-                           <button type="button" class="btn btn-primary my-2" disabled>Add to Cart</button>
-                         </div>
-                         <div>
-                       @endif 
-           @endauth
+              @if (Auth::check() )
+                <div> 
+                      <form action="{{ route('cart.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <input type="hidden" name="product_id" value="{{ $det->pID }}">
+                    <input type="hidden" name="price" value="{{ $det->price }}">
+                    <input type="hidden" name="quantity" id="" value="1">
+      
+          
+                    <button type="submit" class="btn btn-primary my-2" >Add to Cart</button>
+                  </form>
+                </div>
+                @endif
+      @endauth
           <hr>
          
             <h5 class="mainheading">Product details</h5>
