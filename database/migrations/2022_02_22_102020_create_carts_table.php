@@ -15,15 +15,21 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            // $table->biginteger('product_id')->unsigned();
-            // $table->biginteger('user_id')->unsigned();
-            // $table->biginteger('totalprice');
-            // $table->biginteger('quantity');
-            // $table->foreign('productid')->on('carts')->references('id');
-            // $table->foreign('user_id')->on('carts')->references('id');
+            $table->bigInteger('product_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('totalprice');            
+            $table->bigInteger('quantity');
+            $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+            
+
+
+
         });
     }
+
+    
 
     /**
      * Reverse the migrations.

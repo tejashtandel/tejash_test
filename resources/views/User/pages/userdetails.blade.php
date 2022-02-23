@@ -1,14 +1,19 @@
+
+@include('User.include.header')
+
+
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container">
             <div class="row">
-                @if(session('status'))
+                @if(session('success'))
                 <div class="alert alert-success mb-1 mt-1">
-                    {{ session('status') }}
+                    {{ session('success') }}
                 </div>
                 @endif
-                <form action="{{route('userdetails.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('userdetails.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <h2>Registration Form</h2>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -133,3 +138,5 @@
         </div>
     </div>
 </div>
+
+@include('User.include.footer')

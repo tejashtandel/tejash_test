@@ -62,7 +62,7 @@ class HomeController extends Controller
         $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="5"');
+    WHERE category.id="12"');
     
         $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id

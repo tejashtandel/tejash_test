@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="User/css/catagory.css">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="User/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('User/images/logo2.jpg')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="User/images/apple-touch-icon.png">
     <!--My Custom Css-->
     <link rel="stylesheet" href="User/css/custommy.css">

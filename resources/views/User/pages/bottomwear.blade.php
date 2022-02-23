@@ -18,6 +18,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
     <link rel="stylesheet" href="User/css/newtry.css" />
     <title>Document</title>
@@ -49,35 +53,17 @@
                   style="list-style-type: none"
                   class="cd-filter-content cd-filters list"
                 >
-                <li>
-                  <input
-                    class="filter"
-                    data-filter=".check1"
-                    type="checkbox"
-                    id="checkbox1"
-                  />
-                  <label class="checkbox-label" for="checkbox1">Jeans</label
-                  >
+              <li>
+                <a class="btn btn-primary active filter-button" data-filter="all">All</a>
+                
                 </li>
                 <li>
-                  <input
-                    class="filter"
-                    data-filter=".check1"
-                    type="checkbox"
-                    id="checkbox1"
-                  />
-                  <label class="checkbox-label" for="checkbox1">Plazo</label
-                  >
+                  <a class="btn btn-primary filter-button" data-filter="jeans">jeans</a>
+                  
                 </li>
                 <li>
-                  <input
-                    class="filter"
-                    data-filter=".check1"
-                    type="checkbox"
-                    id="checkbox1"
-                  />
-                  <label class="checkbox-label" for="checkbox1">Lengis</label
-                  >
+                  <a class="btn btn-primary filter-button" data-filter="plazo">plazo</a>
+                  
                 </li>
                 </ul>
                 <!-- cd-filter-content -->
@@ -191,7 +177,7 @@
           </div>
           <div class="row sameproduct">
             @foreach( $product3 as $prod)
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12 product jeans">
                
               <div class="wholecard">
                 <div class="box-img">
@@ -216,7 +202,7 @@
               
             </div>
             @endforeach
-            {{-- <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12 product plazo">
               <div class="wholecard">
                 <div class="box-img">
                   <div class="type-lb">
@@ -238,7 +224,7 @@
                   </div>
                 </div>
               </div>
-            </div> --}}
+            </div>
             {{-- <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="wholecard">
                 <div class="box-img">
@@ -436,5 +422,28 @@
          
          });
     </script>
+    
+
+<script>
+        $(document).ready(function() {
+
+            $(".filter-button").click(function() {
+                var value = $(this).attr('data-filter');
+
+                if (value == "all") {
+                    //$('.filter').removeClass('hidden');
+                    $('.product').show('1000');
+                } else {
+                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                    $(".product").not('.' + value).hide('3000');
+                    $('.product').filter('.' + value).show('3000');
+
+                }
+            });
+
+        });
+    </script>
+      
   </body>
 </html>

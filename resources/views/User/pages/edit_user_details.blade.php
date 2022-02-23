@@ -22,7 +22,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>First Name:</strong>
-                                <input type="text" name="firstname" class="form-control" placeholder="Enter FirstName">
+                                <input type="text" name="firstname" class="form-control" placeholder="Enter FirstName" value={{user-> $firstname}}>
                                 <!-- @error('description')
                                               <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
                                               @enderror -->

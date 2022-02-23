@@ -17,6 +17,7 @@ use App\Http\Controllers\headersController;
 use App\Http\Controllers\aboutsController;
 use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
+use App\Http\Controllers\cartController;
 use App\Models\product;
 
 /*
@@ -162,7 +163,7 @@ $details = DB::table('products')
     ->join('product_details', 'products.id', '=', 'product_details.productid')
     ->join('brands', 'product_details.brandid', '=', 'brands.id')
     ->where('products.id',$id)
-    ->get(['products.*', 'product_details.*','brands.*']);
+    ->get(['products.*', 'products.id as pID','product_details.*','brands.*']);
 
 // $product1 = DB:table('products')
 //     ->join('category','products.catid','=','category.id')
@@ -185,7 +186,7 @@ Route::get('prod1/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id',$id)
-        ->get(['products.*', 'product_details.*','brands.*']);
+        ->get(['products.*','products.id as pID', 'product_details.*','brands.*']);
     
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -208,8 +209,9 @@ Route::get('prod3/{id}', function ($id) {
         $details = DB::table('products')
             ->join('product_details', 'products.id', '=', 'product_details.productid')
             ->join('brands', 'product_details.brandid', '=', 'brands.id')
+            ->join('subcategories','products.sub_cat_id','=','subcategories.id')
             ->where('products.id',$id)
-            ->get(['products.*', 'product_details.*','brands.*']);
+            ->get(['products.*','products.id as pID', 'product_details.*','brands.*','subcategories.*']);
         
         // $product1 = DB:table('products')
         //     ->join('category','products.catid','=','category.id')
@@ -217,10 +219,11 @@ Route::get('prod3/{id}', function ($id) {
         
     $footer = DB::table('footers')->get();
         
-            $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+            $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
         WHERE category.id="17"');
+        
             
          
             return view('User.pages.product', compact('details','product1','footer'));
@@ -236,10 +239,11 @@ Route::get('bottomwear', function () {
     return view('User.pages.bottomwear', compact('product3','footer'));
 });
 Route::get('ethicset', function () {
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="17"');
+
         $footer = DB::table('footers')->get();
     return view('User.pages.ethic', compact('product2','footer'));
 });
@@ -259,6 +263,21 @@ Route::resource('userdetails', userdetailController::class);
 Route::resource('userdetails/{userdetail}/$id',userdetailController::class);
 
 Route::resource('cart', cartController::class);
+
+
+Route::get('try', function () {
+    $header = DB::table('headers')->get();
+
+    
+        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
+        JOIN subcategories ON products.sub_cat_id=subcategories.id
+        JOIN category ON subcategories.catid=category.id
+        WHERE category.id="17"');
+
+    return view('User.pages.new', compact('header','product2'));
+});
+
+
 
 
 ///------------------------------------------------------------------------------------------------------/////
