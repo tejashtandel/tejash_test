@@ -19,6 +19,12 @@ use App\Http\Controllers\reportController;
 use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
 use App\Http\Controllers\stockController;
+use App\Http\Controllers\cartController;
+use App\Http\Controllers\bottomController;
+use App\Http\Controllers\ethicController;
+use App\Http\Controllers\topController;
+
+
 use App\Models\product;
 
 /*
@@ -164,7 +170,7 @@ Route::get('prod/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.* as p', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -229,31 +235,7 @@ Route::get('prod3/{id}', function ($id) {
 });
 
 
-Route::get('bottomwear', function () {
-    $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="12"');
-    $footer = DB::table('footers')->get();
-    return view('User.pages.bottomwear', compact('product3', 'footer'));
-});
-Route::get('ethicset', function () {
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="17"');
-    $footer = DB::table('footers')->get();
-    return view('User.pages.ethic', compact('product2', 'footer'));
-});
 
-Route::get('topwear', function () {
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="4"');
-    $footer = DB::table('footers')->get();
-    return view('User.pages.topwear', compact('product1', 'footer'));
-});
 Route::resource('userdetails', userinfoController::class);
 
 
@@ -261,6 +243,11 @@ Route::resource('userdetails', userdetailController::class);
 Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 
 Route::resource('cart', cartController::class);
+Route::resource('bottom', bottomController::class);
+Route::resource('ethic', ethicController::class);
+Route::resource('top', topController::class);
+
+
 
 
 Route::get('try', function () {

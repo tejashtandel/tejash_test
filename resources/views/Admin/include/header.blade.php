@@ -11,6 +11,7 @@
 
     <!-- Title Page-->
     <title>My E-commerce Website</title>
+    <link rel="shortcut icon" href="{{asset('User/images/logo2.jpg')}}" type="image/x-icon">
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
