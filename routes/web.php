@@ -19,6 +19,8 @@ use App\Http\Controllers\reportController;
 use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
 use App\Http\Controllers\stockController;
+use App\Http\Controllers\cartController;
+use App\Http\Controllers\GooglePieController;
 use App\Models\product;
 
 /*
@@ -266,18 +268,18 @@ Route::resource('cart', cartController::class);
 Route::get('try', function () {
     $header = DB::table('headers')->get();
 
-    
-        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
+
+    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
         WHERE category.id="17"');
 
-    return view('User.pages.new', compact('header','product2'));
+    return view('User.pages.new', compact('header', 'product2'));
 });
 
 
-
-
+///------------------------------------------------------------------------------------------------------/////
+///------------------------------------------------------------------------------------------------------/////
 ///------------------------------------------------------------------------------------------------------/////
 ////For Admin Routes
 
@@ -365,4 +367,7 @@ Route::resource('userss', userdetailController::class);
 //For Stocks
 Route::resource('stocks', stockController::class);
 //For Reports
-Route::resource('report',reportController::class);
+Route::resource('report', reportController::class);
+
+//For Charts
+Route::resource('charts',GooglePieController::class);

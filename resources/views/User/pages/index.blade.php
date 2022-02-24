@@ -2,7 +2,6 @@
 
 @include('User.include.header')
 
-
     <!-- Start Top Search -->
     
     <!-- End Top Search -->
@@ -12,7 +11,7 @@
         <ul class="slides-container">
             @foreach($banner as $bann)
             <li class="text-left">
-                <img src="User/upload/{{$bann-> banner_image}}" alt="">
+                <img src="{{asset('User/upload/'.$bann-> banner_image)}}" alt="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

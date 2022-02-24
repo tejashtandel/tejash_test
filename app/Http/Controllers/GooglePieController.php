@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-class userdetailController extends Controller
+use Illuminate\Support\Facades\DB;
+class GooglePieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,11 @@ class userdetailController extends Controller
      */
     public function index()
     {
-
-        
-        $userss= DB::table('users')->get();
-        return view('Admin.pages.users.user',compact('userss'));
-
+        $data['pieChart'] = User::select()
+        ->whereYear('created_at', date('Y'))
+        ->groupBy('month_name')
+        ->orderBy('count')
+        ->get();
     }
 
     /**
@@ -62,8 +61,7 @@ class userdetailController extends Controller
      */
     public function edit($id)
     {
-        $users= DB::table('users')->where('id',$id)->get();
-        return view('User.pages.userdetails',compact('users'));
+        //
     }
 
     /**
@@ -75,16 +73,7 @@ class userdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-     
-        $user=User::find($id);
-    
-        $input=$request->all();
-
-        $user->update($input);
-        // d($input);
-        // exidt();
-        
-        return redirect()->route('userdetails.edit', ['userdetail' => Auth::user()->id])->with('success', 'Updated Successfully');
+        //
     }
 
     /**

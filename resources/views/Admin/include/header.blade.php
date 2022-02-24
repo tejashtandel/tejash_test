@@ -11,6 +11,9 @@
 
     <!-- Title Page-->
     <title>My E-commerce Website</title>
+    <link rel="shortcut icon" href="{{asset('admin/images/icon/image2.png')}}" />
+
+
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -179,9 +182,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Users</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">SabCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Products</a></li>
+                <li class="nav-item"> <a class="nav-link" href="userss">Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href="subcategory">SabCategory</a></li>
+                <li class="nav-item"> <a class="nav-link" href="report">Products</a></li>
               </ul>
             </div>
           </li>

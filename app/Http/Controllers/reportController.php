@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class reportController extends Controller
 {
     /**
@@ -13,8 +13,12 @@ class reportController extends Controller
      */
     public function index()
     {
-
-        return view('Admin.pages.reports.reports');
+        $product = DB::table('products as p')->select('p.id','p.product_name','p.price','p.color','p.image','s.subcategoryname')
+        ->join('subcategories as s','p.sub_cat_id','=','s.id')
+        ->where('p.flag',1)
+        ->get();
+       
+        return view('Admin.pages.reports.reports',compact('product'));
     }
 
     /**
