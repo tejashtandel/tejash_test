@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="User/css/catagory.css">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{asset('User/images/logo2.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('User/images/logofinal.png')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="User/images/apple-touch-icon.png">
     <!--My Custom Css-->
     <link rel="stylesheet" href="User/css/custommy.css">
@@ -134,7 +134,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logo2.jpg')}}" class="newlogo" alt=""></a>
+                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logofinal.png')}}" class="newlogo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -148,9 +148,9 @@
 
                         {{-- @endforeach --}}
                        
-                        <li class="nav-item"><a class="nav-link" href="topwear">Top Wear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ethicset">Ethic Set</a></li>
-                        <li class="nav-item"><a class="nav-link" href="bottomwear">bottom Wear</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('top.index')}}">Top Wear</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('ethic.index')}}">Ethic Set</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('bottom.index')}}">bottom Wear</a></li>
                         <li class="nav-item"><a class="nav-link" href="services">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="contactus">Contact Us</a></li>
