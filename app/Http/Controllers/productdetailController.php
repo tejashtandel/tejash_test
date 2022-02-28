@@ -136,7 +136,15 @@ class productdetailController extends Controller
      */
     public function show($id)
     {
-        //
+        $proddetails = DB::table('product_details')
+        ->join('category', 'product_details.catid', '=', 'category.id')
+        ->join('subcategories', 'product_details.sub_cat_id', '=', 'subcategories.id')
+        ->join('products', 'product_details.productid', '=', 'products.id')
+        ->join('brands', 'product_details.brandid', '=', 'brands.id')
+        ->select('product_details.*', 'category.category_name', 'subcategories.subcategoryname', 'products.product_name')
+        ->where('product_details.id',$id)
+        ->get();
+    return view('Admin.pages.product_details.product_detailsss', compact('proddetails'));
     }
 
     /**

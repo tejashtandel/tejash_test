@@ -14,8 +14,6 @@
     <link rel="shortcut icon" href="{{asset('admin/images/icon/image2.png')}}" />
 
 
-    <link rel="shortcut icon" href="{{asset('User/images/logo2.jpg')}}" type="image/x-icon">
-
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
@@ -64,7 +62,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                
+
                             </ul>
                         </li>
                         <li>
@@ -168,42 +166,47 @@
                             <a class="js-arrow" href="index">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                               
+
                             </ul>
                         </li>
                         <!-- <li>
                             <a href="report">
                             <i class="fa fa-file" aria-hidden="true"></i>Reports</a>
                         </li> -->
-                        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              
-             <i class="fa fa-file" aria-hidden="true"></i>Reports
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="userss">Users</a></li>
-                <li class="nav-item"> <a class="nav-link" href="subcategory">SabCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="report">Products</a></li>
-              </ul>
-            </div>
-          </li>
+
                         <li>
                             <a href="userss">
-                            <i class="fa fa-user" aria-hidden="true"></i>Users</a>
+                                <i class="fa fa-user" aria-hidden="true"></i>Users</a>
                         </li>
-                        <li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+
+                                <i class="fa fa-file" aria-hidden="true"></i>Product
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="stock">Stocks</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="category">Category</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="subcategory">SubCategory</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="products">Products</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="product_detail">Product Details</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- <li>
                             <a href="stocks">
-                            <i class="fa fa-user" aria-hidden="true"></i>Stocks</a>
+                                <i class="fa fa-user" aria-hidden="true"></i>Stocks</a>
                         </li>
                         <li>
                             <a href="category">
-                            <i class="fa fa-list-alt" aria-hidden="true"></i>Category</a>
+                                <i class="fa fa-list-alt" aria-hidden="true"></i>Category</a>
                         </li>
                         <li>
                             <a href="subcategory">
-                            <i class="fas fa-list-alt"></i>Sub Category</a>
+                                <i class="fas fa-list-alt"></i>Sub Category</a>
                         </li>
                         <li>
                             <a href="products">
@@ -211,8 +214,8 @@
                         </li>
                         <li>
                             <a href="product_detail">
-                            <i class="fa-brands fa-product-hunt"></i>Products Details</a>
-                        </li>
+                                <i class="fa-brands fa-product-hunt"></i>Products Details</a>
+                        </li> -->
                         <li>
                             <a href="brand">
                                 <i class="fas fa-table"></i>Brands</a>
@@ -231,20 +234,45 @@
                         </li> -->
                         <li>
                             <a href="banners">
-                            <i class="fas fa-image"></i>Banners</a>
+                                <i class="fas fa-image"></i>Banners</a>
                         </li>
                         <li>
                             <a href="footers">
-                            <i class="fa fa-copyright"></i>Footer</a>
+                                <i class="fa fa-copyright"></i>Footer</a>
                         </li>
                         <li>
                             <a href="header">
-                            <i class="fa fa-header" aria-hidden="true"></i>headers</a>
+                                <i class="fa fa-header" aria-hidden="true"></i>headers</a>
                         </li>
                         <li>
                             <a href="abouts">
-                            <i class="fa fa-info"></i>About Us</a>
+                                <i class="fa fa-info"></i>About Us</a>
                         </li>
+
+
+
+
+
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fa fa-file"></i>Reports</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="userss">Users</a>
+                                </li>
+                                <li>
+                                    <a href="subcategory">Subcategory</a>
+                                </li>
+                                <li>
+                                    <a href="proreport">products</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                              <i class="fas fa-copy"></i>Pages</a>
@@ -329,7 +357,7 @@
                                             </div> -->
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                 <img src="{{asset('admin/images/icon/avatar-06.jpg')}}" alt="Michelle Moreno" />
+                                                    <img src="{{asset('admin/images/icon/avatar-06.jpg')}}" alt="Michelle Moreno" />
                                                 </div>
                                                 <!-- <div class="content">
                                                     <h6>Michelle Moreno</h6>
@@ -339,7 +367,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                     <img src="{{asset('admin/images/icon/avatar-04.jpg')}}" alt="Diane Myers" /> 
+                                                    <img src="{{asset('admin/images/icon/avatar-04.jpg')}}" alt="Diane Myers" />
                                                 </div>
                                                 <!-- <div class="content">
                                                     <h6>Diane Myers</h6>
@@ -431,32 +459,33 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                             <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Admin</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                         <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Admin</a>
-                                                    </h5>
-                                                    <span class="email">admin@gmail.com</span>
-                                                </div>
+                                    <div class="account-wrap">
+                                        <div class="account-item clearfix js-item-menu">
+                                            <div class="image">
+                                                <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
                                             </div>
-                                           
-                                            <div class="account-dropdown__footer">
-                                                <a href="userindex">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            <div class="content">
+                                                <a class="js-acc-btn" href="#">Admin</a>
+                                            </div>
+                                            <div class="account-dropdown js-dropdown">
+                                                <div class="info clearfix">
+                                                    <div class="image">
+                                                        <a href="#">
+                                                            <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h5 class="name">
+                                                            <a href="#">Admin</a>
+                                                        </h5>
+                                                        <span class="email">admin@gmail.com</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="account-dropdown__footer">
+                                                    <a href="userindex">
+                                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -464,7 +493,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </header>
             <!-- HEADER DESKTOP-->
 

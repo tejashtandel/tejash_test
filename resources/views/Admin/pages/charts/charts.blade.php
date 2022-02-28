@@ -8,15 +8,15 @@
  
         function drawChart() {
  
-        // var data = google.visualization.arrayToDataTable([
-        //     ['Month Name', 'Registered User Count'],
+        var data = google.visualization.arrayToDataTable([
+            ['Month Name', 'Registered User Count'],
  
-        //         <?php
-        //         foreach($pieChart as $d) {
-        //             echo "['".$d->product_name."', ".$d->price."],";
-        //         }
-        //         ?>
-        // ]);
+                <?php
+                foreach($pieChart as $d) {
+                    echo "['".$d->product_name."', ".$d->price."],";
+                }
+                ?>
+        ]);
  
           var options = {
             title: 'Users Detail',

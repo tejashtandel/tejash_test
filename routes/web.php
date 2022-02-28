@@ -15,6 +15,7 @@ use App\Http\Controllers\productdetailController;
 use App\Http\Controllers\subcategoryController;
 use App\Http\Controllers\headersController;
 use App\Http\Controllers\aboutsController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\reportController;
 use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\cartController;
 use App\Http\Controllers\GooglePieController;
 use App\Http\Controllers\bottomController;
 use App\Http\Controllers\ethicController;
+use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
 
 
@@ -354,6 +356,8 @@ Route::resource('userss', userdetailController::class);
 Route::resource('stocks', stockController::class);
 //For Reports
 Route::resource('report', reportController::class);
+Route::resource('proreport',productReportController::class);
 
 //For Charts
 Route::resource('charts',GooglePieController::class);
+Route::resource('chart',AdminController::class);

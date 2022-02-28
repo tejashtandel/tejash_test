@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\product;
 use Illuminate\Support\Facades\DB;
-class GooglePieController extends Controller
+class productReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +13,13 @@ class GooglePieController extends Controller
      */
     public function index()
     {
-        $data['pieChart'] = product::select()
-        ->whereYear('created_at', date('Y'))
-        ->groupBy('product_name')
-        ->orderBy('count')
+        $data = DB::table('products AS p')->select('p.id','p.product_name','st.price','p.image','s.subcategoryname','c.category_name','st.size')
+        ->join('subcategories AS s', 'p.sub_cat_id', '=', 's.id')
+         ->join('category AS C','s.catid','=','c.id')
+        ->join('stocks AS st','st.productid','=','p.id')
         ->get();
-        return view('Admin.pages.charts.charts',compact('pieChart'));
+        // $subc=DB::find()->with('category')->get();
+        return view('Admin.pages.reports.productreport',compact('data'));
     }
 
     /**

@@ -34,8 +34,8 @@
 <script src="{{asset('admin/vendor/circle-progress/circle-progress.min.js')}}"></script>
 <script src="{{asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('admin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
-<script src="{{asset('admin/vendor/select2/select2.min.js')}}">
-</script>
+<script src="{{asset('admin/vendor/select2/select2.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
 <!-- Main JS-->
 <script src="{{asset('admin/js/main.js')}}"></script>

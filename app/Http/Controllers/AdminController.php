@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
-use Illuminate\Support\Facades\DB;
-class GooglePieController extends Controller
+use carbon\Carbon;
+
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +16,20 @@ class GooglePieController extends Controller
      */
     public function index()
     {
-        $data['pieChart'] = product::select()
-        ->whereYear('created_at', date('Y'))
-        ->groupBy('product_name')
-        ->orderBy('count')
-        ->get();
-        return view('Admin.pages.charts.charts',compact('pieChart'));
+   
+
+        $data=product::select('id','created_at')
+            ->get()->groupBy(function($data){
+                return Carbon::parse($data->created_at)->format('Y');
+                
+            });
+            $months=[];
+            $monthcount=[];
+            foreach($data as $month=>$values){
+                $months[]=$month;
+                $monthcount[]=count($values);
+            }
+            return view('Admin.pages.index',compact('months','monthcount'));
     }
 
     /**

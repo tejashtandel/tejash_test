@@ -11,10 +11,10 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          labels: _ydata,
           type: 'line',
           datasets: [{
-            data: [78, 81, 80, 45, 34, 12, 40],
+            data: _xdata,
             label: 'Dataset',
             backgroundColor: 'rgba(255,255,255,.1)',
             borderColor: 'rgba(255,255,255,.55)',
@@ -882,11 +882,11 @@
         type: 'bar',
         defaultFontFamily: 'Poppins',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels:_ydata,
           datasets: [
             {
               label: "My First dataset",
-              data: [65, 59, 80, 81, 56, 55, 40],
+              data: _xdata,
               borderColor: "rgba(0, 123, 255, 0.9)",
               borderWidth: "0",
               backgroundColor: "rgba(0, 123, 255, 0.5)",
@@ -894,7 +894,7 @@
             },
             {
               label: "My Second dataset",
-              data: [28, 48, 40, 19, 86, 27, 90],
+              data: _xdata,
               borderColor: "rgba(0,0,0,0.09)",
               borderWidth: "0",
               backgroundColor: "rgba(0,0,0,0.07)",
@@ -902,6 +902,7 @@
             }
           ]
         },
+        
         options: {
           legend: {
             position: 'top',
@@ -923,6 +924,7 @@
                 fontFamily: "Poppins"
               }
             }]
+            
           }
         }
       });
@@ -932,7 +934,7 @@
   } catch (error) {
     console.log(error);
   }
-
+ 
   try {
 
     //radar chart
