@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+@include('User.include.header')
+{{-- <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -20,409 +21,449 @@
     <title>Document</title>
 </head>
 
-<body>
-    <div class="container-fluid">
-        <nav class="breadcrumb" aria-label="breadcrumb">
-            <ol class="breadcrumb" id="try">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">ETHIC SET</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Product</li>
-            </ol>
-        </nav>
-    </div>
+<body> --}}
+<div class="container-fluid">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb" id="try">
+            <li class="breadcrumb-item"><a href="#">HOME</a></li>
+            <li class="breadcrumb-item active"><a href="#">BOTTOM WEAR</a></li>
+           
+        </ol>
+    </nav>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div id="cheking">
-
-
-
-                        <div class="cd-filter-block">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div id="cheking">
 
 
-                            <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
-                                <li>
-                                    <a class="filter-button btn btn-primary active" data-filter="all"
-                                        style="margin-top: 15px;">All</a>
 
-                                </li>
-                                <hr>
-                                <h4 class="catagory"> Sub Catagory</h4>
-                                <li>
-                                    <a class="btn filter-button" data-filter="jeans">jeans</a>
+                    <div class="cd-filter-block">
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="plazo">plazo</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="lengis">Lengis</a>
+                        <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
+                            <li>
+                                <a class="filter-button btn btn-primary active" data-filter="all"
+                                    style="margin-top: 15px;">All</a>
 
-                                </li>
-                                <hr>
-                                <h4 class="catagory">Size</h4>
-                                <li>
-                                    <a class="btn filter-button" data-filter="small">Small</a>
+                            </li>
+                            <hr>
+                            <h4 class="catagory"> Sub Catagory</h4>
+                            <li>
+                                <input type="checkbox" class="filter-button" data-filter="jeans">
+                                <label id="jeans">Jeans</label>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="medium">Medium</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="plazo">plazo</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="large">Large</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="lengis">Lengis</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="xl">XL</a>
+                            </li>
+                            <hr>
+                            <h4 class="catagory">Size</h4>
+                            <li>
+                                <a class="btn filter-button" data-filter="small">Small</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="xxl">XXl</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="medium">Medium</a>
 
-                                </li>
-                                <hr>
-                                <h4 class="catagory">Price</h4>
-                                <li>
-                                    <a class="btn filter-button" data-filter="below500">Below 500</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="large">Large</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="in500">500-1000</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="xl">XL</a>
 
-                                </li>
-                                <li>
-                                    <a class="btn filter-button" data-filter="above1000">above 1000</a>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="xxl">XXl</a>
 
-                                </li>
+                            </li>
+                            <hr>
+                            <h4 class="catagory">Price</h4>
+                            <li>
+                                <a class="btn filter-button" data-filter="below500">Below 500</a>
 
-                            </ul>
-                            <!-- cd-filter-content -->
-                        </div>
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="in500">500-1000</a>
 
+                            </li>
+                            <li>
+                                <a class="btn filter-button" data-filter="above1000">above 1000</a>
+
+                            </li>
+
+                        </ul>
+                        <!-- cd-filter-content -->
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <img class="img" id="banner" src="User/images/banner.png" />
-                </div>
-                <div class="row sameproduct">
-                    @foreach ($product2 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product all">
 
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product3 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product plazo" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product12 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product jeans" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product13 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product lengis" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product7 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product large" id="hi">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product4 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product in500" id="hid">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product5 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product above1000" id="hide">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product6 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product below500" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product8 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product small" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product9 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product medium" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product10 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product xl" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                    @foreach ($product11 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product xxl" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <img class="img" id="banner" src="User/images/banner.png" />
+            </div>
+            <div class="row sameproduct">
+                @foreach($product2 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product all">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product3 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product plazo">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product12 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product jeans">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product13 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product lengis">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product7 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product large">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product4 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product in500">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product5 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product above1000">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product6 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product below500">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product8 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product small">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product9 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product medium">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product10 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product xl">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @foreach($product11 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product xxl">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+            </div>
+        </div>
     </div>
+</div>
 
-    <script>
-        function clrfields() {
-            document.getElementById("checkbox1").value = "";
+<script>
+    function clrfields() {
+        document.getElementById("checkbox1").value = "";
+    }
+</script>
+
+
+
+<script>
+    $(document).ready(function() {
+        // $("*").ready(function){
+        $(".plazo").hide();
+        $(".jeans").hide();
+        $(".lengis").hide();
+        $(".small").hide();
+        $(".medium").hide();
+        $(".large").hide();
+        $(".xl").hide();
+        $(".xxl").hide();
+        $(".in500").hide();
+        $(".below500").hide();
+        $(".above1000").hide();
+
+
+        if ($(".filter-button").is(':checked')) {
+            var value = $(this).attr('data-filter');
+
+
+
+            if (value == "all") {
+                //$('.filter').removeClass('hidden');
+                $(".product").not('.' + value).hide('3000');
+                $('.product').filter('.' + value).show('3000');
+
+            } else {
+                //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                $(".product").not('.' + value).hide('3000');
+                $('.product').filter('.' + value).show('3000');
+
+            }
         }
-    </script>
 
-
-
-    <script>
-        $(document).ready(function() {
-            // $("*").ready(function){
-            $(".plazo").hide();
-            $(".jeans").hide();
-            $(".lengis").hide();
-            $(".small").hide();
-            $(".medium").hide();
-            $(".large").hide();
-            $(".xl").hide();
-            $(".xxl").hide();
-            $(".in500").hide();
-            $(".below500").hide();
-            $(".above1000").hide();
-
-            $(".filter-button").click(function() {
-                var value = $(this).attr('data-filter');
-
-                if (value == "all") {
-                    //$('.filter').removeClass('hidden');
-                    $(".product").not('.' + value).hide('3000');
-                    $('.product').filter('.' + value).show('3000');
-
-                } else {
-                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                    $(".product").not('.' + value).hide('3000');
-                    $('.product').filter('.' + value).show('3000');
-
-                }
-            });
-
-        });
-    </script>
-
-</body>
-
-</html>
+    });
+</script>
+</div>
+</div>
+</div>
+@include('User.include.footer')

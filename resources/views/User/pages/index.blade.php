@@ -123,7 +123,7 @@
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
                             </div>
                         </div>
                         <div class="why-text">
@@ -149,7 +149,7 @@
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
                             </div>
                         </div>
                         <div class="why-text">
@@ -175,7 +175,7 @@
                                     
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
+                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
                             </div>
                         </div>
                         <div class="why-text">
@@ -283,7 +283,7 @@
                     <div class="blog-box">
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>carlier Fashion</h3>
+                                <h3>Ethics Fashion</h3>
                                 <p>Our main goal is to furnish exceptionally popular items with best quality at extremely serious costs. We expect to contact purchasers searching for style across globe through retail and internet business.</p>
                             </div>
                             

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@inlude('User.include.header')
+@include('User.include.header')
 
    
 

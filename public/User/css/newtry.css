@@ -1,10 +1,11 @@
-
 .sameproduct{
-
-    margin-top: 50px;
+    margin-top: 30px !important;
+ 
 }
+
 .sameproduct img{
-    width: 328px;
+    width: 200px;
+    
     
 }
 
@@ -23,39 +24,10 @@
     font-weight: 100;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.add{
-     opacity: 0;
-    position: absolute;
-    background-color: red;
-    text-align: center;
-  
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
 
-}
-.add2{
-    opacity: 0;
-    position: absolute;
-    background-color: red;
-    text-align: center;
-  
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
 
-}
 
-.productdetails{
-    
-    font-size: 20px;
-    font-weight: 200;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  
-}
-.box-img{
-    margin: 10px 10px 10px 10px;
-}
+/* 
 .box-img:hover{
     position: relative;
     opacity: 0.7;
@@ -76,10 +48,59 @@
     top: 0px;
 }
 
-.wholecard{ 
-    margin: 10px 10px 10px 10px;
-}
+
 .filter-button{
 
     margin-bottom: 10px;
+} */
+
+.new img:hover{
+    transform: scale(1.05);
+    position: relative;
+
+
 }
+
+
+.viewbt{
+    color: red;
+    opacity: 0;
+    background-color: red;
+}
+.addbt{
+    color: red;
+    opacity: 0;
+}
+.addbt1{
+    color: red;
+    opacity: 0;
+}
+.new:hover .addbt{
+    opacity: 1;
+    position: relative;
+    bottom: 15px;
+   
+}
+.new:hover .addbt1{
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+   
+}
+.new:hover .viewbt{
+    opacity: 1;
+    position: absolute;
+    top: 75px;
+    margin-left: -175px;
+} 
+.product-info{
+    position: absolute;
+  
+}
+
+.newdiv{
+
+    margin-top: 70px;
+}
+
+
