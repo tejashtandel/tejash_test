@@ -19,10 +19,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('User/css/login2.css')}}" rel="stylesheet">
 </head>
-
-@include('User.include.header')
+{{-- 
+@include('User.include.header') --}}
 <body>
+    {{-- <div class="head">
+        <img src="{{asset('User/images/logofinal.png')}}">
+    </div> --}}
     <div id="app">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -74,4 +78,4 @@
             @yield('content')
         </main>
     </div>
-@include('User.include.footer')
+{{-- @include('User.include.footer') --}}

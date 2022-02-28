@@ -51,11 +51,11 @@
                         <div>
                             
                             <a href="#" id="decrement" class="btn"  style="text-decoration: none;">&#8722</a>
-                            <span class="px-3 quantityShow" id="qun">1</span>
-                            <a href="#" id="increment"  class="btn" style="text-decoration: none;">&#43</a>
+                            <span class="px-3 quantityShow" id="quantity">1</span>
+                            <a href="#" id="increment"  class="btn"  style="text-decoration: none;">&#43</a>
                         </div>
                       </td>
-                      <td id="totalprice">0 </td>
+                      <td id="priceid">0 </td>
                       <form action="{{ route('cart.destroy', ['cart' => $cat-> id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -90,6 +90,10 @@
             </div>
 
           </div>
+          <div class="buynow">
+            <a href="" class="btn">Buy Now</
+          </div>
+        
         </div>
         <!-- <div class="col-lg-4 col-12">
           <div class="card">
@@ -115,8 +119,9 @@
   var span = document.querySelector('.quantityShow');
 
   var increment = document.getElementById('increment'); // find the element with the ID 'increment'
-  var decrement = document.getElementById('decrement'); // find the element with the ID 'decrement'
-  
+  var decrement = document.getElementById('decrement'); 
+  var price=document.getElementById('productprice').value;// find the element with the ID 'decrement'
+ 
   increment.addEventListener('click', function () {
       // this function is executed whenever the user clicks the increment button
       if(x >10){
@@ -124,6 +129,11 @@
       }
       else{
         span.textContent = x++;
+        
+        price1 = price*(x+1);
+        
+        
+      
         
       
 
@@ -143,5 +153,7 @@
   });
 
   </script>
+  
+
   
   @include('User.include.footer')

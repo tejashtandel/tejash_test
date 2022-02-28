@@ -30,7 +30,7 @@
                             
                         
                         <h2>CONTACT INFO</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc tristique purus turpis. Maecenas vulputate. </p>
+                       
                         <ul>
                             <li>
                                 <p><i class="fas fa-map-marker-alt"></i>Address: {{ $foot -> address}}</p>
@@ -48,8 +48,8 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="contact-form-right">
                         <h2>GET IN TOUCH</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio justo, ultrices ac nisl sed, lobortis porta elit. Fusce in metus ac ex venenatis ultricies at cursus mauris.</p>
-                        <form id="contactForm">
+                        
+                        <form id="contactForm" action="{{route('contact"')}}">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -75,8 +75,8 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
-                                        <button class="btn hvr-hover" id="submit" type="submit">Send Message</button>
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <button class="btn" id="submit" type="submit">Send Message</button>
+                                        <div id="msgSubmit" class="h3 text-center"></div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>

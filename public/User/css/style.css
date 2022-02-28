@@ -2269,8 +2269,8 @@
  .submit-button button{
      padding: 10px 20px;
      font-weight: 700;
-     color: #ffffff;
-     border: none;
+     color: #e41919;
+     border: black;
 }
  .help-block.with-errors{
      position: absolute;

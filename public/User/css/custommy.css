@@ -13,3 +13,14 @@ font-style: italic;
 font-weight: 500;
 
 }
+
+
+
+
+/* For Buy now button */
+
+.buynow{
+
+    position: relative;
+    margin-left: 350px;
+}

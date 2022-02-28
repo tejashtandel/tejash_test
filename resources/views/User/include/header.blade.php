@@ -42,10 +42,11 @@
     <!-- For Slider-->
     <link rel="stylesheet" href="{{asset('User/css/superslides.css')}}">
     <!----My customes for Pages--->
-    <link rel="stylesheet" href="{{asset('User/css/newtry.css')}}"/>
+    <link rel="stylesheet" href="{{asset('User/css/newtry.css')}}"  !important/>
 
     <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
     <link rel="stylesheet" href="{{asset('User/css/addcart.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/billing.css')}}">
 
    
 
@@ -134,7 +135,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index"><img src="{{asset('User/images/logofinal.png')}}" class="newlogo" alt=""></a>
+                    <a class="navbar-brand" ><img src="{{asset('User/images/logofinal.png')}}" class="newlogo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -167,23 +168,28 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item">
+                                <a id="navbar" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                            </li>
+                            <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
                                  {{ __('Logout') }}
                              </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            </li>
+                           
+                              
+                                <div class="" aria-labelledby="">
                                  
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            {{-- </li> --}}
                         @endguest
                      
 

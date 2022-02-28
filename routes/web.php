@@ -45,7 +45,9 @@ use App\Models\product;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('bill', function () {
+    return view('User.pages/billingpage');
+});
 
 
 // Route::get('index', function () {    
@@ -173,7 +175,7 @@ Route::get('prod/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.* as p', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -196,7 +198,7 @@ Route::get('prod1/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -220,7 +222,7 @@ Route::get('prod3/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')

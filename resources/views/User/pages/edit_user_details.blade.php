@@ -19,10 +19,11 @@
                                 @endif
                             </div>
                         </div>
+                       
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>First Name:</strong>
-                                <input type="text" name="firstname" class="form-control" placeholder="Enter FirstName" value={{user-> $firstname}}>
+                                <input type="text" name="firstname" class="form-control" placeholder="Enter FirstName" value={{$us-> $lastname}}>
                                 <!-- @error('description')
                                               <div class="alert alert-danger mt-1 mb-1">{{ $message}}</div>
                                               @enderror -->
@@ -128,6 +129,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary ml-3">Add</button>
+                    @endforeach
                     </div>
                 </form>
             </div>

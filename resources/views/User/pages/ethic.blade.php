@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+
+@include('User.include.header')
+{{-- <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -20,13 +22,13 @@
     <title>Document</title>
 </head>
 
-<body>
+<body> --}}
     <div class="container-fluid">
         <nav class="breadcrumb" aria-label="breadcrumb">
             <ol class="breadcrumb" id="try">
                 <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">ETHIC SET</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Product</li>
+                <li class="breadcrumb-item active"><a href="#">ETHIC SET</a></li>
+                
             </ol>
         </nav>
     </div>
@@ -111,269 +113,308 @@
                     <img class="img" id="banner" src="User/images/banner.png" />
                 </div>
                 <div class="row sameproduct">
-                    @foreach ($product1 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product all">
+                    
 
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product1 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product all">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product2 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product kurta" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    
+                    @foreach($product2 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product kurta">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product3 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product dress" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product3 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product dress">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product4 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product kurtis" id="h">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product4 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product kurtis">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product5 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product above1000" id="hi">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product5 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product above1000">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product6 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product below500" id="hid">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                            style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product6 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product below500">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product7 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product in500" id="hide">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product7 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product in500">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product8 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product large" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product8 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product large">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product9 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product medium" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product9 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product medium">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product10 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product xl" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product10 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product xl">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product11 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product xxl" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product11 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product xxl">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
-                    @foreach ($product12 as $prod)
-                        <div class="col-lg-4 col-md-6 col-sm-12 product small" id="hidden">
-
-                            <div class="wholecard">
-                                <div class="box-img">
-                                    <div class="type-lb">
-                                        <img src="User/product/{{ $prod->image }}" class="img-fluid"
-                                            alt="Image" style="display: flex" />
-                                        <a href="{{ url('/prod1', ['id' => $prod->id]) }} " class="btn add2">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                        <button value="add to cart" class="add">Add to cart</button>
-                                    </div>
-                                    <div class="why-text">
-                                        <h5 class="productdetails">NAME:{{ $prod->product_name }}</h5>
-                                        <h5 class="productdetails">Price:{{ $prod->price }}</h5>
-                                    </div>
+                    @foreach($product12 as $prod)
+                    <div class="col-lg-4 col-md-6 col-sm-12 product small">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    
+                                </div>
+                                <img src="User/product/{{$prod-> image}}"  class="img-fluid" alt="Image" style="display: flex" >
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        
+                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
                             </div>
-
+                            <div class="why-text">
+                                
+                                <h5>  {{ $prod-> product_name}}</h5>
+                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                            </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -423,6 +464,4 @@
         });
     </script>
 
-</body>
-
-</html>
+@include('User.include.footer')
