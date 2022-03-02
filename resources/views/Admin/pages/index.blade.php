@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="text">
                                         <h2></h2>
-                                        <span><a href="users">Users</a></span>
+                                        <span><a href="userreport">Users</a></span>
 
                                     </div>
                                 </div>

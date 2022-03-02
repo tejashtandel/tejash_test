@@ -34,17 +34,60 @@
 <script src="{{asset('admin/vendor/circle-progress/circle-progress.min.js')}}"></script>
 <script src="{{asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('admin/vendor/chartjs/Chart.bundle.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{asset('admin/vendor/select2/select2.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
 
 <!-- Main JS-->
 <script src="{{asset('admin/js/main.js')}}"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
+
+
+
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
+
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                    extend: 'pdf',
+                    className: 'btn-success'
+                },
+                {
+                    extend: 'print',
+                    className: 'btn-success'
+                },
+                {
+                    extend: 'csv',
+                    className: 'btn-success'
+                },
+                {
+                    extend: 'excel',
+                    className: 'btn-success'
+                }
+            ],
+
+        });
+        $('#myTable').DataTable();
+    });
 </script>
+
 </body>
 
 </html>

@@ -276,6 +276,12 @@
 
 
 
+                        <li>
+                            <a href="feedback">
+                            <i class="fa fa-comments" aria-hidden="true"></i>Feedback</a>
+                        </li>
+
+
 
 
 
@@ -284,7 +290,7 @@
                                 <i class="fa fa-file"></i>Reports</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="users"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users</a>
+                                    <a href="userreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users</a>
                                 </li>
                                 <li>
                                     <a href="subcategory"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Subcategory</a>

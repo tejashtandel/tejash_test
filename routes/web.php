@@ -27,6 +27,8 @@ use App\Http\Controllers\ethicController;
 use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
 use App\Http\Controllers\contcatController;
+use App\Http\Controllers\feedbackController;
+use App\Http\Controllers\UserreportController;
 
 
 use App\Models\product;
@@ -362,3 +364,9 @@ Route::resource('proreport',productReportController::class);
 //For Charts
 Route::resource('charts',GooglePieController::class);
 Route::resource('chart',AdminController::class);
+
+//For Feedback
+Route::resource('feedback', feedbackController::class);
+
+//For User Report
+Route::resource('userreport', UserreportController::class);

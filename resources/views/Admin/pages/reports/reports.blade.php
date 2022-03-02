@@ -6,7 +6,7 @@
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row">
-                <table class="table table-bordered" id="myTable">
+                <table class="table table-bordered" id="example">
                     <thead>
                         <tr>
                         <th scope="col">Product Name</th>

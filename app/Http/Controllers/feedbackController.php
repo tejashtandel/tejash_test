@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-class productReportController extends Controller
+class feedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,8 @@ class productReportController extends Controller
      */
     public function index()
     {
-        $data = DB::table('products AS p')->select('p.id','p.product_name','st.price','p.image','s.subcategoryname','c.category_name','st.size','st.quantity')
-        ->join('subcategories AS s', 'p.sub_cat_id', '=', 's.id')
-         ->join('category AS C','s.catid','=','c.id')
-        ->join('stocks AS st','st.productid','=','p.id')
-        ->get();
-        // $subc=DB::find()->with('category')->get();
-        return view('Admin.pages.reports.productreport',compact('data'));
+        $feedback = DB::table('contacts')->get();
+        return view('Admin.pages.feedback.feedback', compact('feedback'));
     }
 
     /**
@@ -87,5 +82,4 @@ class productReportController extends Controller
     {
         //
     }
-    
 }
