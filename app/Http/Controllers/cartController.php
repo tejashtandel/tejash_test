@@ -48,15 +48,15 @@ class cartController extends Controller
             'product_id' => 'required',
             'user_id' => 'required',
             'quantity' => 'required',
-            'price' => 'required ',
+            'totalprice' => 'required ',
         ]);
 
         $product_id = $request->product_id;
         $user_id = $request->user_id;
         $quantity = $request->quantity;
-        $price = $request->price;
+        $totalprice = $request->totalprice;
 
-        cart::create(['product_id' => $product_id, 'user_id' => $user_id, 'quantity' => $quantity, 'totalprice' => $price]);
+        cart::create(['product_id' => $product_id, 'user_id' => $user_id, 'quantity' => $quantity, 'totalprice' => $totalprice]);
         return redirect()->route('cart.show', ['cart' =>  Auth::user()->id])->with('success', 'product added');
     }
 
@@ -75,11 +75,12 @@ class cartController extends Controller
             ->join('products', 'products.id', '=', 'carts.product_id')
             ->join('users', 'users.id', '=', 'carts.user_id')
             ->join('product_details', 'product_details.productid', '=', 'products.id')
-            ->select('products.*', 'users.*', 'product_details.*', 'carts.*', 'users.id as uid', 'products.id as pID')
+            ->select('products.*', 'users.*', 'product_details.*', 'carts.*', 'users.id as uid', 'products.id as pID','carts.id as cID')
             ->where('carts.flag', '=', 1)
             ->where('users.id', $id)->get();
+            $footer = DB::table('footers')->get();
 
-        return view('User.pages.cart1', compact('cart'));
+        return view('User.pages.cart1', compact('cart','footer'));
     }
 
 

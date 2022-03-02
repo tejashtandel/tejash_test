@@ -28,6 +28,7 @@
 @import url(jquery-ui.css);
 @import url(nice-select.css);
 @import url(baguetteBox.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Jost:ital,wght@1,300&family=Paprika&display=swap');
 
 /*------------------------------------------------------------------
     SKELETON
@@ -118,8 +119,8 @@
 }
  ul, li, ol{
      list-style: none;
-     margin: -5px;
-     padding: 0px;
+     margin: 0px;
+     padding: 2px;
 }
  button:focus{
      outline: none;
@@ -304,6 +305,7 @@
     }
     nav.navbar .navbar-brand img.newlogo{
         width: 120px;
+        
    }
      nav.navbar li.dropdown ul.dropdown-menu{
          border-top: solid 5px;
@@ -899,9 +901,10 @@
 }
  .why-text h5{
      font-size: 18px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: 'Jost', sans-serif;
      padding: 0px;
      font-weight: 600;
+     text-align: center;
 }
  .mask-icon{
      width: 100%;
@@ -1365,8 +1368,9 @@
      color: #d33b33;
 }
 /*------------------------------------------------------------------ All Pages -------------------------------------------------------------------*/
- .all-title-box{
-     background: url("../images/all-bg-title.jpg") no-repeat center center;
+ .title-box{
+     background: url("/User/images/banner-02.jpg") no-repeat center center;
+     opacity: 0.8;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -ms-background-size: cover;
@@ -1377,7 +1381,7 @@
      padding: 70px 0px;
      position: relative;
 }
- .all-title-box::before{
+ .title-box::before{
      background: rgba(0,0,0,0.6);
      content: "";
      position: absolute;
@@ -1387,28 +1391,29 @@
      left: 0px;
      top: 0px;
 }
- .all-title-box h2{
+ .title-box h2{
      font-size: 28px;
      font-weight: 700;
      color: #ffffff;
      padding-bottom: 30px;
+     text-align: center;
 }
- .all-title-box .breadcrumb{
+ .title-box .breadcrumb{
      background: #d33b33;
-     margin: 0px;
-     display: inline-block;
+     margin-top: 10px;
+     
      border-radius: 0px;
 }
- .all-title-box .breadcrumb li{
+ .title-box .breadcrumb li{
      display: inline-block;
      color: #010101;
      font-size: 16px;
 }
- .all-title-box .breadcrumb li a{
+ .title-box .breadcrumb li a{
      color: #ffffff;
      font-size: 16px;
 }
- .all-title-box .breadcrumb-item + .breadcrumb-item::before{
+ .title-box .breadcrumb-item + .breadcrumb-item::before{
      color: #010101;
 }
  .about-box-main{
@@ -1420,14 +1425,18 @@
      font-style: bold;
      font-weight: 700;
      color: black;
-     font-family: 'Times New Roman', Times, serif;
+     font-family: 'Bevan', cursive;
   
 }
  .about-box-main p{
      font-size: 17px;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-family: 'Paprika', cursive;
      padding-bottom: 20px;
      font-style: bold;
+}
+.banner img{
+    width:500px;
+
 }
  .service-block-inner {
      padding: 15px 20px;

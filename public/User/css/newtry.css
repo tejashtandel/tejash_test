@@ -24,6 +24,18 @@
     font-weight: 100;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.cd-filter-block ul li{
+  
+    list-style: disc;
+    margin-left: 50px;
+
+}
+
+.cd-filter-block a{
+   
+     margin-left: -15px;
+ 
+ }
 
 
 

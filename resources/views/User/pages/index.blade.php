@@ -128,8 +128,8 @@
                         </div>
                         <div class="why-text">
                             
-                            <h5> Type: {{ $prod-> product_name}}</h5>
-                            <h5> Price: {{ $prod-> price}}</h5>
+                            <h5>  {{ $prod-> product_name}}</h5>
+                            <h5>  Rs. {{ $prod-> price}}</h5>
                         </div>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
                         </div>
                         <div class="why-text">
                             
-                            <h5> Type: {{ $prod-> product_name}}</h5>
-                            <h5> Price: {{ $prod-> price}}</h5>
+                            <h5>  {{ $prod-> product_name}}</h5>
+                            <h5> Rs. {{ $prod-> price}}</h5>
                         </div>
                     </div>
                 </div>
@@ -180,8 +180,8 @@
                         </div>
                         <div class="why-text">
                             
-                            <h5> Type: {{ $prod-> product_name}}</h5>
-                            <h5> Price: {{ $prod-> price}}</h5>
+                            <h5> {{ $prod-> product_name}}</h5>
+                            <h5>Rs. {{ $prod-> price}}</h5>
                         </div>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                     <div class="blog-box">
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>Ethics Fashion</h3>
+                                <h3>Ethics Beauty</h3>
                                 <p>Our main goal is to furnish exceptionally popular items with best quality at extremely serious costs. We expect to contact purchasers searching for style across globe through retail and internet business.</p>
                             </div>
                             
