@@ -49,7 +49,7 @@
                     <div class="contact-form-right">
                         <h2>GET IN TOUCH</h2>
                         
-                        <form id="contactForm" action="{{route('contact"')}}">
+                        <form id="contactForm" action="{{route('contact.store')}}">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

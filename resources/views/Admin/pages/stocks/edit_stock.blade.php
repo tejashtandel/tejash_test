@@ -8,7 +8,7 @@
                     @csrf
                     @method('PUT')
                     <div class="row">
-                    <h1>Edit Subcategory</h1>
+                    <h1>Edit Stocks</h1>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 @if($errors->any())
@@ -54,7 +54,7 @@
                         </div>
 
 
-                         <input type="submit" class="btn btn-primary ml-3 " value="Update">
+                         <input type="submit" class="btn btn-success ml-3 " value="Submit">
                     </div>
                 </form>
             </div>

@@ -156,7 +156,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{asset('admin/images/icon/image3.jpg')}}" alt="Cool Admin" style="max-width:80%" />
+                    <img src="{{asset('admin/images/icon/image5.png')}}" alt="Cool Admin"/>
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -175,7 +175,7 @@
                         </li> -->
 
                         <li>
-                            <a href="userss">
+                            <a href="users">
                                 <i class="fa fa-user" aria-hidden="true"></i>Users</a>
                         </li>
 
@@ -183,16 +183,16 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
 
-                                <i class="fa fa-file" aria-hidden="true"></i>Product
+                                <i class="fa fa-info"></i>Product
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="stock">Stocks</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="category">Category</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="subcategory">SubCategory</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="products">Products</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="product_detail">Product Details</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="stocks"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Stocks</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="category"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Category</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="subcategory"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>SubCategory</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="products"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="product_detail"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Product Details</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -216,10 +216,10 @@
                             <a href="product_detail">
                                 <i class="fa-brands fa-product-hunt"></i>Products Details</a>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <a href="brand">
                                 <i class="fas fa-table"></i>Brands</a>
-                        </li>
+                        </li> -->
                         <!-- <li>
                             <a href="cart">
                                 <i class="far fa-check-square"></i>Cart</a>
@@ -232,7 +232,7 @@
                             <a href="payment">
                                 <i class="fas fa-map-marker-alt"></i>payment</a>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <a href="banners">
                                 <i class="fas fa-image"></i>Banners</a>
                         </li>
@@ -247,6 +247,31 @@
                         <li>
                             <a href="abouts">
                                 <i class="fa fa-info"></i>About Us</a>
+                        </li> -->
+
+
+
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>UI Design</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="brand"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Brands</a>
+                                </li>
+                                <li>
+                                    <a href="banners"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Banners</a>
+                                </li>
+                                <li>
+                                    <a href="footers"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Footer</a>
+                                </li>
+                                <li>
+                                    <a href="header"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Header</a>
+                                </li>
+                                <li>
+                                    <a href="abouts"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>About Us</a>
+                                </li>
+                            </ul>
                         </li>
 
 
@@ -259,13 +284,13 @@
                                 <i class="fa fa-file"></i>Reports</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="userss">Users</a>
+                                    <a href="users"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users</a>
                                 </li>
                                 <li>
-                                    <a href="subcategory">Subcategory</a>
+                                    <a href="subcategory"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Subcategory</a>
                                 </li>
                                 <li>
-                                    <a href="proreport">products</a>
+                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>products</a>
                                 </li>
                             </ul>
                         </li>
@@ -462,7 +487,7 @@
                                     <div class="account-wrap">
                                         <div class="account-item clearfix js-item-menu">
                                             <div class="image">
-                                                <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
+                                                <img src="{{asset('admin/images/icon/image4.png')}}" alt="John Doe" /> -->
                                             </div>
                                             <div class="content">
                                                 <a class="js-acc-btn" href="#">Admin</a>
@@ -471,7 +496,7 @@
                                                 <div class="info clearfix">
                                                     <div class="image">
                                                         <a href="#">
-                                                            <img src="{{asset('admin/images/icon/image1.png')}}" alt="John Doe" /> -->
+                                                            <img src="{{asset('admin/images/icon/image4.png')}}" alt="John Doe" />
                                                         </a>
                                                     </div>
                                                     <div class="content">

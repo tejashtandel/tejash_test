@@ -11,7 +11,7 @@
                 <form action="{{route('stocks.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <h2>Add Header</h2>
+                        <h2>Add Stocks</h2>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 @if($errors->any())
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary ml-3">Add Header</button>
+                        <button type="submit" class="btn btn-success ml-3">Submit</button>
                     </div>
                 </form>
             </div>

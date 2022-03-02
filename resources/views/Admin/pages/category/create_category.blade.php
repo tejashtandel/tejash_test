@@ -43,7 +43,7 @@
                                 @enderror -->
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary ml-3">Add category</button>
+                        <button type="submit" class="btn btn-success ml-3">Submit</button>
                     </div>
                 </form>
             </div>

@@ -353,7 +353,7 @@ Route::resource('product_detail', productdetailController::class);
 //For About Us
 Route::resource('abouts', aboutsController::class);
 //For User Details
-Route::resource('userss', userdetailController::class);
+Route::resource('users', userdetailController::class);
 //For Stocks
 Route::resource('stocks', stockController::class);
 //For Reports

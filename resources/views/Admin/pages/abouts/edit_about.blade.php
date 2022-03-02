@@ -37,7 +37,7 @@
                               </div>
 
 
-                              <input type="submit" class="btn btn-primary ml-3 " value="Update">
+                              <input type="submit" class="btn btn-success ml-3 " value="Submit">
                          </div>
                     </form>
                </div>

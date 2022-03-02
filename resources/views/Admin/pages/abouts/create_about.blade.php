@@ -12,7 +12,7 @@
                 <form action="{{route('abouts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <h2>Add Banners</h2>
+                        <h2>Add About</h2>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 @if($errors->any())
@@ -39,7 +39,7 @@
                                     @enderror -->
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary ml-3">Add</button>
+                        <button type="submit" class="btn btn-success ml-3">Submit</button>
                     </div>
                 </form>
             </div>
