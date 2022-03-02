@@ -26,6 +26,7 @@ use App\Http\Controllers\bottomController;
 use App\Http\Controllers\ethicController;
 use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
+use App\Http\Controllers\contcatController;
 
 
 use App\Models\product;
@@ -49,7 +50,6 @@ Route::get('bill', function () {
     return view('User.pages/billingpage');
 });
 
-
 // Route::get('index', function () {    
 //      return view('pages/index');
 //  });
@@ -57,8 +57,9 @@ Route::get('bill', function () {
 Route::get('about', function () {
 
     $footer = DB::table('footers')->get();
+    $about =DB::table('abouts')->get();
 
-    return view('User.pages/about', compact('footer'));
+    return view('User.pages/about', compact('footer','about'));
 });
 
 Route::get('cart', function () {
@@ -69,10 +70,7 @@ Route::get('checkout', function () {
     return view('User.pages/checkout');
 });
 
-Route::get('contactus', function () {
-    $footer = DB::table('footers')->get();
-    return view('User.pages/contactus', compact('footer'));
-});
+
 
 Route::get('shop', function () {
     return view('User.pages/shop');
@@ -251,6 +249,7 @@ Route::resource('cart', cartController::class);
 Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
+Route::resource('contact', contcatController::class);
 
 
 

@@ -23,17 +23,22 @@
 </head>
 
 <body> --}}
-    <div class="container-fluid">
-        <nav class="breadcrumb" aria-label="breadcrumb">
-            <ol class="breadcrumb" id="try">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item active"><a href="#">ETHIC SET</a></li>
-                
-            </ol>
-        </nav>
-    </div>
+    {{-- <div class="all-title-box"> --}}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Ethic Wear</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Ethic Wear</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{-- </div> --}}
 
-    <div class="container">
+
+<div class="container mainheader">
         <div class="row">
             <div class="col-lg-4">
                 <div class="card">
@@ -45,14 +50,15 @@
 
 
                             <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
-                                <li>
+                               
                                     <a class="filter-button btn btn-primary active" data-filter="all"
                                         style="margin-top: 15px;">All</a>
 
-                                </li>
+                               
                                 <hr>
                                 <h4 class="catagory">Catagory</h4>
                                 <li>
+                                    <img src="https://img.icons8.com/small/16/000000/filled-circle.png"/>
                                     <a class="btn filter-button" data-filter="kurta">KURTA</a>
 
                                 </li>
@@ -135,7 +141,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -161,7 +167,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -186,7 +192,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -211,7 +217,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -236,7 +242,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -261,7 +267,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -286,7 +292,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -311,7 +317,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -336,7 +342,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -361,7 +367,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -386,7 +392,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -411,7 +417,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>

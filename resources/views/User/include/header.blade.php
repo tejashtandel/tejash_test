@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="User/css/catagory.css">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{asset('User/images/logofinal.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('User/images/logo2.png')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="User/images/apple-touch-icon.png">
     <!--My Custom Css-->
     <link rel="stylesheet" href="User/css/custommy.css">
@@ -135,7 +135,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" ><img src="{{asset('User/images/logofinal.png')}}" class="newlogo" alt=""></a>
+                    <a class="navbar-brand" ><img src="{{asset('User/images/logo2.png')}}" class="newlogo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -151,10 +151,10 @@
                        
                         <li class="nav-item"><a class="nav-link" href="{{route('top.index')}}">Top Wear</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('ethic.index')}}">Ethic Set</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('bottom.index')}}">bottom Wear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="services">Our Service</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('bottom.index')}}">Bottom Wear</a></li>
+                    
                         <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contactus">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('contact.index')}}">Contact Us</a></li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -200,7 +200,7 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        {{-- <li class="search"><a href="#"><i class="fa fa-search"></i></a></li> --}}
                         <li class=""><a href="{{route('cart.index')}}">
                                 <i class="fa fa-shopping-bag"></i>
                                 <span class="badge">3</span>

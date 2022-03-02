@@ -170,7 +170,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="product_id" value="{{ $det-> pID }}">
-                    <input type="hidden" name="price" value="{{ $det->price }}">
+                    <input type="hidden" name="totalprice" value="{{ $det->price }}">
                     <input type="hidden" name="quantity" id="" value="1">
       
           

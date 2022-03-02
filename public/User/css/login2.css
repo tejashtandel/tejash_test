@@ -1,7 +1,33 @@
 body{
-    background-color: lightblue;
+    
+    background-image: repeating-linear-gradient(rgb(56, 170, 223),white,rgb(61, 56, 56),rgb(56, 170, 223));
+    /* background-repeat: repeat-x; */
+    background-attachment: fixed;
+    background-position: center;
 }
-.head img{
+.fill{
+    
+background-image: repeating-linear-gradient(rgb(221, 173, 173),rgb(186, 243, 160));
 
-    width: 120px;
 }
+.card-body h2{
+
+    text-align: center;
+    margin-bottom: 50px;
+}
+.content{
+
+    justify-content: center;
+}
+
+.card-body input{
+
+    margin-top: 10px;
+}
+.card-body strong{
+
+    margin-bottom: 50px;
+}
+
+
+

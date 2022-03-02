@@ -48,36 +48,49 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="contact-form-right">
                         <h2>GET IN TOUCH</h2>
+                        @if(Session::has('status'))
+                        <div class="alert alert-success text-center">
+                            {{Session::get('status')}}
+                        </div>
+                        @endif
                         
                         <form id="contactForm" action="{{route('contact.store')}}">
+                        <form  action="{{route('contact.store')}}" method="POST">
+                            @csrf
+                            @if(Session::has('status'))
+                            <div class="alert alert-success text-center">
+                                {{Session::get('status')}}
+                            </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <input type="hidden" name="userid" value="{{ Auth::user()->id }}">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" name="name" placeholder="Subject" required data-error="Please enter your Subject">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required data-error="Please enter your Subject">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
                                         <button class="btn" id="submit" type="submit">Send Message</button>
-                                        <div id="msgSubmit" class="h3 text-center"></div>
-                                        <div class="clearfix"></div>
+                                        {{-- <div id="msgSubmit" class="h3 text-center"></div>
+                                        <div class="clearfix"></div> --}}
                                     </div>
                                 </div>
                             </div>

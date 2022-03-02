@@ -22,17 +22,24 @@
 </head>
 
 <body> --}}
-<div class="container-fluid">
-    <nav class="breadcrumb" aria-label="breadcrumb">
-        <ol class="breadcrumb" id="try">
-            <li class="breadcrumb-item"><a href="#">HOME</a></li>
-            <li class="breadcrumb-item active"><a href="#">BOTTOM WEAR</a></li>
-           
-        </ol>
-    </nav>
-</div>
+ 
 
-<div class="container">
+    {{-- <div class="all-title-box"> --}}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Bottom Wear</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Bottom Wear</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{-- </div> --}}
+
+
+<div class="container mainheader">
     <div class="row">
         <div class="col-lg-4">
             <div class="card">
@@ -41,23 +48,26 @@
 
 
                     <div class="cd-filter-block">
+                       
 
 
-                        <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
-                            <li>
-                                <a class="filter-button btn btn-primary active" data-filter="all"
-                                    style="margin-top: 15px;">All</a>
-
-                            </li>
+                        <ul  class="cd-filter-content cd-filters list">
+                            
+            
+                        <a class="filter-button btn btn-primary active" data-filter="all"
+                        style="margin-top: 15px;">All</a>
+                            
+                               
+                            
                             <hr>
                             <h4 class="catagory"> Sub Catagory</h4>
                             <li>
-                                <input type="checkbox" class="filter-button" data-filter="jeans">
-                                <label id="jeans">Jeans</label>
+                            
+                                <a class="btn filter-button" data-filter="jeans">Jeans</a>
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="plazo">plazo</a>
+                                <a class="btn filter-button" data-filter="plazo">Plazo</a>
 
                             </li>
                             <li>
@@ -133,7 +143,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -158,7 +168,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -183,7 +193,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -208,7 +218,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -233,7 +243,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -258,7 +268,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -283,7 +293,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -308,7 +318,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -333,7 +343,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -358,7 +368,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -383,7 +393,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -408,7 +418,7 @@
                             <div class="why-text">
                                 
                                 <h5>  {{ $prod-> product_name}}</h5>
-                                <h5> Price:Rs. {{ $prod-> price}}</h5>
+                                <h5> Rs. {{ $prod-> price}}</h5>
                             </div>
                         </div>
                     </div>
@@ -442,7 +452,7 @@
         $(".above1000").hide();
 
 
-        if ($(".filter-button").is(':checked')) {
+        $(".filter-button").click(function() {
             var value = $(this).attr('data-filter');
 
 
@@ -459,7 +469,7 @@
                 $('.product').filter('.' + value).show('3000');
 
             }
-        }
+        });
 
     });
 </script>
