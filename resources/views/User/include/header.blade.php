@@ -180,6 +180,10 @@
                                  {{ __('Logout') }}
                              </a>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('cart.index')}}">
+                                <i class="fa fa-shopping-bag"></i>
+                                
+                            </a></li>
                            
                               
                                 <div class="" aria-labelledby="">
@@ -201,10 +205,7 @@
                 <div class="attr-nav">
                     <ul>
                         {{-- <li class="search"><a href="#"><i class="fa fa-search"></i></a></li> --}}
-                        <li class=""><a href="{{route('cart.index')}}">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
-                            </a></li>
+                        
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->

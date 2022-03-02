@@ -43,3 +43,6 @@ text-align: center;
 .delete{
    background-color: red;
 }
+.cart{
+    overflow-x: auto;
+}

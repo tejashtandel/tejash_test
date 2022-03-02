@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-class userdetailController extends Controller
+use Illuminate\Support\facades\DB;
+
+class buynowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,15 @@ class userdetailController extends Controller
      */
     public function index()
     {
+   
 
+
+        $id = Auth::user()->id;
+        $user = DB::table('users')->select('users.*')->where('users.id','=',$id)->get();
+        $footer = DB::table('footers')->get();
         
-        $userss= DB::table('users')->get();
-        return view('Admin.pages.users.user',compact('userss'));
-
+        
+        return view('User.pages.billingpage',compact('footer','user'));
     }
 
     /**
@@ -62,9 +66,7 @@ class userdetailController extends Controller
      */
     public function edit($id)
     {
-        $users= DB::table('users')->where('id',$id)->get();
-        $footer = DB::table('footers')->get();
-        return view('User.pages.userdetails',compact('users','footer'));
+        //
     }
 
     /**
@@ -76,16 +78,7 @@ class userdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-     
-        $user=User::find($id);
-    
-        $input=$request->all();
-
-        $user->update($input);
-        // d($input);
-        // exidt();
-        
-        return redirect()->route('userdetails.edit', ['userdetail' => Auth::user()->id])->with('success', 'Updated Successfully');
+        //
     }
 
     /**

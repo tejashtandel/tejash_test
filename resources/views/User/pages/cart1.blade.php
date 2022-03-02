@@ -8,10 +8,10 @@
                 <h1>Shopping Cart</h1>
 
                 <div class="details">
-                    <form action="" method="POST">
-                        <div class="container">
+                   
+                        <div class="container cart">
                             <table class="table table-hover">
-                                <thread>
+                                <thead>
                                     <tr>
 
                                         <th>Product Image</th>
@@ -21,14 +21,14 @@
                                         <th>Total Price</th>
                                         <th>Remove</th>
                                     </tr>
-                                </thread>
+                                </thead>
                                 <tbody>
                                     <?php
                                     $val = 0;
                                     $j = 1;
                                     ?>
                                 @foreach ($cart as $cat)
-                                  
+                                  <tr>
                                         <td><img src="{{ asset('User/product/' . $cat->image) }}"></td>
                                         <td>{{ $cat->product_name }}</td>
 
@@ -53,17 +53,21 @@
                                                 <?php echo $amount * $cat->quantity; ?>
                                             </span>
                                         </td>
+                                       
                                         <form action="{{ route('cart.destroy', ['cart' => $cat->cID]) }}"
                                             method="POST">
+                                            
                                             @csrf
                                             @method('DELETE')
                                             <td data-label="Delete">
 
                                                 <button type="submit" value="Delete" class="fa-solid fa-trash"
                                                     style="color:red"></button>
-                                            </td>
+                                                </td>
 
                                         </form>
+                                  </tr>
+                                   
                                         <?php
                                         $j++;
                                         ?>
@@ -74,15 +78,16 @@
                                 <tr>
                                     <td colspan="4" style="font-weight: bold; font-size: 24px;">Total:</td>
                                     <td><span id="totalsum" class="totalsum"><?php echo $val; ?></span></td>
+                                    <td></td>
                                 </tr>
                                
                             </table>
                             <div class="chekout">
-                                <a href="bill" class="btn btn-success">Buy NoW</a>
+                                <a href="{{route('bill.index')}}" class="btn btn-success">Buy NoW</a>
 
                             </div>
                         </div>
-                    </form>
+                   
                       </div>
             </div>
         </div>

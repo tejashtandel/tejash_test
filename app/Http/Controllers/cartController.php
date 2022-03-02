@@ -125,9 +125,9 @@ class cartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $cID)
     {
-        $cart = cart::find($id);
+        $cart = cart::find($cID);
         $cart->flag = 0;
         $cart->update($request->all());
         return redirect()->route('cart.show', ['cart' => Auth::user()->id])->with('success', 'Remove Item Successfully');

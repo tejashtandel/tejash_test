@@ -27,6 +27,7 @@ use App\Http\Controllers\ethicController;
 use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
 use App\Http\Controllers\contcatController;
+use App\Http\Controllers\buynowController;
 
 
 use App\Models\product;
@@ -250,6 +251,7 @@ Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
 Route::resource('contact', contcatController::class);
+Route::resource('bill',buynowController::class);
 
 
 
