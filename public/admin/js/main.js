@@ -876,6 +876,7 @@
   try {
     //bar chart
     var ctx = document.getElementById("barChart");
+   
     if (ctx) {
       ctx.height = 200;
       var myChart = new Chart(ctx, {
