@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\checkout;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-class userdetailController extends Controller
+
+class orderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,7 @@ class userdetailController extends Controller
      */
     public function index()
     {
-
-        
-        $userss= DB::table('users')->get();
-        return view('Admin.pages.users.user',compact('userss'));
-
+        //
     }
 
     /**
@@ -40,8 +36,24 @@ class userdetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'user_id' => 'required',
+            'totalamount' => 'required',
+        ]);
+        $input = $request->all();
+
+        checkout::insert([
+            'userid' => $input['user_id'],
+            'totalprice' => $input['totalamount'],
+
+        ]);
+
+        return redirect()->route('bill.index', ['order' => Auth::user()->id])->with('success', 'Added Successfully');
     }
+
+        
+    
 
     /**
      * Display the specified resource.
@@ -62,9 +74,7 @@ class userdetailController extends Controller
      */
     public function edit($id)
     {
-        $users= DB::table('users')->where('id',$id)->get();
-        $footer = DB::table('footers')->get();
-        return view('User.pages.userdetails',compact('users','footer'));
+        //
     }
 
     /**
@@ -76,16 +86,7 @@ class userdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-     
-        $user=User::find($id);
-    
-        $input=$request->all();
-
-        $user->update($input);
-        // d($input);
-        // exidt();
-        
-        return redirect()->route('userdetails.edit', ['userdetail' => Auth::user()->id])->with('success', 'Updated Successfully');
+        //
     }
 
     /**

@@ -274,7 +274,7 @@
                 <div class="col-md-12 col-lg-6 col-xl-6">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="User/images/aboutus.jpeg" alt="" />
+                            <img class="img-fluid" src="User/images/about-img.jpg" alt="" />
                         </div>
                     
                     </div>

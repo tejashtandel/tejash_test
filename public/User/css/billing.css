@@ -1,7 +1,62 @@
-.head{
-
-    font-family: 'Times New Roman', Times, serif;
+.bill{
+    background-color: lightblue;
 }
-.head h1{
-    margin-top: 20px;
+
+
+.header{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Arvo', serif;
+    font-weight: 500;
+
+}
+
+.companydetails{
+    margin-top: 15px;
+}
+.userdetails{
+    margin-top: 15px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500&family=Vidaloka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bai+Jamjuree:wght@500&display=swap');
+
+
+.companydetails h4{
+
+    font-size: 13px;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600;
+}
+.companydetails span{
+
+    font-size: 17px;
+    font-family: 'Vidaloka', serif;
+    font-weight: 700;
+}
+.userdetails h4{
+
+    font-size: 13px;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600;
+}
+.userdetails span{
+    font-size: 17px;
+    font-family: 'Vidaloka', serif;
+    font-weight: 700;
+}
+/* @media only screen and (min-width: 200px) and (max-width: 360px) {
+
+    .billdetails table{
+
+       width: 30%;
+    }
+   
+
+} */
+.billdetails{
+
+    overflow-x: auto;
 }

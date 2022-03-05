@@ -27,11 +27,15 @@ use App\Http\Controllers\ethicController;
 use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
 use App\Http\Controllers\contcatController;
+use App\Http\Controllers\buynowController;
 use App\Http\Controllers\feedbackController;
 use App\Http\Controllers\feedbackreportController;
 use App\Http\Controllers\orderreportController;
 use App\Http\Controllers\UserreportController;
 use App\Http\Controllers\BrowserController;
+use App\Http\Controllers\orderController;
+
+
 
 use App\Models\product;
 
@@ -250,10 +254,14 @@ Route::resource('userdetails', userdetailController::class);
 Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 
 Route::resource('cart', cartController::class);
+Route::get('cartd', [cartController::class, 'destroy'])->name('cartd');
+Route::post('cartu', [cartController::class, 'update'])->name('cartu');
 Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
 Route::resource('contact', contcatController::class);
+Route::resource('bill',buynowController::class);
+Route::resource('order',orderController::class);
 
 
 

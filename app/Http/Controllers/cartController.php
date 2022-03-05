@@ -114,9 +114,14 @@ class cartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        // $q=$request->q;
+        // dd($q);
+        // exit();
+        $update = DB::table('carts')->where('product_id','=',$request->id)->where('user_id','=',$request->userid)->update(['quantity'=>$request->q]);
+     
     }
 
     /**
@@ -125,11 +130,11 @@ class cartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request)
     {
-        $cart = cart::find($id);
+        $cart = cart::find($request->id);
         $cart->flag = 0;
         $cart->update($request->all());
-        return redirect()->route('cart.show', ['cart' => Auth::user()->id])->with('success', 'Remove Item Successfully');
+       
     }
 }

@@ -258,8 +258,8 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
               </table>
            </ul>
             <ul class="pay">
-              <li>Cash on detivery</li>
-              <li>Free detivery</li>
+              <li>Cash on delivery</li>
+              <li>Free delivery</li>
               <li>Easy 15 Days Exchange And Return</li>
             </ul>
           </div>

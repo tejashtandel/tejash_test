@@ -55,6 +55,7 @@
                         @endif
                         
                         
+                      
                         <form  action="{{route('contact.store')}}" method="POST">
                             @csrf
                             @if(Session::has('status'))

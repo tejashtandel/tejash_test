@@ -450,7 +450,7 @@
             $(".below500").hide();
             $(".above1000").hide();
 
-            $(".filter-button").click(function() {
+            $(".iflter-button").click(function() {
                 var value = $(this).attr('data-filter');
 
                 if (value == "all") {

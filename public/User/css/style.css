@@ -291,7 +291,7 @@
      font-weight: 700;
      color: #ffffff;
 }
- @media (min-width: 1024px) {
+ @media (min-width: 993px) {
     /* Navbar General ------*/
      nav.navbar ul.nav > li > a{
          padding: 30px 15px;
@@ -304,7 +304,7 @@
          margin-top: 0;
     }
     nav.navbar .navbar-brand img.newlogo{
-        width: 120px;
+        width: 140px;
         
    }
      nav.navbar li.dropdown ul.dropdown-menu{
@@ -331,6 +331,11 @@
          padding: 10px 15px;
          font-weight: bold;
     }
+    ul, li, ol{
+        list-style: none;
+        margin: -2px;
+        padding: 0px;
+   }
     /* Navbar Transparent & Fixed ------*/
      nav.navbar.bootsnav.navbar-transparent.white{
          background-color: rgba(255,255,255,0.3);
@@ -361,7 +366,7 @@
          top: -2px;
     }
     nav.navbar .navbar-brand img.newlogo{
-        width: 50px;
+        width: 80px;
    }
     
     }
