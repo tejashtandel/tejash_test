@@ -58,17 +58,35 @@
                                 <th>Product Name</th>
                                 <th>Product Price</th>
                                 <th>Product Quantity</th>
-                                <th>Product Total cost</th>
+                            
                             </tr>
                         </thead>
+
+                        @foreach($items as $it)
                         <tbody>
+                            <td>{{$it->pname}}</td>
+                            <td>{{$it->pc}}</td>
+                            <td>{{$it->qp}}</td>
+                          
+
+
+
+
                         </tbody>
+                       
+                        @endforeach
+                        
+                        @foreach($bill as $it)
                         <tr>
-                            <td colspan="2">Total Cost:</td>
-                            <td><span id="totalsum" class="totalsum"></span></td>
+                            <td colspan="1">Total Cost:</td>
+                            <td><span id="totalsum" class="totalsum">{{ $it ->grandtotal}}</span></td>
                             
                         </tr>
+                        @endforeach
                     </table>
+                 
+                        <button id="printorder" style="align-content: center">Print Bill</button>
+                   
                 </div>
             </div>
         </div>

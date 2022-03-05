@@ -53,8 +53,7 @@
                             {{Session::get('status')}}
                         </div>
                         @endif
-                        
-                        <form id="contactForm" action="{{route('contact.store')}}">
+                      
                         <form  action="{{route('contact.store')}}" method="POST">
                             @csrf
                             @if(Session::has('status'))
