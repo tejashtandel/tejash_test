@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product_detail;
+
+use App\Models\carts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\facades\DB;
@@ -64,6 +67,22 @@ class buynowController extends Controller
             // 'product_details.*'
         )
         ->where('checkouts.userid', $id)->get();
+    
+
+        
+
+
+        // $itemnew = DB::table('product_details')
+        // ->join('product_details', 'product_details.productid', '=', 'products.id')
+        //  ->join('products', 'products.id', '=', 'carts.product_id')
+        // ->join('users', 'users.id', '=', 'checkouts.userid')
+        // ->join('carts', 'carts.user_id', '=', 'users.id')
+       
+      
+        // ->where('checkouts.userid', $id)
+        // ->where('carts.productid' ,'=','product_details.productid')
+        // ->decrement('product_details.quantity','carts.quantity')->get();
+
         
         
         return view('User.pages.billingpage',compact('footer','user','items','bill'));

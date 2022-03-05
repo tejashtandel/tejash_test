@@ -85,7 +85,7 @@
                         @endforeach
                     </table>
                  
-                        <button id="printorder" style="align-content: center">Print Bill</button>
+                        <button style="align-content: center">Print Bill</button>
                    
                 </div>
             </div>

@@ -93,28 +93,55 @@
                     </div>
                 </div>
 
-                <div class="container">
 
-                    <h2 style="text-align: center;">Pie Chart Integration</h2>
-                    <div class="panel panel-primary col-lg-6">
-                        <div class="panel-heading">Pie Chart</div>
-                        <div class="panel-body">
-                            <div id="pie-chart"></div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5 style="text-align: center;">Pie Chart</h5>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Pie Chart</div>
+                            <div class="panel-body">
+                                <div id="pie-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h5 style="text-align: center;">Bar Chart</h5>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Pie Chart</div>
+                            <div class="panel-body">
+                                <div id="bar-chart"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
+            <div class="row">
+                    <div class="col-lg-6">
+                        <h5 style="text-align: center;">Donut Chart</h5>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Donut Chart</div>
+                            <div class="panel-body">
+                                <div id="donut-chart"></div>
+                            </div>
+                        </div>
+                    </div>
 
-
-                <h2 style="text-align: center;">Pie Chart Integration</h2>
-                <div class="panel panel-primary col-lg-6">
-                    <div class="panel-heading">Pie Chart</div>
-                    <div class="panel-body">
-                        <div id="bar-chart"></div>
+                    <div class="col-lg-6">
+                        <h5 style="text-align: center;">Bar Chart</h5>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Pie Chart</div>
+                            <div class="panel-body">
+                                <div id="bar-chart"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
 
 
             <div class="row">
@@ -526,7 +553,7 @@
                                     text: 'Browser Usage World wide'
                                 },
                                 tooltip: {
-                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                    pointFormat: '{series.product_name}: <b>{point.percentage:.1f}%</b>'
                                 },
                                 accessibility: {
                                     point: {
@@ -539,7 +566,7 @@
                                         cursor: 'pointer',
                                         dataLabels: {
                                             enabled: true,
-                                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                            format: '<b>{point.product_name}</b>: {point.percentage:.1f} %'
                                         }
                                     }
                                 },
@@ -577,7 +604,7 @@
                                     text: 'Browser Usage World wide'
                                 },
                                 tooltip: {
-                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                    pointFormat: '{series.product_name}: <b>{point.percentage:.1f}%</b>'
                                 },
                                 accessibility: {
                                     point: {
@@ -585,17 +612,69 @@
                                     }
                                 },
                                 plotOptions: {
-                                    pie: {
+                                    bar: {
                                         allowPointSelect: true,
                                         cursor: 'pointer',
                                         dataLabels: {
                                             enabled: true,
-                                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                            format: '<b>{point.product_name}</b>: {point.percentage:.1f} %'
                                         }
                                     }
                                 },
                                 series: [{
                                     name: 'Browsers',
+                                    colorByPoint: true,
+                                    data: data
+                                }]
+                            });
+                        }
+                    })
+
+                });
+            </script>
+
+
+
+
+            <script type="text/javascript">
+                $(function() {
+                    $.ajax({
+                        url: "getdata1",
+                        method: "get",
+                        success: function(response) {
+                            var data = JSON.parse(response.data)
+                            console.log(data)
+                            Highcharts.chart('donut-chart', {
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: null,
+                                    plotShadow: false,
+                                    type: 'donut'
+                                },
+                                title: {
+                                    text: 'Browser Usage World wide'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.firstname}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                accessibility: {
+                                    point: {
+                                        valueSuffix: '%'
+                                    }
+                                },
+                                plotOptions: {
+                                    Donut: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        dataLabels: {
+                                            enabled: true,
+                                            format: '<b>{point.firstname}</b>: {point.percentage:.1f} %'
+                                        }
+                                    }
+                                },
+                                series: [{
+                                    type: 'donut',
+                                    name: 'Product',
                                     colorByPoint: true,
                                     data: data
                                 }]

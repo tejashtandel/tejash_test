@@ -14,10 +14,22 @@ class UserreportController extends Controller
      */
     public function index()
     {
-        $userss= DB::table('users')->select('firstname')->get();
+        $userss= DB::table('users')
+        ->join('checkouts','users.id','=','checkouts.userid')
+        ->join('products', 'users.productid', '=', 'products.id')
+        ->select('users.firstname','checkouts.id','products.product_name')->get();
         return view('Admin.pages.reports.userreport',compact('userss'));
     }
 
+
+    // $proddetails = DB::table('product_details')
+    // ->join('category', 'product_details.catid', '=', 'category.id')
+    // ->join('subcategories', 'product_details.sub_cat_id', '=', 'subcategories.id')
+    // ->join('products', 'product_details.productid', '=', 'products.id')
+    // ->join('brands', 'product_details.brandid', '=', 'brands.id')
+    // ->select('product_details.*', 'category.category_name', 'subcategories.subcategoryname', 'products.product_name')
+    // ->where('product_details.id',$id)
+    // ->get();
     /**
      * Show the form for creating a new resource.
      *

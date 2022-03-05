@@ -51,12 +51,13 @@ class stockController extends Controller
         $stock = new stock;
         $stock->productid = $request->productid;
         $stock->size = $request->size;
-        $stock->quantity = $request->quantity;
+        $stock->quantity = $request->quantity->decrement('product_details.quantity'-'checkout.quantity');
         $stock->price = $request->price;
         $stock->save();
         // return redirect()->action([subcategoryController::class,'index']);
         // return back()->with('success','SubCategory Created Successfully');
         return redirect()->route('stocks.index')->with('success', 'stocks Added successfully.');
+    
     }
 
     /**

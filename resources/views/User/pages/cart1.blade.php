@@ -62,7 +62,7 @@
                                             </span>
                                         </td>
 
-                                        {{-- <form action="{{ route('cart.destroy', ['cart' => $cat->cID]) }}"
+                                        <!-- {{-- <form action="{{ route('cart.destroy', ['cart' => $cat->cID]) }}"
                                             method="POST">
                                             
                                             @csrf
@@ -73,12 +73,12 @@
                                                     style="color:red,background-color:black"></button>
                                                 </td>
 
-                                        </form> --}}
+                                        </form> --}} -->
 
                                         <td data-label="Delete">
 
                                             <button type="button" value="{{ $cat->cID }}" class="fa-solid fa-trash"
-                                                id="delete" style="color:red,background-color:black"></button>
+                                                id="delete" style="color:red"></button>
                                         </td>
 
                                     </tr>

@@ -34,7 +34,7 @@ use App\Http\Controllers\orderreportController;
 use App\Http\Controllers\UserreportController;
 use App\Http\Controllers\BrowserController;
 use App\Http\Controllers\orderController;
-
+use App\Http\Controllers\BrowsersController;
 
 
 use App\Models\product;
@@ -65,9 +65,9 @@ Route::get('bill', function () {
 Route::get('about', function () {
 
     $footer = DB::table('footers')->get();
-    $about =DB::table('abouts')->get();
+    $about = DB::table('abouts')->get();
 
-    return view('User.pages/about', compact('footer','about'));
+    return view('User.pages/about', compact('footer', 'about'));
 });
 
 Route::get('cart', function () {
@@ -181,7 +181,7 @@ Route::get('prod/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -204,7 +204,7 @@ Route::get('prod1/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -228,7 +228,7 @@ Route::get('prod3/{id}', function ($id) {
         ->join('product_details', 'products.id', '=', 'product_details.productid')
         ->join('brands', 'product_details.brandid', '=', 'brands.id')
         ->where('products.id', $id)
-        ->get(['products.id as pID','products.*', 'product_details.*', 'brands.*']);
+        ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
 
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
@@ -260,8 +260,8 @@ Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
 Route::resource('contact', contcatController::class);
-Route::resource('bill',buynowController::class);
-Route::resource('order',orderController::class);
+Route::resource('bill', buynowController::class);
+Route::resource('order', orderController::class);
 
 
 
@@ -369,25 +369,27 @@ Route::resource('users', userdetailController::class);
 Route::resource('stocks', stockController::class);
 //For Reports
 Route::resource('report', reportController::class);
-Route::resource('proreport',productReportController::class);
+Route::resource('proreport', productReportController::class);
 
 //For Charts
-Route::resource('charts',GooglePieController::class);
-Route::resource('chart',AdminController::class);
+Route::resource('charts', GooglePieController::class);
+Route::resource('chart', AdminController::class);
 
-Route::get('/ajaxchart',[BrowserController::class,'ajaxchart']);
+Route::get('/ajaxchart', [BrowserController::class, 'ajaxchart']);
 Route::get('/getdata', [BrowserController::class, 'getdata']);
 
+Route::get('/ajaxchart1',[BrowsersController::class,'ajaxchart1'])->name('ajaxchart1');
+Route::get('/getdata1', [BrowsersController::class, 'getdata1'])->name('getdata1');
 
 //For Feedback
 Route::resource('feedback', feedbackController::class);
 
 //For User Report
 Route::resource('userreport', UserreportController::class);
-Route::get('searchp',[UserreportController::class,'seach'])->name('searchp');
+Route::get('searchp', [UserreportController::class, 'seach'])->name('searchp');
 
 //For Feedback Report
 Route::resource('feedbackreport', feedbackreportController::class);
 
 //For Order Report
-Route::resource('orderreport',orderreportController::class);
+Route::resource('orderreport', orderreportController::class);
