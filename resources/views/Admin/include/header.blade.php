@@ -156,7 +156,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{asset('admin/images/icon/image5.png')}}" alt="Cool Admin"/>
+                    <img src="{{asset('admin/images/icon/image5.png')}}" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -274,13 +274,12 @@
                             </ul>
                         </li>
 
-
-
+<!-- 
                         <li>
                             <a href="feedback">
-                            <i class="fa fa-comments" aria-hidden="true"></i>Feedback</a>
+                                <i class="fa fa-comments" aria-hidden="true"></i>Feedback</a>
                         </li>
-
+ -->
 
 
 
@@ -293,10 +292,14 @@
                                     <a href="userreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users</a>
                                 </li>
                                 <li>
-                                    <a href="subcategory"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Subcategory</a>
+                                <a href="feedback"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Feedback</a>
+                                </li>
+
+                                <li>
+                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products</a>
                                 </li>
                                 <li>
-                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>products</a>
+                                    <a href="orderreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Orders</a>
                                 </li>
                             </ul>
                         </li>

@@ -28,8 +28,10 @@ use App\Http\Controllers\productReportController;
 use App\Http\Controllers\topController;
 use App\Http\Controllers\contcatController;
 use App\Http\Controllers\feedbackController;
+use App\Http\Controllers\feedbackreportController;
+use App\Http\Controllers\orderreportController;
 use App\Http\Controllers\UserreportController;
-
+use App\Http\Controllers\BrowserController;
 
 use App\Models\product;
 
@@ -365,8 +367,19 @@ Route::resource('proreport',productReportController::class);
 Route::resource('charts',GooglePieController::class);
 Route::resource('chart',AdminController::class);
 
+Route::get('/ajaxchart',[BrowserController::class,'ajaxchart']);
+Route::get('/getdata', [BrowserController::class, 'getdata']);
+
+
 //For Feedback
 Route::resource('feedback', feedbackController::class);
 
 //For User Report
 Route::resource('userreport', UserreportController::class);
+Route::get('searchp',[UserreportController::class,'seach'])->name('searchp');
+
+//For Feedback Report
+Route::resource('feedbackreport', feedbackreportController::class);
+
+//For Order Report
+Route::resource('orderreport',orderreportController::class);

@@ -5,7 +5,7 @@
     
         <div class="section__content section__content--p30">
        
-            <div class="container-fluid">
+            <div class="container">
             @if(Session::has('success'))
                         <div class="alert alert-success text-center">
                             {{Session::get('success')}}

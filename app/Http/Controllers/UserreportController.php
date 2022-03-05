@@ -14,7 +14,7 @@ class UserreportController extends Controller
      */
     public function index()
     {
-        $userss= DB::table('users')->get();
+        $userss= DB::table('users')->select('firstname')->get();
         return view('Admin.pages.reports.userreport',compact('userss'));
     }
 

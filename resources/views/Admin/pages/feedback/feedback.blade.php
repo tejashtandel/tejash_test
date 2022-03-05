@@ -17,7 +17,7 @@
             @endif
          
             <div class="row">
-                <table class="table table-bordered" id="myTable">
+                <table class="table table-bordered" id="example">
                     <thead>
                         <tr>
                             <th scope="col"> Name</th>

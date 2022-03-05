@@ -17,19 +17,26 @@
             @endif
          
             <div class="row">
-                <table class="table table-bordered" id="example">
+            <table class="table table-bordered" id="example">
                     <thead>
                         <tr>
-                            <th scope="col">User Name</th>
-                            <th scope="col">Order Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">price</th>
-                            <th scope="col">Total Amount</th>
-                            
+                            <th scope="col"> Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Subjects</th>
+                            <th scope="col">message</th>
                         </tr>
                     </thead>
                     <tbody>
-                   
+                    @foreach($feedback as $fb)
+                        <tr>
+                            <td> {{$fb->name}}</td>
+                            <td> {{$fb->email}}</td>
+                            <td> {{$fb->subject}}</td>
+                            <td> {{$fb->message}}</td>
+
+                        </tr>
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>

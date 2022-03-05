@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\contact;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-class feedbackController extends Controller
+class feedbackreportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class feedbackController extends Controller
      */
     public function index()
     {
-        // $feedback=contact::orderBy('id','DESC')->get();
-        $feedback = DB::table('contacts')->orderBy('ID','ASC')->get();
-        return view('Admin.pages.reports.feedbackreport', compact('feedback'));
+        $feedback = DB::table('contacts')->get();
+        return view('Admin.pages.feedback.feedback', compact('feedback'));
     }
 
     /**

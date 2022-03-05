@@ -67,19 +67,19 @@
             dom: 'Bfrtip',
             buttons: [{
                     extend: 'pdf',
-                    className: 'btn-success'
+                    className: 'btn-secondary'
                 },
                 {
                     extend: 'print',
-                    className: 'btn-success'
+                    className: 'btn-secondary'
                 },
                 {
                     extend: 'csv',
-                    className: 'btn-success'
+                    className: 'btn-secondary'
                 },
                 {
                     extend: 'excel',
-                    className: 'btn-success'
+                    className: 'btn-secondary'
                 }
             ],
 
