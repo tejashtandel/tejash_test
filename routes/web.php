@@ -80,12 +80,12 @@ Route::get('checkout', function () {
 
 
 
-Route::get('shop', function () {
-    return view('User.pages/shop');
-});
-Route::get('services', function () {
-    return view('User.pages/service');
-});
+// Route::get('shop', function () {
+//     return view('User.pages/shop');
+// });
+// Route::get('services', function () {
+//     return view('User.pages/service');
+// });
 Route::get('termsandcondition', function () {
     return view('User.pages/terms&condition');
 });
@@ -256,6 +256,7 @@ Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 Route::resource('cart', cartController::class);
 Route::get('cartd', [cartController::class, 'destroy'])->name('cartd');
 Route::post('cartu', [cartController::class, 'update'])->name('cartu');
+Route::post('updateQuantity', [cartController::class, 'updatequantity'])->name('updateQuantity');
 Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
