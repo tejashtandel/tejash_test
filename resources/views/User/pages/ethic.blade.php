@@ -58,7 +58,7 @@
                                 <hr>
                                 <h4 class="catagory">Catagory</h4>
                                 <li>
-                                    <img src="https://img.icons8.com/small/16/000000/filled-circle.png"/>
+                                   
                                     <a class="btn filter-button" data-filter="kurta">KURTA</a>
 
                                 </li>

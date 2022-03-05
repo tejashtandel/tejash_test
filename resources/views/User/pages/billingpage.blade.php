@@ -52,7 +52,7 @@
                 </div>
                 <hr>
                 <div class="billdetails">
-                    <table class="table table-border">
+                    <table class="table table-border" id="printorder">
                         <thead>
                             <tr>
                                 <th>Product Name</th>
@@ -75,6 +75,9 @@
                         </tbody>
                        
                         @endforeach
+
+                        {{-- {{dd($bill)}}
+                        exit(); --}}
                         
                         @foreach($bill as $it)
                         <tr>
@@ -84,8 +87,15 @@
                         </tr>
                         @endforeach
                     </table>
+                    <form action="{{ route('bill.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+
                  
                         <button style="align-content: center">Print Bill</button>
+                        <button type="submit" id="printorder" style="align-content: center">Done</button>
+                    </form>
+                    <button id="print">Print Bill</button>
                    
                 </div>
             </div>

@@ -77,6 +77,7 @@ class cartController extends Controller
             ->join('product_details', 'product_details.productid', '=', 'products.id')
             ->select('products.*', 'users.*', 'product_details.*', 'carts.*', 'users.id as uid', 'products.id as pID','carts.id as cID')
             ->where('carts.flag', '=', 1)
+            ->where('carts.flagorder','=','1')
             ->where('users.id', $id)->get();
             $footer = DB::table('footers')->get();
 
@@ -135,6 +136,20 @@ class cartController extends Controller
         $cart = cart::find($request->id);
         $cart->flag = 0;
         $cart->update($request->all());
+       
+    }
+
+
+
+    public function updatequantity(Request $request)
+    {
+        $q = $request->quantity;
+        // echo '<pre>';
+        // print_r($q);
+        // echo '</pre>';
+        // exit();
+        $update = DB::table('product_details')->where('productid', '=', $request->id)->decrement('quantity',$q);
+        $update1=DB::table('stocks')->where('productid', '=', $request->id)->decrement('quantity',$q);
        
     }
 }

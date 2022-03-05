@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\checkout;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class orderController extends Controller
 {
@@ -48,7 +49,9 @@ class orderController extends Controller
             'totalprice' => $input['totalamount'],
 
         ]);
-
+     
+       
+       
         return redirect()->route('bill.index', ['order' => Auth::user()->id])->with('success', 'Added Successfully');
     }
 

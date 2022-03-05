@@ -44,15 +44,14 @@
                                             $amount1 = $cat->totalprice;
                                             $val = $val + $amount;
                                             ?>
-                                          
-                                            <input type="number" value="{{ $cat->quantity }}"
-                                                min="1"
+
+                                            <input type="number" value="{{ $cat->quantity }}" min="1"
                                                 onchange="quantitys(this.value,{{ $cat->price }},<?php echo $j; ?>,{{ $cat->product_id }},{{ Auth::user()->id }})"
                                                 name="quantity" id="quantity_<?php echo $j; ?>" class="quantity"
                                                 required />
 
                                             <input type="hidden" id="quantityfinal">
-                                          
+
 
                                         </td>
                                         <td data-label="Total">
@@ -109,8 +108,9 @@
 
                                 <tr>
                                     <td colspan="5">
-                                        <input type="hidden" id="grandtotal" name="totalamount" value="<?php echo $val; ?>">
-                                        <button type="submit" class="btn btn-warning" name="checkout">Proceed to
+                                        <input type="hidden" id="grandtotal" name="totalamount"
+                                            value="<?php echo $val; ?>">
+                                        <button type="submit" class="btn btn-warning" id="checkout" name="checkout">Proceed to
                                             checkout</button>
                                     </td>
                                 </tr>
@@ -153,6 +153,22 @@
 
             }
         });
+
+     
+
+            var q = document.getElementById('quantityfinal').value;
+            $.ajax({
+                url: "{{ route('updateQuantity') }}",
+                type: "POST",
+                data: {
+                    id: id,
+                    quantity: q,
+                    _token: '{{ csrf_token() }}',
+
+                },
+                datatype: 'json',
+            });
+    
 
         // return false;
 
@@ -209,10 +225,9 @@
     });
 </script>
 <script>
-
     var t = document.getElementById('totalsum').value;
     console.log(t);
-    </script>
+</script>
 
 {{-- <script>
    $( ".change" ).click(function() {
