@@ -91,8 +91,18 @@ class bannerController extends Controller
      */
     public function edit($id)
     {
-        $banner = banner::find($id);
-        return view('Admin.pages.banners.edit_banner', compact('banner'));
+
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+
+
+                $banner = banner::find($id);
+                return view('Admin.pages.banners.edit_banner', compact('banner'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**

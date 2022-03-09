@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product;
 use carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminController extends Controller
@@ -16,20 +17,27 @@ class AdminController extends Controller
      */
     public function index()
     {
-   
 
-        $data=product::select('id','created_at')
-            ->get()->groupBy(function($data){
-                return Carbon::parse($data->created_at)->format('Y');
-                
-            });
-            $months=[];
-            $monthcount=[];
-            foreach($data as $month=>$values){
-                $months[]=$month;
-                $monthcount[]=count($values);
+
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+
+                $data = product::select('id', 'created_at')
+                    ->get()->groupBy(function ($data) {
+                        return Carbon::parse($data->created_at)->format('Y');
+                    });
+                $months = [];
+                $monthcount = [];
+                foreach ($data as $month => $values) {
+                    $months[] = $month;
+                    $monthcount[] = count($values);
+                }
+                return view('Admin.pages.index', compact('months', 'monthcount'));
+            } else {
+                return "You are Not  A Admin";
             }
-            return view('Admin.pages.index',compact('months','monthcount'));
+        }
     }
 
     /**

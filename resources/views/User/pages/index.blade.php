@@ -7,6 +7,11 @@
 <!-- End Top Search -->
 
 <!-- Start Slider -->
+  @if(session('success'))
+                <div class="alert alert-success mb-1 mt-1">
+                    {{ session('success') }}
+                </div>
+                @endif
 <div id="slides-shop" class="cover-slides">
     <ul class="slides-container">
         @foreach ($banner as $bann)

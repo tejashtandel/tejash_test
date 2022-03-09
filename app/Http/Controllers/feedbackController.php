@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 class feedbackController extends Controller
 {
     /**
@@ -13,9 +16,16 @@ class feedbackController extends Controller
      */
     public function index()
     {
-        // $feedback=contact::orderBy('id','DESC')->get();
-        $feedback = DB::table('contacts')->orderBy('created_at','desc')->get();
-        return view('Admin.pages.reports.feedbackreport', compact('feedback'));
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+                // $feedback=contact::orderBy('id','DESC')->get();
+                $feedback = DB::table('contacts')->orderBy('ID', 'ASC')->get();
+                return view('Admin.pages.reports.feedbackreport', compact('feedback'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**

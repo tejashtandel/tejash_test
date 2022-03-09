@@ -16,20 +16,16 @@ class headersController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        
-        $head= DB::table('headers')->select('id','header_name')->where('flag',1)->get(); 
-         return view('Admin.pages.header.headers',compact('head'));
-         
-  }
+            if (Auth::user()->role == '1') {
 
-  else{
-      return "You are Not  A Admin";
-  }
-}
-      
+                $head = DB::table('headers')->select('id', 'header_name')->where('flag', 1)->get();
+                return view('Admin.pages.header.headers', compact('head'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -38,17 +34,14 @@ class headersController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        return view('Admin.pages.header.create_headers');
-        
-  }
-
-  else{
-      return "You are Not  A Admin";
-  }
-}
+            if (Auth::user()->role == '1') {
+                return view('Admin.pages.header.create_headers');
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -61,13 +54,13 @@ class headersController extends Controller
     {
         $request->validate([
             'header_name' => 'required|regex:/^[\pL\s\-]+$/u',
-            ]);
-           $head =new headers;
-           $head->header_name= $request->header_name;
-          
-           $head->save();
-           return redirect()->route('header.index')->with('success','Header Added successfully.');
-          // return redirect()->action([headersController::class,'index']);
+        ]);
+        $head = new headers;
+        $head->header_name = $request->header_name;
+
+        $head->save();
+        return redirect()->route('header.index')->with('success', 'Header Added successfully.');
+        // return redirect()->action([headersController::class,'index']);
     }
 
     /**
@@ -89,18 +82,15 @@ class headersController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        $header=headers::find($id);
-        return view('Admin.pages.header.edit_headers',compact('header'));
-        
-  }
-
-  else{
-      return "You are Not  A Admin";
-  }
-}
+            if (Auth::user()->role == '1') {
+                $header = headers::find($id);
+                return view('Admin.pages.header.edit_headers', compact('header'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -113,14 +103,14 @@ class headersController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'header_name'=>'required'
-            ]);
-            
-            $header= headers::find($id);
-            $header-> header_name= $request->header_name;
-            $header->save();
-            return redirect()->route('header.index')->with('success','Header Updated successfully.');
-            //return redirect()->action([headersController::class,'index']);
+            'header_name' => 'required'
+        ]);
+
+        $header = headers::find($id);
+        $header->header_name = $request->header_name;
+        $header->save();
+        return redirect()->route('header.index')->with('success', 'Header Updated successfully.');
+        //return redirect()->action([headersController::class,'index']);
     }
 
     /**
@@ -129,12 +119,12 @@ class headersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $header= headers::find($id);
-        $header->flag=0;
+        $header = headers::find($id);
+        $header->flag = 0;
         $header->save();
         // return redirect()->action([headersController::class,'index']);
-        return redirect()->route('header.index')->with('error','Header Deleted successfully.');
+        return redirect()->route('header.index')->with('error', 'Header Deleted successfully.');
     }
 }

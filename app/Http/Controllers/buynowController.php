@@ -98,7 +98,7 @@ class buynowController extends Controller
         $update = DB::table('carts')->where('user_id', '=', $input['user_id'])->update(['flagorder' => 0]);
         $update = DB::table('checkouts')->where('userid', '=', $input['user_id'])->update(['flag' => 0]);
 
-        return redirect()->route('top.index');
+        return redirect()->route('home.index')->with('success','Your Order placed Succesfully');
     }
 
     /**

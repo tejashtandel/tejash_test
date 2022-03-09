@@ -30,7 +30,7 @@ text-align: center;
     .cart thead{
 
         text-transform: uppercase;
-        background-image: linear-gradient(rgb(231, 214, 214), rgb(116, 219, 245));
+        background-image: linear-gradient(rgb(166, 248, 112), rgb(116, 219, 245));
     }
 .carddetails h1{
 
@@ -82,7 +82,7 @@ text-align: center;
  text-transform: uppercase;
  font-family: 'Times New Roman', Times, serif;
  font-weight: 400;
- background-image: linear-gradient(rgb(231, 214, 214), rgb(207, 247, 134));
+ background-image: linear-gradient( rgb(236, 225, 122),rgba(131, 127, 199, 0.568));
 
 
   }

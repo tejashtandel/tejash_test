@@ -87,8 +87,18 @@ class aboutsController extends Controller
      */
     public function edit($id)
     {
-        $abouts = abouts::find($id);
-        return view('Admin.pages.abouts.edit_about', compact('abouts'));
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+
+
+
+                $abouts = abouts::find($id);
+                return view('Admin.pages.abouts.edit_about', compact('abouts'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
