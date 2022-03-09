@@ -67,18 +67,6 @@ class orderController extends Controller
             $update1 = DB::table('stocks')->where('productid', '=', $d->product_id)->decrement('quantity', $d->quantity);
         }
 
-        // dd($update);
-        // exit();
-
-
-
-        // $data1 = DB::table('carts')
-        // ->join('product_details','product_details.productid','=','carts.product_id')
-        // ->select('product_details.id','product_details.quantity')
-        // ->where('carts.flag',1)
-        // ->where('carts.flagorder',1)
-        // // ->where('product_details.productid','=','carts.product_id')
-        // ->get();
 
 
 

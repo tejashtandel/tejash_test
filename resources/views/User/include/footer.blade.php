@@ -7,7 +7,7 @@
                         <div class="footer-widget">
                             <h4>About Mohmaya</h4>
                             <p>{{ $foot->about }}</p>
-                           
+
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
@@ -57,8 +57,8 @@
     </div>
 </footer>
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2022 <a >Ethics</a> Design By :
-        <a >Yash &Prakruti</a>
+    <p class="footer-company">All Rights Reserved. &copy; 2022 <a>Ethics</a> Design By :
+        <a>Yash &Prakruti</a>
     </p>
 </div>
 <!-- End copyright  -->

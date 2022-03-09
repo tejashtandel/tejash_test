@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 class reportController extends Controller
 {
     /**
@@ -13,12 +15,19 @@ class reportController extends Controller
      */
     public function index()
     {
-        $product = DB::table('products as p')->select('p.id','p.product_name','p.price','p.color','p.image','s.subcategoryname')
-        ->join('subcategories as s','p.sub_cat_id','=','s.id')
-        ->where('p.flag',1)
-        ->get();
-       
-        return view('Admin.pages.reports.reports',compact('product'));
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+                $product = DB::table('products as p')->select('p.id', 'p.product_name', 'p.price', 'p.color', 'p.image', 's.subcategoryname')
+                    ->join('subcategories as s', 'p.sub_cat_id', '=', 's.id')
+                    ->where('p.flag', 1)
+                    ->get();
+
+                return view('Admin.pages.reports.reports', compact('product'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**

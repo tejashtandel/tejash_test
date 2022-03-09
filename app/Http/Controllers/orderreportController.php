@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class orderreportController extends Controller
 {
@@ -14,13 +15,22 @@ class orderreportController extends Controller
      */
     public function index()
     {
-        $orders= DB::table('users')
-        ->join('checkouts','users.id','=','checkouts.userid')
-        ->join('products', 'users.id', '=', 'products.id')
-        ->select('users.firstname','checkouts.id','products.product_name','checkouts.totalprice')
-        ->get();
-      
-        return view('Admin.pages.reports.orderreport',compact('orders'));
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+
+
+                $orders = DB::table('users')
+                    ->join('checkouts', 'users.id', '=', 'checkouts.userid')
+                    ->join('products', 'users.id', '=', 'products.id')
+                    ->select('users.firstname', 'checkouts.id', 'products.product_name', 'checkouts.totalprice')
+                    ->get();
+
+                return view('Admin.pages.reports.orderreport', compact('orders'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**

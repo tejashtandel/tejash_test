@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserreportController extends Controller
 {
@@ -14,15 +16,23 @@ class UserreportController extends Controller
      */
     public function index()
     {
-        $userss= DB::table('users')
-        ->join('checkouts','users.id','=','checkouts.userid')
-        ->join('products', 'users.id', '=', 'products.id')
-        ->select('users.firstname','checkouts.id','products.product_name','checkouts.totalprice')
-      
-        ->get();
-      
-        return view('Admin.pages.reports.userreport',compact('userss'));
 
+
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+                $userss = DB::table('users')
+                    ->join('checkouts', 'users.id', '=', 'checkouts.userid')
+                    ->join('products', 'users.id', '=', 'products.id')
+                    ->select('users.firstname', 'checkouts.id', 'products.product_name', 'checkouts.totalprice')
+
+                    ->get();
+
+                return view('Admin.pages.reports.userreport', compact('userss'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
 
@@ -102,10 +112,10 @@ class UserreportController extends Controller
     public function search(Request $request)
     {
         $s = $request->serch1;
-       
+
         $result = DB::table('users')
-        ->where('firstname','LIKE','%'.$s.'%')->select()->get()->toArray();
-               
+            ->where('firstname', 'LIKE', '%' . $s . '%')->select()->get()->toArray();
+
         $html = '<div class="container users">
     
     
@@ -121,16 +131,16 @@ class UserreportController extends Controller
            </tr>
            </thead>';
 
-        foreach($result as $dta){
-            $html .=' 
+        foreach ($result as $dta) {
+            $html .= ' 
         <tbody><tr>
-        <td>'.$dta->firstname.'</td>
-            <td>'.$dta->id.'</td>
+        <td>' . $dta->firstname . '</td>
+            <td>' . $dta->id . '</td>
           
         </tr> </tbody>';
         }
-        $html .='</table></div>';
-       
+        $html .= '</table></div>';
+
 
 
         return response()->json(
@@ -139,6 +149,6 @@ class UserreportController extends Controller
                 'message' => 'Data inserted successfully',
                 'html' => $html,
             ]
-        ); 
+        );
     }
 }

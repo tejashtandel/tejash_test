@@ -16,19 +16,15 @@ class footerController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        $footer= DB::table('footers')->select('id','about','address','phone','email')->get(); 
-        return view('Admin.pages.footer.footers',compact('footer'));
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+            if (Auth::user()->role == '1') {
+                $footer = DB::table('footers')->select('id', 'about', 'address', 'phone', 'email')->get();
+                return view('Admin.pages.footer.footers', compact('footer'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -38,18 +34,14 @@ class footerController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        return view('Admin.pages.footer.create_footer');
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+            if (Auth::user()->role == '1') {
+                return view('Admin.pages.footer.create_footer');
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -62,18 +54,18 @@ class footerController extends Controller
     {
         $request->validate([
             'about' => 'required|regex:/^[\pL\s\-]+$/u',
-           'address' => 'required|regex:/^[\pL\s\-]+$/u',
-           'phone' => 'required|integer',
-           'email' => 'required|email'
-           ]);
-           $foot =new footer;
-           $foot->about= $request->about;
-           $foot->address= $request->address;
-           $foot->phone= $request->phone;
-           $foot->email= $request->email;
-           $foot->save();
-           return redirect()->route('footers.index')->with('success','Footer Added successfully.');
-         //  return redirect()->action([footerController::class,'index']);
+            'address' => 'required|regex:/^[\pL\s\-]+$/u',
+            'phone' => 'required|integer',
+            'email' => 'required|email'
+        ]);
+        $foot = new footer;
+        $foot->about = $request->about;
+        $foot->address = $request->address;
+        $foot->phone = $request->phone;
+        $foot->email = $request->email;
+        $foot->save();
+        return redirect()->route('footers.index')->with('success', 'Footer Added successfully.');
+        //  return redirect()->action([footerController::class,'index']);
     }
 
     /**
@@ -95,19 +87,15 @@ class footerController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        $footer=footer::find($id);
-        return view('Admin.pages.footer.edit_footer',compact('footer'));
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
-
-
+            if (Auth::user()->role == '1') {
+                $footer = footer::find($id);
+                return view('Admin.pages.footer.edit_footer', compact('footer'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -121,20 +109,20 @@ class footerController extends Controller
     {
         $request->validate([
             'about' => 'required',
-           'address' => 'required',
-           'phone' => 'required',
-           'email' => 'required'
-            
-            ]);
-            
-            $footer=footer::find($id);
-            $footer->about= $request->about;
-            $footer->address = $request->address;
-            $footer->phone = $request->phone;
-            $footer->email=$request->email;
-            $footer->save();
-            return redirect()->route('footers.index')->with('success','Footer Updated successfully.');
-           // return redirect()->action([footerController::class,'index']);
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
+
+        ]);
+
+        $footer = footer::find($id);
+        $footer->about = $request->about;
+        $footer->address = $request->address;
+        $footer->phone = $request->phone;
+        $footer->email = $request->email;
+        $footer->save();
+        return redirect()->route('footers.index')->with('success', 'Footer Updated successfully.');
+        // return redirect()->action([footerController::class,'index']);
     }
 
     /**

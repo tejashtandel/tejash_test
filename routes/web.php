@@ -146,6 +146,8 @@ WHERE category.id="12"');
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
+Route::resource('home', HomeController::class);
+
 
 //for footer 
 Route::get('head', function () {

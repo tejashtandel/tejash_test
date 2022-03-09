@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 class feedbackreportController extends Controller
 {
     /**
@@ -13,8 +15,16 @@ class feedbackreportController extends Controller
      */
     public function index()
     {
-        $feedback = DB::table('contacts')->get();
-        return view('Admin.pages.feedback.feedback', compact('feedback'));
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '1') {
+
+                $feedback = DB::table('contacts')->get();
+                return view('Admin.pages.feedback.feedback', compact('feedback'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\brand;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 class brandController extends Controller
 {
     /**
@@ -15,17 +16,15 @@ class brandController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        $brand= DB::table('brands')->select('id','brand_name')->where('flag',1)->get(); 
-        return view('Admin.pages.brand.brand',compact('brand'));
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
+            if (Auth::user()->role == '1') {
+                $brand = DB::table('brands')->select('id', 'brand_name')->where('flag', 1)->get();
+                return view('Admin.pages.brand.brand', compact('brand'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -35,16 +34,14 @@ class brandController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        return view('Admin.pages.brand.create_brand');
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
+            if (Auth::user()->role == '1') {
+                return view('Admin.pages.brand.create_brand');
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -57,13 +54,13 @@ class brandController extends Controller
     {
         $request->validate([
             'brand_name' => 'required|regex:/^[\pL\s\-]+$/u',
-            ]);
-           
-            $brand =new brand;
-            $brand->brand_name= $request->brand_name;
-            $brand->save();
-           // return redirect()->action([brandController::class,'index']);
-           return redirect()->route('brand.index')->with('success','Brand Added successfully.');
+        ]);
+
+        $brand = new brand;
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+        // return redirect()->action([brandController::class,'index']);
+        return redirect()->route('brand.index')->with('success', 'Brand Added successfully.');
     }
 
     /**
@@ -85,17 +82,15 @@ class brandController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-        $brand=brand::find($id);
-        return view('Admin.pages.brand.edit_brand',compact('brand'));
-    }
-
-    else{
-        return "You are Not  A Admin";
-    }
- }
+            if (Auth::user()->role == '1') {
+                $brand = brand::find($id);
+                return view('Admin.pages.brand.edit_brand', compact('brand'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -109,15 +104,15 @@ class brandController extends Controller
     {
         $request->validate([
             'brand_name' => 'required',
-        
-            ]);
-            $brand = brand::find($id);
-            $brand->brand_name = $request->brand_name;
-          
-            $brand->save();
-            return redirect()->route('brand.index')->with('success','Brand Updated successfully.');
-           // return redirect()->action([brandController::class,'index']);
-           
+
+        ]);
+        $brand = brand::find($id);
+        $brand->brand_name = $request->brand_name;
+
+        $brand->save();
+        return redirect()->route('brand.index')->with('success', 'Brand Updated successfully.');
+        // return redirect()->action([brandController::class,'index']);
+
     }
 
     /**
@@ -126,12 +121,12 @@ class brandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $brand=brand::find($id);
-        $brand->flag=0;
+        $brand = brand::find($id);
+        $brand->flag = 0;
         $brand->save();
-       // return redirect()->action([brandController::class,'index']);
-       return redirect()->route('brand.index')->with('error','Brand Deleted successfully.');
+        // return redirect()->action([brandController::class,'index']);
+        return redirect()->route('brand.index')->with('error', 'Brand Deleted successfully.');
     }
 }

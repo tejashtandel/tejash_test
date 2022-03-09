@@ -89,17 +89,17 @@ class productdetailController extends Controller
 
         $input = $request->all();
         $mulimages = array();
-        if($files = $request->file('mulimages')) {
+        if ($files = $request->file('mulimages')) {
             foreach ($files as $file) {
-                $destinationPath='upload/';
+                $destinationPath = 'upload/';
                 $name = date('YmdHis') . "." . $file->getClientOriginalName();
                 $file->move($destinationPath, $name);
                 $mulimages[] = $name;
             }
         }
-       
 
-        
+
+
         /*Insert your data*/
 
         product_detail::insert([
@@ -137,14 +137,14 @@ class productdetailController extends Controller
     public function show($id)
     {
         $proddetails = DB::table('product_details')
-        ->join('category', 'product_details.catid', '=', 'category.id')
-        ->join('subcategories', 'product_details.sub_cat_id', '=', 'subcategories.id')
-        ->join('products', 'product_details.productid', '=', 'products.id')
-        ->join('brands', 'product_details.brandid', '=', 'brands.id')
-        ->select('product_details.*', 'category.category_name', 'subcategories.subcategoryname', 'products.product_name')
-        ->where('product_details.id',$id)
-        ->get();
-    return view('Admin.pages.product_details.product_detailsss', compact('proddetails'));
+            ->join('category', 'product_details.catid', '=', 'category.id')
+            ->join('subcategories', 'product_details.sub_cat_id', '=', 'subcategories.id')
+            ->join('products', 'product_details.productid', '=', 'products.id')
+            ->join('brands', 'product_details.brandid', '=', 'brands.id')
+            ->select('product_details.*', 'category.category_name', 'subcategories.subcategoryname', 'products.product_name')
+            ->where('product_details.id', $id)
+            ->get();
+        return view('Admin.pages.product_details.product_detailsss', compact('proddetails'));
     }
 
     /**
@@ -190,20 +190,20 @@ class productdetailController extends Controller
         ]);
 
         $productsdetail = product_detail::find($id);
-        $input=$request->all();
-        $mulimages= array();
-        if ($files= $request->file('mulimages')) {
+        $input = $request->all();
+        $mulimages = array();
+        if ($files = $request->file('mulimages')) {
             foreach ($files as $file) {
-             $destinationPath = 'upload/';
+                $destinationPath = 'upload/';
                 $name = $file->getClientOriginalName();
                 $file->move($destinationPath, $name);
                 $mulimages[] = $name;
-                $input['mulimages'] =  implode("|",$mulimages);
+                $input['mulimages'] =  implode("|", $mulimages);
             }
-        }else{
+        } else {
             unset($input['mulimages']);
         }
-     
+
         if ($size_guide = $request->file('size_guide')) {
 
             $destinationPath = 'size_guide/';
@@ -225,7 +225,7 @@ class productdetailController extends Controller
         // $productsdetail->package_contain = $request->package_contain;
         // $productsdetail->product_description = $request->product_description;
         // $productsdetail->bottomtype = $request->bottomtype;
-       // $productsdetail->save();
+        // $productsdetail->save();
         return redirect()->route('product_detail.index')->with('success', 'Products Details Updated successfully.');
         // return redirect()->route('product_detail.index');
     }
