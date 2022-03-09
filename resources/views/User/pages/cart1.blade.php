@@ -63,7 +63,7 @@
                                                 <input type="number" value="{{ $cat->quantity }}" min="1"
                                                     onchange="quantitys(this.value,{{ $cat->price }},<?php echo $j; ?>,{{ $cat->product_id }},{{ Auth::user()->id }})"
                                                     name="quantity" id="quantity_<?php echo $j; ?>"
-                                                    class="quantity"  required />
+                                                    class="quantity"  max="5" required />
 
                                                 <input type="hidden" id="quantityfinal">
 
@@ -214,14 +214,7 @@
     }
 </script>
 
-{{-- <script>
-  if($cart->count()==0)
-  {
-    
-  }
 
-
-    </script> --}}
 
 <script>
     var t = document.getElementById('totalsum').value;

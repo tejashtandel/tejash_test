@@ -15,12 +15,13 @@ class stockController extends Controller
      */
     public function index()
     {
-        $stock = DB::table('stocks')
-            ->join('products', 'stocks.productid', '=', 'products.id')
-            ->select('stocks.*', 'products.product_name')
-            ->where('stocks.flag', 1)
+        $stock = DB::table('product_details')
+            ->join('products','product_details.productid','products.id')
+            ->select('product_details.*', 'product_details.productid','product_details.size','product_details.quantity','products.product_name','products.price')
+            
             ->get();
-        return view('Admin.pages.stocks.stock', compact('stock'));
+            
+                    return view('Admin.pages.stocks.stock', compact('stock'));
     }
 
     /**
@@ -30,7 +31,7 @@ class stockController extends Controller
      */
     public function create()
     {
-        $proddetails = DB::select('SELECT * FROM products');
+        $proddetails = DB::select('SELECT * FROM product_details');
         return view('Admin.pages.stocks.create_stock', compact('proddetails'));
     }
 

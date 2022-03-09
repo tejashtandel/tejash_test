@@ -1,7 +1,9 @@
 @include('Admin.include.header')
 
 <!-- MAIN CONTENT-->
+
 <div class="main-content">
+<!-- <a href="{{route('stocks.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add stocks</a> -->
     <div class="section__content section__content--p30">
         <div class="container">
             @if(Session::has('success'))
@@ -14,7 +16,7 @@
                 {{Session::get('error')}}
             </div>
             @endif
-            <a href="{{route('stocks.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add stocks</a>
+         
             <div class="row">
 
                 <table class="table table-bordered" id="myTable">
@@ -25,7 +27,7 @@
                             <th scope="col">Size</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Action</th>
+                            <!-- <th scope="col">Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -37,12 +39,12 @@
                             <td>{{$st->quantity}}</td>
                             <td>{{$st->price}}</td>
                             <td>
-                                <form action="{{route('stocks.destroy',$st->id)}}" method="POST">
+                                <!-- <form action="{{route('stocks.destroy',$st->id)}}" method="POST">
                                     <a class="btn btn-primary" href="{{route('stocks.edit',$st->id)}}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                </form> -->
                             </td>
                         </tr>
                         @endforeach

@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('color');
             $table->integer('price');
             $table->text('image');
-            $table->foreign('sub_cat_id')->on('products')->references('id');
+            $table->foreign('sub_cat_id')->on('subcategories')->references('id');
             $table->timestamps();
         });
     }

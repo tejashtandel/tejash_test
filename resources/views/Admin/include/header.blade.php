@@ -289,17 +289,17 @@
                                 <i class="fa fa-file"></i>Reports</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="userreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users</a>
+                                    <a href="userreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users Reports</a>
                                 </li>
                                 <li>
-                                <a href="feedback"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Feedback</a>
+                                <a href="feedback"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Feedback Reports</a>
                                 </li>
 
                                 <li>
-                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products</a>
+                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products Reports</a>
                                 </li>
                                 <li>
-                                    <a href="orderreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Orders</a>
+                                    <a href="orderreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Orders Reports</a>
                                 </li>
                             </ul>
                         </li>

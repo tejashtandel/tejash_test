@@ -44,7 +44,7 @@ class productController extends Controller
         if(Auth::check()){
 
             if(Auth::user()-> role == '1' ){ 
-        $product= DB::select('SELECT * FROM subcategories');
+        $product= DB::table('subcategories')->select('subcategories.*')->where('subcategories.flag','=',1)->get();
         return view('Admin.pages.product.create_product',compact('product'));
         
   }

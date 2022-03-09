@@ -2,7 +2,7 @@
 
 <!-- MAIN CONTENT-->
 <div class="main-content">
-
+    <a href="{{route('banners.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Banners</a>
     <div class="section__content section__content--p30">
         <div class="container">
             @if(Session::has('success'))
@@ -15,7 +15,7 @@
                 {{Session::get('error')}}
             </div>
             @endif
-            <a href="{{route('banners.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Banners</a>
+
             <div class="row">
 
                 <table class="table table-bordered" id="myTable">

@@ -14,7 +14,7 @@ class feedbackController extends Controller
     public function index()
     {
         // $feedback=contact::orderBy('id','DESC')->get();
-        $feedback = DB::table('contacts')->orderBy('ID','ASC')->get();
+        $feedback = DB::table('contacts')->orderBy('created_at','desc')->get();
         return view('Admin.pages.reports.feedbackreport', compact('feedback'));
     }
 

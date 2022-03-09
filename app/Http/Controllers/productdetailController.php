@@ -48,9 +48,9 @@ class productdetailController extends Controller
 
             if (Auth::user()->role == '1') {
                 $brand = DB::select('SELECT * FROM brands');
-                $proddetails = DB::select('SELECT * FROM products');
-                $subc = DB::select('SELECT * FROM category');
-                $product = DB::select('SELECT * FROM subcategories');
+                $proddetails = DB::table('products')->select('products.*')->where('products.flag','=',1)->orderBy('created_at','desc')->get();
+                $subc =DB::table('category')->select('category.*')->where('category.flag','=',1)->get();
+                $product =DB::table('subcategories')->select('subcategories.*')->where('subcategories.flag','=',1)->get();
                 return view('Admin.pages.product_details.create_product_details', compact('product', 'brand', 'subc', 'proddetails'));
             } else {
                 return "You are Not  A Admin";

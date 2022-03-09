@@ -30,6 +30,7 @@
                             <th scope="col">State</th>
                             <th scope="col">City</th>
                             <th scope="col">Postcode</th>
+                            <th scope="col">Edit Profile</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +46,13 @@
                             <td> {{$user->state}}</td>
                             <td> {{$user->city}}</td>
                             <td> {{$user->postcode}}</td>
-
+                            <td>
+                                    <form method="POST">
+                                    <a class="btn btn-primary" href="{{url('edit1',$user->id)}}">Edit</a>
+                                    @csrf
+                                  
+                                </form> 
+                            </td>
                         </tr>
                         @endforeach
 

@@ -24,10 +24,10 @@ class subcategoryController extends Controller
         ->join('category', 'subcategories.catid', '=', 'category.id')
         ->select('subcategories.*', 'category.category_name')
         ->where('subcategories.flag',1)
+        ->where('category.flag',1)
         ->get();
         return view('Admin.pages.subcategory.subcategory',compact('subc'));
         }
-
         else{
             return "You are Not  A Admin";
         }
@@ -46,7 +46,7 @@ class subcategoryController extends Controller
             if(Auth::user()-> role == '1' ){ 
     
     
-        $subc =DB::table('category')->select('id','category_name')->get();
+        $subc =DB::table('category')->select('id','category_name')->where('category.flag',1)->get();
         return view('Admin.pages.subcategory.create_subcategory',compact('subc'));
     }
 

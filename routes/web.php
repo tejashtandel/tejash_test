@@ -384,6 +384,8 @@ Route::resource('product_detail', productdetailController::class);
 Route::resource('abouts', aboutsController::class);
 //For User Details
 Route::resource('users', userdetailController::class);
+Route::get('/edit1',[userdetailController::class,'edit1'])->name('edit1');
+Route::get('/update1',[userdetailController::class,'update1'])->name('update1');
 //For Stocks
 Route::resource('stocks', stockController::class);
 //For Reports
