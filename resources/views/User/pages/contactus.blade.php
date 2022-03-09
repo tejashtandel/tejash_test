@@ -5,7 +5,7 @@
     
 
     <!-- Start All Title Box -->
-    <div class="all-title-box">
+    {{-- <div class="all-title-box">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End All Title Box -->
 
     <!-- Start Contact Us  -->
@@ -89,7 +89,7 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
-                                        <button class="btn" id="submit" type="submit">Send Message</button>
+                                        <button class="" id="submit" type="submit" style="color:black,background-color:black">Send Message</button>
                                         {{-- <div id="msgSubmit" class="h3 text-center"></div>
                                         <div class="clearfix"></div> --}}
                                     </div>

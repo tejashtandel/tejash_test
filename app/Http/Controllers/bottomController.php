@@ -48,6 +48,9 @@ JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
 WHERE category.id="12" AND product_details.size="Large"');
 
+
+// dd(count($product6));
+
         $product8 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id

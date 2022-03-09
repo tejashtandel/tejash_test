@@ -59,7 +59,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 @include('User.include.header')
 
 <body>
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <nav class="breadcrumb" aria-label="breadcrumb">
             <ol class="breadcrumb" id="try">
                 <li class="breadcrumb-item"><a href="#">HOME</a></li>
@@ -69,12 +69,12 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                 </li>
             </ol>
         </nav>
-    </div>
+    </div> --}}
 
     <div class="container-fluid imagec">
         <div class="row">
             @foreach ($details as $det)
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="product-imgs">
                         <div class="img-display">
                             <div class="img-showcase">
@@ -93,8 +93,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                             @foreach ($images as $image)
                                 <div class="img-item">
                                     <a href="#" data-id="{{ $loop->iteration }}">
-                                        <img src="{{ asset('mulimages/' . $image) }}"
-                                            alt="shoe image">
+                                        <img src="{{ asset('mulimages/' . $image) }}" alt="shoe image">
                                     </a>
                                 </div>
                             @endforeach
@@ -102,109 +101,116 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
                         </div>
                     </div>
                 </div>
-       
 
 
-        <div class="col-lg-6 col-md-6 col-sm-12 product-text-detail">
-            <h5 class="mainheading">
-                {{ $det->product_name }}
-            </h5>
-            <br />
-            <h5 class="mainheading">
-                Price:
-                <b class="price">{{ $det->price }} ₹</b>
-            </h5>
-            <br />
-            <div>
-                <h5 class="mainheading">
-                    Size:<span>
-                        
-                            <span  class="deatails">{{ $det->size }}</span>
 
-                    
-                    </span>
-                </h5>
-            </div>
-            <br />
-            {{-- <div >
-            <h5 class="mainheading">Quantity:</h5>
+                <div class="col-lg-6 col-md-6 col-sm-12 product-text-detail">
+                    <h3 class="mainheading">
+                        {{ $det->product_name }}
+                    </h3>
+
+                    <h3 class="mainheading">
+                        Price:
+                        <b class="price">{{ $det->price }} ₹</b>
+                    </h3>
+
+                    <div>
+                        <h3 class="mainheading">
+                            Size:<span>
+
+                                <span class="deatails">{{ $det->size }}</span>
+
+
+                            </span>
+                        </h3>
+                    </div>
+
+                    {{-- <div >
+            <h3 class="mainheading">Quantity:</h3>
             <a href="#" id="decrement" class="btn btn-primary"  style="text-decoration: none;">&#8722</a>
             <span class="px-3 quantityShow">1</span>
             <a href="#" id="increment"  class="btn btn-primary" style="text-decoration: none;">&#43</a>
         </div> --}}
-            {{-- @php
+                    {{-- @php
         print_r($det->pID );
         @endphp --}}
-            <br />
-            <!-- <div class="img">
+
+                    <!-- <div class="img">
                   <img src="hear.jpg" height="45px"; weight="35px";>
               </div> -->
-            @auth
-                @if (Auth::check())
-                    <div>
-                        <form action="{{ route('cart.store') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <input type="hidden" name="product_id" value="{{ $det->pID }}">
-                            <input type="hidden" name="totalprice" value="{{ $det->price }}">
-                            <input type="hidden" name="quantity" id="" value="1">
+
+                    @if ($det->quantity < 5)
+                        <div class="alert alert-danger">
+                            <strong>OOps!!!</strong>Currently Not in Stock
+                        </div>
+                    @else
+                        @auth
+                            @if (Auth::check())
+                                <div>
+                                    <form action="{{ route('cart.store') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" name="product_id" value="{{ $det->pID }}">
+                                        <input type="hidden" name="totalprice" value="{{ $det->price }}">
+                                        <input type="hidden" name="quantity" id="" value="1">
 
 
-                            <button type="submit" class="btn btn-primary my-2">Add to Cart</button>
-                        </form>
-                    </div>
-                @endif
-            @endauth
-            <hr>
+                                        <button type="submit" class="btn btn-primary my-2">Add to Cart</button>
+                                    </form>
+                                </div>
+                            @endif
+                        @endauth
+                    @endif
+                    <hr>
 
-            <h5 class="mainheading">Product details</h5>
-            <ul class="details">
-                <table>
-                    <tr>
-                        <td>Pattern:</td>
-                        <td></td>
-                        <td>{{ $det->pattern }}</td>
-                    </tr>
+                    <h3 class="mainheading">Product Details</h3>
+                    <ul class="details">
+                        <table>
+                            <tr>
+                                <td class="dh1">Pattern:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->pattern }}</td>
+                            </tr>
 
-                    <tr>
-                        <td>Sleeve:</td>
-                        <td></td>
-                        <td>{{ $det->sleeve }}</td>
-                    </tr>
-                    <tr>
-                        <td>Neck Type:</td>
-                        <td></td>
-                        <td>{{ $det->neck }}</td>
-                    </tr>
-                    <tr>
-                        <td>Fabric type:</td>
-                        <td></td>
-                        <td>{{ $det->fabric }}</td>
-                    </tr>
-                    <tr>
-                        <td>Length:</td>
-                        <td></td>
-                        <td>{{ $det->length }}</td>
-                    </tr>
-                    <tr>
-                        <td>Style:</td>
-                        <td></td>
-                        <td>{{ $det->style }}</td>
-                    </tr>
-                    <tr>
-                        <td>Occasion:</td>
-                        <td></td>
-                        <td>{{ $det->occasion }}</td>
-                    </tr>
-                    <tr>
-                        <td>Package Contain :</td>
-                        <td></td>
-                        <td>{{ $det->package_contain }} product</td>
-                    </tr>
+                            <tr>
+                                <td class="dh1">Sleeve:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->sleeve }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Neck Type:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->neck }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Fabric type:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->fabric }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Length:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->length }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Style:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->style }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Occasion:</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->occasion }}</td>
+                            </tr>
+                            <tr>
+                                <td class="dh1">Package Contain :</td>
+                                <td></td>
+                                <td class="dh2">{{ $det->package_contain }} product</td>
+                            </tr>
 
-                </table>
+                        </table>
 
-                {{-- <li class="main">Pattern:<span>{{$det->pattern}}</span></li>
+                        {{-- <li class="main">Pattern:<span>{{$det->pattern}}</span></li>
               <li>Sleeve:<span>{{$det->sleeve}}</span></li>
               <li>Neck Type:<span>{{$det->neck}}</span></li>
               <li>Fabric type:<span>{{$det->fabric}}</span></li>
@@ -212,38 +218,39 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
               <li>Style:<span>{{$det->style}}</span></li>
               <li>Occasion:<span>{{$det->occasion}}</span></li>
               <li>Package Contain :<span>{{$det->package_contain}} product</li> --}}
-            </ul>
-            <hr />
-            <h5 class="mainheading">Brand</h5>
-            <ul class="details">
-                <table>
-                    <tr>
-                        <td>{{ $det->brand_name }}
-                        </td>
-                    </tr>
-                </table>
-            </ul>
-            <hr />
-            <h5 class="mainheading">Product Description</h5>
-            <ul class="details">
-                <table>
-                    <tr>
-                        <td>{{ $det->product_description }}
-                        </td>
-                    </tr>
-                </table>
-            </ul>
-            <ul class="pay">
-                <li>Cash on delivery</li>
-                <li>Free delivery</li>
-                <li>Easy 15 Days Exchange And Return</li>
-            </ul>
+                    </ul>
+                    <hr />
+                    <h3 class="mainheading">Brand</h3>
+                    <ul class="details">
+                        <table>
+                            <tr>
+                                <td>{{ $det->brand_name }}
+                                </td>
+                            </tr>
+                        </table>
+                    </ul>
+                    <hr />
+                    <h3 class="mainheading">Product Description</h3>
+                    <ul class="details">
+                        <table>
+                            <tr>
+                                <td><textarea class="details"
+                                        readonly> {{ $det->product_description }}</textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </ul>
+                    <ul class="pay">
+                        <li>Cash on delivery</li>
+                        <li>Free delivery</li>
+                        <li>Easy 15 Days Exchange And Return</li>
+                    </ul>
+                </div>
         </div>
     </div>
     </div>
-    </div>
     @endforeach
-    
+
     <hr />
 
     <div class="container-fluid owl">

@@ -1,0 +1,11 @@
+.tnc p:first-child{
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+}
+.tnc{
+    margin-top: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}

@@ -49,14 +49,51 @@ class orderController extends Controller
             'totalprice' => $input['totalamount'],
 
         ]);
-     
-       
-       
+
+
+
+
+
+
+
+        $data =  DB::table('carts')->select('product_id', 'quantity')->where('flagorder', 1)->where('flag', 1)->get();
+
+
+
+
+        foreach ($data as $d) {
+
+            $update = DB::table('product_details')->where('productid', '=', $d->product_id)->decrement('quantity', $d->quantity);
+            $update1 = DB::table('stocks')->where('productid', '=', $d->product_id)->decrement('quantity', $d->quantity);
+        }
+
+        // dd($update);
+        // exit();
+
+
+
+        // $data1 = DB::table('carts')
+        // ->join('product_details','product_details.productid','=','carts.product_id')
+        // ->select('product_details.id','product_details.quantity')
+        // ->where('carts.flag',1)
+        // ->where('carts.flagorder',1)
+        // // ->where('product_details.productid','=','carts.product_id')
+        // ->get();
+
+
+
+
+
+
+
+
+
+
         return redirect()->route('bill.index', ['order' => Auth::user()->id])->with('success', 'Added Successfully');
     }
 
-        
-    
+
+
 
     /**
      * Display the specified resource.

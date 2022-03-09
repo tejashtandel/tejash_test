@@ -5,9 +5,17 @@
     <div class="row">
         <div class="col-lg-12 col-12">
             <div class="carddetails">
-                <h1>Shopping Cart</h1>
+                @if(session('success'))
+                <div class="alert alert-success mb-1 mt-1">
+                    {{ session('success') }}
+                </div>
+                @endif
+                <div class="headcart">
+                    <h1>My Cart</h1>
+                </div>
 
                 <div class="details">
+
 
                     <div class="container cart">
                         <table class="table table-hover">
@@ -26,66 +34,80 @@
                                 <?php
                                 $val = 0;
                                 $j = 1;
+                                
                                 ?>
-                                @foreach ($cart as $cat)
-                                    <tr>
-                                        {{-- <input type="hidden" value="{{$cat->product_id}}" id="productid"> --}}
-
-                                        <td><img src="{{ asset('User/product/' . $cat->image) }}"></td>
-                                        <td>{{ $cat->product_name }}</td>
-
-                                        <td id="productprice" data-label="Price_<?php echo $j; ?>">
-                                            {{ $cat->price }}
-                                        </td>
-
-                                        <td data-label="Quantity">
-                                            <?php
-                                            $amount = $cat->totalprice * $cat->quantity;
-                                            $amount1 = $cat->totalprice;
-                                            $val = $val + $amount;
-                                            ?>
-
-                                            <input type="number" value="{{ $cat->quantity }}" min="1"
-                                                onchange="quantitys(this.value,{{ $cat->price }},<?php echo $j; ?>,{{ $cat->product_id }},{{ Auth::user()->id }})"
-                                                name="quantity" id="quantity_<?php echo $j; ?>" class="quantity"
-                                                required />
-
-                                            <input type="hidden" id="quantityfinal">
+                                @if ($cart->count() == 0)
 
 
-                                        </td>
-                                        <td data-label="Total">
-                                            <span class="amount" name="totalprice"
-                                                id="totalprice_<?php echo $j; ?>">
-                                                <?php echo $amount1 * $cat->quantity; ?>
-                                            </span>
-                                        </td>
 
-                                        <!-- {{-- <form action="{{ route('cart.destroy', ['cart' => $cat->cID]) }}"
-                                            method="POST">
-                                            
-                                            @csrf
-                                            @method('DELETE')
+                                    <td colspan="6" class="emptycart">Your Cart Is Empty</td>
+                                @else
+                                    @foreach ($cart as $cat)
+                                        <tr>
+                                            {{-- <input type="hidden" value="{{$cat->product_id}}" id="productid"> --}}
+
+                                            <td><img src="{{ asset('User/product/' . $cat->image) }}"></td>
+                                            <td>{{ $cat->product_name }}</td>
+
+                                            <td id="productprice" data-label="Price_<?php echo $j; ?>">
+                                                {{ $cat->price }}
+                                            </td>
+
+                                            <td data-label="Quantity">
+                                                <?php
+                                                $amount = $cat->totalprice * $cat->quantity;
+                                                $amount1 = $cat->totalprice;
+                                                $val = $val + $amount;
+                                                ?>
+
+                                                <input type="number" value="{{ $cat->quantity }}" min="1"
+                                                    onchange="quantitys(this.value,{{ $cat->price }},<?php echo $j; ?>,{{ $cat->product_id }},{{ Auth::user()->id }})"
+                                                    name="quantity" id="quantity_<?php echo $j; ?>"
+                                                    class="quantity"  required />
+
+                                                <input type="hidden" id="quantityfinal">
+
+
+                                            </td>
+                                            <td data-label="Total">
+                                                <span class="amount" name="totalprice"
+                                                    id="totalprice_<?php echo $j; ?>">
+                                                    <?php echo $amount1 * $cat->quantity; ?>
+                                                </span>
+                                            </td>
+
+
+
                                             <td data-label="Delete">
 
-                                                <button type="submit" value="Delete" class="fa-solid fa-trash"
-                                                    style="color:red,background-color:black"></button>
-                                                </td>
+                                                <div class="delete1">
+                                                    <form action="{{ route('cart.destroy', ['cart' => $cat->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
 
-                                        </form> --}} -->
 
-                                        <td data-label="Delete">
+                                                        <button type="submit" value="Delete" class="fa-solid fa-trash"
+                                                            style="color:red"></button>
 
-                                            <button type="button" value="{{ $cat->cID }}" class="fa-solid fa-trash"
-                                                id="delete" style="color:red"></button>
-                                        </td>
 
-                                    </tr>
+                                                    </form>
 
-                                    <?php
-                                    $j++;
-                                    ?>
-                                @endforeach
+                                            </td>
+
+
+
+
+                                        </tr>
+
+                                        <?php
+                                        $j++;
+                                        ?>
+                                    @endforeach
+                                @endif
+
+
+
                                 {{-- <td><a href="{{ route('cart.destroy', ['cart' =>  Auth::user()->id ])}}"><i class="fa-solid fa-trash-can"></i></a></td> --}}
                             </tbody>
 
@@ -107,14 +129,22 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="5">
+                                    <td colspan="6">
                                         <input type="hidden" id="grandtotal" name="totalamount"
                                             value="<?php echo $val; ?>">
-                                        <button type="submit" class="btn btn-warning" id="checkout" name="checkout">Proceed to
-                                            checkout</button>
+                                        @if ($cart->count() == 0)
+                                            <button type="submit" class="btn btn-warning" id="checkout" name="checkout"
+                                                disabled>Proceed to
+                                                checkout</button>
+                                        @else
+                                            <button type="submit" class="btn btn-warning" id="checkout"
+                                                name="checkout">Proceed to
+                                                checkout</button>
+                                        @endif
                                     </td>
                                 </tr>
                             </form>
+
                         </table>
                     </div>
 
@@ -139,6 +169,8 @@
         $('#totalsum').val(grand_total);
 
         document.getElementById('totalsum').innerHTML = grand_total;
+        document.getElementById('grandtotal').value = grand_total;
+
         $.ajax({
             type: "post",
             url: "{{ route('cartu') }}",
@@ -154,21 +186,10 @@
             }
         });
 
-     
 
-            var q = document.getElementById('quantityfinal').value;
-            $.ajax({
-                url: "{{ route('updateQuantity') }}",
-                type: "POST",
-                data: {
-                    id: id,
-                    quantity: q,
-                    _token: '{{ csrf_token() }}',
 
-                },
-                datatype: 'json',
-            });
     
+
 
         // return false;
 
@@ -193,40 +214,32 @@
     }
 </script>
 
-
 {{-- <script>
-    var q= document.getElementById('quantityfinal').value;
-    console.log(q);
-    console.log('yash');
+  if($cart->count()==0)
+  {
+    
+  }
 
 
     </script> --}}
 
 <script>
-    $("#delete").click(function() {
-
-        var id = $(this).val();
-        console.log(id);
-
-
-        $.ajax({
-            type: "get",
-            url: "{{ route('cartd') }}",
-            data: {
-                id: id,
-            },
-            datatype: "json",
-            success: function(response) {
-
-            }
-        });
-
-
-    });
-</script>
-<script>
     var t = document.getElementById('totalsum').value;
     console.log(t);
+</script>
+
+  
+<script>
+    $(document).ready(function() {
+        function disableBack() {
+            window.history.forward()
+        }
+        window.onload = disableBack();
+        window.onpageshow = function(e) {
+            if (e.persisted)
+                disableBack();
+        }
+    });
 </script>
 
 {{-- <script>

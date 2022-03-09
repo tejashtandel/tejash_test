@@ -1,23 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap');
+
+
+
 .bill{
-    background-color: lightblue;
+    background-color: rgb(224, 195, 252);
+    margin-top: 50px;
+    margin-left: 50px;
+
+    margin-bottom: 50px;
+    overflow: hidden;
+    /* opacity: 0.5; */
 }
 
 
-.header{
+.header h2{
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-family: 'Arvo', serif;
     font-weight: 500;
+      
+      /* background-color: #f3ec78;
+      background-image: linear-gradient(45deg, #f3ec78, #af4261);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-text-fill-color: transparent; */
+
+}
+.header img{
+
+    width: 90px;
+    align-items: center;
+}
+.print22{
+
+    text-align: center;
+
+width: 100%;
+
+
+
 
 }
 
 .companydetails{
     margin-top: 15px;
+    text-align: right;
+  
 }
 .userdetails{
     margin-top: 15px;
+
+ 
 }
+
+
+.printbutton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  .donebutton {
+    background-color: #4c98af; /* Green */
+    border: none;
+    color: white;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500&family=Vidaloka&display=swap');
@@ -39,13 +103,15 @@
 .userdetails h4{
 
     font-size: 13px;
-    font-family: 'Bai Jamjuree', sans-serif;
+      font-family: 'Nova Cut', cursive;
     font-weight: 600;
+   
 }
 .userdetails span{
     font-size: 17px;
     font-family: 'Vidaloka', serif;
     font-weight: 700;
+    opacity: 1.5;
 }
 /* @media only screen and (min-width: 200px) and (max-width: 360px) {
 
@@ -59,4 +125,21 @@
 .billdetails{
 
     overflow-x: auto;
+    margin-top: 15px;
+   
+}
+.center{
+    margin: auto;
+}
+
+.tb thead{
+
+    background-color: #81c2d6;
+    text-transform: uppercase;
+}
+
+.tb tbody{
+
+    background-color: #badee9;
+   
 }

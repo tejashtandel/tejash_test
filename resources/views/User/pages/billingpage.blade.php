@@ -3,103 +3,162 @@
 
 
 <div class="container bill">
-    <div class="row">
-        <div class="col-lg-12 col-sm-12 col-md-12 col-12">
-            <div class="header">
-                <h2>Billing Page</h2>
-            </div>
-            <div class="card">
-                <div class="companydetails">
-                    <ul>
-                        @foreach ($footer as $foot)
-                            <li>
-                                <h4>Shop name: <span> Ethics Beauty</span></h4>
-                            </li>
-                            <li>
-                                <h4>Address Of Shop: <span> {{ $foot->address }}</span></h4>
-                            </li>
-                            <li>
-                                <h4>Shop Email: <span> {{ $foot->email }}</span></h4>
-                            </li>
-                            <li>
-                                <h4>Shop Contactno: <span> {{ $foot->phone }}</span></h4>
-                            </li>
-                        @endforeach
+    <div class="print" id="invoice">
+        <div class="row" id="bill">
+            <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+                <div class="header">
 
-                    </ul>
+                    <h2><img src="{{ asset('User/images/logo2.png') }}" class="center" alt="">Billing Page</h2>
+
                 </div>
-                <hr>
-                <div class="userdetails">
-                    @foreach($user as $us)
+            </div>
+        </div>
+
+        <div class="row">
+
+
+
+            <div class="col-lg-6 col-md-6 userdetails" id="user">
+                @foreach ($user as $us)
                     <ul>
-                     
+
                         <li>
-                            <h4>User name:   <span>{{$us->firstname}}</span>     <span>{{$us->lastname}}</span> </h4>
+                            <h4>User name: <span>{{ $us->firstname }}</span> <span>{{ $us->lastname }}</span>
+                            </h4>
                         </li>
                         <li>
-                            <h4>Address Of User:  <span>{{$us->street}}</span></h4>
+                            <h4>Address Of User: <span>{{ $us->house }}</span>,<span>{{ $us->street }}</span>,<span>{{ $us->landmark }}</span>,<span>{{ $us->city }}</span>,<span>{{ $us->state }}</span></h4>
                         </li>
                         <li>
-                            <h4>User Email:  <span>{{$us->email}}</span></h4>
+                            <h4>User Email: <span>{{ $us->email }}</span></h4>
                         </li>
                         <li>
-                            <h4>User Contactno:  <span>{{$us->mobile_no}}</span></h4>
+                            <h4>User Contactno: <span>{{ $us->mobile_no }}</span></h4>
                         </li>
 
                     </ul>
+                @endforeach
+
+            </div>
+
+
+            <div class=" col-lg-6 col-md-6 companydetails" id="company">
+                <ul>
+                    @foreach ($footer as $foot)
+                        <li>
+                            <h4><span> Ethics Beauty</span></h4>
+                        </li>
+                        <li>
+                            <h4> <span> {{ $foot->address }}</span></h4>
+                        </li>
+                        <li>
+                            <h4> <span> {{ $foot->email }}</span></h4>
+                        </li>
+                        <li>
+                            <h4> <span> {{ $foot->phone }}</span></h4>
+                        </li>
                     @endforeach
 
-                </div>
-                <hr>
-                <div class="billdetails">
-                    <table class="table table-border" id="printorder">
-                        <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Product Price</th>
-                                <th>Product Quantity</th>
-                            
-                            </tr>
-                        </thead>
+                </ul>
+            </div>
 
-                        @foreach($items as $it)
+
+        </div>
+
+        <div class="billdetails" id="printorder">
+            <center>
+                <table class="table table-border tb" style="text-align: center">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Product Quantity</th>
+
+                        </tr>
+                    </thead>
+
+                    @foreach ($items as $it)
                         <tbody>
-                            <td>{{$it->pname}}</td>
-                            <td>{{$it->pc}}</td>
-                            <td>{{$it->qp}}</td>
-                          
+                            <td>{{ $it->pname }}</td>
+                            <td>{{ $it->pc }} ₹</td>
+                            <td>{{ $it->qp }}</td>
+
 
 
 
 
                         </tbody>
-                       
-                        @endforeach
+                    @endforeach
 
-                        {{-- {{dd($bill)}}
+                    {{-- {{dd($bill)}}
                         exit(); --}}
-                        
-                        @foreach($bill as $it)
-                        <tr>
-                            <td colspan="1">Total Cost:</td>
-                            <td><span id="totalsum" class="totalsum">{{ $it ->grandtotal}}</span></td>
-                            
-                        </tr>
-                        @endforeach
-                    </table>
-                    <form action="{{ route('bill.store') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
 
-                 
-                        <button style="align-content: center">Print Bill</button>
-                        <button type="submit" id="printorder" style="align-content: center">Done</button>
-                    </form>
-                    <button id="print">Print Bill</button>
+                    @foreach ($bill as $it)
                    
-                </div>
-            </div>
+                        <tr>
+                            <td>Total Cost:</td>
+                            <td><span id="totalsum" class="totalsum">{{ $it->grandtotal }} ₹</span></td>
+                            <td></td>
+
+                        </tr>
+                   
+                    @endforeach
+                </table>
+
+
+            </center>
         </div>
     </div>
+    <div class="print22">
+        <button id="print" class="printbutton flex">Print Bill</button>
+
+        <form action="{{ route('bill.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+
+
+            <button type="submit" id="printorder" class="donebutton" style="align-content: center">Done</button>
+
+        </form>
+    </div>
+
+
+
 </div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+
+
+<script>
+    window.onload = function() {
+        document.getElementById("print")
+            .addEventListener("click", () => {
+                const invoice = this.document.getElementById("invoice");
+                console.log(invoice);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'invoice.pdf',
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 2
+                    },
+                    jsPDF: {
+                        unit: 'in',
+                        format: 'letter',
+                        orientation: 'portrait'
+                    }
+                };
+                html2pdf().from(invoice).set(opt).save();
+            })
+    }
+</script>
+
 @include('User.include.footer')

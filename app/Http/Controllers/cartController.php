@@ -57,7 +57,8 @@ class cartController extends Controller
         $totalprice = $request->totalprice;
 
         cart::create(['product_id' => $product_id, 'user_id' => $user_id, 'quantity' => $quantity, 'totalprice' => $totalprice]);
-        return redirect()->route('cart.show', ['cart' =>  Auth::user()->id])->with('success', 'product added');
+
+        return redirect()->route('cart.show', ['cart' =>  Auth::user()->id])->with('done', 'product added');
     }
 
 
@@ -75,13 +76,13 @@ class cartController extends Controller
             ->join('products', 'products.id', '=', 'carts.product_id')
             ->join('users', 'users.id', '=', 'carts.user_id')
             ->join('product_details', 'product_details.productid', '=', 'products.id')
-            ->select('products.*', 'users.*', 'product_details.*', 'carts.*', 'users.id as uid', 'products.id as pID','carts.id as cID')
+            ->select('products.*', 'users.*', 'product_details.*', 'carts.*', 'users.id as uid', 'products.id as pID', 'carts.id as cID','product_details.quantity as pq')
             ->where('carts.flag', '=', 1)
-            ->where('carts.flagorder','=','1')
+            ->where('carts.flagorder', '=', '1')
             ->where('users.id', $id)->get();
-            $footer = DB::table('footers')->get();
+        $footer = DB::table('footers')->get();
 
-        return view('User.pages.cart1', compact('cart','footer'));
+        return view('User.pages.cart1', compact('cart', 'footer'));
     }
 
 
@@ -121,8 +122,7 @@ class cartController extends Controller
         // $q=$request->q;
         // dd($q);
         // exit();
-        $update = DB::table('carts')->where('product_id','=',$request->id)->where('user_id','=',$request->userid)->update(['quantity'=>$request->q]);
-     
+        $update = DB::table('carts')->where('product_id', '=', $request->id)->where('user_id', '=', $request->userid)->update(['quantity' => $request->q]);
     }
 
     /**
@@ -131,25 +131,59 @@ class cartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $cart = cart::find($request->id);
+        $cart = cart::find($id);
         $cart->flag = 0;
         $cart->update($request->all());
-       
+        return redirect()->route('cart.show', ['cart' => Auth::user()->id])->with('success', 'Removed Item Successfully');
     }
 
 
 
-    public function updatequantity(Request $request)
-    {
-        $q = $request->quantity;
-        // echo '<pre>';
-        // print_r($q);
-        // echo '</pre>';
-        // exit();
-        $update = DB::table('product_details')->where('productid', '=', $request->id)->decrement('quantity',$q);
-        $update1=DB::table('stocks')->where('productid', '=', $request->id)->decrement('quantity',$q);
+    // public function updatequantity(Request $request)
+    // {
+    //     $q = $request->quantity;
+    //     // echo '<pre>';
+    //     // print_r($q);
+    //     // echo '</pre>';
+    //     // exit();
+    //     $update = DB::table('product_details')->where('productid', '=', $request->id)->decrement('quantity', $q);
+
+
+    //     $update1 = DB::table('stocks')->where('productid', '=', $request->id)->decrement('quantity', $q);
+    // }
+
+
+
+    // public function try()
+    // {
+
+    //     $try = DB::table('product_details')
+    //     ->join('category', 'category.id', '=', 'product_details.catid')
        
-    }
+
+
+       
+        
+    //     ->where('category.flag',1)
+    // ->sum('product_details.quantity');
+   
+
+
+  
+ 
+
+   
+
+
+    // dd($try);
+    // exit();
+    // }
+
+
+    // }
+
+
+
 }
