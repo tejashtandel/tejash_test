@@ -60,8 +60,14 @@ class HomeController extends Controller
                 $months[]=$month;
                 $monthcount[]=count($values);
             }
-           
-            return view('Admin.pages.index',compact('data','months','monthcount'));
+
+
+              $try =  Db::table('users')->get();
+            
+        $data =DB::table('products')->get();
+        $feedbacks=DB::table('contacts')->get();  
+        $checkouts=Db::table('checkouts')->get(); 
+            return view('Admin.pages.index',compact('data','months','monthcount','try','data','feedbacks','checkouts'));
         }
 
 

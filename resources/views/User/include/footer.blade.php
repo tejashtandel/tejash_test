@@ -96,22 +96,8 @@
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#printorder').DataTable({
-            dom: 'Bfrtip',
-            buttons: [{
-                    extend: 'print',
-                    className: 'btn-secondary'
-                },
 
 
-            ],
-
-        });
-      
-    });
-</script>
 
 </body>
 

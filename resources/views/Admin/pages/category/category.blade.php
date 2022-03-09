@@ -3,8 +3,9 @@
 
 <div class="main-content">
 
-    <div class="section__content section__content--p30">
+    <div class="section__content section__content--p100">
         <div class="container">
+     
         @if(Session::has('success'))
                         <div class="alert alert-success text-center">
                             {{Session::get('success')}}
@@ -16,11 +17,11 @@
                             {{Session::get('error')}}
                         </div>
                         @endif
-            <a href="{{route('category.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
+                        <a href="{{route('category.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
             <div class="row">
          
                 <table class="table table-bordered" id="myTable">
-
+             
                     <thead>
                         <tr>
                             <th scope="col">Category Name</th>

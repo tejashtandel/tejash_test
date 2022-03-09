@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,9 +16,13 @@ class UserreportController extends Controller
     {
         $userss= DB::table('users')
         ->join('checkouts','users.id','=','checkouts.userid')
-        ->join('products', 'users.productid', '=', 'products.id')
-        ->select('users.firstname','checkouts.id','products.product_name')->get();
+        ->join('products', 'users.id', '=', 'products.id')
+        ->select('users.firstname','checkouts.id','products.product_name','checkouts.totalprice')
+      
+        ->get();
+      
         return view('Admin.pages.reports.userreport',compact('userss'));
+
     }
 
 
@@ -94,5 +98,47 @@ class UserreportController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function search(Request $request)
+    {
+        $s = $request->serch1;
+       
+        $result = DB::table('users')
+        ->where('firstname','LIKE','%'.$s.'%')->select()->get()->toArray();
+               
+        $html = '<div class="container users">
+    
+    
+       
+           <table class="table table-bordered" id="example">
+           
+           <thead>
+           <tr>
+           <th>First Name</th>
+           <th>Order Id</th>
+           <th>Product Name</th>
+           <th>Total Amount</th>
+           </tr>
+           </thead>';
+
+        foreach($result as $dta){
+            $html .=' 
+        <tbody><tr>
+        <td>'.$dta->firstname.'</td>
+            <td>'.$dta->id.'</td>
+          
+        </tr> </tbody>';
+        }
+        $html .='</table></div>';
+       
+
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data inserted successfully',
+                'html' => $html,
+            ]
+        ); 
     }
 }

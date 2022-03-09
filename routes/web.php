@@ -35,7 +35,7 @@ use App\Http\Controllers\UserreportController;
 use App\Http\Controllers\BrowserController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\BrowsersController;
-
+use App\Http\Controllers\BrowserControllerbar;
 
 use App\Models\product;
 
@@ -293,7 +293,16 @@ Route::get('index', function () {
     if (Auth::check()) {
 
         if (Auth::user()->role == '1') {
-            return view('Admin.pages/index');
+
+
+            $try =  Db::table('users')->get();
+            
+            $data =DB::table('products')->get();
+            $feedbacks=DB::table('contacts')->get();  
+            $checkouts=Db::table('checkouts')->get(); 
+              
+          
+            return view('Admin.pages/index',compact('try','data','feedbacks','checkouts'));
         } else {
             return "You are Not  A Admin";
         }
@@ -376,18 +385,20 @@ Route::resource('proreport', productReportController::class);
 Route::resource('charts', GooglePieController::class);
 Route::resource('chart', AdminController::class);
 
-Route::get('/ajaxchart', [BrowserController::class, 'ajaxchart']);
-Route::get('/getdata', [BrowserController::class, 'getdata']);
+Route::get('ajaxchart', [BrowserController::class, 'ajaxchart']);
+Route::get('getdata', [BrowserController::class, 'getdata']);
 
 Route::get('/ajaxchart1',[BrowsersController::class,'ajaxchart1'])->name('ajaxchart1');
 Route::get('/getdata1', [BrowsersController::class, 'getdata1'])->name('getdata1');
+Route::get('/getdata2', [BrowsersController::class, 'getdata2'])->name('getdata2');
+Route::get('/getdata3',[BrowsersController::class, 'getdata3'])->name('getdata3');
 
 //For Feedback
 Route::resource('feedback', feedbackController::class);
 
 //For User Report
 Route::resource('userreport', UserreportController::class);
-Route::get('searchp', [UserreportController::class, 'seach'])->name('searchp');
+Route::get('search', [UserreportController::class, 'search'])->name('search');
 
 //For Feedback Report
 Route::resource('feedbackreport', feedbackreportController::class);

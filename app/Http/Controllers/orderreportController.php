@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class orderreportController extends Controller
 {
@@ -13,7 +14,13 @@ class orderreportController extends Controller
      */
     public function index()
     {
-        return view('Admin.pages.reports.orderreport');
+        $orders= DB::table('users')
+        ->join('checkouts','users.id','=','checkouts.userid')
+        ->join('products', 'users.id', '=', 'products.id')
+        ->select('users.firstname','checkouts.id','products.product_name','checkouts.totalprice')
+        ->get();
+      
+        return view('Admin.pages.reports.orderreport',compact('orders'));
     }
 
     /**

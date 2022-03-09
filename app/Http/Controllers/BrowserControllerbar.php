@@ -33,24 +33,24 @@ class BrowserController extends Controller
             "data" => json_encode($dataPoints)
         ]);
     }
-    public function getdata()
+    public function getdata2()
     { 
-      
-        $browsers=DB::table('category')
-        ->select("category_name", DB::raw("COUNT(products.id) as count"))
-       ->Join('subcategories','subcategories.catid','=','category.id')
-       ->Join('products','products.sub_cat_id','=','subcategories.id')
-       ->groupBy('category.category_name')
-       ->get()
-       ->toArray();
-
-    
+        $browsers = DB::table('category')
+        ->join('subcategories','subcategories.catid','=','category.id')
+        ->join('products', 'products.sub_cat_id', '=', 'subcategories.id')
+        ->select(
+            'category.category_name as name',
+            DB::raw("(COUNT(products.id)) as count")
+        )->where('category.flag', 1)
+        ->groupBy('category.id', 'category.category_name')
+        ->get()
+        ->toArray();
         $dataPoints = [];
 
         foreach ($browsers as $browser) {
             
             $dataPoints[] = [
-                "category_name" =>$browser->category_name,
+                "category_name" =>$browser->name,
                 "y" =>$browser->count
             ];
         }
@@ -59,8 +59,9 @@ class BrowserController extends Controller
             "data" => json_encode($dataPoints)
         ];
     } 
-    public function ajaxchart(){ 
+    public function ajaxchart2(){ 
 
          return view("Admin.pages.index");
     }
+    
 }

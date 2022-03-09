@@ -4,7 +4,7 @@
 <div class="main-content">
 
     <div class="section__content section__content--p30">
-        <div class="container-fluid">
+        <div class="container feedback">
             @if(Session::has('success'))
             <div class="alert alert-success text-center">
                 {{Session::get('success')}}
@@ -15,8 +15,9 @@
                 {{Session::get('error')}}
             </div>
             @endif
-         
+         <input type="text" id="search">
             <div class="row">
+             
                 <table class="table table-bordered" id="example">
                     <thead>
                         <tr>
@@ -24,21 +25,16 @@
                             <th scope="col">Order Id</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Total Amount</th>
-                            <!-- <th scope="col">Last Name</th>
-                            <th scope="col">Mobile No</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">House</th>
-                            <th scope="col">Street</th>
-                            <th scope="col">Landmark</th>
-                            <th scope="col">State</th>
-                            <th scope="col">City</th>
-                            <th scope="col">Postcode</th> -->
+                           
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($userss as $user)
                         <tr>
                             <td> {{$user->firstname}}</td>
+                          <td>{{$user->id}}</td>
+                            <td> {{$user->product_name}}</td>
+                            <td> {{$user->totalprice}}</td>
                         </tr>
                         @endforeach
 
@@ -55,7 +51,7 @@
             console.log(search);
             $.ajax({
                 type: "get",
-                url: "{{route('searchp')}}",
+                url: "{{route('search')}}",
                 data: {
                     search: search,
 
@@ -65,7 +61,7 @@
                     if (response.success) {
 
 
-                        $('.product_table').html(response.html);
+                        $('.users').html(response.html);
                     }
 
                 }

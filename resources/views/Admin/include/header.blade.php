@@ -31,7 +31,7 @@
     <link href="{{asset('admin/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
-
+    <link href="{{asset('admin/css/test.css')}}" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="{{asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
@@ -183,7 +183,7 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
 
-                                <i class="fa fa-info"></i>Product
+                                <i class="fa fa-list-alt"></i>Product
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="ui-basic">
@@ -496,7 +496,7 @@
                                     <div class="account-wrap">
                                         <div class="account-item clearfix js-item-menu">
                                             <div class="image">
-                                                <img src="{{asset('admin/images/icon/image4.png')}}" alt="John Doe" /> -->
+                                                <img src="{{asset('admin/images/icon/image4.png')}}" alt="John Doe" />
                                             </div>
                                             <div class="content">
                                                 <a class="js-acc-btn" href="#">Admin</a>

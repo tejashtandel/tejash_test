@@ -92,11 +92,13 @@
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
 
                  
-                        <button style="align-content: center">Print Bill</button>
                         <button type="submit" id="printorder" style="align-content: center">Done</button>
                     </form>
-                    <button id="print">Print Bill</button>
+            
+                    <button onclick="window.print()">Print Bill</button>
                    
+                    
+                    
                 </div>
             </div>
         </div>

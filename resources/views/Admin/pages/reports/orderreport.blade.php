@@ -15,7 +15,7 @@
                 {{Session::get('error')}}
             </div>
             @endif
-         
+
             <div class="row">
                 <table class="table table-bordered" id="example">
                     <thead>
@@ -23,13 +23,21 @@
                             <th scope="col">User Name</th>
                             <th scope="col">Order Id</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">price</th>
+                      
                             <th scope="col">Total Amount</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
-                   
+                        @foreach($orders as $order)
+                        <tr>
+                            <td>{{$order->firstname}}</td>
+                            <td>{{$order->id}}</td>
+                            <td> {{$order->product_name}}</td>
+                            <td>{{$order->totalprice}}</td>
+                        </tr>
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
