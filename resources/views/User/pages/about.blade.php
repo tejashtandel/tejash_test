@@ -2,7 +2,7 @@
 @include('User.include.header')
     <!-- Start All Title Box -->
     {{-- <div class="all-title-box"> --}}
-        <div class="container">
+        {{-- <div class="container">
             <div class="row text">
                 <div class="col-lg-12">
                     
@@ -13,7 +13,7 @@
                     <h2>ABOUT US</h2>
                 </div>
             </div>
-        </div>
+        </div> --}}
     {{-- </div> --}}
     <!-- End All Title Box -->
 

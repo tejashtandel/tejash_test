@@ -87,7 +87,9 @@ Route::get('checkout', function () {
 //     return view('User.pages/service');
 // });
 Route::get('termsandcondition', function () {
-    return view('User.pages/terms&condition');
+
+    $footer = DB::table('footers')->get();
+    return view('User.pages/terms&condition',compact('footer'));
 });
 Route::get('admin', function () {
     return view('User.pages/wishlist');
@@ -183,6 +185,8 @@ Route::get('prod/{id}', function ($id) {
         ->where('products.id', $id)
         ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
 
+        
+
     // $product1 = DB:table('products')
     //     ->join('category','products.catid','=','category.id')
     //     ->where('')
@@ -256,13 +260,18 @@ Route::resource('userdetails/{userdetail}/$id', userdetailController::class);
 Route::resource('cart', cartController::class);
 Route::get('cartd', [cartController::class, 'destroy'])->name('cartd');
 Route::post('cartu', [cartController::class, 'update'])->name('cartu');
-Route::post('updateQuantity', [cartController::class, 'updatequantity'])->name('updateQuantity');
+
 Route::resource('bottom', bottomController::class);
 Route::resource('ethic', ethicController::class);
 Route::resource('top', topController::class);
 Route::resource('contact', contcatController::class);
 Route::resource('bill', buynowController::class);
 Route::resource('order', orderController::class);
+
+
+
+
+Route::get('carttry', [cartController::class, 'try'])->name('carttry');
 
 
 

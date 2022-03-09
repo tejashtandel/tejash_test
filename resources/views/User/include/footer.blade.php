@@ -7,15 +7,7 @@
                         <div class="footer-widget">
                             <h4>About Mohmaya</h4>
                             <p>{{ $foot->about }}</p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                            </ul>
+                           
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
@@ -65,8 +57,8 @@
     </div>
 </footer>
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2022 <a href="#">Ethics</a> Design By :
-        <a href="#">Yash &Prakruti</a>
+    <p class="footer-company">All Rights Reserved. &copy; 2022 <a >Ethics</a> Design By :
+        <a >Yash &Prakruti</a>
     </p>
 </div>
 <!-- End copyright  -->

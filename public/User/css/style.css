@@ -870,6 +870,7 @@
 }
  .box-img-hover img{
      margin: 0 auto;
+     height: 300px;
      text-align: center;
     
      
@@ -908,8 +909,17 @@
      font-size: 18px;
      font-family: 'Jost', sans-serif;
      padding: 0px;
-     font-weight: 600;
+     font-weight: 800;
      text-align: center;
+     text-transform: uppercase;
+}
+.why-text h5:last-child{
+    font-size: 15px;
+    font-family: 'Jost', sans-serif;
+    padding: 0px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
 }
  .mask-icon{
      width: 100%;
@@ -1043,12 +1053,17 @@
      -webkit-box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
      box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
      background: #ffffff;
+     background-color: #93caee;
      margin-bottom: 30px;
      margin-top: 50px;
 }
  .blog-content{
      margin-top: 50px;
      position: relative;
+}
+.title-blog{
+
+    box-shadow: 8px 8px 8px 8px rgb(240, 241, 141);
 }
 
 
@@ -1076,7 +1091,7 @@
      background: #010101;
      display: inline-block;
      font-size: 18px;
-     color: #ffffff;
+     color: #93caee;
      width: 34px;
      height: 34px;
      text-align: center;
@@ -1430,12 +1445,12 @@
      font-style: bold;
      font-weight: 700;
      color: black;
-     font-family: 'Bevan', cursive;
+     font-family: 'Times New Roman', Times, serif
   
 }
  .about-box-main p{
-     font-size: 17px;
-     font-family: 'Paprika', cursive;
+     font-size: 20px;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      padding-bottom: 20px;
      font-style: bold;
 }
@@ -2224,7 +2239,7 @@
 }
  .contact-info-left{
      padding: 20px;
-     background: rgba(0, 53, 68, 0.1);
+     background: rgba(103, 187, 211, 0.1);
 }
  .contact-info-left h2{
      font-size: 22px;
@@ -2257,6 +2272,7 @@
 }
  .contact-form-right{
      padding: 20px;
+     background: rgba(103, 187, 211, 0.1);
 }
  .contact-form-right h2{
      font-size: 24px;
@@ -2283,8 +2299,9 @@
  .submit-button button{
      padding: 10px 20px;
      font-weight: 700;
-     color: #e41919;
+     color: white;
      border: black;
+     background-color: black;
 }
  .help-block.with-errors{
      position: absolute;

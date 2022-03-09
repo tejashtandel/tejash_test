@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="{{asset('User/css/product.css')}}">
     <link rel="stylesheet" href="{{asset('User/css/addcart.css')}}">
     <link rel="stylesheet" href="{{asset('User/css/billing.css')}}">
+    <link rel="stylesheet" href="{{asset('User/css/tnc.css')}}">
 
    
 

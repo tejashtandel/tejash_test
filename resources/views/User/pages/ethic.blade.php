@@ -24,7 +24,7 @@
 
 <body> --}}
     {{-- <div class="all-title-box"> --}}
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Ethic Wear</h2>
@@ -34,7 +34,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
     {{-- </div> --}}
 
 
@@ -133,7 +133,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -159,7 +159,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -184,7 +184,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -209,7 +209,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -234,7 +234,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -259,7 +259,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -284,7 +284,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -309,7 +309,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -334,7 +334,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -359,7 +359,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -384,7 +384,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
@@ -409,7 +409,7 @@
                                     <ul>
                                         <li><a href="{{ url('/prod',['id'=>$prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                     </ul>
                                     {{-- <a class="cart" href="#">Add to Cart</a> --}}
                                 </div>
