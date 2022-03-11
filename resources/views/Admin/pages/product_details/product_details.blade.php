@@ -25,6 +25,7 @@
                             <th scope="col">category Name</th>
                             <th scope="col">sub Category Name</th>
                             <th scope="col">Product Name</th>
+                            <th scope="col">Brand Name</th>
                             <!-- <th scope="col">Sleeve</th>
                             <th scope="col">Neck</th>
                             <th scope="col">Febric</th>
@@ -46,7 +47,7 @@
                             <td>{{$proddetail->category_name}}</td>
                             <td>{{$proddetail->subcategoryname}}</td>
                             <td>{{$proddetail->product_name}}</td>
-                           
+                            <td>{{$proddetail->brand_name}}</td>
 
                             <!-- <td>
                                 <?php

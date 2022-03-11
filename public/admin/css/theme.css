@@ -3158,17 +3158,22 @@ section {
 
 .overview-item--c2 {
    
-    background-image: linear-gradient(rgb(128, 253, 211),rgb(247, 221, 149));
+    background-image: -moz-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+    background-image: -ms-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
 }
 
 .overview-item--c3 {
   
-    background-image: linear-gradient(rgb(128, 253, 211),rgb(247, 221, 149));
+    background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
 }
 
 .overview-item--c4 {
-  
-    background-image: linear-gradient(rgb(128, 253, 211),rgb(247, 221, 149));
+    background-image: -moz-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
+    background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
+    background-image: -ms-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
 }
 
 .overview-box .icon {
@@ -3247,7 +3252,7 @@ section {
 }
 .overview-chart span{
     margin-top: 25px;
-     text-align: center;
+     
 }
 
 .overview-chart canvas {

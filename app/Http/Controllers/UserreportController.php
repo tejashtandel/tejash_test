@@ -111,15 +111,15 @@ class UserreportController extends Controller
     }
     public function search(Request $request)
     {
-        $s = $request->serch1;
+        $s = $request->search;
 
-        $result = DB::table('users')
-            ->where('firstname', 'LIKE', '%' . $s . '%')->select()->get()->toArray();
+        $result =  DB::table('users')
+        ->join('checkouts', 'users.id', '=', 'checkouts.userid')
+        ->join('products', 'users.id', '=', 'products.id')
+        ->select()
+            ->where('users.firstname', 'LIKE', '%' . $s . '%')->get()->toArray();
 
         $html = '<div class="container users">
-    
-    
-       
            <table class="table table-bordered" id="example">
            
            <thead>
@@ -129,14 +129,15 @@ class UserreportController extends Controller
            <th>Product Name</th>
            <th>Total Amount</th>
            </tr>
-           </thead>';
+           </thead>  <tbody>';
 
         foreach ($result as $dta) {
             $html .= ' 
-        <tbody><tr>
+      <tr>
         <td>' . $dta->firstname . '</td>
             <td>' . $dta->id . '</td>
-          
+            <td>' . $dta->product_name . '</td>
+            <td>' . $dta->totalprice . '</td>
         </tr> </tbody>';
         }
         $html .= '</table></div>';

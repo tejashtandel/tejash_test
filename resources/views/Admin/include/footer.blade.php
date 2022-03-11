@@ -61,8 +61,12 @@
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
+</script>
+<script>
 
-    $(document).ready(function() {
+function generatedatatable()
+    {
+        
         $('#example').DataTable({
             dom: 'Bfrtip',
             buttons: [{
@@ -85,8 +89,16 @@
 
         });
         $('#myTable').DataTable();
+    }
+    $(document).ready(function() {
+
+        generatedatatable();
     });
 </script>
+
+
+   
+
 
 </body>
 

@@ -15,38 +15,43 @@
                 {{Session::get('error')}}
             </div>
             @endif
-         <input type="text" id="search">
-            <div class="row">
-             
-                <table class="table table-bordered" id="example">
-                    <thead>
-                        <tr>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Order Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Total Amount</th>
-                           
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($userss as $user)
-                        <tr>
-                            <td> {{$user->firstname}}</td>
-                          <td>{{$user->id}}</td>
-                            <td> {{$user->product_name}}</td>
-                            <td> {{$user->totalprice}}</td>
-                        </tr>
-                        @endforeach
+            <div class="container ">
+                <div class="form-group">
+                    <input type="text" name="search" id="search1" class="form-control search" placeholder="Search Users Data" />
 
-                    </tbody>
-                </table>
+                </div>
+                <div class="row">
+                    <div class="container users">
+                        <table class="table table-bordered" id="example">
+                            <thead>
+                                <tr>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Order Id</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Total Amount</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($userss as $user)
+                                <tr>
+                                    <td> {{$user->firstname}}</td>
+                                    <td>{{$user->id}}</td>
+                                    <td> {{$user->product_name}}</td>
+                                    <td> {{$user->totalprice}}</td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@include('Admin.include.footer')
-<script>
-      $('#search').on('keyup', function() {
+    @include('Admin.include.footer')
+    <script>
+        $('#search1').on('keyup', function() {
             var search = $(this).val();
             console.log(search);
             $.ajax({
@@ -60,11 +65,12 @@
                 success: function(response) {
                     if (response.success) {
 
-
+                        console.log(response);
                         $('.users').html(response.html);
+                        generatedatatable();
                     }
 
                 }
             });
         })
-</script>
+    </script>

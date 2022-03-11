@@ -14,6 +14,7 @@ class product extends Model
         'size',
         'color',
         'price',
-        'image'
+        'image',
+        'flag'
     ];
 }
