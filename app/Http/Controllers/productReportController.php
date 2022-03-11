@@ -97,4 +97,54 @@ class productReportController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+        $s = $request->search;
+
+        $result = DB::table('products AS p')->select('p.id', 'p.product_name', 'st.price', 'p.image', 's.subcategoryname', 'c.category_name', 'st.size', 'st.quantity')
+        ->join('subcategories AS s', 'p.sub_cat_id', '=', 's.id')
+        ->join('category AS C', 's.catid', '=', 'c.id')
+        ->join('stocks AS st', 'st.productid', '=', 'p.id')
+            ->where('products.product_name', 'LIKE', '%' . $s . '%')->get()->toArray();
+
+        $html = '<div class="container users">
+    
+    
+       
+           <table class="table table-bordered" id="example">
+           
+           <thead>
+           <tr>
+           <th>Category Name</th>
+           <th>Subcategory Name</th>
+           <th>Product Name</th>
+           <th>Size</th>
+           <th>Price</th>
+           <th>Image</th>
+           </tr>
+           </thead>  <tbody>';
+
+        foreach ($result as $dta) {
+            $html .= ' 
+      <tr>
+        <td>' . $dta->category_name . '</td>
+            <td>' . $dta->subcategoryname . '</td>
+            <td>' . $dta->product_name . '</td>
+            <td>' . $dta->size . '</td>
+            <td>' . $dta->totalprice . '</td>
+            <td>' . $dta->image . '</td>
+        </tr> </tbody>';
+        }
+        $html .= '</table></div>';
+
+
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data inserted successfully',
+                'html' => $html,
+            ]
+        );
+    }
 }

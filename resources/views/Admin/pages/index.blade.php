@@ -286,13 +286,14 @@
                             title: {
                                 text: 'category wise sales'
                             },
+                            
                             yAxis: {
                                 title: {
                                     text: 'Stock per Order Quantity'
                                 }
                             },
                             tooltip: {
-                                pointFormat: '{series.product_name}: <b>{point.percentage:.1f}%</b>',
+                                pointFormat: '{point.category_name}: <b>{point.percentage:.1f}%</b>',
 
                             },
                             accessibility: {
@@ -306,18 +307,18 @@
                                     cursor: 'pointer',
                                     dataLabels: {
                                         enabled: true,
-                                        format: '<b>{point.product_name}</b>: {point.percentage:.1f} %'
+                                        format: '<b>{point.category_name}</b>: {point.percentage:.1f} %'
                                     }
                                 }
                             },
                             series: [{
-                                    name: 'products',
-                                    colorByPoint: true,
+                                    name: 'category',
+                                   
                                     data: data
 
                                 }, {
                                     name: 'sales',
-                                    colorByPoint: true,
+                                  
                                     data: data1
                                 }
 

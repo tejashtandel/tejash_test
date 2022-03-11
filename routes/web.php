@@ -393,6 +393,7 @@ Route::resource('stocks', stockController::class);
 //For Reports
 Route::resource('report', reportController::class);
 Route::resource('proreport', productReportController::class);
+Route::get('search', [productreportController::class, 'search'])->name('search');
 
 //For Charts
 Route::resource('charts', GooglePieController::class);
@@ -415,6 +416,9 @@ Route::get('search', [UserreportController::class, 'search'])->name('search');
 
 //For Feedback Report
 Route::resource('feedbackreport', feedbackreportController::class);
+Route::get('search', [feedbackreportController::class, 'search'])->name('search');
+
 
 //For Order Report
 Route::resource('orderreport', orderreportController::class);
+Route::get('search', [ orderreportController::class, 'search'])->name('search');

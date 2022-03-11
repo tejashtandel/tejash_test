@@ -92,4 +92,47 @@ class feedbackreportController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+        $s = $request->search;
+
+        $result =  DB::table('contacts')->select()
+            ->where('contacts.name', 'LIKE', '%' . $s . '%')->get()->toArray();
+
+        $html = '<div class="container users">
+    
+    
+       
+           <table class="table table-bordered" id="example">
+           
+           <thead>
+           <tr>
+           <th>Name</th>
+           <th>Email</th>
+           <th>Subjects</th>
+           <th>message</th>
+           </tr>
+           </thead>  <tbody>';
+
+        foreach ($result as $dta) {
+            $html .= ' 
+      <tr>
+        <td>' . $dta->name . '</td>
+            <td>' . $dta->email . '</td>
+            <td>' . $dta->subject . '</td>
+            <td>' . $dta->message . '</td>
+        </tr> </tbody>';
+        }
+        $html .= '</table></div>';
+
+
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data inserted successfully',
+                'html' => $html,
+            ]
+        );
+    }
 }
