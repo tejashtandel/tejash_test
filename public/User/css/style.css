@@ -1080,6 +1080,7 @@
  .title-blog p{
      margin: 50px 50px 50px 50px;
      padding: 30px;
+     text-transform: capitalize;
 }
  .option-blog {
      position: absolute;
@@ -1248,6 +1249,7 @@
      font-weight: 400;
      font-size: 14px;
      padding-bottom: 20px;
+     text-transform: capitalize;
 }
  .footer-widget ul{
      display: inline-block;

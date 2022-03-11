@@ -18,35 +18,35 @@ class bottomController extends Controller
         $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="12"');
+    WHERE category.id="2"');
 
         $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="12" AND subcategories.subcategoryname="plazo"');
+    WHERE category.id="2" AND subcategories.id="6"');
 
         $product4 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND 500<products.price && products.price<1000');
+WHERE category.id="2" AND 500<products.price && products.price<1000');
 
 
         $product5 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND products.price>1000');
+WHERE category.id="2" AND products.price>1000');
 
         $product6 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND products.price<500');
+WHERE category.id="2" AND products.price<500');
 
 
         $product7 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
     JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND product_details.size="Large"');
+WHERE category.id="2" AND product_details.size="Large"');
 
 
 // dd(count($product6));
@@ -55,35 +55,35 @@ WHERE category.id="12" AND product_details.size="Large"');
 JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND product_details.size="small"');
+WHERE category.id="2" AND product_details.size="small"');
 
         $product9 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND product_details.size="Medium"');
+WHERE category.id="2" AND product_details.size="Medium"');
 
         $product10 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND product_details.size="XL"');
+WHERE category.id="2" AND product_details.size="XL"');
 
         $product11 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN product_details ON product_details.productid=products.id
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND product_details.size="XXL"');
+WHERE category.id="2" AND product_details.size="XXL"');
 
 $product12 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND subcategories.subcategoryname="jeans"');
+WHERE category.id="2" AND subcategories.id="4"');
 
 $product13 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12" AND subcategories.subcategoryname="lengis"');
+WHERE category.id="2" AND subcategories.id="5"');
 
         $footer = DB::table('footers')->get();
         return view('User.pages.bottomwear', compact('product3', 'product7', 'product2', 'product4', 'product5', 'product6', 'product8', 'product9', 'product10', 'product11', 'product12', 'product13', 'footer'));

@@ -286,6 +286,7 @@
                             title: {
                                 text: 'category wise sales'
                             },
+                       
                             yAxis: {
                                 title: {
                                     text: 'Stock per Order Quantity'

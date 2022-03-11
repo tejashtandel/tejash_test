@@ -27,7 +27,9 @@
                             </h4>
                         </li>
                         <li>
-                            <h4>Address Of User: <span>{{ $us->house }}</span> , <span>{{ $us->street }}</span> , <span>{{ $us->landmark }}</span> , <span>{{ $us->city }}</span> , <span>{{ $us->state }}</span></h4>
+                            <h4>Address Of User: <span>{{ $us->house }}</span> , <span>{{ $us->street }}</span> ,
+                                <span>{{ $us->landmark }}</span> , <span>{{ $us->city }}</span> ,
+                                <span>{{ $us->state }}</span></h4>
                         </li>
                         <li>
                             <h4>User Email: <span>{{ $us->email }}</span></h4>
@@ -90,18 +92,15 @@
                         </tbody>
                     @endforeach
 
-                    {{-- {{dd($bill)}}
-                        exit(); --}}
+                   
 
                     @foreach ($bill as $it)
-                   
                         <tr>
                             <td>Total Cost:</td>
                             <td><span id="totalsum" class="totalsum">{{ $it->grandtotal }} ₹</span></td>
                             <td></td>
 
                         </tr>
-                   
                     @endforeach
                 </table>
 
@@ -110,14 +109,15 @@
         </div>
     </div>
     <div class="print22">
-        <button id="print" class="printbutton flex"><i class="fa-solid fa-print"></i>  Print Bill</button>
+        <button id="print" class="printbutton flex"><i class="fa-solid fa-print"></i> Print Bill</button>
 
         <form action="{{ route('bill.store') }}" method="POST">
             @csrf
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
 
 
-            <button type="submit" id="printorder" class="donebutton" style="align-content: center"><i class="fa-solid fa-square-check"></i>  Done</button>
+            <button type="submit" id="printorder" class="donebutton" style="align-content: center"><i
+                    class="fa-solid fa-square-check"></i> Done</button>
 
         </form>
     </div>

@@ -7,8 +7,11 @@ use App\Models\product_detail;
 use App\Models\carts;
 use Illuminate\Http\Request;
 use App\Models\checkout;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\facades\DB;
+use Illuminate\Support\Facades\Mail;
+
 
 class buynowController extends Controller
 {
@@ -92,11 +95,30 @@ class buynowController extends Controller
             'user_id' => 'required',
 
         ]);
+
+
+
         $input = $request->all();
 
 
         $update = DB::table('carts')->where('user_id', '=', $input['user_id'])->update(['flagorder' => 0]);
         $update = DB::table('checkouts')->where('userid', '=', $input['user_id'])->update(['flag' => 0]);
+
+        $id = $input['user_id'];
+
+       
+
+        $orderMail = DB::table('users')->select('email')->where('id',$id)->get()->toArray();
+         
+
+        $emails = [ 'data' => 'Your Order Placed Succesfully' , 'details' => 'You Will Recieve Your Order Within 7 days', 'closure'=> 'Thank you for Shopping.' ];
+        $users = $orderMail[0]->email;
+
+        Mail::send('orderMail', $emails, function ($messeges) use ($users) {
+            $messeges->to($users);
+            $messeges->subject('Order Placed');
+        });
+
 
         return redirect()->route('home.index')->with('success','Your Order placed Succesfully');
     }

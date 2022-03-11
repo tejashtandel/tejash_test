@@ -13,32 +13,30 @@ class HomeController extends Controller
 
     public function index()
     {
-        
-    $footer = DB::table('footers')->get();
 
-    $banner = DB::table('banners')->get();
-    $catagory = DB::table('category')->get();
+        $footer = DB::table('footers')->get();
 
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+        $banner = DB::table('banners')->get();
+        $catagory = DB::table('category')->get();
+
+        $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="4"');
+    WHERE category.id="1"');
 
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="17"');
+WHERE category.id="2"');
 
-    $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
+        $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="12"');
+WHERE category.id="3"');
 
-    //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
+        //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 
-    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3', 'footer'));
-       
-        
+        return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3', 'footer'));
     }
 
     /**
@@ -46,67 +44,42 @@ WHERE category.id="12"');
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-   
+
     public function redirects()
     {
-        if(Auth::user()->role == '1')
-        {
-            $data=product::select('id','created_at')
-            ->get()->groupBy(function($data){
-                return Carbon::parse($data->created_at)->format('D');
-                
-            });
-            $months=[];
-            $monthcount=[];
-            foreach($data as $month=>$values){
-                $months[]=$month;
-                $monthcount[]=count($values);
+        if (Auth::user()->role == '1') {
+            $data = product::select('id', 'created_at')
+                ->get()->groupBy(function ($data) {
+                    return Carbon::parse($data->created_at)->format('D');
+                });
+            $months = [];
+            $monthcount = [];
+            foreach ($data as $month => $values) {
+                $months[] = $month;
+                $monthcount[] = count($values);
             }
 
 
-              $try =  Db::table('users')->get();
-            
-        $data =DB::table('products')->get();
-        $feedbacks=DB::table('contacts')->get();  
-        $checkouts=Db::table('checkouts')->get(); 
-            return view('Admin.pages.index',compact('data','months','monthcount','try','data','feedbacks','checkouts'));
+            $try =  Db::table('users')->get();
+
+            $data = DB::table('products')->get();
+            $feedbacks = DB::table('contacts')->get();
+            $checkouts = Db::table('checkouts')->get();
+            return view('Admin.pages.index', compact('data', 'months', 'monthcount', 'try', 'data', 'feedbacks', 'checkouts'));
         }
 
 
-        $banner = DB::table('banners')->get();
-        $catagory = DB::table('category')->get();
-     
-        $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-        JOIN subcategories ON products.sub_cat_id=subcategories.id
-        JOIN category ON subcategories.catid=category.id
-        WHERE category.id="4"');
-    
-        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="12"');
-    
-        $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="17"');
-        //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
-        $footer = DB::table('footers')->get();
-        return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3','footer'));
-   
-    
+
+        return redirect()->route('home.index');
     }
-    
 }
-    
-   

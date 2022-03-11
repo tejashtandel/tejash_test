@@ -7,11 +7,11 @@
 <!-- End Top Search -->
 
 <!-- Start Slider -->
-  @if(session('success'))
-                <div class="alert alert-success mb-1 mt-1">
-                    {{ session('success') }}
-                </div>
-                @endif
+@if (session('success'))
+    <div class="alert alert-success mb-1 mt-1">
+        {{ session('success') }}
+    </div>
+@endif
 <div id="slides-shop" class="cover-slides">
     <ul class="slides-container">
         @foreach ($banner as $bann)
@@ -21,34 +21,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>{{ $bann->description }}</strong></h1>
-                            <p><a class="btn hvr-hover" href="#">Shop Now</a></p>
+                            <p><a class="btn hvr-hover" href="{{ route('top.index') }}">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
             </li>
         @endforeach
-        {{-- <li class="text-left">
-                <img src="User/images/banner2.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> MohMaya</strong></h1>
-                            <p><a class="btn hvr-hover" href="#">Shop Now</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-left">
-                <img src="User/images/banner3.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Welcome To <br> MohMaya</strong></h1>
-                            <p><a class="btn hvr-hover" href="#">Shop Now</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li> --}}
+
     </ul>
     <div class="slides-navigation">
         <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -57,37 +36,7 @@
 </div>
 <!-- End Slider -->
 
-<!-- Start Categories  -->
-{{-- <div class="categories-shop">
-        <div class="container">
-            <div class="row">
-                @foreach ($catagory as $cat)
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="User/images/topw.jpg" alt="" />
-                        <a class="btn hvr-hover" href="cat2">{{ $cat-> category_name }} </a>
-                    </div>
-                  
-                </div>
-                @endforeach
-                {{-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid"  src="User/images/botomw.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Bottom Wear</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="User/images/ethicw.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Ethic Set</a>
-                    </div>
-                </div> --}}
 
-
-{{-- </div>
-        </div>
-    </div> --}}
-<!-- End Categories -->
 
 <!-- Start Products  -->
 <div class="products-box">
