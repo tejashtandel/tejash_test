@@ -31,12 +31,13 @@ class BrowsersController extends Controller
             "data" => json_encode($dataPoints)
         ]);
     }
-    public function getdata1()
+    public function getdata1(Request $request)
     {
         $browsers = DB::table('carts')
             ->select(DB::raw("MONTHNAME(created_at) as create_month"), DB::raw("COUNT(quantity) as count"))
             ->groupBy('create_month')
             ->where('carts.flagorder', 0)
+     
             ->get()
             ->toArray();
 

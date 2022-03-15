@@ -5,16 +5,7 @@
 
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            @if(Session::has('success'))
-            <div class="alert alert-success text-center">
-                {{Session::get('success')}}
-            </div>
-            @endif
-            @if(Session::has('error'))
-            <div class="alert alert-danger text-center">
-                {{Session::get('error')}}
-            </div>
-            @endif
+           
 
             <div class="container ">
                 <div class="form-group">
@@ -22,7 +13,7 @@
 
                 </div>
                 <div class="row">
-                    <div class="container users">
+                    <div class="container order">
                         <table class="table table-bordered" id="example">
                             <thead>
                                 <tr>
@@ -59,17 +50,16 @@
             console.log(search);
             $.ajax({
                 type: "get",
-                url: "{{route('search')}}",
+                url: "{{route('searcho')}}",
                 data: {
                     search: search,
-
                 },
 
                 success: function(response) {
                     if (response.success) {
 
                         console.log(response);
-                        $('.users').html(response.html);
+                        $('.order').html(response.html);
                         generatedatatable();
                     }
 

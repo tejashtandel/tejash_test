@@ -19,10 +19,10 @@ class productReportController extends Controller
         if (Auth::check()) {
 
             if (Auth::user()->role == '1') {
-                $data = DB::table('products AS p')->select('p.id', 'p.product_name', 'st.price', 'p.image', 's.subcategoryname', 'c.category_name', 'st.size', 'st.quantity')
+                $data = DB::table('products AS p')->select('p.id', 'p.product_name', 'p.price', 'p.image', 's.subcategoryname', 'c.category_name', 'pd.size', 'pd.quantity')
                     ->join('subcategories AS s', 'p.sub_cat_id', '=', 's.id')
                     ->join('category AS C', 's.catid', '=', 'c.id')
-                    ->join('stocks AS st', 'st.productid', '=', 'p.id')
+                    ->join('product_details AS pd', 'pd.productid', '=', 'p.id')
                     ->get();
                 // $subc=DB::find()->with('category')->get();
                 return view('Admin.pages.reports.productreport', compact('data'));
@@ -100,17 +100,15 @@ class productReportController extends Controller
     public function search(Request $request)
     {
         $s = $request->search;
-
-        $result = DB::table('products AS p')->select('p.id', 'p.product_name', 'st.price', 'p.image', 's.subcategoryname', 'c.category_name', 'st.size', 'st.quantity')
+        $result= DB::table('products AS p')->select('p.id', 'p.product_name', 'p.price', 'p.image', 's.subcategoryname', 'c.category_name', 'pd.size', 'pd.quantity')
         ->join('subcategories AS s', 'p.sub_cat_id', '=', 's.id')
-        ->join('category AS C', 's.catid', '=', 'c.id')
-        ->join('stocks AS st', 'st.productid', '=', 'p.id')
-            ->where('products.product_name', 'LIKE', '%' . $s . '%')->get()->toArray();
+        ->join('category AS c', 's.catid', '=', 'c.id')
+        ->join('product_details AS pd', 'pd.productid', '=', 'p.id')
+        ->where('p.product_name', 'LIKE', '%' . $s . '%')
+        ->get()->toArray();
+   
+        $html = '<div class="container products">
 
-        $html = '<div class="container users">
-    
-    
-       
            <table class="table table-bordered" id="example">
            
            <thead>
@@ -131,7 +129,7 @@ class productReportController extends Controller
             <td>' . $dta->subcategoryname . '</td>
             <td>' . $dta->product_name . '</td>
             <td>' . $dta->size . '</td>
-            <td>' . $dta->totalprice . '</td>
+            <td>' . $dta->price . '</td>
             <td>' . $dta->image . '</td>
         </tr> </tbody>';
         }

@@ -17,7 +17,7 @@
             </div>
             @endif
          
-            <div class="row">
+      
 
                 <table class="table table-bordered" id="myTable">
                     <thead>
@@ -38,14 +38,7 @@
                             <td>{{$st->size}}</td>
                             <td>{{$st->quantity}}</td>
                             <td>{{$st->price}}</td>
-                            <td>
-                                <!-- <form action="{{route('stocks.destroy',$st->id)}}" method="POST">
-                                    <a class="btn btn-primary" href="{{route('stocks.edit',$st->id)}}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form> -->
-                            </td>
+                           
                         </tr>
                         @endforeach
                     </tbody>
@@ -53,5 +46,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @include('Admin.include.footer')

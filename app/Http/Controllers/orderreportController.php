@@ -98,7 +98,7 @@ class orderreportController extends Controller
     {
         //
     }
-    public function search(Request $request)
+    public function searcho(Request $request)
     {
         $s = $request->search;
 
@@ -106,12 +106,12 @@ class orderreportController extends Controller
         ->join('checkouts', 'users.id', '=', 'checkouts.userid')
         ->join('products', 'users.id', '=', 'products.id')
         ->select('users.firstname', 'checkouts.id', 'products.product_name', 'checkouts.totalprice')
-            ->where('products.product_name', 'LIKE', '%' . $s . '%')->get()->toArray();
-
-        $html = '<div class="container users">
-    
-    
+        ->where('users.name', 'LIKE', '%' . $s . '%')
        
+        ->get()->toArray();
+   
+        $html = '<div class="container order">
+
            <table class="table table-bordered" id="example">
            
            <thead>
@@ -133,8 +133,6 @@ class orderreportController extends Controller
         </tr> </tbody>';
         }
         $html .= '</table></div>';
-
-
 
         return response()->json(
             [

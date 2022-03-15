@@ -109,27 +109,18 @@ class UserreportController extends Controller
     {
         //
     }
-    public function search(Request $request)
+    public function searchu(Request $request)
     {
         $s = $request->search;
 
         $result =  DB::table('users')
-        ->join('checkouts', 'users.id', '=', 'checkouts.userid')
-        ->join('products', 'users.id', '=', 'products.id')
-        ->select()
+            ->join('checkouts', 'users.id', '=', 'checkouts.userid')
+            ->join('products', 'users.id', '=', 'products.id')
+            ->select('users.firstname', 'checkouts.id', 'products.product_name', 'checkouts.totalprice')
             ->where('users.firstname', 'LIKE', '%' . $s . '%')->get()->toArray();
 
         $html = '<div class="container users">
-           <table class="table table-bordered" id="example">
-           
-           <thead>
-           <tr>
-           <th>First Name</th>
-           <th>Order Id</th>
-           <th>Product Name</th>
-           <th>Total Amount</th>
-           </tr>
-           </thead>  <tbody>';
+           <table class="table table-bordered" id="example"><thead><tr><th>First Name</th><th>Order Id</th><th>Product Name</th><th>Total Amount</th></tr></thead><tbody>';
 
         foreach ($result as $dta) {
             $html .= ' 
@@ -141,8 +132,6 @@ class UserreportController extends Controller
         </tr> </tbody>';
         }
         $html .= '</table></div>';
-
-
 
         return response()->json(
             [

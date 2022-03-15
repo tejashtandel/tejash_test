@@ -36,7 +36,7 @@ use App\Http\Controllers\BrowserController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\BrowsersController;
 use App\Http\Controllers\BrowserControllerbar;
-
+use App\Http\Controllers\refreshbarController;
 use App\Models\product;
 
 /*
@@ -412,13 +412,16 @@ Route::resource('feedback', feedbackController::class);
 
 //For User Report
 Route::resource('userreport', UserreportController::class);
-Route::get('search', [UserreportController::class, 'search'])->name('search');
+Route::get('searchu', [UserreportController::class, 'searchu'])->name('searchu');
 
 //For Feedback Report
 Route::resource('feedbackreport', feedbackreportController::class);
-Route::get('search', [feedbackreportController::class, 'search'])->name('search');
+Route::get('searchf', [feedbackreportController::class, 'searchf'])->name('searchf');
 
 
 //For Order Report
 Route::resource('orderreport', orderreportController::class);
-Route::get('search', [ orderreportController::class, 'search'])->name('search');
+Route::get('searcho', [ orderreportController::class, 'searcho'])->name('searcho');
+
+//Refresh bar charts
+Route::get('getbarchart1', [ refreshbarController::class, 'getbarchart1'])->name('getbarchart1');

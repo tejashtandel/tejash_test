@@ -92,18 +92,15 @@ class feedbackreportController extends Controller
     {
         //
     }
-    public function search(Request $request)
+    public function searchf(Request $request)
     {
         $s = $request->search;
 
-        $result =  DB::table('contacts')->select()
-            ->where('contacts.name', 'LIKE', '%' . $s . '%')->get()->toArray();
+        $result =  DB::table('contacts')->where('contacts.name', 'LIKE', '%' . $s . '%')->select()->get()->toArray();
 
-        $html = '<div class="container users">
+        $html = '<div class="container feedback">
     
-    
-       
-           <table class="table table-bordered" id="example">
+           <table class="table table-bordered" id="feedbackr">
            
            <thead>
            <tr>
@@ -112,11 +109,11 @@ class feedbackreportController extends Controller
            <th>Subjects</th>
            <th>message</th>
            </tr>
-           </thead>  <tbody>';
+           </thead><tbody>';
 
         foreach ($result as $dta) {
             $html .= ' 
-      <tr>
+         <tr>
         <td>' . $dta->name . '</td>
             <td>' . $dta->email . '</td>
             <td>' . $dta->subject . '</td>

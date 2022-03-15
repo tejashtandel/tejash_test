@@ -4,7 +4,7 @@
 <div class="main-content">
 
     <div class="section__content section__content--p30">
-        <div class="container feedback">
+        <div class="container">
             @if(Session::has('success'))
             <div class="alert alert-success text-center">
                 {{Session::get('success')}}
@@ -15,12 +15,12 @@
                 {{Session::get('error')}}
             </div>
             @endif
-            <div class="container ">
+            <div class="container">
                 <div class="form-group">
                     <input type="text" name="search" id="search1" class="form-control search" placeholder="Search Users Data" />
 
                 </div>
-                <div class="row">
+               
                     <div class="container users">
                         <table class="table table-bordered" id="example">
                             <thead>
@@ -41,7 +41,6 @@
                                     <td> {{$user->totalprice}}</td>
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>
@@ -49,6 +48,7 @@
             </div>
         </div>
     </div>
+
     @include('Admin.include.footer')
     <script>
         $('#search1').on('keyup', function() {
@@ -56,17 +56,15 @@
             console.log(search);
             $.ajax({
                 type: "get",
-                url: "{{route('search')}}",
+                url: "{{route('searchu')}}",
                 data: {
                     search: search,
-
                 },
 
                 success: function(response) {
                     if (response.success) {
-
                         console.log(response);
-                        $('.users').html(response.html);
+                      $('.users').html(response.html);
                         generatedatatable();
                     }
 

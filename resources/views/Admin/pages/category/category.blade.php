@@ -18,7 +18,7 @@
                         </div>
                         @endif
                         <a href="{{route('category.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Create Category</a>
-            <div class="row">
+           
          
                 <table class="table table-bordered" id="myTable">
              
@@ -53,5 +53,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @include('Admin.include.footer')

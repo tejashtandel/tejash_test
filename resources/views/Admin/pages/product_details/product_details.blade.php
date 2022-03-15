@@ -17,7 +17,7 @@
             @endif
 
             <a href="{{route('product_detail.create') }}" class="btn btn-success btn-lg float-right" type="submit"> Add Product Details</a>
-            <div class="row">
+          
             
             <table class="table table-bordered" id="myTable">
                     <thead>
@@ -78,5 +78,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @include('Admin.include.footer')

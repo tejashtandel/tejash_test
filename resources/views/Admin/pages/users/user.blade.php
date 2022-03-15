@@ -16,7 +16,7 @@
             </div>
             @endif
          
-            <div class="row">
+       
                 <table class="table table-bordered" id="myTable">
                     <thead>
                         <tr>
@@ -61,5 +61,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @include('Admin.include.footer')

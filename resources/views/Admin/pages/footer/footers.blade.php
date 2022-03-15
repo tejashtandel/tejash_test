@@ -17,7 +17,7 @@
                         </div>
                         @endif
             <a href="{{route('footers.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add footer</a>
-                <div class="row">
+    
                     <table class="table table-bordered" id="myTable">
                              <thead>
                                  <tr>
@@ -53,5 +53,5 @@
                 </div>
             </div>  
         </div>
-</div>
+
 @include('Admin.include.footer')

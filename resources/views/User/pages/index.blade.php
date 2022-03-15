@@ -8,24 +8,24 @@
 
 <!-- Start Slider -->
 @if (session('success'))
-    <div class="alert alert-success mb-1 mt-1">
-        {{ session('success') }}
-    </div>
+<div class="alert alert-success mb-1 mt-1">
+    {{ session('success') }}
+</div>
 @endif
 <div id="slides-shop" class="cover-slides">
     <ul class="slides-container">
         @foreach ($banner as $bann)
-            <li class="text-left">
-                <img src="{{ asset('User/upload/' . $bann->banner_image) }}" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>{{ $bann->description }}</strong></h1>
-                            <p><a class="btn hvr-hover" href="{{ route('top.index') }}">Shop Now</a></p>
-                        </div>
+        <li class="text-left">
+            <img src="{{ asset('User/upload/' . $bann->banner_image) }}" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="m-b-20"><strong>{{ $bann->description }}</strong></h1>
+                        <p><a class="btn hvr-hover" href="{{ route('top.index') }}">Shop Now</a></p>
                     </div>
                 </div>
-            </li>
+            </div>
+        </li>
         @endforeach
 
     </ul>
@@ -64,87 +64,81 @@
 
         <div class="row special-list">
             @foreach ($product1 as $prod)
-                <div class="col-lg-3 col-md-6 special-grid topwear">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
+            <div class="col-lg-3 col-md-6 special-grid topwear">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
 
-                            </div>
-                            <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                style="display: flex">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                            data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-
-                                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" class="wishlist" title="Add to Wishlist" value="$prod->id"><i class="far fa-heart"></i></a></li> --}}
-                                </ul>
-                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                            </div>
                         </div>
-                        <div class="why-text">
+                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image" style="display: flex">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
 
-                            <h5> {{ $prod->product_name }}</h5>
-                            <h5> Rs. {{ $prod->price }}</h5>
+                                {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" class="wishlist" title="Add to Wishlist" value="$prod->id"><i class="far fa-heart"></i></a></li> --}}
+                            </ul>
+                            {{-- <a class="cart" href="#">Add to Cart</a> --}}
                         </div>
                     </div>
-                </div>
-            @endforeach
+                    <div class="why-text">
 
-            @foreach ($product3 as $prod)
-                <div class="col-lg-3 col-md-6 special-grid bottomwear">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-
-                            </div>
-                            <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                style="display: flex">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                            data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-
-                                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                </ul>
-                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                            </div>
-                        </div>
-                        <div class="why-text">
-
-                            <h5> {{ $prod->product_name }}</h5>
-                            <h5> Rs. {{ $prod->price }}</h5>
-                        </div>
+                        <h5> {{ $prod->product_name }}</h5>
+                        <h5> Rs. {{ $prod->price }}</h5>
                     </div>
                 </div>
+            </div>
             @endforeach
 
             @foreach ($product2 as $prod)
-                <div class="col-lg-3 col-md-6 special-grid ethicset">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
+            <div class="col-lg-3 col-md-6 special-grid bottomwear">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
 
-                            </div>
-                            <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                style="display: flex">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                            data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-
-                                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                </ul>
-                                {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                            </div>
                         </div>
-                        <div class="why-text">
+                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image" style="display: flex">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
 
-                            <h5> {{ $prod->product_name }}</h5>
-                            <h5>Rs. {{ $prod->price }}</h5>
+                                {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
+                            </ul>
+                            {{-- <a class="cart" href="#">Add to Cart</a> --}}
                         </div>
                     </div>
+                    <div class="why-text">
+
+                        <h5> {{ $prod->product_name }}</h5>
+                        <h5> Rs. {{ $prod->price }}</h5>
+                    </div>
                 </div>
+            </div>
+            @endforeach
+
+            @foreach ($product3 as $prod)
+            <div class="col-lg-3 col-md-6 special-grid ethicset">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+
+                        </div>
+                        <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image" style="display: flex">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+
+                                <!-- {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
+                            </ul>
+                            {{-- <a class="cart" href="#">Add to Cart</a> --}} -->
+                        </div>
+                    </div>
+                    <div class="why-text">
+
+                        <h5> {{ $prod->product_name }}</h5>
+                        <h5>Rs. {{ $prod->price }}</h5>
+                    </div>
+                </div>
+            </div>
             @endforeach
 
 

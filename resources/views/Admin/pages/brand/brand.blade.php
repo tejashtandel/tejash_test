@@ -15,7 +15,7 @@
             </div>
             @endif
             <a href="{{route('brand.create') }}" class="btn btn-success btn-lg float-right" type="submit">Add Brand</a>
-            <div class="row">
+        
 
                 <table class="table table-bordered" id="myTable">
                     <thead>
@@ -47,5 +47,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @include('Admin.include.footer')
