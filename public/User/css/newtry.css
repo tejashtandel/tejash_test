@@ -8,6 +8,9 @@
     
     
 }
+.list{
+    margin-top: 15px;
+}
 
 .mainheader{
     margin-top: 50px;
@@ -22,11 +25,12 @@
     margin-left: 20px;
     font-size: 17px;
     font-weight: 100;
+    text-transform: uppercase;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .cd-filter-block ul li{
   
-    list-style: disc;
+  
     margin-left: 50px;
 
 }
@@ -36,6 +40,21 @@
      margin-left: -15px;
  
  }
+
+ .nodata{
+
+    text-align: center;
+text-transform: uppercase;
+padding-top: 50px;
+padding-bottom: 240px;
+background-image: url("empty.png");
+ }
+ .nodata h1{
+     font-size: 30px;
+     color: grey;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+ }
+ 
 
 
 

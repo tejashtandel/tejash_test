@@ -37,6 +37,8 @@ use App\Http\Controllers\orderController;
 use App\Http\Controllers\BrowsersController;
 use App\Http\Controllers\BrowserControllerbar;
 use App\Http\Controllers\refreshbarController;
+use App\Http\Controllers\FilterController;
+
 use App\Models\product;
 
 /*
@@ -65,7 +67,7 @@ Route::get('bill', function () {
 Route::get('about', function () {
 
     $footer = DB::table('footers')->get();
-    $about = DB::table('abouts')->get();
+    $about = DB::table('abouts')->limit(1)->get();
 
     return view('User.pages/about', compact('footer', 'about'));
 });
@@ -273,7 +275,12 @@ Route::resource('order', orderController::class);
 
 
 
+
+
 Route::get('carttry', [cartController::class, 'try'])->name('carttry');
+Route::get('filterbottom', [FilterController::class, 'filterbottom'])->name('filterbottom');
+Route::get('filtertop', [FilterController::class, 'filtertop'])->name('filtertop');
+Route::get('filterethic', [FilterController::class, 'filterethic'])->name('filterethic');
 
 
 

@@ -35,59 +35,87 @@ Document</title>
 
                         <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
 
-                            <a class="filter-button btn btn-primary active" data-filter="all"
-                                style="margin-top: 15px;">All</a>
 
-
-                            <hr>
-                            <h4 class="catagory">Catagory</h4>
+                          
+                            <h4 class="catagory">Sub category</h4>
                             <li>
+                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
+                                        value="Kurti"> Kurti</label>
 
-                                <a class="btn filter-button" data-filter="kurta">KURTA</a>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="dress">DRESS</a>
+                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
+                                        value="Kurta">Kurta</label>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="kurtis">KURTIS</a>
+                                <label><input class="form-check-input common subcat" type="checkbox"
+                                        id="inlineCheckbox1" value="Dress">Dress </label>
+
 
                             </li>
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>
-                                <a class="btn filter-button" data-filter="small">Small</a>
+                                <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
+                                        value="small"> small</label>
+
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="medium">Medium</a>
+                                <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
+                                        value="Medium">Medium</label>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="large">Large</a>
+                                <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
+                                        value="Large">Large </label>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="xl">XL</a>
+                                <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
+                                        value="XL">XL </label>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="xxl">XXl</a>
+                                <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
+                                        value="XXL">XXL </label>
+
 
                             </li>
+
                             <hr>
                             <h4 class="catagory">Price</h4>
                             <li>
-                                <a class="btn filter-button" data-filter="below500">Below 500</a>
+                                <input class="form-check-input common price" name="price" id="price1" type="radio"
+                                    min="0" max="500"><label for="price1">Below 500₹ </label>
+
+
+                            </li>
+                            {{-- <li>
+                                <label><input class="form-check-input common" id="price1" type="checkbox" id="inlineCheckbox1"
+                                        value="500">Below 500 </label>
+
+
+                            </li> --}}
+                            <li>
+                                <label><input class="form-check-input common price" name="price" id="price2"
+                                        type="radio" min="501" max="999">in Between 500₹
+                                    - 1000₹ </label>
+
 
                             </li>
                             <li>
-                                <a class="btn filter-button" data-filter="in500">500-1000</a>
+                                <label><input class="form-check-input common price" name="price" id="price3"
+                                        type="radio" min="1000" max="5000">Above 1000₹ </label>
 
-                            </li>
-                            <li>
-                                <a class="btn filter-button" data-filter="above1000">above 1000</a>
 
                             </li>
 
@@ -134,314 +162,8 @@ Document</title>
                     </div>
                 @endforeach
 
-                @foreach ($product2 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product kurta">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
 
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
 
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product3 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product dress">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product4 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product kurtis">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product5 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product above1000">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product6 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product below500">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product7 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product in500">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product8 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product large">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product9 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product medium">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product10 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product xl">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product11 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product xxl">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($product12 as $prod)
-                    <div class="col-lg-4 col-md-6 col-sm-12 product small">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <div class="type-lb">
-
-                                </div>
-                                <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image"
-                                    style="display: flex">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a href="{{ url('/prod', ['id' => $prod->id]) }} " data-toggle="tooltip"
-                                                data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                                        </li>
-
-                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                    </ul>
-                                    {{-- <a class="cart" href="#">Add to Cart</a> --}}
-                                </div>
-                            </div>
-                            <div class="why-text">
-
-                                <h5> {{ $prod->product_name }}</h5>
-                                <h5> Rs. {{ $prod->price }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
             </div>
         </div>
     </div>
@@ -457,37 +179,93 @@ Document</title>
 
 <script>
     $(document).ready(function() {
-        // $("*").ready(function){
-        $(".kurta").hide();
-        $(".kurtis").hide();
-        $(".dress").hide();
-        $(".small").hide();
-        $(".medium").hide();
-        $(".large").hide();
-        $(".xl").hide();
-        $(".xxl").hide();
-        $(".in500").hide();
-        $(".below500").hide();
-        $(".above1000").hide();
+        $('.common').click(function() {
+            filter_data();
+        });
+    });
 
-        $(".filter-button").click(function() {
-            var value = $(this).attr('data-filter');
 
-            if (value == "all") {
-                //$('.filter').removeClass('hidden');
-                $(".product").not('.' + value).hide('3000');
-                $('.product').filter('.' + value).show('3000');
+    function filter_data() {
 
-            } else {
-                //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                $(".product").not('.' + value).hide('3000');
-                $('.product').filter('.' + value).show('3000');
+        var subcat = get_filter('subcat');
+        var size = get_filter('size');
+        var price = get_filterp('price');
 
-            }
+        $.ajax({
+            url: "{{ route('filterethic') }}",
+            type: 'get',
+            data: {
+
+                subcat: subcat,
+                size: size,
+                price: price
+
+            },
+
+
+
+            dataType: 'json',
+            success: function(response) {
+                $('.sameproduct').html('');
+
+                if (response.success) {
+
+                    $.each(response.products, function(key, value) {
+                        $('.sameproduct').append(
+                            '<div class="col-lg-4 col-md-6 col-sm-12 product all"><div class="products-single fix"><div class="box-img-hover"><div class="type-lb"></div>  <img src="User/product/' +
+                            value.image +
+                            '"  class="img-fluid" alt="Image" style="display: flex"><div class="mask-icon"><ul><li><a href="/prod/' +
+                            value.pid +
+                            '" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li></ul></div></div><div class="why-text"><h5>' +
+                            value.product_name +
+                            '</h5><h5> Rs. ' + value.price +
+                            '</h5></div></div></div>'
+                        );
+
+                    });
+                }
+                else {
+                    $('.sameproduct').append(
+                        '<div class="nodata"><h1>No Data Found Of Your Like</h1></div>');
+
+                }
+
+
+
+
+            },
         });
 
-    });
+
+    }
+
+    function get_filter(classname) {
+        var filter = [];
+
+        $('.' + classname + ':checked').each(function() {
+            filter.push($(this).val());
+        });
+
+
+        // console.log(filter);
+
+        return filter;
+    }
+
+    function get_filterp(classname) {
+        var filter = [];
+
+        if ($('#price1').is(':checked')) {
+            filter.push([$('#price1').attr('min'), $('#price1').attr('max')]);
+        } else if ($('#price2').is(':checked')) {
+            filter.push([$('#price2').attr('min'), $('#price2').attr('max')]);
+        } else if ($('#price3').is(':checked')) {
+            filter.push([$('#price3').attr('min'), $('#price3').attr('max')]);
+        }
+        console.log(filter);
+
+        return filter;
+    }
 </script>
 
 @include('User.include.footer')

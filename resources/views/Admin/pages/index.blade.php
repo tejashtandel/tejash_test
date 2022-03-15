@@ -32,7 +32,7 @@
 
                                 <div class="overview-chart">
 
-                                    <span class="counter">{{$try->count()}}
+                                    <span class="counter">{{ $try->count() }}
                                     </span>
                                     <!-- <canvas id="widgetChart1"></canvas> -->
                                 </div>
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="overview-chart">
-                                    <span class="counter">{{$data->count()}}
+                                    <span class="counter">{{ $data->count() }}
                                     </span>
                                     <!-- <canvas id="widgetChart2"></canvas> -->
                                 </div>
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="overview-chart">
-                                    <span class="counter">{{$checkouts->count()}}
+                                    <span class="counter">{{ $checkouts->count() }}
                                     </span>
 
                                     <!-- <canvas id="widgetChart3"></canvas> -->
@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="overview-chart">
-                                    <span class="counter">{{$feedbacks->count()}}
+                                    <span class="counter">{{ $feedbacks->count() }}
                                     </span>
 
                                 </div>
@@ -480,9 +480,3 @@
 
             });
         </script>
-
-
-
-
-
-        
