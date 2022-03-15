@@ -91,7 +91,7 @@
                 </div>
             @endforeach
 
-            @foreach ($product3 as $prod)
+            @foreach ($product2 as $prod)
                 <div class="col-lg-3 col-md-6 special-grid bottomwear">
                     <div class="products-single fix">
                         <div class="box-img-hover">
@@ -119,7 +119,7 @@
                 </div>
             @endforeach
 
-            @foreach ($product2 as $prod)
+            @foreach ($product3 as $prod)
                 <div class="col-lg-3 col-md-6 special-grid ethicset">
                     <div class="products-single fix">
                         <div class="box-img-hover">
