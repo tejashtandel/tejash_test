@@ -18,7 +18,7 @@ class stockController extends Controller
         $stock = DB::table('product_details')
             ->join('products','product_details.productid','products.id')
             ->select('product_details.*', 'product_details.productid','product_details.size','product_details.quantity','products.product_name','products.price')
-            
+           
             ->get();
             
                     return view('Admin.pages.stocks.stock', compact('stock'));

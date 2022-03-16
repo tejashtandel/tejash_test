@@ -67,6 +67,7 @@ class BrowsersController extends Controller
 
             ->Join('products', 'products.sub_cat_id', '=', 'subcategories.id')
             ->groupBy('subcategories.subcategoryname')
+            ->where('products.flag',1)
             ->get()
             ->toArray();
 
