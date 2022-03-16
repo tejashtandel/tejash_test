@@ -29,7 +29,8 @@ class FilterController extends Controller
             ->join('product_details', 'products.id', '=', 'product_details.productid')
 
             ->join('category', 'category.id', '=', 'subcategories.catid')
-            ->where('category.id',2);
+            ->where('category.id',2)
+            ->where('products.flag',1);
 
         // dd($products);
         // exit();

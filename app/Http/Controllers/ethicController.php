@@ -20,78 +20,24 @@ class ethicController extends Controller
         JOIN category ON subcategories.catid=category.id
         WHERE category.id="3"');
 
+        
+     $subcatethic =  Db::table('subcategories')
+     ->join('category','category.id','=','subcategories.catid')
+     ->where('category.id',3)
+     ->where('subcategories.flag',1)->get();
 
-        $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND subcategories.id="8"');
-
-        $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND subcategories.id="9"');
-
-        $product4 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND subcategories.id="7"');
+     
 
 
 
 
 
-
-        $product5 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND products.price>1000');
-
-        $product6 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND products.price<500');
-
-        $product7 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND 500<products.price && products.price<1000');
-
-
-        $product8 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN product_details ON product_details.productid=products.id
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND product_details.size="Large"');
-
-        $product9 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN product_details ON product_details.productid=products.id
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND product_details.size="Medium"');
-
-        $product10 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN product_details ON product_details.productid=products.id
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND product_details.size="XL"');
-
-        $product11 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN product_details ON product_details.productid=products.id
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND product_details.size="XXL"');
-
-        $product12 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
-JOIN product_details ON product_details.productid=products.id
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="3" AND product_details.size="small"');
 
 // dd($product2);
 // exit();
 
         $footer = DB::table('footers')->get();
-        return view('User.pages.ethic', compact('product1', 'product2', 'product3', 'product4', 'product5', 'product6', 'product7', 'product8', 'product9', 'product10', 'product11', 'product12', 'footer'));
+        return view('User.pages.ethic', compact('product1','subcatethic','footer'));
     }
 
     /**

@@ -31,25 +31,17 @@
                         <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
                           
                             <h4 class="catagory">Sub Catagory</h4>
+
+                            @foreach($subcattop as $subt)
                             <li>
                                 <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="Tops"> Tops</label>
+                                        value="{{$subt->subcategoryname}}"> {{$subt->subcategoryname}}</label>
 
 
 
                             </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="Shirt">Shirt</label>
-
-
-                            </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox"
-                                        id="inlineCheckbox1" value="Tshirt">Tshirt </label>
-
-
-                            </li>
+                            @endforeach
+                         
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>

@@ -832,6 +832,7 @@
      font-size: 32px;
      font-weight: 700;
      color: #010101;
+     text-transform: uppercase; 
 }
  .title-all p{
      color: #999999;
@@ -1456,6 +1457,7 @@
      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      padding-bottom: 20px;
      font-style: bold;
+     text-transform: capitalize;
 }
 .banner img{
     width:500px;

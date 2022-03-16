@@ -97,6 +97,7 @@
 
                             </div>
                        
+                     
                         <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image" style="display: flex">
                         <div class="mask-icon">
                             <ul>
@@ -123,6 +124,7 @@
 
                             </div>
                       
+                           
                         <img src="User/product/{{ $prod->image }}" class="img-fluid" alt="Image" style="display: flex">
                         <div class="mask-icon">
                             <ul>

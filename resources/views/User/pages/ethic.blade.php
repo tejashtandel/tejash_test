@@ -38,25 +38,17 @@ Document</title>
 
                           
                             <h4 class="catagory">Sub category</h4>
+
+                            @foreach( $subcatethic as $sube)
                             <li>
                                 <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="Kurti"> Kurti</label>
+                                        value="{{ $sube->subcategoryname}}"> {{ $sube->subcategoryname}}</label>
 
 
 
                             </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="Kurta">Kurta</label>
-
-
-                            </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox"
-                                        id="inlineCheckbox1" value="Dress">Dress </label>
-
-
-                            </li>
+                            @endforeach
+                          
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>

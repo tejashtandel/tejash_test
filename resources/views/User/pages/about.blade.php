@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 @foreach( $about as $ab)
-                <div class="col-lg-6">
+                <div class="col-lg-6 about">
                     <h2 class="noo-sh-title">Welcome to <span>Ethics Beauty</span></h2>
                     <p class="aboutinfo">
                         {{$ab -> description}}

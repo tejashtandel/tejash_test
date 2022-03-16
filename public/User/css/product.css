@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@350&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
+
+
+
 .mySlides {
     margin: 50px 150px 50px 150px;
     width: 460px;
 }
 
-img {
-    width: 100%;
-    display: block;
-}
+/* .product-text-detail{
+
+    border-style: solid;
+    border-color: aliceblue;
+} */
 .imagec {
     margin-top: 20px;
 }
@@ -16,8 +24,8 @@ img {
 
 .img-showcase {
     display: flex;
-    width: 500px;
-    height: 350px;
+    width: 220%;
+    height: 220%;
     transition: all 0.5s ease;
 }
 
@@ -34,7 +42,7 @@ img {
     margin-top: 20px;
 }
 .img-item img {
-    width: 200px;
+    width: 100%;
     height: 80%;
 }
 .img-item:nth-child(1),
@@ -58,32 +66,73 @@ img {
 .details {
     font-family: "Times New Roman", Times, serif;
     font-weight: 350;
-    color: rgb(160, 152, 142);
+    color: rgb(37, 36, 33);
     font-size: 19px;
-
-    text-transform: uppercase;
+    text-transform: capitalize;
+    opacity: 0.8;
+    
 }
 .details .dh1 {
     text-align: left;
+    text-transform: capitalize;
+    
 }
 .details .dh2 {
-    text-align: right;
+    text-align: left;
+    text-transform: capitalize;
 }
 .details textarea {
     resize: none;
     border: none;
     width: 100%;
     font-size: medium;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 350;
+    color: rgb(37, 36, 33);
+    font-size: 19px;
+    text-transform: capitalize;
+    opacity: 0.8;
 }
-.mainheading {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 250;
+.name {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 200;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.mprice{
+    
+    font-family: 'Secular One', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+}
+.size{
+    font-size: 20px;
+}
+.mdetails{
+    padding-top: 5px;
     font-size: 25px;
+    text-align: center;
+    background-color: rgb(217, 255, 215);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.brand{
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(217, 255, 215);
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+.description{
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(217, 255, 215);
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 .cardstyle {
     margin-top: 15px;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 5px;  
 }
 
 #prod {
