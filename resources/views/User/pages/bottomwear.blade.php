@@ -33,25 +33,17 @@
                         <ul class="cd-filter-content cd-filters list">
                         
                             <h4 class="catagory"> Sub Catagory</h4>
+
+                            @foreach($subcatbottom as $subb)
                             <li>
                                 <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="jeans"> jeans</label>
+                                        value="{{$subb->subcategoryname}}"> {{$subb->subcategoryname}}</label>
 
 
 
                             </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="Plazo">plazo</label>
-
-
-                            </li>
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox"
-                                        id="inlineCheckbox1" value="Leggis">lengis </label>
-
-
-                            </li>
+                            @endforeach
+                          
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>
@@ -178,7 +170,7 @@
         var subcat = get_filter('subcat');
         var size = get_filter('size');
         var price = get_filterp('price');
-        console.log(subcat);
+       
         $.ajax({
             url: "{{ route('filterbottom') }}",
             type: 'get',
@@ -226,7 +218,7 @@
 
     function get_filter(classname) {
         var filter = [];
-        console.log(classname);
+   
         $('.' + classname + ':checked').each(function() {
             filter.push($(this).val());
         });
@@ -239,10 +231,7 @@
 
     function get_filterp(classname) {
         var filter = [];
-        console.log(classname);
-
-
-        console.log(classname);
+      
         if ($('#price1').is(':checked')) {
             filter.push([$('#price1').attr('min'), $('#price1').attr('max')]);
         } else if ($('#price2').is(':checked')) {
@@ -250,16 +239,6 @@
         } else if ($('#price3').is(':checked')) {
             filter.push([$('#price3').attr('min'), $('#price3').attr('max')]);
         }
-
-
-
-
-
-
-
-
-        console.log(filter);
-
         return filter;
     }
 </script>

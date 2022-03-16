@@ -17,6 +17,7 @@
 <div class="container-fluid imagec">
     <div class="row">
         @foreach ($details as $det)
+        
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="product-imgs">
                     <div class="img-display">
@@ -44,21 +45,22 @@
                     </div>
                 </div>
             </div>
+        
 
 
 
             <div class="col-lg-6 col-md-6 col-sm-12 product-text-detail">
-                <h3 class="mainheading">
+                <h3 class="name">
                     {{ $det->product_name }}
                 </h3>
 
-                <h3 class="mainheading">
+                <h3 class="mprice">
                     Price:
-                    <b class="price">{{ $det->price }} ₹</b>
+                    {{ $det->price }} ₹
                 </h3>
 
                 <div>
-                    <h3 class="mainheading">
+                    <h3 class="size">
                         Size:<span>
 
                             <span class="deatails">{{ $det->size }}</span>
@@ -106,7 +108,7 @@
                 @endif
                 <hr>
 
-                <h3 class="mainheading">Product Details</h3>
+                <h3 class="mdetails">Product Details</h3>
                 <ul class="details">
                     <table>
                         <tr>
@@ -155,7 +157,7 @@
 
                 </ul>
                 <hr />
-                <h3 class="mainheading">Brand</h3>
+                <h3 class="brand">Brand</h3>
                 <ul class="details">
                     <table>
                         <tr>
@@ -165,7 +167,7 @@
                     </table>
                 </ul>
                 <hr />
-                <h3 class="mainheading">Product Description</h3>
+                <h3 class="description">Product Description</h3>
                 <ul class="details">
                     <table>
                         <tr>
