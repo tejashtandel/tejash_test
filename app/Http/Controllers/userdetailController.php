@@ -19,12 +19,8 @@ class userdetailController extends Controller
         if (Auth::check()) {
 
             if (Auth::user()->role == '1') {
-
-
-
-        
-        $userss= DB::table('users')->where('role',0)->get();
-        return view('Admin.pages.users.user',compact('userss'));
+                $userss = DB::table('users')->where('role', 0)->get();
+                return view('Admin.pages.users.user', compact('userss'));
 
                 $userss = DB::table('users')->get();
                 return view('Admin.pages.users.user', compact('userss'));
@@ -99,7 +95,7 @@ class userdetailController extends Controller
 
         return redirect()->route('userdetails.edit', ['userdetail' => Auth::user()->id])->with('success', 'Updated Successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -112,15 +108,15 @@ class userdetailController extends Controller
     }
     public function edit1($id)
     {
-      
-        $user= User::find($id);
-        return view('Admin.pages.users.edit_user',compact('user'));
+
+        $user = User::find($id);
+        return view('Admin.pages.users.edit_user', compact('user'));
     }
     public function update1(Request $request, $id)
     {
         $request->validate([
             'mobile_no' => 'required',
-            'street'=>'required',
+            'street' => 'required',
         ]);
 
         $user = User::find($id);

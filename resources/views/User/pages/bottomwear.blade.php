@@ -31,78 +31,53 @@
 
 
                         <ul class="cd-filter-content cd-filters list">
-                        
+
                             <h4 class="catagory"> Sub Catagory</h4>
 
-                            @foreach($subcatbottom as $subb)
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="{{$subb->subcategoryname}}"> {{$subb->subcategoryname}}</label>
-
-
-
-                            </li>
+                            @foreach ($subcatbottom as $subb)
+                                <li>
+                                    <label><input class="form-check-input common subcat" type="checkbox"
+                                            id="inlineCheckbox1" value="{{ $subb->subcategoryname }}">
+                                        {{ $subb->subcategoryname }}</label>
+                                </li>
                             @endforeach
-                          
+
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
                                         value="small"> small</label>
-
-
-
                             </li>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
                                         value="Medium">Medium</label>
-
-
                             </li>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
                                         value="Large">Large </label>
-
-
                             </li>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
                                         value="XL">XL </label>
-
-
                             </li>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
                                         value="XXL">XXL </label>
-
-
                             </li>
                             <hr>
                             <h4 class="catagory">Price</h4>
                             <li>
                                 <input class="form-check-input common price" name="price" id="price1" type="radio"
                                     min="0" max="500"><label for="price1">Below 500₹ </label>
-
-
                             </li>
-                            {{-- <li>
-                                <label><input class="form-check-input common" id="price1" type="checkbox" id="inlineCheckbox1"
-                                        value="500">Below 500 </label>
-
-
-                            </li> --}}
                             <li>
                                 <label><input class="form-check-input common price" name="price" id="price2"
                                         type="radio" min="501" max="999">in Between 500₹
                                     - 1000₹ </label>
-
-
                             </li>
                             <li>
                                 <label><input class="form-check-input common price" name="price" id="price3"
                                         type="radio" min="1000" max="5000">Above 1000₹ </label>
-
-
                             </li>
 
                         </ul>
@@ -144,9 +119,6 @@
                         </div>
                     </div>
                 @endforeach
-
-
-
             </div>
         </div>
     </div>
@@ -170,7 +142,7 @@
         var subcat = get_filter('subcat');
         var size = get_filter('size');
         var price = get_filterp('price');
-       
+
         $.ajax({
             url: "{{ route('filterbottom') }}",
             type: 'get',
@@ -201,15 +173,11 @@
                         );
 
                     });
-                }  else {
+                } else {
                     $('.sameproduct').append(
                         '<div class="nodata"><h1>No Data Found Of Your Like</h1></div>');
 
                 }
-
-
-
-
             },
         });
 
@@ -218,12 +186,10 @@
 
     function get_filter(classname) {
         var filter = [];
-   
+
         $('.' + classname + ':checked').each(function() {
             filter.push($(this).val());
         });
-
-
         // console.log(filter);
 
         return filter;
@@ -231,7 +197,7 @@
 
     function get_filterp(classname) {
         var filter = [];
-      
+
         if ($('#price1').is(':checked')) {
             filter.push([$('#price1').attr('min'), $('#price1').attr('max')]);
         } else if ($('#price2').is(':checked')) {
@@ -242,47 +208,6 @@
         return filter;
     }
 </script>
-
-
-
-{{-- <script>
-    $(document).ready(function() {
-        // $("*").ready(function){
-        $(".plazo").hide();
-        $(".jeans").hide();
-        $(".lengis").hide();
-        $(".small").hide();
-        $(".medium").hide();
-        $(".large").hide();
-        $(".xl").hide();
-        $(".xxl").hide();
-        $(".in500").hide();
-        $(".below500").hide();
-        $(".above1000").hide();
-
-
-        $(".filter-button").click(function() {
-            var value = $(this).attr('data-filter');
-
-
-
-            if (value == "all") {
-                //$('.filter').removeClass('hidden');
-                $(".product").not('.' + value).hide('3000');
-                $('.product').filter('.' + value).show('3000');
-
-            } else {
-                //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                $(".product").not('.' + value).hide('3000');
-                $('.product').filter('.' + value).show('3000');
-
-            }
-        });
-
-    });
-</script> --}}
-
 </div>
 </div>
 </div>

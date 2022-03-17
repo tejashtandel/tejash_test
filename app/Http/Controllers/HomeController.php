@@ -22,17 +22,17 @@ class HomeController extends Controller
         $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="1"');
+    WHERE category.id="1" AND products.flag="1"');
 
         $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="2"');
+WHERE category.id="2" AND products.flag="1"');
 
         $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
-WHERE category.id="3"');
+WHERE category.id="3" AND products.flag="1"');
 
         //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
 

@@ -16,8 +16,6 @@ class UserreportController extends Controller
      */
     public function index()
     {
-
-
         if (Auth::check()) {
 
             if (Auth::user()->role == '1') {

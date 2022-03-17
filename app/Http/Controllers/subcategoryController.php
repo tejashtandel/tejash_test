@@ -15,23 +15,22 @@ class subcategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        if(Auth::check()){
+    {
+        if (Auth::check()) {
 
-        if(Auth::user()-> role == '1' ){ 
+            if (Auth::user()->role == '1') {
 
-        $subc = DB::table('subcategories')
-        ->join('category', 'subcategories.catid', '=', 'category.id')
-        ->select('subcategories.*', 'category.category_name')
-        ->where('subcategories.flag',1)
-        ->where('category.flag',1)
-        ->get();
-        return view('Admin.pages.subcategory.subcategory',compact('subc'));
+                $subc = DB::table('subcategories')
+                    ->join('category', 'subcategories.catid', '=', 'category.id')
+                    ->select('subcategories.*', 'category.category_name')
+                    ->where('subcategories.flag', 1)
+                    ->where('category.flag', 1)
+                    ->get();
+                return view('Admin.pages.subcategory.subcategory', compact('subc'));
+            } else {
+                return "You are Not  A Admin";
+            }
         }
-        else{
-            return "You are Not  A Admin";
-        }
-     }
     }
 
     /**
@@ -41,19 +40,17 @@ class subcategoryController extends Controller
      */
     public function create()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-    
-    
-        $subc =DB::table('category')->select('id','category_name')->where('category.flag',1)->get();
-        return view('Admin.pages.subcategory.create_subcategory',compact('subc'));
-    }
+            if (Auth::user()->role == '1') {
 
-    else{
-        return "You are Not  A Admin";
-    }
- }
+
+                $subc = DB::table('category')->select('id', 'category_name')->where('category.flag', 1)->get();
+                return view('Admin.pages.subcategory.create_subcategory', compact('subc'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -66,15 +63,15 @@ class subcategoryController extends Controller
     {
         $request->validate([
             'catid' => 'required',
-           'subcategoryname' => 'required|regex:/^[\pL\s\-]+$/u'
-           ]);
-           $subc =new subcategory;
-          $subc->catid= $request->catid;
-           $subc->subcategoryname= $request->subcategoryname;
-           $subc->save();
+            'subcategoryname' => 'required|regex:/^[\pL\s\-]+$/u'
+        ]);
+        $subc = new subcategory;
+        $subc->catid = $request->catid;
+        $subc->subcategoryname = $request->subcategoryname;
+        $subc->save();
         // return redirect()->action([subcategoryController::class,'index']);
-       // return back()->with('success','SubCategory Created Successfully');
-       return redirect()->route('subcategory.index')->with('success','SubCategory Added successfully.');
+        // return back()->with('success','SubCategory Created Successfully');
+        return redirect()->route('subcategory.index')->with('success', 'SubCategory Added successfully.');
     }
 
     /**
@@ -85,7 +82,6 @@ class subcategoryController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -96,19 +92,17 @@ class subcategoryController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
 
-            if(Auth::user()-> role == '1' ){ 
-    
-    
-        $subcategory=subcategory::find($id);
-        return view('Admin.pages.subcategory.edit_subcategory',compact('subcategory'));
-    }
+            if (Auth::user()->role == '1') {
 
-    else{
-        return "You are Not  A Admin";
-    }
- }
+
+                $subcategory = subcategory::find($id);
+                return view('Admin.pages.subcategory.edit_subcategory', compact('subcategory'));
+            } else {
+                return "You are Not  A Admin";
+            }
+        }
     }
 
     /**
@@ -120,17 +114,17 @@ class subcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $request->validate([
-            'subcategoryname'=>'required|regex:/^[\pL\s\-]+$/u',
-            ]);
-            
-            $subcategory=subcategory::find($id);
-            $subcategory->subcategoryname=$request->subcategoryname;
-            $subcategory->save();
-          //  return redirect()->action([subcategoryController::class,'index']);
-           // return back()->with('success','subCategory Updated Successfully');
-           return redirect()->route('subcategory.index')->with('success','SubCategory Updated successfully.');
+            'subcategoryname' => 'required|regex:/^[\pL\s\-]+$/u',
+        ]);
+
+        $subcategory = subcategory::find($id);
+        $subcategory->subcategoryname = $request->subcategoryname;
+        $subcategory->save();
+        //  return redirect()->action([subcategoryController::class,'index']);
+        // return back()->with('success','subCategory Updated Successfully');
+        return redirect()->route('subcategory.index')->with('success', 'SubCategory Updated successfully.');
     }
 
     /**
@@ -141,10 +135,10 @@ class subcategoryController extends Controller
      */
     public function destroy($id)
     {
-        $subcategory=subcategory::find($id);
-        $subcategory->flag=0;
-         $subcategory->save();
-       
-        return redirect()->route('subcategory.index')->with('error','SubCategory Deleted successfully.');
+        $subcategory = subcategory::find($id);
+        $subcategory->flag = 0;
+        $subcategory->save();
+
+        return redirect()->route('subcategory.index')->with('error', 'SubCategory Deleted successfully.');
     }
 }

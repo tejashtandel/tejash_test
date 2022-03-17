@@ -16,8 +16,6 @@
 
         <div class="row">
 
-
-
             <div class="col-lg-6 col-md-6 userdetails" id="user">
                 @foreach ($user as $us)
                     <ul>
@@ -85,10 +83,6 @@
                             <td>{{ $it->pc }} ₹</td>
                             <td>{{ $it->qp }}</td>
 
-
-
-
-
                         </tbody>
                     @endforeach
 
@@ -142,7 +136,7 @@
                 console.log(window);
                 var opt = {
                     margin: 1,
-                    filename: 'invoice.pdf',
+                    filename: 'Bill.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
