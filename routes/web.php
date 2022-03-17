@@ -21,7 +21,6 @@ use App\Http\Controllers\userdetailController;
 use App\Http\Controllers\userinfoController;
 use App\Http\Controllers\stockController;
 use App\Http\Controllers\cartController;
-use App\Http\Controllers\GooglePieController;
 use App\Http\Controllers\bottomController;
 use App\Http\Controllers\ethicController;
 use App\Http\Controllers\productReportController;
@@ -54,20 +53,18 @@ use App\Models\product;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home.index');
 });
 Route::get('bill', function () {
     return view('User.pages/billingpage');
 });
 
-// Route::get('index', function () {    
-//      return view('pages/index');
-//  });
+
 
 Route::get('about', function () {
 
     $footer = DB::table('footers')->get();
-    $about = DB::table('abouts')->limit(1)->get();
+    $about = DB::table('abouts')->where('flag',1)->limit(1)->get();
 
     return view('User.pages/about', compact('footer', 'about'));
 });
@@ -80,71 +77,11 @@ Route::get('checkout', function () {
     return view('User.pages/checkout');
 });
 
-
-
-// Route::get('shop', function () {
-//     return view('User.pages/shop');
-// });
-// Route::get('services', function () {
-//     return view('User.pages/service');
-// });
 Route::get('termsandcondition', function () {
 
     $footer = DB::table('footers')->get();
     return view('User.pages/terms&condition',compact('footer'));
 });
-Route::get('admin', function () {
-    return view('User.pages/wishlist');
-});
-Route::get('productdetails', function () {
-
-    $footer = DB::table('footers')->get();
-    return view('User.pages/productdetails', compact('footer'));
-});
-
-Route::get('topwear', function () {
-    $product = DB::table('products')->get();
-
-    return view('User.pages.topwear', compact('product'));
-});
-Route::get('adminhome', function () {
-
-
-    return view('Admin.pages.index');
-});
-
-
-
-//index page...by direct
-
-Route::get('userindex', function () {
-    // $header = DB::table('headers')->get();,'header''footer',
-
-    $footer = DB::table('footers')->get();
-
-    $banner = DB::table('banners')->get();
-    $catagory = DB::table('category')->get();
-
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="4"');
-
-    $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="17"');
-
-    $product3 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-JOIN subcategories ON products.sub_cat_id=subcategories.id
-JOIN category ON subcategories.catid=category.id
-WHERE category.id="12"');
-
-    //$slideimage = DB::table('banners')->get('banner_image', 'description');, compact('slideimage')
-
-    return view('User.pages.index', compact('banner', 'catagory', 'product1', 'product2', 'product3', 'footer'));
-});
-
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
@@ -160,23 +97,7 @@ Route::get('head', function () {
     return view('User.include.header', compact('header'));
 });
 
-
-
-// Route::get('register',[loginController::class,'create']);
-// Route::post('register/store',[loginController::class,'store'])->name('register.store');
-// //Route::get('checking',[loginController::class,'checkdetails'])->name('checking.check');
-// Route::get('chekl',[loginController::class,'authenticate'])->name('authenticate.chek1');
-
-
 Auth::routes();
-
-//Route::get('index', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// //Route::get('users', function () {    
-//     return view('welcome');
-// }); 
-
-//Route::get('index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
 Route::get('redirect', [App\Http\Controllers\HomeController::class, 'redirects'])->name('redirect');
 
 
@@ -189,13 +110,6 @@ Route::get('prod/{id}', function ($id) {
         ->where('products.id', $id)
         ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
 
-        
-
-    // $product1 = DB:table('products')
-    //     ->join('category','products.catid','=','category.id')
-    //     ->where('')
-
-
     $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
 JOIN subcategories ON products.sub_cat_id=subcategories.id
 JOIN category ON subcategories.catid=category.id
@@ -205,55 +119,6 @@ WHERE category.id="4"');
     $footer = DB::table('footers')->get();
     return view('User.pages.product', compact('details', 'product1', 'footer'));
 });
-Route::get('prod1/{id}', function ($id) {
-
-
-    $details = DB::table('products')
-        ->join('product_details', 'products.id', '=', 'product_details.productid')
-        ->join('brands', 'product_details.brandid', '=', 'brands.id')
-        ->where('products.id', $id)
-        ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
-
-    // $product1 = DB:table('products')
-    //     ->join('category','products.catid','=','category.id')
-    //     ->where('')
-
-
-    $footer = DB::table('footers')->get();
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-    JOIN subcategories ON products.sub_cat_id=subcategories.id
-    JOIN category ON subcategories.catid=category.id
-    WHERE category.id="12"');
-
-
-    return view('User.pages.product', compact('details', 'product1', 'footer'));
-});
-
-Route::get('prod3/{id}', function ($id) {
-
-
-    $details = DB::table('products')
-        ->join('product_details', 'products.id', '=', 'product_details.productid')
-        ->join('brands', 'product_details.brandid', '=', 'brands.id')
-        ->where('products.id', $id)
-        ->get(['products.id as pID', 'products.*', 'product_details.*', 'brands.*']);
-
-    // $product1 = DB:table('products')
-    //     ->join('category','products.catid','=','category.id')
-    //     ->where('')
-
-    $footer = DB::table('footers')->get();
-
-    $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
-        JOIN subcategories ON products.sub_cat_id=subcategories.id
-        JOIN category ON subcategories.catid=category.id
-        WHERE category.id="17"');
-
-
-    return view('User.pages.product', compact('details', 'product1', 'footer'));
-});
-
-
 
 Route::resource('userdetails', userinfoController::class);
 
@@ -271,11 +136,6 @@ Route::resource('top', topController::class);
 Route::resource('contact', contcatController::class);
 Route::resource('bill', buynowController::class);
 Route::resource('order', orderController::class);
-
-
-
-
-
 
 Route::get('carttry', [cartController::class, 'try'])->name('carttry');
 Route::get('filterbottom', [FilterController::class, 'filterbottom'])->name('filterbottom');
@@ -303,9 +163,7 @@ Route::get('try', function () {
 ///------------------------------------------------------------------------------------------------------/////
 ////For Admin Routes
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('index', function () {
 
     if (Auth::check()) {

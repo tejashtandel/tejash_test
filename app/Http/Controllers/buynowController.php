@@ -59,17 +59,13 @@ class buynowController extends Controller
             ->join('carts', 'carts.user_id', '=', 'users.id')
 
             ->select(
-
                 'checkouts.totalprice as grandtotal',
-
             )
             ->where('checkouts.userid', '=', $id)
             ->where('checkouts.flag', '=', 1)
             ->where('carts.flagorder', '=', 1)
             ->limit(1)->get();
-        //  dd($bill);
-        //  exit();
-
+        
         return view('User.pages.billingpage', compact('footer', 'user', 'items', 'bill'));
     }
 
@@ -96,22 +92,17 @@ class buynowController extends Controller
 
         ]);
 
-
-
         $input = $request->all();
-
 
         $update = DB::table('carts')->where('user_id', '=', $input['user_id'])->update(['flagorder' => 0]);
         $update = DB::table('checkouts')->where('userid', '=', $input['user_id'])->update(['flag' => 0]);
 
         $id = $input['user_id'];
 
-       
+        $orderMail = DB::table('users')->select('email')->where('id', $id)->get()->toArray();
 
-        $orderMail = DB::table('users')->select('email')->where('id',$id)->get()->toArray();
-         
 
-        $emails = [ 'data' => 'Your Order Placed Succesfully' , 'details' => 'You Will Recieve Your Order Within 7 days', 'closure'=> 'Thank you for Shopping.' ];
+        $emails = ['data' => 'Your Order Placed Succesfully', 'details' => 'You Will Recieve Your Order Within 7 days', 'closure' => 'Thank you for Shopping.'];
         $users = $orderMail[0]->email;
 
         Mail::send('orderMail', $emails, function ($messeges) use ($users) {
@@ -119,8 +110,7 @@ class buynowController extends Controller
             $messeges->subject('Order Placed');
         });
 
-
-        return redirect()->route('home.index')->with('success','Your Order placed Succesfully');
+        return redirect()->route('home.index')->with('success', 'Your Order Placed Succesfully');
     }
 
     /**

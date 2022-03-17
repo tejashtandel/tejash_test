@@ -18,7 +18,7 @@ class bottomController extends Controller
         $product2 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname FROM products 
     JOIN subcategories ON products.sub_cat_id=subcategories.id
     JOIN category ON subcategories.catid=category.id
-    WHERE category.id="2"');
+    WHERE category.id="2" AND products.flag="1"');
 
      $subcatbottom =  Db::table('subcategories')
      ->join('category','category.id','=','subcategories.catid')

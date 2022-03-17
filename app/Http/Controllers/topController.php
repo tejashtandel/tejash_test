@@ -17,21 +17,17 @@ class topController extends Controller
         $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
-        WHERE category.id="1"');
-          $subcattop =  Db::table('subcategories')
-          ->join('category','category.id','=','subcategories.catid')
-          ->where('category.id',1)
-          ->where('subcategories.flag',1)->get();
-   
-        
-        
-        
-        
-          
+        WHERE category.id="1" AND products.flag="1"');
+        $subcattop =  Db::table('subcategories')
+            ->join('category', 'category.id', '=', 'subcategories.catid')
+            ->where('category.id', 1)
+            ->where('subcategories.flag', 1)->get();
 
-                $footer = DB::table('footers')->get();
-                return view('User.pages.topwear', compact('product1','subcattop', 'footer'));
-            }
+
+
+        $footer = DB::table('footers')->get();
+        return view('User.pages.topwear', compact('product1', 'subcattop', 'footer'));
+    }
 
     /**
      * Show the form for creating a new resource.

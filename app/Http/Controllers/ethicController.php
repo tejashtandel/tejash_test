@@ -18,7 +18,7 @@ class ethicController extends Controller
         $product1 = DB::select('SELECT products.image,products.product_name,products.price,products.id,subcategories.subcategoryname  FROM products 
         JOIN subcategories ON products.sub_cat_id=subcategories.id
         JOIN category ON subcategories.catid=category.id
-        WHERE category.id="3"');
+        WHERE category.id="3" AND products.flag="1"');
 
         
      $subcatethic =  Db::table('subcategories')
@@ -27,15 +27,6 @@ class ethicController extends Controller
      ->where('subcategories.flag',1)->get();
 
      
-
-
-
-
-
-
-// dd($product2);
-// exit();
-
         $footer = DB::table('footers')->get();
         return view('User.pages.ethic', compact('product1','subcatethic','footer'));
     }
