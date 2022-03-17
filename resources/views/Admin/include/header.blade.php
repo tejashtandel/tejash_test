@@ -175,7 +175,7 @@
                         </li> -->
 
                         <li>
-                            <a href="users">
+                            <a href="{{route('users.index') }}">
                                 <i class="fa fa-user" aria-hidden="true"></i>Users</a>
                         </li>
 
@@ -188,11 +188,11 @@
                             </a>
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="stocks"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Stocks</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="category"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Category</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="subcategory"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>SubCategory</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="products"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="product_detail"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Product Details</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{route('stocks.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Stocks</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{route('category.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Category</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{route('subcategory.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>SubCategory</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{route('products.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{route('product_detail.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Product Details</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -257,19 +257,19 @@
                                 <i class="fas fa-desktop"></i>UI Design</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="brand"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Brands</a>
+                                    <a href="{{route('brand.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Brands</a>
                                 </li>
                                 <li>
-                                    <a href="banners"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Banners</a>
+                                    <a href="{{route('banners.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Banners</a>
                                 </li>
                                 <li>
-                                    <a href="footers"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Footer</a>
+                                    <a href="{{route('footers.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Footer</a>
                                 </li>
                                 <li>
-                                    <a href="header"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Header</a>
+                                    <a href="{{route('header.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Header</a>
                                 </li>
                                 <li>
-                                    <a href="abouts"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>About Us</a>
+                                    <a href="{{route('abouts.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>About Us</a>
                                 </li>
                             </ul>
                         </li>
@@ -289,17 +289,17 @@
                                 <i class="fa fa-file"></i>Reports</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="userreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users Reports</a>
+                                    <a href="{{route('userreport.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Users Reports</a>
                                 </li>
                                 <li>
-                                <a href="feedback"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Feedback Reports</a>
+                                <a href="{{route('feedback.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Feedback Reports</a>
                                 </li>
 
                                 <li>
-                                    <a href="proreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products Reports</a>
+                                    <a href="{{route('proreport.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Products Reports</a>
                                 </li>
                                 <li>
-                                    <a href="orderreport"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Orders Reports</a>
+                                    <a href="{{route('orderreport.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Orders Reports</a>
                                 </li>
                             </ul>
                         </li>
