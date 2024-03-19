@@ -46,7 +46,7 @@
                             <h4 class="catagory">Size</h4>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
-                                        value="small"> small</label>
+                                        value="small">small</label>
                             </li>
                             <li>
                                 <label><input class="form-check-input common size" type="checkbox" id="inlineCheckbox1"
@@ -124,18 +124,17 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
     function clrfields() {
         document.getElementById("checkbox1").value = "";
     }
-</script>
+</script> --}}
 <script>
     $(document).ready(function() {
         $('.common').click(function() {
             filter_data();
         });
     });
-
 
     function filter_data() {
 
@@ -147,15 +146,10 @@
             url: "{{ route('filterbottom') }}",
             type: 'get',
             data: {
-
                 subcat: subcat,
                 size: size,
                 price: price
-
             },
-
-
-
             dataType: 'json',
             success: function(response) {
                 $('.sameproduct').html('');
@@ -171,12 +165,10 @@
                             '</h5><h5> Rs. ' + value.price +
                             '</h5></div></div></div>'
                         );
-
                     });
                 } else {
                     $('.sameproduct').append(
                         '<div class="nodata"><h1>No Data Found Of Your Like</h1></div>');
-
                 }
             },
         });

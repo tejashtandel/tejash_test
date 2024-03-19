@@ -16,8 +16,6 @@
             </div>
             @endif
 
-      
-
                 <table class="table table-bordered" id="myTable">
                     <thead>
                         <tr>

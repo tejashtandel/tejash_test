@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\facades\DB;
@@ -10,10 +8,8 @@ use carbon\Carbon;
 
 class HomeController extends Controller
 {
-
     public function index()
     {
-
         $footer = DB::table('footers')->get();
 
         $banner = DB::table('banners')->get();
@@ -68,18 +64,12 @@ WHERE category.id="3" AND products.flag="1"');
                 $months[] = $month;
                 $monthcount[] = count($values);
             }
-
-
             $try =  Db::table('users')->get();
-
             $data = DB::table('products')->get();
             $feedbacks = DB::table('contacts')->get();
             $checkouts = Db::table('checkouts')->get();
             return view('Admin.pages.index', compact('data', 'months', 'monthcount', 'try', 'data', 'feedbacks', 'checkouts'));
         }
-
-
-
         return redirect()->route('home.index');
     }
 }

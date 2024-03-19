@@ -18,10 +18,18 @@ class contcatController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
+        if (Auth::check()) {
+
+            if (Auth::user()->role == '0') {
         $footer = DB::table('footers')->get();
         return view('User.pages/contactus', compact('footer'));
+    } else {
+        return "login again";
+    }
+}
     }
 
     /**

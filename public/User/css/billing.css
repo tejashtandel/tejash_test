@@ -35,6 +35,9 @@
     width: 90px;
     align-items: center;
 }
+.maildata{
+    text-transform: capitalize;
+}
 
 
 

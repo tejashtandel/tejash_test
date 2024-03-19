@@ -35,20 +35,12 @@ class FilterController extends Controller
         // dd($products);
         // exit();
 
-
-
-
-        // if (isset($cat[0])) {
-        //     $cat_filter = implode(',', $cat);
-        //     $products = $products->where('products.category_id', $cat);
-        // }
-
-        if (isset($subcat[0])) {
+        if (isset($subcat)) {
             $subcat_filter = implode(',', $subcat);
             $products = $products->whereIn('subcategories.subcategoryname', $subcat)->where('category.id', 2);
         }
 
-        if (isset($size[0])) {
+        if (isset($size)) {
             $size_filter = implode(',', $size);
             $products = $products->whereIn('product_details.size', $size)->where('category.id', 2);
         }

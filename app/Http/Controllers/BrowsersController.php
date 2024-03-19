@@ -37,7 +37,7 @@ class BrowsersController extends Controller
             ->select(DB::raw("MONTHNAME(created_at) as create_month"), DB::raw("COUNT(quantity) as count"))
             ->groupBy('create_month')
             ->where('carts.flagorder', 0)
-     
+
             ->get()
             ->toArray();
 
@@ -64,10 +64,9 @@ class BrowsersController extends Controller
 
         $browsers = DB::table('subcategories')
             ->select("subcategoryname", DB::raw("COUNT(products.id) as product_count"))
-
             ->Join('products', 'products.sub_cat_id', '=', 'subcategories.id')
             ->groupBy('subcategories.subcategoryname')
-            ->where('products.flag',1)
+            ->where('products.flag', 1)
             ->get()
             ->toArray();
 
@@ -102,7 +101,7 @@ class BrowsersController extends Controller
             ->groupBy('category.category_name')
             ->get()
             ->toArray();
-           
+
 
 
         $count1 = DB::table('carts')
@@ -112,14 +111,14 @@ class BrowsersController extends Controller
             ->select("category.category_name as ct2", DB::raw("SUM(carts.quantity) as qnt_count2"))
             ->where('carts.flag', 1)
             ->where('carts.flagorder', 0)
-      
+
             ->groupBy('ct2')
             ->get()
             ->toArray();
 
-            // dd($count1);
-            // exit();
-            
+        // dd($count1);
+        // exit();
+
 
         $dataPoints = [];
         foreach ($count as $ct) {
@@ -130,9 +129,7 @@ class BrowsersController extends Controller
             ];
         }
 
-
-
-         $dataPoints1=[];
+        $dataPoints1 = [];
         foreach ($count1 as $ct) {
             $dataPoints1[] = [
                 "category_name" => $ct->ct2,

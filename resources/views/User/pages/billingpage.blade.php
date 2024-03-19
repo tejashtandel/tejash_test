@@ -27,7 +27,8 @@
                         <li>
                             <h4>Address Of User: <span>{{ $us->house }}</span> , <span>{{ $us->street }}</span> ,
                                 <span>{{ $us->landmark }}</span> , <span>{{ $us->city }}</span> ,
-                                <span>{{ $us->state }}</span></h4>
+                                <span>{{ $us->state }}</span>
+                            </h4>
                         </li>
                         <li>
                             <h4>User Email: <span>{{ $us->email }}</span></h4>
@@ -86,7 +87,7 @@
                         </tbody>
                     @endforeach
 
-                   
+
 
                     @foreach ($bill as $it)
                         <tr>
@@ -132,8 +133,6 @@
         document.getElementById("print")
             .addEventListener("click", () => {
                 const invoice = this.document.getElementById("invoice");
-                console.log(invoice);
-                console.log(window);
                 var opt = {
                     margin: 1,
                     filename: 'Bill.pdf',

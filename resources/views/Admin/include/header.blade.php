@@ -256,18 +256,18 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Design</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
+                                {{-- <li>
                                     <a href="{{route('brand.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Brands</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{route('banners.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Banners</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="{{route('footers.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Footer</a>
                                 </li>
                                 <li>
                                     <a href="{{route('header.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>Header</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{route('abouts.index') }}"><i class="fa fa-circle" aria-hidden="true" style="font-size:7px"></i>About Us</a>
                                 </li>
@@ -517,8 +517,15 @@
                                                 </div>
 
                                                 <div class="account-dropdown__footer">
-                                                    <a href="userindex">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                        Logout
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                   
                                                 </div>
                                             </div>
                                         </div>

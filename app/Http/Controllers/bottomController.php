@@ -20,15 +20,15 @@ class bottomController extends Controller
     JOIN category ON subcategories.catid=category.id
     WHERE category.id="2" AND products.flag="1"');
 
-     $subcatbottom =  Db::table('subcategories')
-     ->join('category','category.id','=','subcategories.catid')
-     ->where('category.id',2)
-     ->where('subcategories.flag',1)->get();
+        $subcatbottom =  Db::table('subcategories')
+            ->join('category', 'category.id', '=', 'subcategories.catid')
+            ->where('category.id', 2)
+            ->where('subcategories.flag', 1)->get();
 
 
 
         $footer = DB::table('footers')->get();
-        return view('User.pages.bottomwear', compact('product2','subcatbottom', 'footer'));
+        return view('User.pages.bottomwear', compact('product2', 'subcatbottom', 'footer'));
     }
 
     /**

@@ -8,6 +8,8 @@ use App\Models\carts;
 use Illuminate\Http\Request;
 use App\Models\checkout;
 use App\Models\User;
+use App\Models\Order;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -94,6 +96,7 @@ class buynowController extends Controller
 
         $input = $request->all();
 
+        
         $update = DB::table('carts')->where('user_id', '=', $input['user_id'])->update(['flagorder' => 0]);
         $update = DB::table('checkouts')->where('userid', '=', $input['user_id'])->update(['flag' => 0]);
 
@@ -113,6 +116,7 @@ class buynowController extends Controller
         return redirect()->route('home.index')->with('success', 'Your Order Placed Succesfully');
     }
 
+    
     /**
      * Display the specified resource.
      *

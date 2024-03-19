@@ -57,7 +57,7 @@
     </div>
 </footer>
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2022 <a>Ethics</a> Design By :
+    <p class="footer-company">All Rights Reserved. &copy; 2022 <a>Ethhnic Fashion Wear</a> Design By :
         <a>Yash &Prakruti</a>
     </p>
 </div>

@@ -59,7 +59,8 @@ class userdetailController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('User.pages.userProfile', compact('user'));
     }
 
     /**
@@ -124,6 +125,6 @@ class userdetailController extends Controller
         $user->street = $request->street;
         $user->save();
         //  return back()->with('success','Category Updated Successfully');
-        return redirect()->route('users.index')->with('success', 'Users Updated successfully.');
+        return redirect()->route('User.pages.userdetails')->with('success', 'Users Updated successfully.');
     }
 }

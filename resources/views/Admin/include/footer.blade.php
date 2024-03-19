@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="copyright">
-            <p>All Rights Reserved. © 2022 Ethics Design By : Yash &Prakruti .</p>
+            <p>All Rights Reserved. © 2024 Ethics Design By : Tejas .</p>
         </div>
     </div>
 </div>

@@ -24,8 +24,6 @@
                 <table class="table table-bordered" id="myTable">
                     <thead>
                         <tr>
-
-                        
                             <th scope="col">Description</th>
                             <th scope="col">Photos</th>
                             <th scope="col">Action</th>

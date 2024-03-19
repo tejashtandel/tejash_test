@@ -36,19 +36,20 @@ Document</title>
                         <ul style="list-style-type: none" class="cd-filter-content cd-filters list">
 
 
-                          
+
                             <h4 class="catagory">Sub category</h4>
 
-                            @foreach( $subcatethic as $sube)
-                            <li>
-                                <label><input class="form-check-input common subcat" type="checkbox" id="inlineCheckbox1"
-                                        value="{{ $sube->subcategoryname}}"> {{ $sube->subcategoryname}}</label>
+                            @foreach ($subcatethic as $sube)
+                                <li>
+                                    <label><input class="form-check-input common subcat" type="checkbox"
+                                            id="inlineCheckbox1" value="{{ $sube->subcategoryname }}">
+                                        {{ $sube->subcategoryname }}</label>
 
 
 
-                            </li>
+                                </li>
                             @endforeach
-                          
+
                             <hr>
                             <h4 class="catagory">Size</h4>
                             <li>
@@ -99,7 +100,7 @@ Document</title>
                             </li> --}}
                             <li>
                                 <label><input class="form-check-input common price" name="price" id="price2"
-                                        type="radio" min="501" max="999">in Between 500₹
+                                        type="radio" min="501" max="999">in Between 501₹
                                     - 1000₹ </label>
 
 
@@ -187,14 +188,10 @@ Document</title>
             url: "{{ route('filterethic') }}",
             type: 'get',
             data: {
-
                 subcat: subcat,
                 size: size,
                 price: price
-
             },
-
-
 
             dataType: 'json',
             success: function(response) {
@@ -215,16 +212,11 @@ Document</title>
                         );
 
                     });
-                }
-                else {
+                } else {
                     $('.sameproduct').append(
                         '<div class="nodata"><h1>No Data Found Of Your Like</h1></div>');
 
                 }
-
-
-
-
             },
         });
 

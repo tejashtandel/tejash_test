@@ -70,8 +70,6 @@ class cartController extends Controller
      */
     public function show($id)
     {
-
-
         $cart = DB::table('carts')
             ->join('products', 'products.id', '=', 'carts.product_id')
             ->join('users', 'users.id', '=', 'carts.user_id')
@@ -86,15 +84,6 @@ class cartController extends Controller
     }
 
 
-
-
-    // $cart = DB::table('cart_models')
-    // ->join('users','users.id','=','cart_models.user_id')
-    // ->join('product_models','product_models.id','=','cart_models.product_id')
-    // ->join('product_details','product_details.product_id','=','product_models.id')
-    // ->select('product_details.*','product_models.*', 'product_models.id as pID','cart_models.*','cart_models.quantity as qnty','cart_models.id as cID','users.*')
-    // ->where('cart_models.flag','=',1)
-    // ->where('users.id',$id)
     // ->get();
 
 

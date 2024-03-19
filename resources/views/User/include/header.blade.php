@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>MY E Commerce website</title>
+    <title>Ethhnic Fashion Wear</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -160,7 +160,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a id="navbar" class="nav-link dropdown-toggle" href="#" role="button"
+                                <a id="navbar" class="nav-link dropdown-toggle" href="{{route('userdetails.show', Auth::user()->id)}}" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

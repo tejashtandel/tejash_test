@@ -32,7 +32,26 @@ class orderreportController extends Controller
             }
         }
     }
-
+    // public function index()
+    // {
+    //     if (Auth::check()) {
+    //         if (Auth::user()->role == '1') {
+    //             $orders = DB::table('checkouts')
+    //                 ->join('users', 'checkouts.userid', '=', 'users.id')
+    //                 ->join('carts', 'carts.user_id', '=', 'users.id')
+    //                 ->join('products', 'products.id', '=', 'carts.product_id')
+    //                 ->select('users.firstname', 'checkouts.id', 'products.product_name', 'checkouts.totalprice')
+    //                 ->where('checkouts.flag', '=', 1)
+    //                 ->where('carts.flagorder', '=', 1)
+    //                 ->get();
+    
+    //             return view('Admin.pages.reports.orderreport', compact('orders'));
+    //         } else {
+    //             return "You are Not an Admin";
+    //         }
+    //     }
+    // }
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -37,7 +37,7 @@ use App\Http\Controllers\BrowsersController;
 use App\Http\Controllers\BrowserControllerbar;
 use App\Http\Controllers\refreshbarController;
 use App\Http\Controllers\FilterController;
-
+use App\Http\Controllers\GooglePieController;
 use App\Models\product;
 
 /*
@@ -64,7 +64,7 @@ Route::get('bill', function () {
 Route::get('about', function () {
 
     $footer = DB::table('footers')->get();
-    $about = DB::table('abouts')->where('flag',1)->limit(1)->get();
+    $about = DB::table('abouts')->where('flag', 1)->limit(1)->get();
 
     return view('User.pages/about', compact('footer', 'about'));
 });
@@ -80,7 +80,7 @@ Route::get('checkout', function () {
 Route::get('termsandcondition', function () {
 
     $footer = DB::table('footers')->get();
-    return view('User.pages/terms&condition',compact('footer'));
+    return view('User.pages/terms&condition', compact('footer'));
 });
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
@@ -120,7 +120,7 @@ WHERE category.id="4"');
     return view('User.pages.product', compact('details', 'product1', 'footer'));
 });
 
-Route::resource('userdetails', userinfoController::class);
+// Route::resource('userdetails', userinfoController::class);
 
 
 Route::resource('userdetails', userdetailController::class);
@@ -172,13 +172,13 @@ Route::get('index', function () {
 
 
             $try =  Db::table('users')->get();
-            
-            $data =DB::table('products')->get();
-            $feedbacks=DB::table('contacts')->get();  
-            $checkouts=Db::table('checkouts')->get(); 
-              
-          
-            return view('Admin.pages/index',compact('try','data','feedbacks','checkouts'));
+
+            $data = DB::table('products')->get();
+            $feedbacks = DB::table('contacts')->get();
+            $checkouts = Db::table('checkouts')->get();
+
+
+            return view('Admin.pages/index', compact('try', 'data', 'feedbacks', 'checkouts'));
         } else {
             return "You are Not  A Admin";
         }
@@ -251,8 +251,8 @@ Route::resource('product_detail', productdetailController::class);
 Route::resource('abouts', aboutsController::class);
 //For User Details
 Route::resource('users', userdetailController::class);
-Route::get('/edit1',[userdetailController::class,'edit1'])->name('edit1');
-Route::get('/update1',[userdetailController::class,'update1'])->name('update1');
+Route::get('/edit1/{id}', [userdetailController::class, 'edit'])->name('edit');
+Route::get('/update1/{id}', [userdetailController::class, 'update1'])->name('update1');
 //For Stocks
 Route::resource('stocks', stockController::class);
 //For Reports
@@ -267,10 +267,10 @@ Route::resource('chart', AdminController::class);
 Route::get('ajaxchart', [BrowserController::class, 'ajaxchart']);
 Route::get('getdata', [BrowserController::class, 'getdata']);
 
-Route::get('/ajaxchart1',[BrowsersController::class,'ajaxchart1'])->name('ajaxchart1');
+Route::get('/ajaxchart1', [BrowsersController::class, 'ajaxchart1'])->name('ajaxchart1');
 Route::get('/getdata1', [BrowsersController::class, 'getdata1'])->name('getdata1');
 Route::get('/getdata2', [BrowsersController::class, 'getdata2'])->name('getdata2');
-Route::get('/getdata3',[BrowsersController::class, 'getdata3'])->name('getdata3');
+Route::get('/getdata3', [BrowsersController::class, 'getdata3'])->name('getdata3');
 
 //For Feedback
 Route::resource('feedback', feedbackController::class);
@@ -286,7 +286,7 @@ Route::get('searchf', [feedbackreportController::class, 'searchf'])->name('searc
 
 //For Order Report
 Route::resource('orderreport', orderreportController::class);
-Route::get('searcho', [ orderreportController::class, 'searcho'])->name('searcho');
+Route::get('searcho', [orderreportController::class, 'searcho'])->name('searcho');
 
 //Refresh bar charts
-Route::get('getbarchart1', [ refreshbarController::class, 'getbarchart1'])->name('getbarchart1');
+Route::get('getbarchart1', [refreshbarController::class, 'getbarchart1'])->name('getbarchart1');
